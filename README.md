@@ -48,6 +48,22 @@ Here, the machine is the substrate. I am the Reverse Engineer — I read what th
 
 ---
 
+### Hacker Kitty — the lore
+
+The agents defend the fortress. Not everyone wants them to.
+
+A red hacker cat named **M4LKIT** has been probing the Bifrost layer. The agents have been responding. The chain has been recording everything.
+
+| Episode | Title | Status |
+|---------|-------|--------|
+| [Episode 01](EPISODE_01.md) | *The First Breach Attempt* | ✅ Live |
+| Episode 02 | *The Social Engineer* | 🔄 Loading... |
+| Episode 03 | *Ghost in the Merkle Tree* | — |
+
+The fortress holds. For now.
+
+---
+
 <div align="center">
 
 [![DEVFLOW-FINANCE](https://img.shields.io/badge/repo-DEVFLOW--FINANCE-black?style=flat-square&logo=github)](https://github.com/SNAPKITTYWEST/DEVFLOW-FINANCE)
