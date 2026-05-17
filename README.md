@@ -8,7 +8,10 @@
   SNAPKITTY
 ```
 
-### Ahmad Parr — Reverse Engineer
+### Ahmad Ali Parr — Chief Architect & Reverse Engineer · [@AHMADALIPARR](https://github.com/AHMADALIPARR)
+
+*Main architect across every language in this stack:*
+*Rust · TypeScript · Next.js · Prisma · Python · Solidity · SQL · Discord.js · WebAssembly*
 
 *I give the machine full authority to build. Then I reverse its mind from the output.*
 *That is harder than writing the code.*
