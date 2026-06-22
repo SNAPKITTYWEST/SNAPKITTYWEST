@@ -156,3 +156,31 @@ The fortress holds. For now.
 
 
 </div>
+
+---
+
+## ⟦ Ω ⟧ Constellation — New This Session
+
+| Repo | What It Is | Live |
+|------|-----------|------|
+| [snapkitty-resonance-isa](https://github.com/SNAPKITTYWEST/snapkitty-resonance-isa) | Sovereign ISA · Rust · WASM · Prolog kernel | [vm →](https://collectivekitty.com/vm) |
+| [bel-esprit-accord](https://github.com/SNAPKITTYWEST/bel-esprit-accord) | Trust Holdings enterprise architecture | [site →](https://snapkittywest.github.io/bel-esprit-accord) |
+| [kittybrowse](https://github.com/SNAPKITTYWEST/kittybrowse) | NATS agent execution · Stone 4 handshake | — |
+| [apple-ii-universal-machine](https://github.com/SNAPKITTYWEST/apple-ii-universal-machine) | Browser OS · Mimo 2.5 tribute | [launch →](https://snapkittywest.github.io/apple-ii-universal-machine) |
+
+## The Governance Kernel
+
+```apl
+Ω←⌹∧○∧◇∧△∧⬡
+```
+
+```
+☉ Source · ⌹ Truth · ○ Resonance · ◇ Knowledge · △ Creation · ⬡ Impact · Ω Unified
+```
+
+No component advances unless every previous component remains coherent.
+
+*Ahmad Ali Parr · Founding Architect · SnapKitty Collective LLC*
+*NACHA Member | Treasury | Sovereign Enterprise Architecture*
+
+☉⌹○◇△⬡ Ω — WORM SEALED
