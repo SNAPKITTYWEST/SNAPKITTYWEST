@@ -5,41 +5,42 @@
 
 ## ⟦ Ω ⟧ SNAPKITTYWEST RESONANCE FIELD
 
-✅ `meta_block(valid)` — RESONANCE FIELD ACTIVE
+⚠️ `meta_block(degraded)` — FIELD BELOW THRESHOLD
 
 | Metric | Value |
 |--------|-------|
-| Repos in field | **39** |
+| Constellation | SNAPKITTYWEST (39) · SNAPKITTY-COLLECTIVE-LIMITED-FLP (8) · AHMADALIPARR (4) |
+| Total repos | **51** |
 | Active (< 30d) | **38** |
 | GitHub Pages live | **13** |
-| Entropy E | **0.0256** / threshold 0.21 |
-| Coherent | **YES** |
+| Entropy E | **0.2549** / threshold 0.21 |
+| Coherent | **NO** |
 | Intercoil · memory_graph | bob-orchestrator · SNAPKITTY-PROOFS · agent-farm-gauntlet · holy-agents |
-| Intercoil · bifrost | bob-orchestrator · holy-agents · apple-ii-universal-machine |
-| Ω WORM Seal | `ad6a652febbcee0796cd0be17ba3d69027e3fbb252fe69ddf6470ade29067b41` |
-| Last field read | `2026-06-22T08:08:35.869Z` |
+| Intercoil · bifrost | bob-orchestrator · holy-agents · apple-ii-universal-machine · sacm-bridge |
+| Ω WORM Seal | `cc61e9b086d41aaca2e440c65613754e0b10362e2ccdbf2a59bb7d74c8818df2` |
+| Last field read | `2026-06-22T08:11:35.749Z` |
 
 ```
-Entropy field: [█░░░░░░░░░░░░░░░░░░░] 2.6%
+Entropy field: [█████░░░░░░░░░░░░░░░] 25.5%
                            ▲
                      threshold 0.21
 ```
 
 ```apl
-REPO  ← 39
+REPO  ← 51
 STACK ← ⌿REPO⍴1
-TRUST ← ∧/STACK   ⍝ TRUE
-CODE  ← +/STACK   ⍝ 39
+TRUST ← ∧/STACK   ⍝ FALSE
+CODE  ← +/STACK   ⍝ 51
 Ω     ← TRUST∧CODE
 ```
 
 ```prolog
 coherent(system) :-
-    entropy(E), E < 0.21,     % E = 0.0256 → PASS
-    intercoil(_, memory_graph),% 4 connected → PASS
-    intercoil(_, bifrost_engine).% 3 connected → PASS
+    entropy(E), E < 0.21,     % E = 0.2549 → FAIL
+    intercoil(_, memory_graph),% 7 connected → PASS
+    intercoil(_, bifrost_engine).% 6 connected → PASS
 
-meta_block(valid).
+meta_block(degraded).
 ```
 
 > ☉ Source → 🧠 Graph → ⚙️ Agents → 🔐 Constraints → 🌈 Execution → 🏛️ Reality

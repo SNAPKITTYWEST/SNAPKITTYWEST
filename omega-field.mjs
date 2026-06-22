@@ -7,19 +7,25 @@
 import { createHash } from 'crypto'
 import { readFileSync, writeFileSync } from 'fs'
 
-const ORG = 'SNAPKITTYWEST'
 const ENTROPY_THRESHOLD = 0.21
 const STALE_DAYS = 30
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
+// Full SnapKitty constellation — all three accounts
+const SOURCES = [
+  { kind: 'user', name: 'SNAPKITTYWEST' },
+  { kind: 'org',  name: 'SNAPKITTY-COLLECTIVE-LIMITED-FLP' },
+  { kind: 'user', name: 'AHMADALIPARR' },
+]
+
 // Intercoil anchors — repos that share the memory graph / bifrost bus
 const INTERCOIL = {
-  memory_graph:   ['bob-orchestrator','resonance-core','SNAPKITTY-PROOFS','agent-farm-gauntlet','holy-agents'],
-  bifrost_engine: ['bob-orchestrator','holy-agents','apple-ii-universal-machine','DEVFLOW-FINANCE'],
+  memory_graph:   ['bob-orchestrator','resonance-core','SNAPKITTY-PROOFS','agent-farm-gauntlet','holy-agents','snapkitty-collective','sovereign-ai-standard','snapkitty-enterprise-trust'],
+  bifrost_engine: ['bob-orchestrator','holy-agents','apple-ii-universal-machine','DEVFLOW-FINANCE','sacm-bridge','snapkitty-infrastructure-network','seit-institute'],
 }
 
 async function api(path) {
-  const res = await fetch(`https://api.github.com${path}`.replace('/orgs/', '/users/'), {
+  const res = await fetch(`https://api.github.com${path}`, {
     headers: {
       Accept: 'application/vnd.github+json',
       ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
@@ -29,15 +35,21 @@ async function api(path) {
   return res.json()
 }
 
-async function fetchAllRepos() {
+async function fetchSourceRepos({ kind, name }) {
   let page = 1, all = []
+  const base = kind === 'org' ? `/orgs/${name}` : `/users/${name}`
   while (true) {
-    const batch = await api(`/users/${ORG}/repos?per_page=100&page=${page}`)
-    all = all.concat(batch)
+    const batch = await api(`${base}/repos?per_page=100&page=${page}`)
+    all = all.concat(batch.map(r => ({ ...r, _source: name })))
     if (batch.length < 100) break
     page++
   }
   return all
+}
+
+async function fetchAllRepos() {
+  const batches = await Promise.all(SOURCES.map(fetchSourceRepos))
+  return batches.flat()
 }
 
 function entropy(repos) {
@@ -89,6 +101,12 @@ async function main() {
     return days < STALE_DAYS
   })
 
+  // Per-source counts
+  const srcCounts = SOURCES.map(s => {
+    const n = repos.filter(r => r._source === s.name).length
+    return `${s.name} (${n})`
+  }).join(' · ')
+
   // Build the README section
   const section = `
 <!--OMEGA-FIELD:START-->
@@ -102,7 +120,8 @@ ${statusLine}
 
 | Metric | Value |
 |--------|-------|
-| Repos in field | **${repos.length}** |
+| Constellation | ${srcCounts} |
+| Total repos | **${repos.length}** |
 | Active (< ${STALE_DAYS}d) | **${activeRepos.length}** |
 | GitHub Pages live | **${pagesRepos.length}** |
 | Entropy E | **${E.toFixed(4)}** / threshold 0.21 |
