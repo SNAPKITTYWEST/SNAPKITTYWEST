@@ -1,0 +1,17 @@
+{
+  "name": "@snapkitty/bob-reasoning-engine",
+  "version": "0.1.0",
+  "description": "BOB Sovereign Reasoning Engine — Knowledge chunks illuminated, SSM-injected, WORM-sealed",
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "node --test src/**/*.test.mjs",
+    "bootstrap": "node src/bootstrap.mjs",
+    "illuminate": "node src/illuminate.mjs",
+    "reason": "node src/reason.mjs"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  },
+  "engines": { "node": ">=20.0.0" }
+}
