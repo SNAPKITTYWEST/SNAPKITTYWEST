@@ -17,8 +17,8 @@
 | Coherent | **NO** |
 | Intercoil · memory_graph | bob-orchestrator · SNAPKITTY-PROOFS · agent-farm-gauntlet · holy-agents |
 | Intercoil · bifrost | bob-orchestrator · holy-agents · apple-ii-universal-machine · sacm-bridge |
-| Ω WORM Seal | `77f434e7ee11e2a2f82efc9ec15747a09104f8fc0783847b33c5a3d65d315750` |
-| Last field read | `2026-06-23T14:50:05.643Z` |
+| Ω WORM Seal | `be2b925d2c8c22dcecd5520f53381acf7989ea3a76c3a957c61dee15a913bf0a` |
+| Last field read | `2026-06-23T15:10:53.618Z` |
 
 ```
 Entropy field: [████░░░░░░░░░░░░░░░░] 22.0%
