@@ -232,6 +232,53 @@ body {
   font-weight: 700;
 }
 
+/* ── Pass Predictions ──────────────────────────────────────── */
+
+.pass-predictions {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.pass-predictions h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+}
+
+.pass-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pass-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px;
+  background: rgba(103, 232, 249, 0.05);
+  border: 1px solid rgba(103, 232, 249, 0.15);
+  border-radius: 4px;
+}
+
+.pass-time {
+  color: var(--accent);
+}
+
+.pass-duration {
+  color: var(--text-muted);
+}
+
+.pass-elevation {
+  color: var(--seal-green);
+}
+
 /* ── Governance Plane ───────────────────────────────────────── */
 
 .governance-plane {

@@ -33,6 +33,7 @@ defmodule OrbitalTrustDeedWeb.DashboardLive do
     |> assign(:signal_plane, %{source_health: :unknown, freshness: :unknown})
     |> assign(:governance_plane, %{deed: nil, worm_seal: nil, agent_action: :blocked})
     |> assign(:chain_stats, %{chain_length: 0})
+    |> assign(:pass_predictions, [])
     |> assign(:now, DateTime.utc_now())
     |> load_satellites()
 
@@ -53,11 +54,16 @@ defmodule OrbitalTrustDeedWeb.DashboardLive do
   def handle_event("select_satellite", %{"id" => norad_id}, socket) do
     case CelesTrak.fetch_tle(norad_id) do
       {:ok, feed} ->
-        # Also fetch real-time N2YO position
+        # Also fetch real-time N2YO position and pass predictions
         n2yo_pos = N2yo.get_position(norad_id)
+        passes = N2yo.get_passes(norad_id, 40.0, -74.0, 7) # NYC default, 7 days
 
         socket = socket
         |> assign(:selected_satellite, Map.put(feed, :n2yo_position, n2yo_pos))
+        |> assign(:pass_predictions, case passes do
+          {:ok, p} -> p
+          _ -> []
+        end)
 
         case Verification.verify(feed) do
           {:ok, deed} ->
@@ -221,6 +227,21 @@ defmodule OrbitalTrustDeedWeb.DashboardLive do
                 <div><span class="label">Prev Hash:</span> <code><%= String.slice(@governance_plane.worm_seal.prev_hash, 0, 16) %>…</code></div>
                 <div><span class="label">Seal Hash:</span> <code><%= String.slice(@governance_plane.worm_seal.seal_hash, 0, 16) %>…</code></div>
                 <div><span class="label">Sealed At:</span> <%= format_time(@governance_plane.worm_seal.sealed_at) %></div>
+              </div>
+            </div>
+          <% end %>
+
+          <%= if @pass_predictions != [] do %>
+            <div class="pass-predictions">
+              <h3>PASS PREDICTIONS (7 days)</h3>
+              <div class="pass-list">
+                <%= for pass <- Enum.take(@pass_predictions, 5) do %>
+                  <div class="pass-item">
+                    <span class="pass-time"><%= format_time(pass.start) %></span>
+                    <span class="pass-duration"><%= pass.duration_minutes %>m</span>
+                    <span class="pass-elevation">max <%= pass.max_elevation %>°</span>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
