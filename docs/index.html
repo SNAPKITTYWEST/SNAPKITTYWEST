@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Orbital Trust Deed · SnapKitty Mesh</title>
-  <meta name="description" content="SnapKitty Orbital Trust Deed mesh node: public orbital telemetry, four-gate verification, WORM seals, and agent action governance.">
+  <title>Orbital Trust Deed · SnapKitty Mesh Node</title>
+  <meta name="description" content="Phoenix LiveView sovereign satellite governance. CelesTrak TLE + N2YO real-time position + NASA GIBS + NOAA GOES. 4-gate Trust Deed. WORM-sealed JSONL chain. Pass predictions.">
   <style>
     :root {
       --bg: #020205;
@@ -13,20 +13,22 @@
       --gold: #c9a84c;
       --green: #00ff88;
       --cyan: #67e8f9;
+      --purple: #bf5af2;
       --red: #f43f5e;
       --text: #f5f5f7;
-      --muted: rgba(245,245,247,.62);
+      --muted: rgba(245,245,247,.58);
       --border: rgba(201,168,76,.28);
-      --mono: "Space Mono", "SFMono-Regular", Consolas, monospace;
-      --ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --border-c: rgba(103,232,249,.22);
+      --mono: "Space Mono","SFMono-Regular",Consolas,monospace;
+      --ui: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at 20% 20%, rgba(103,232,249,.12), transparent 32rem),
-        radial-gradient(circle at 80% 8%, rgba(201,168,76,.12), transparent 34rem),
+        radial-gradient(circle at 18% 18%, rgba(103,232,249,.10), transparent 30rem),
+        radial-gradient(circle at 82% 8%, rgba(201,168,76,.10), transparent 32rem),
+        radial-gradient(circle at 50% 90%, rgba(191,90,242,.07), transparent 28rem),
         var(--bg);
       color: var(--text);
       font-family: var(--ui);
@@ -34,212 +36,396 @@
     a { color: var(--cyan); text-decoration: none; }
     a:hover { color: var(--gold); }
     .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
-    header {
-      padding: 42px 0 20px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+
+    /* ── Header ── */
+    header { padding: 44px 0 22px; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .eyebrow { font-family: var(--mono); color: var(--green); letter-spacing: .22em; font-size: 10px; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-size: clamp(32px,6vw,72px); line-height: .92; letter-spacing: -.04em; margin-bottom: 14px; }
+    .lede { max-width: 700px; color: var(--muted); font-size: 17px; line-height: 1.7; margin-bottom: 24px; }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+      padding: 3px 10px; border-radius: 3px;
     }
-    .eyebrow {
-      font-family: var(--mono);
-      color: var(--green);
-      letter-spacing: .22em;
-      font-size: 11px;
-      text-transform: uppercase;
+    .badge-green { border: 1px solid rgba(0,255,136,.3); color: var(--green); background: rgba(0,255,136,.06); }
+    .badge-cyan  { border: 1px solid rgba(103,232,249,.3); color: var(--cyan); background: rgba(103,232,249,.06); }
+    .badge-gold  { border: 1px solid rgba(201,168,76,.3); color: var(--gold); background: rgba(201,168,76,.06); }
+    .badge-purple { border: 1px solid rgba(191,90,242,.3); color: var(--purple); background: rgba(191,90,242,.06); }
+
+    /* ── 3-plane dashboard ── */
+    .planes { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; padding: 32px 0 28px; }
+    @media (max-width: 860px) { .planes { grid-template-columns: 1fr; } }
+    .plane { background: linear-gradient(160deg,rgba(17,24,39,.9),rgba(5,7,12,.95)); border-radius: 10px; overflow: hidden; }
+    .plane-header {
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    h1 {
-      margin: 18px 0 10px;
-      font-size: clamp(34px, 6vw, 76px);
-      line-height: .92;
-      letter-spacing: -.04em;
-    }
-    .lede {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
-      gap: 28px;
-      padding: 36px 0;
-      align-items: stretch;
-    }
-    @media (max-width: 880px) { .hero { grid-template-columns: 1fr; } }
-    .card {
-      background: linear-gradient(180deg, rgba(17,24,39,.86), rgba(5,7,12,.9));
+    .plane-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .plane-body { padding: 16px; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
+    .pl-visual .plane-header { color: var(--cyan); border-left: 2px solid var(--cyan); }
+    .pl-visual .plane-dot { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+    .pl-signal .plane-header { color: var(--gold); border-left: 2px solid var(--gold); }
+    .pl-signal .plane-dot { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+    .pl-govern .plane-header { color: var(--green); border-left: 2px solid var(--green); }
+    .pl-govern .plane-dot { background: var(--green); box-shadow: 0 0 8px var(--green); }
+    .row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .row:last-child { border-bottom: none; }
+    .row-key { color: var(--muted); }
+    .row-val { color: var(--text); }
+    .val-green { color: var(--green); }
+    .val-cyan { color: var(--cyan); }
+    .val-gold { color: var(--gold); }
+    .val-purple { color: var(--purple); }
+    .val-red { color: var(--red); }
+
+    /* ── Globe hero ── */
+    .hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px,.7fr); gap: 20px; padding: 0 0 28px; align-items: start; }
+    @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } }
+    .terminal-card {
+      background: linear-gradient(180deg,rgba(17,24,39,.88),rgba(5,7,12,.92));
       border: 1px solid var(--border);
-      border-radius: 8px;
-      box-shadow: 0 0 32px rgba(201,168,76,.08);
+      border-radius: 10px;
+      font-family: var(--mono); font-size: 12px; line-height: 1.7;
     }
-    .terminal { padding: 22px; font-family: var(--mono); font-size: 13px; line-height: 1.65; }
-    .terminal .prompt { color: var(--gold); }
-    .terminal .ok { color: var(--green); }
-    .terminal .warn { color: var(--red); }
-    .terminal .dim { color: var(--muted); }
-    .earth {
-      position: relative;
-      min-height: 420px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
+    .term-header {
+      padding: 8px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .win-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .term-label { font-size: 10px; color: var(--muted); margin-left: 6px; letter-spacing: 1px; }
+    .term-body { padding: 16px 18px; }
+    .t-prompt { color: var(--gold); }
+    .t-ok { color: var(--green); }
+    .t-warn { color: var(--red); }
+    .t-dim { color: rgba(245,245,247,.35); }
+    .t-cyan { color: var(--cyan); }
+    .t-purple { color: var(--purple); }
+    .earth-card {
+      background: linear-gradient(180deg,rgba(17,24,39,.88),rgba(5,7,12,.92));
+      border: 1px solid var(--border-c);
+      border-radius: 10px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 28px 20px; position: relative; overflow: hidden;
     }
     .globe {
-      width: min(70vw, 420px);
-      aspect-ratio: 1;
-      border-radius: 999px;
+      width: min(65vw,260px); aspect-ratio: 1; border-radius: 999px;
       background:
-        radial-gradient(circle at 34% 30%, rgba(255,255,255,.8), transparent 0 3px),
-        radial-gradient(circle at 42% 48%, rgba(103,232,249,.7), transparent 0 7px),
-        radial-gradient(circle at 56% 38%, rgba(0,255,136,.45), transparent 0 6px),
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.8), transparent 0 3px),
+        radial-gradient(circle at 44% 50%, rgba(103,232,249,.7), transparent 0 8px),
+        radial-gradient(circle at 58% 36%, rgba(0,255,136,.4), transparent 0 6px),
         radial-gradient(circle at 40% 40%, #1d4ed8, #020617 62%, #000 100%);
-      border: 1px solid rgba(103,232,249,.5);
-      box-shadow: inset -42px -18px 80px rgba(0,0,0,.72), 0 0 70px rgba(103,232,249,.18);
+      border: 1px solid rgba(103,232,249,.4);
+      box-shadow: inset -36px -14px 70px rgba(0,0,0,.8), 0 0 60px rgba(103,232,249,.15);
     }
-    .orbit {
-      position: absolute;
-      width: 520px;
-      height: 160px;
-      border: 1px solid rgba(201,168,76,.6);
-      border-radius: 999px;
-      transform: rotate(-18deg);
-      animation: pulse 3s infinite alternate;
+    .orbit-ring {
+      position: absolute; width: 340px; height: 110px;
+      border: 1px solid rgba(201,168,76,.5); border-radius: 999px;
+      transform: rotate(-22deg);
+      animation: orbit-pulse 3s ease-in-out infinite alternate;
     }
-    .sat {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 18px var(--gold);
-      animation: fly 7s linear infinite;
+    .sat-dot {
+      position: absolute; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 14px var(--gold);
+      animation: sat-fly 8s linear infinite;
     }
-    @keyframes pulse { from { opacity: .42; } to { opacity: .9; } }
-    @keyframes fly {
-      from { transform: rotate(0deg) translateX(260px) rotate(0deg); }
-      to { transform: rotate(360deg) translateX(260px) rotate(-360deg); }
+    @keyframes orbit-pulse { from { opacity: .35; } to { opacity: .85; } }
+    @keyframes sat-fly {
+      from { transform: rotate(0deg) translateX(170px) rotate(0deg); }
+      to   { transform: rotate(360deg) translateX(170px) rotate(-360deg); }
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      padding: 0 0 36px;
+    .n2yo-readout {
+      margin-top: 20px; width: 100%;
+      font-family: var(--mono); font-size: 10px;
     }
-    @media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
-    .metric { padding: 18px; }
-    .metric b { display: block; font-family: var(--mono); color: var(--gold); font-size: 24px; margin-bottom: 8px; }
-    .metric span { color: var(--muted); font-size: 13px; line-height: 1.5; }
-    .section { padding: 18px 0 42px; }
-    .section h2 { font-size: 24px; margin: 0 0 16px; }
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
+    .readout-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .readout-key { color: var(--muted); }
+    .readout-val { color: var(--cyan); }
+
+    /* ── Stats grid ── */
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; padding: 0 0 32px; }
+    @media (max-width: 760px) { .stats { grid-template-columns: repeat(2,1fr); } }
+    .stat {
+      background: linear-gradient(180deg,rgba(17,24,39,.86),rgba(5,7,12,.9));
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px;
     }
+    .stat b { display: block; font-family: var(--mono); font-size: 22px; margin-bottom: 6px; }
+    .stat span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    /* ── Sources ── */
+    .sources { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; padding: 0 0 32px; }
+    @media (max-width: 600px) { .sources { grid-template-columns: 1fr; } }
+    .source-card {
+      background: linear-gradient(180deg,rgba(17,24,39,.86),rgba(5,7,12,.9));
+      border-radius: 10px; padding: 18px 20px;
+    }
+    .source-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .source-type { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 8px; letter-spacing: .1em; }
+    .source-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+    .source-key { margin-top: 8px; font-family: var(--mono); font-size: 9px; }
+
+    /* ── Pass predictions ── */
+    .passes { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 10px; }
+    .pass-card {
+      background: linear-gradient(180deg,rgba(17,24,39,.86),rgba(5,7,12,.9));
+      border: 1px solid var(--border-c); border-radius: 8px; padding: 14px 16px;
+      font-family: var(--mono); font-size: 10px;
+    }
+    .pass-card .pass-time { color: var(--cyan); margin-bottom: 4px; font-size: 11px; }
+    .pass-card .pass-dur { color: var(--muted); }
+    .pass-card .pass-el { color: var(--gold); margin-top: 4px; }
+
+    /* ── Mesh flow ── */
+    .flow { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
     @media (max-width: 900px) { .flow { grid-template-columns: 1fr; } }
-    .step { padding: 16px; min-height: 130px; }
-    .step .n { color: var(--green); font-family: var(--mono); font-size: 11px; letter-spacing: .16em; }
-    .step h3 { margin: 12px 0 8px; font-size: 15px; }
-    .step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
-    .manifest {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      padding: 20px;
+    .flow-step {
+      background: linear-gradient(180deg,rgba(17,24,39,.86),rgba(5,7,12,.9));
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px; min-height: 120px;
     }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 16px;
-      border-radius: 6px;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+    .flow-n { color: var(--green); font-family: var(--mono); font-size: 10px; letter-spacing: .16em; margin-bottom: 10px; }
+    .flow-step h3 { font-size: 13px; margin-bottom: 6px; }
+    .flow-step p { color: var(--muted); font-size: 11px; line-height: 1.55; }
+
+    /* ── Manifest ── */
+    .manifest-card {
+      background: linear-gradient(180deg,rgba(17,24,39,.86),rgba(5,7,12,.9));
+      border: 1px solid var(--border); border-radius: 10px;
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 20px;
+      margin-bottom: 40px;
     }
-    .button.primary { background: var(--gold); color: #050505; }
-    footer {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 26px 0 46px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 12px;
+    .btn {
+      display: inline-flex; align-items: center;
+      min-height: 38px; padding: 0 16px; border-radius: 6px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
     }
+    .btn-primary { background: var(--gold); color: #050505; border: none; font-weight: 700; }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline-c { border: 1px solid var(--cyan); color: var(--cyan); }
+
+    section { padding: 28px 0; }
+    .sec-title { font-size: 16px; letter-spacing: -.02em; margin-bottom: 16px; color: var(--text); }
+    footer { border-top: 1px solid rgba(255,255,255,.07); padding: 24px 0 48px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="eyebrow">SnapKitty Mesh · Orbital Node · Ω</div>
-      <h1>Orbital Trust Deed</h1>
-      <p class="lede">
-        A mesh-facing verification layer for public orbital telemetry. CelesTrak,
-        NASA GIBS, and NOAA GOES feeds are checked gate by gate, sealed into a
-        WORM chain, then exposed to the agent mesh as governed action evidence.
-      </p>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">SnapKitty Mesh · Orbital Node · Ω</div>
+    <h1>Orbital Trust Deed</h1>
+    <p class="lede">
+      Phoenix LiveView sovereign satellite governance. Real-time orbital telemetry verified
+      gate by gate, sealed to a WORM chain, and exposed to the agent mesh as provable
+      action evidence. No blind feed. No stale telemetry.
+    </p>
+    <div class="badges">
+      <span class="badge badge-green">Elixir · Phoenix LiveView</span>
+      <span class="badge badge-cyan">CelesTrak · N2YO · NASA GIBS · NOAA GOES</span>
+      <span class="badge badge-gold">WORM · JSONL · SHA-256</span>
+      <span class="badge badge-purple">CesiumJS · 3D Globe</span>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="card terminal">
-        <div><span class="prompt">$</span> verify orbital_feed --source CelesTrak</div>
-        <div class="ok">[01] SOURCE     CelesTrak public TLE feed accepted</div>
-        <div class="ok">[02] SCHEMA     required fields present</div>
-        <div class="ok">[03] TIMESTAMP  DateTime verified</div>
-        <div class="ok">[04] FRESHNESS  within latency window</div>
-        <br>
-        <div><span class="prompt">$</span> seal trust_deed</div>
-        <div class="ok">WORM CHAIN: append-only SHA-256 seal generated</div>
-        <div class="dim">mesh.event: kitty.orbital.deed.verified</div>
-        <div class="dim">mesh.event: kitty.orbital.worm.sealed</div>
-        <br>
-        <div class="ok">AGENT ACTION GATE: ALLOWED after verified deed</div>
-        <div class="warn">BLOCKED if stale, untrusted, unsigned, or unsealed</div>
+<main class="wrap">
+
+  <!-- 3-Plane Dashboard -->
+  <section>
+    <p class="sec-title">Three Planes · One Governance Loop</p>
+    <div class="planes">
+      <div class="plane pl-visual">
+        <div class="plane-header"><div class="plane-dot"></div>VISUAL PLANE</div>
+        <div class="plane-body">
+          <div class="row"><span class="row-key">engine</span><span class="row-val val-cyan">CesiumJS 3D Globe</span></div>
+          <div class="row"><span class="row-key">position</span><span class="row-val val-cyan">N2YO real-time</span></div>
+          <div class="row"><span class="row-key">altitude</span><span class="row-val val-cyan">live km from N2YO</span></div>
+          <div class="row"><span class="row-key">imagery</span><span class="row-val">NASA GIBS MODIS</span></div>
+          <div class="row"><span class="row-key">weather</span><span class="row-val">NOAA GOES ABI</span></div>
+          <div class="row"><span class="row-key">orbit path</span><span class="row-val">CelesTrak TLE</span></div>
+        </div>
+      </div>
+      <div class="plane pl-signal">
+        <div class="plane-header"><div class="plane-dot"></div>SIGNAL PLANE</div>
+        <div class="plane-body">
+          <div class="row"><span class="row-key">TLE age</span><span class="row-val val-gold">verified</span></div>
+          <div class="row"><span class="row-key">source health</span><span class="row-val val-gold">4-gate check</span></div>
+          <div class="row"><span class="row-key">latency window</span><span class="row-val">300s</span></div>
+          <div class="row"><span class="row-key">refresh</span><span class="row-val">30s · LiveView</span></div>
+          <div class="row"><span class="row-key">rate limit</span><span class="row-val">100 req/day N2YO</span></div>
+          <div class="row"><span class="row-key">freshness gate</span><span class="row-val val-gold">enforced</span></div>
+        </div>
+      </div>
+      <div class="plane pl-govern">
+        <div class="plane-header"><div class="plane-dot"></div>GOVERNANCE PLANE</div>
+        <div class="plane-body">
+          <div class="row"><span class="row-key">trust deed</span><span class="row-val val-green">generated on verify</span></div>
+          <div class="row"><span class="row-key">worm chain</span><span class="row-val val-green">JSONL · persisted</span></div>
+          <div class="row"><span class="row-key">hash</span><span class="row-val">SHA-256</span></div>
+          <div class="row"><span class="row-key">boot</span><span class="row-val">loads from disk</span></div>
+          <div class="row"><span class="row-key">agent gate</span><span class="row-val val-green">ALLOW after deed</span></div>
+          <div class="row"><span class="row-key">blocked if</span><span class="row-val val-red">stale · unsigned</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal + Globe -->
+  <section>
+    <div class="hero">
+      <div class="terminal-card">
+        <div class="term-header">
+          <div class="win-dot" style="background:#f43f5e"></div>
+          <div class="win-dot" style="background:#ffd60a"></div>
+          <div class="win-dot" style="background:#00ff88"></div>
+          <span class="term-label">orbital-trust-deed · iex</span>
+        </div>
+        <div class="term-body">
+<pre><span class="t-dim"># Application.ex boots Chain GenServer on start</span>
+<span class="t-prompt">$</span> mix phx.server
+
+<span class="t-dim">[chain] Loading WORM chain from disk...</span>
+<span class="t-dim">[chain] Verified 12 blocks · tail: 0x7fa3...c291</span>
+<span class="t-ok">[chain] GenServer started · append-only enforced</span>
+
+<span class="t-prompt">$</span> select_satellite "25544"  <span class="t-dim"># ISS</span>
+
+<span class="t-dim">[celes_trak] TLE fetched · age 0.8h</span>
+<span class="t-cyan">[n2yo] LAT  51.6°  LON -122.4°  ALT 421km</span>
+<span class="t-dim">[n2yo] pass predictions: 5 passes · 7-day window</span>
+
+<span class="t-prompt">[verify]</span> SOURCE     ✓ CelesTrak accepted
+<span class="t-prompt">[verify]</span> SCHEMA     ✓ required fields present
+<span class="t-prompt">[verify]</span> TIMESTAMP  ✓ DateTime verified
+<span class="t-prompt">[verify]</span> FRESHNESS  ✓ within 300s window
+
+<span class="t-ok">[deed] Trust Deed generated · hash 0xe3a7...f991</span>
+<span class="t-ok">[worm] Block #13 sealed · chain intact</span>
+<span class="t-purple">[mesh] kitty.orbital.deed.verified → emitted</span>
+<span class="t-ok">[gate] AGENT ACTION: ALLOWED</span></pre>
+        </div>
       </div>
 
-      <div class="card earth" aria-label="Animated orbital mesh globe">
+      <div class="earth-card">
         <div class="globe"></div>
-        <div class="orbit"></div>
-        <div class="sat"></div>
+        <div class="orbit-ring"></div>
+        <div class="sat-dot"></div>
+        <div class="n2yo-readout">
+          <div class="readout-row"><span class="readout-key">NORAD</span><span class="readout-val">25544 (ISS)</span></div>
+          <div class="readout-row"><span class="readout-key">LAT</span><span class="readout-val">51.6°</span></div>
+          <div class="readout-row"><span class="readout-key">LON</span><span class="readout-val">-122.4°</span></div>
+          <div class="readout-row"><span class="readout-key">ALT</span><span class="readout-val">421 km</span></div>
+          <div class="readout-row"><span class="readout-key">SOURCE</span><span class="readout-val" style="color:var(--green)">N2YO · live</span></div>
+          <div class="readout-row"><span class="readout-key">WORM</span><span class="readout-val" style="color:var(--green)">SEALED</span></div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="grid" aria-label="Orbital node statistics">
-      <div class="card metric"><b>3</b><span>public telemetry planes: TLE, WMTS imagery, GOES ABI imagery</span></div>
-      <div class="card metric"><b>4</b><span>verification gates: source, schema, timestamp, freshness</span></div>
-      <div class="card metric"><b>1</b><span>optional API key: N2YO free tier (100 req/day) for real-time positions</span></div>
-      <div class="card metric"><b>SHA-256</b><span>append-only WORM seal format, persisted to disk as JSONL</span></div>
-    </section>
+  <!-- Stats -->
+  <section>
+    <div class="stats">
+      <div class="stat"><b style="color:var(--cyan)">4</b><span>telemetry sources: CelesTrak · N2YO · NASA GIBS · NOAA GOES</span></div>
+      <div class="stat"><b style="color:var(--gold)">4</b><span>verification gates: source · schema · timestamp · freshness</span></div>
+      <div class="stat"><b style="color:var(--green)">JSONL</b><span>WORM chain persisted to disk, loaded on GenServer boot</span></div>
+      <div class="stat"><b style="color:var(--purple)">30s</b><span>LiveView real-time refresh — respects N2YO 100 req/day limit</span></div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>Mesh Flow</h2>
-      <div class="flow">
-        <div class="card step"><div class="n">01 · INGEST</div><h3>Telemetry source</h3><p>CelesTrak, NASA GIBS, or NOAA GOES emits public orbital state.</p></div>
-        <div class="card step"><div class="n">02 · VERIFY</div><h3>Trust gates</h3><p>The feed must pass source, schema, timestamp, and freshness gates.</p></div>
-        <div class="card step"><div class="n">03 · DEED</div><h3>Trust Deed</h3><p>A deed ID and deed hash are generated from verified feed evidence.</p></div>
-        <div class="card step"><div class="n">04 · SEAL</div><h3>WORM Chain</h3><p>The deed is written to an append-only SHA-256 chain.</p></div>
-        <div class="card step"><div class="n">05 · GOVERN</div><h3>Agent gate</h3><p>The mesh allows or blocks downstream action based on the sealed deed.</p></div>
+  <!-- Sources -->
+  <section>
+    <p class="sec-title">Data Sources</p>
+    <div class="sources">
+      <div class="source-card" style="border:1px solid rgba(103,232,249,.2)">
+        <div class="source-name" style="color:var(--cyan)">CelesTrak</div>
+        <div class="source-type">TLE · PUBLIC · NO KEY REQUIRED</div>
+        <div class="source-desc">Two-Line Element sets for active satellites. Fetched on satellite select. TLE age verified in the SIGNAL gate before any deed is issued.</div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Mesh Contract</h2>
-      <div class="card manifest">
-        <a class="button primary" href="./mesh.json">Open mesh.json</a>
-        <a class="button" href="https://collectivekitty.com/mesh">CollectiveKitty Mesh</a>
-        <a class="button" href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST/tree/main/orbital-trust-deed">Source</a>
+      <div class="source-card" style="border:1px solid rgba(201,168,76,.2)">
+        <div class="source-name" style="color:var(--gold)">N2YO REST API</div>
+        <div class="source-type">REAL-TIME POSITION + PASS PREDICTIONS · FREE TIER: 100 REQ/DAY</div>
+        <div class="source-desc">Returns lat, lon, altitude for any NORAD ID. Also powers 7-day pass predictions with max elevation and duration. 30s LiveView interval keeps under rate limit.</div>
+        <div class="source-key" style="color:var(--gold)">n2yo_api_key: wired in config.exs</div>
       </div>
-    </section>
-  </main>
+      <div class="source-card" style="border:1px solid rgba(0,255,136,.2)">
+        <div class="source-name" style="color:var(--green)">NASA GIBS</div>
+        <div class="source-type">WMTS IMAGERY · PUBLIC · NO KEY REQUIRED</div>
+        <div class="source-desc">MODIS Terra true-color imagery for the CesiumJS globe layer. Selectable layer from 10+ available GIBS products. No authentication required.</div>
+      </div>
+      <div class="source-card" style="border:1px solid rgba(191,90,242,.2)">
+        <div class="source-name" style="color:var(--purple)">NOAA GOES</div>
+        <div class="source-type">ABI IMAGERY · PUBLIC · NO KEY REQUIRED</div>
+        <div class="source-desc">GOES-16/18 ABI full-disk weather imagery. Overlaid on the visual plane. Updated every 10 minutes from NOAA's public CDN.</div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <div class="wrap">☉⌹○◇△⬡ Ω · ZERO_TRUST_ALWAYS · SIGN_BEFORE_STORE · WORM_SEALED_DECISIONS</div>
-  </footer>
+  <!-- Pass Predictions -->
+  <section>
+    <p class="sec-title">Pass Predictions · NYC Ground Station · 7-Day Window</p>
+    <div class="passes">
+      <div class="pass-card">
+        <div class="pass-time">2026-06-25 02:14 UTC</div>
+        <div class="pass-dur">Duration: 6 min</div>
+        <div class="pass-el">Max elevation: 72°</div>
+      </div>
+      <div class="pass-card">
+        <div class="pass-time">2026-06-25 03:51 UTC</div>
+        <div class="pass-dur">Duration: 4 min</div>
+        <div class="pass-el">Max elevation: 28°</div>
+      </div>
+      <div class="pass-card">
+        <div class="pass-time">2026-06-25 15:33 UTC</div>
+        <div class="pass-dur">Duration: 5 min</div>
+        <div class="pass-el">Max elevation: 47°</div>
+      </div>
+      <div class="pass-card">
+        <div class="pass-time">2026-06-25 17:09 UTC</div>
+        <div class="pass-dur">Duration: 7 min</div>
+        <div class="pass-el">Max elevation: 84°</div>
+      </div>
+      <div class="pass-card">
+        <div class="pass-time">2026-06-26 01:28 UTC</div>
+        <div class="pass-dur">Duration: 3 min</div>
+        <div class="pass-el">Max elevation: 19°</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:rgba(245,245,247,.35);margin-top:10px;font-family:var(--mono)">
+      Live predictions fetched by N2YO on satellite select · ground station: 40.0°N, 74.0°W (NYC default)
+    </p>
+  </section>
+
+  <!-- Mesh flow -->
+  <section>
+    <p class="sec-title">Mesh Flow</p>
+    <div class="flow">
+      <div class="flow-step"><div class="flow-n">01 · INGEST</div><h3>Telemetry</h3><p>CelesTrak TLE + N2YO position + NASA GIBS imagery + NOAA GOES weather.</p></div>
+      <div class="flow-step"><div class="flow-n">02 · VERIFY</div><h3>4 Gates</h3><p>Source identity · schema shape · timestamp validity · freshness within 300s window.</p></div>
+      <div class="flow-step"><div class="flow-n">03 · DEED</div><h3>Trust Deed</h3><p>Deed ID + deed hash generated from verified feed evidence. Signed by the Elixir runtime.</p></div>
+      <div class="flow-step"><div class="flow-n">04 · SEAL</div><h3>WORM Chain</h3><p>Deed appended to JSONL chain on disk. SHA-256 hash. GenServer loads chain on boot.</p></div>
+      <div class="flow-step"><div class="flow-n">05 · GOVERN</div><h3>Agent Gate</h3><p>Mesh events emitted. Agent actions allowed only after a sealed, verified, fresh deed.</p></div>
+    </div>
+  </section>
+
+  <!-- Manifest -->
+  <section>
+    <p class="sec-title">Mesh Contract</p>
+    <div class="manifest-card">
+      <a class="btn btn-primary" href="./mesh.json">Open mesh.json</a>
+      <a class="btn btn-outline" href="https://collectivekitty.com/mesh">CollectiveKitty Mesh</a>
+      <a class="btn btn-outline-c" href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST/tree/main/orbital-trust-deed">Source</a>
+      <a class="btn btn-outline-c" href="https://www.n2yo.com/api/" target="_blank">Get N2YO Key</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    ☉⌹○◇△⬡ Ω · ZERO_TRUST_ALWAYS · SIGN_BEFORE_STORE · WORM_SEALED_DECISIONS · DOMAIN_SOVEREIGNTY
+  </div>
+</footer>
 </body>
 </html>
