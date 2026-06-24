@@ -56,7 +56,7 @@ defmodule OrbitalTrustDeedWeb.DashboardLive do
       {:ok, feed} ->
         # Also fetch real-time N2YO position and pass predictions
         n2yo_pos = N2yo.get_position(norad_id)
-        passes = N2yo.get_passes(norad_id, 40.0, -74.0, 7) # NYC default, 7 days
+        passes = N2yo.get_passes(norad_id, 37.77493, -122.41942, 7) # San Francisco
 
         socket = socket
         |> assign(:selected_satellite, Map.put(feed, :n2yo_position, n2yo_pos))
