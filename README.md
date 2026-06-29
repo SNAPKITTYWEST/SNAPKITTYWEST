@@ -9,34 +9,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Constellation | SNAPKITTYWEST (63) · SNAPKITTY-COLLECTIVE-LIMITED-FLP (5) · AHMADALIPARR (4) · SNAPKITTYAGENT9NOVA (4) |
-| Total repos | **76** |
-| Active (< 30d) | **66** |
-| GitHub Pages live | **30** |
-| Entropy E | **0.1316** / threshold 0.21 |
+| Constellation | SNAPKITTYWEST (64) · SNAPKITTY-COLLECTIVE-LIMITED-FLP (5) · AHMADALIPARR (4) · SNAPKITTYAGENT9NOVA (4) |
+| Total repos | **77** |
+| Active (< 30d) | **67** |
+| GitHub Pages live | **31** |
+| Entropy E | **0.1299** / threshold 0.21 |
 | Coherent | **YES** |
 | Intercoil · memory_graph | bob-orchestrator · SNAPKITTY-PROOFS · agent-farm-gauntlet · holy-agents |
 | Intercoil · bifrost | bob-orchestrator · holy-agents · apple-ii-universal-machine · sacm-bridge |
-| Ω WORM Seal | `d451b2ba14571fc0132f65ba47798406ade2fc4d83e2601c735379cd91976a15` |
-| Last field read | `2026-06-29T11:01:11.990Z` |
+| Ω WORM Seal | `75f76ec2dbdeff63e349bd43bf71abfd2beea5b1f9c54d8bf8cc13579d91102b` |
+| Last field read | `2026-06-29T15:48:32.586Z` |
 
 ```
-Entropy field: [███░░░░░░░░░░░░░░░░░] 13.2%
+Entropy field: [███░░░░░░░░░░░░░░░░░] 13.0%
                            ▲
                      threshold 0.21
 ```
 
 ```apl
-REPO  ← 76
+REPO  ← 77
 STACK ← ⌿REPO⍴1
 TRUST ← ∧/STACK   ⍝ TRUE
-CODE  ← +/STACK   ⍝ 76
+CODE  ← +/STACK   ⍝ 77
 Ω     ← TRUST∧CODE
 ```
 
 ```prolog
 coherent(system) :-
-    entropy(E), E < 0.21,     % E = 0.1316 → PASS
+    entropy(E), E < 0.21,     % E = 0.1299 → PASS
     intercoil(_, memory_graph),% 7 connected → PASS
     intercoil(_, bifrost_engine).% 7 connected → PASS
 
