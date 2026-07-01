@@ -1,0 +1,11 @@
+[package]
+name = "sovereign-inference"
+description = "Inference engine with KV cache"
+edition = "2021"
+license = "BUSL-1.1"
+
+[dependencies]
+sovereign-model = { path = "../model" }
+sovereign-tokenizer = { path = "../tokenizer" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

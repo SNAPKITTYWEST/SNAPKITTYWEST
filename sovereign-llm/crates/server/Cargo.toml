@@ -1,0 +1,23 @@
+[package]
+name = "sovereign-server"
+description = "HTTP server for sovereign-llm"
+edition = "2021"
+license = "BUSL-1.1"
+
+[dependencies]
+sovereign-model = { path = "../model" }
+sovereign-tokenizer = { path = "../tokenizer" }
+sovereign-inference = { path = "../inference" }
+sovereign-embeddings = { path = "../embeddings" }
+sovereign-seal = { path = "../seal" }
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[[bin]]
+name = "sovereign-llm-server"
+path = "src/main.rs"
