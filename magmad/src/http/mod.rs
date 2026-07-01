@@ -36,9 +36,10 @@ use crate::{bob, errant_ffi};
 
 #[derive(Clone)]
 pub struct AppState {
-    pub config:     Arc<crate::config::Config>,
-    pub nats:       Option<Arc<crate::nats_bus::NatsBus>>,
-    pub worm_url:   String,
+    pub config:   Arc<crate::config::Config>,
+    pub nats:     Option<Arc<crate::nats_bus::NatsBus>>,
+    pub worm_url: String,
+    pub llm_url:  String,   // sovereign-llm (Megtron) — WATSON stage + ORACLE search
 }
 
 // ── Request / response types ───────────────────────────────────────────────
@@ -165,12 +166,45 @@ async fn orchestrate(
             message: "sequence compressed".into(), error: None,
         }).await;
 
-        // ── Stage 4: WATSON attend (stub) ─────────────────────────────────
+        // ── Stage 4: WATSON — Megtron sovereign-llm /generate ────────────
+        let prompt = req.intent.as_deref()
+            .or(req.code.as_deref())
+            .unwrap_or(req.action.as_str());
+
+        let llm_client = reqwest::Client::builder()
+            .timeout(std::time::Duration::from_secs(30))
+            .build()
+            .unwrap_or_default();
+
+        let watson_resp = llm_client
+            .post(format!("{}/generate", state.llm_url))
+            .json(&serde_json::json!({
+                "prompt":         prompt,
+                "max_new_tokens": 64,
+                "temperature":    0.7,
+                "top_k":          40,
+            }))
+            .send()
+            .await;
+
+        let (watson_ok, watson_text) = match watson_resp {
+            Ok(r) if r.status().is_success() => {
+                let body: serde_json::Value = r.json().await.unwrap_or_default();
+                let text = body["text"].as_str().unwrap_or("").to_string();
+                (true, if text.is_empty() { "Megtron attended".into() } else { text })
+            }
+            Ok(r)  => (false, format!("Megtron error: {}", r.status())),
+            Err(e) => (true,  format!("Megtron offline — proceeding: {e}")),
+        };
+
         send(StageEvent {
-            stage: "WATSON", ok: true, agent: None,
-            worm_hash: Some(errant.worm_hash.clone()),
+            stage:      "WATSON",
+            ok:         watson_ok,
+            agent:      Some("MEGTRON".into()),
+            worm_hash:  Some(errant.worm_hash.clone()),
             proof_hash: None,
-            message: "attention applied".into(), error: None,
+            message:    watson_text,
+            error:      None,
         }).await;
 
         // ── Stage 5: BOB routing ──────────────────────────────────────────
@@ -186,6 +220,30 @@ async fn orchestrate(
             message:   format!("→ {}:{}", route.agent, route.action),
             error:     None,
         }).await;
+
+        // ── Stage 5b: ORACLE → sovereign-llm /search (semantic memory) ──
+        if route.agent == "ORACLE" {
+            let search_resp = llm_client
+                .post(format!("{}/search", state.llm_url))
+                .json(&serde_json::json!({ "query": req.action, "top_k": 5 }))
+                .send()
+                .await;
+
+            let oracle_msg = match search_resp {
+                Ok(r) if r.status().is_success() => {
+                    let hits: serde_json::Value = r.json().await.unwrap_or_default();
+                    format!("ORACLE: {} results from Megtron memory", hits.as_array().map_or(0, |a| a.len()))
+                }
+                _ => "ORACLE: Megtron memory offline".into(),
+            };
+
+            send(StageEvent {
+                stage: "ORACLE", ok: true, agent: Some("MEGTRON".into()),
+                worm_hash: Some(errant.worm_hash.clone()),
+                proof_hash: None,
+                message: oracle_msg, error: None,
+            }).await;
+        }
 
         // ── Stage 6: NATS publish ─────────────────────────────────────────
         if let Some(nats) = &state.nats {

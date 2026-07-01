@@ -33,6 +33,13 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+/* MSVC does not have POSIX strcasecmp — map to _stricmp */
+#ifdef _MSC_VER
+#  include <string.h>
+#  define strcasecmp _stricmp
+#  define strncasecmp _strnicmp
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

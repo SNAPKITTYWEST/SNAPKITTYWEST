@@ -62,6 +62,7 @@ async fn main() -> Result<()> {
         config:   Arc::new(cfg.clone()),
         nats:     nats.clone(),
         worm_url: format!("{}/api/labs/ledge/seal", cfg.os_url),
+        llm_url:  cfg.llm_url.clone(),
     };
 
     // ── REST + SSE server (primary interface) ─────────────────────────────

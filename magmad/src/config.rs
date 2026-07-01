@@ -24,6 +24,10 @@ pub struct Config {
     #[serde(default = "default_errant_url")]
     pub errant_url: String,
 
+    /// sovereign-llm server URL — Megtron (WATSON stage)
+    #[serde(default = "default_llm_url")]
+    pub llm_url: String,
+
     /// Log level: "trace"|"debug"|"info"|"warn"|"error"
     #[serde(default = "default_log_level")]
     pub log_level: String,
@@ -34,6 +38,7 @@ fn default_grpc_port()  -> u16    { 50051 }
 fn default_nats_url()   -> String { "nats://127.0.0.1:4222".into() }
 fn default_os_url()     -> String { "http://127.0.0.1:3001".into() }
 fn default_errant_url() -> String { "http://127.0.0.1:4000".into() }
+fn default_llm_url()    -> String { "http://127.0.0.1:8080".into() }
 fn default_log_level()  -> String { "info".into() }
 
 impl Config {
@@ -45,6 +50,7 @@ impl Config {
             nats_url:   env_str("MAGMA_NATS_URL",   "nats://127.0.0.1:4222"),
             os_url:     env_str("MAGMA_OS_URL",      "http://127.0.0.1:3001"),
             errant_url: env_str("MAGMA_ERRANT_URL",  "http://127.0.0.1:4000"),
+            llm_url:    env_str("MAGMA_LLM_URL",     "http://127.0.0.1:8080"),
             log_level:  env_str("MAGMA_LOG",         "info"),
         }
     }
