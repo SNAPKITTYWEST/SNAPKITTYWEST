@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" font-family="monospace">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="crate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1100" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="45" text-anchor="middle" fill="#e94560" font-size="28" font-weight="bold" filter="url(#glow)">SOVEREIGN LLM</text>
+  <text x="450" y="70" text-anchor="middle" fill="#888" font-size="12">Sovereign Source License — No Training Data</text>
+
+  <!-- Data Flow Arrow (left side) -->
+  <text x="30" y="120" fill="#444" font-size="10" transform="rotate(-90, 30, 120)">DATA FLOW</text>
+  <line x1="40" y1="140" x2="40" y2="1020" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- CRATE: sovereign-tokenizer -->
+  <rect x="60" y="100" width="780" height="120" rx="8" fill="url(#crate)" stroke="#e94560" stroke-width="1"/>
+  <text x="80" y="130" fill="#e94560" font-size="16" font-weight="bold">sovereign-tokenizer</text>
+  <text x="80" y="150" fill="#888" font-size="10">BPE TOKENIZER</text>
+
+  <!-- Tokenizer internals -->
+  <rect x="80" y="165" width="140" height="40" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="150" y="180" text-anchor="middle" fill="#00d4aa" font-size="9">VOCAB</text>
+  <text x="150" y="195" text-anchor="middle" fill="#666" font-size="8">50,257 tokens</text>
+
+  <rect x="240" y="165" width="140" height="40" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="310" y="180" text-anchor="middle" fill="#00d4aa" font-size="9">MERGES</text>
+  <text x="310" y="195" text-anchor="middle" fill="#666" font-size="8">BPE pairs</text>
+
+  <rect x="400" y="165" width="140" height="40" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="470" y="180" text-anchor="middle" fill="#00d4aa" font-size="9">ENCODE</text>
+  <text x="470" y="195" text-anchor="middle" fill="#666" font-size="8">text → tokens</text>
+
+  <rect x="560" y="165" width="140" height="40" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="630" y="180" text-anchor="middle" fill="#00d4aa" font-size="9">DECODE</text>
+  <text x="630" y="195" text-anchor="middle" fill="#666" font-size="8">tokens → text</text>
+
+  <!-- Arrow down -->
+  <polygon points="450,225 440,240 460,240" fill="#e94560"/>
+  <text x="475" y="237" fill="#666" font-size="8">token IDs</text>
+
+  <!-- CRATE: sovereign-model -->
+  <rect x="60" y="245" width="780" height="220" rx="8" fill="url(#crate)" stroke="#00d4aa" stroke-width="1"/>
+  <text x="80" y="275" fill="#00d4aa" font-size="16" font-weight="bold">sovereign-model</text>
+  <text x="80" y="295" fill="#888" font-size="10">GPT-2 TRANSFORMER</text>
+
+  <!-- Model internals - Embeddings -->
+  <rect x="80" y="310" width="220" height="60" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="190" y="330" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">EMBEDDINGS</text>
+  <text x="190" y="348" text-anchor="middle" fill="#666" font-size="8">token_emb + pos_emb</text>
+  <text x="190" y="360" text-anchor="middle" fill="#666" font-size="8">vocab_size × d_model</text>
+
+  <!-- Model internals - Transformer Block -->
+  <rect x="320" y="310" width="300" height="140" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="470" y="330" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">TRANSFORMER BLOCK × N_LAYERS</text>
+
+  <rect x="335" y="345" width="120" height="35" rx="3" fill="#0f3460" stroke="#00d4aa" stroke-width="1"/>
+  <text x="395" y="360" text-anchor="middle" fill="#00d4aa" font-size="8">LayerNorm</text>
+  <text x="395" y="372" text-anchor="middle" fill="#666" font-size="7">pre-norm</text>
+
+  <rect x="470" y="345" width="140" height="35" rx="3" fill="#0f3460" stroke="#00d4aa" stroke-width="1"/>
+  <text x="540" y="360" text-anchor="middle" fill="#00d4aa" font-size="8">MultiHead Attn</text>
+  <text x="540" y="372" text-anchor="middle" fill="#666" font-size="7">Q K V O projections</text>
+
+  <rect x="335" y="390" width="120" height="35" rx="3" fill="#0f3460" stroke="#00d4aa" stroke-width="1"/>
+  <text x="395" y="405" text-anchor="middle" fill="#00d4aa" font-size="8">LayerNorm</text>
+  <text x="395" y="417" text-anchor="middle" fill="#666" font-size="7">pre-norm</text>
+
+  <rect x="470" y="390" width="140" height="35" rx="3" fill="#0f3460" stroke="#00d4aa" stroke-width="1"/>
+  <text x="540" y="405" text-anchor="middle" fill="#00d4aa" font-size="8">FeedForward</text>
+  <text x="540" y="417" text-anchor="middle" fill="#666" font-size="7">GELU activation</text>
+
+  <!-- Residual connections -->
+  <text x="470" y="440" text-anchor="middle" fill="#444" font-size="7">+ residual + residual</text>
+
+  <!-- Model internals - Output -->
+  <rect x="640" y="310" width="180" height="60" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="730" y="330" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">LM HEAD</text>
+  <text x="730" y="348" text-anchor="middle" fill="#666" font-size="8">d_model → vocab_size</text>
+  <text x="730" y="360" text-anchor="middle" fill="#666" font-size="8">logits output</text>
+
+  <rect x="640" y="385" width="180" height="60" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="730" y="405" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">SAMPLING</text>
+  <text x="730" y="423" text-anchor="middle" fill="#666" font-size="8">top-k + temperature</text>
+  <text x="730" y="435" text-anchor="middle" fill="#666" font-size="8">softmax → probabilities</text>
+
+  <!-- Arrow down -->
+  <polygon points="450,470 440,485 460,485" fill="#e94560"/>
+  <text x="475" y="482" fill="#666" font-size="8">generated tokens</text>
+
+  <!-- CRATE: sovereign-inference -->
+  <rect x="60" y="490" width="780" height="110" rx="8" fill="url(#crate)" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="80" y="520" fill="#ff6b6b" font-size="16" font-weight="bold">sovereign-inference</text>
+  <text x="80" y="540" fill="#888" font-size="10">INFERENCE ENGINE</text>
+
+  <rect x="80" y="555" width="160" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="160" y="572" text-anchor="middle" fill="#ff6b6b" font-size="9">KV CACHE</text>
+  <text x="160" y="584" text-anchor="middle" fill="#666" font-size="7">key/value pairs</text>
+
+  <rect x="260" y="555" width="160" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="340" y="572" text-anchor="middle" fill="#ff6b6b" font-size="9">GENERATION</text>
+  <text x="340" y="584" text-anchor="middle" fill="#666" font-size="7">autoregressive loop</text>
+
+  <rect x="440" y="555" width="160" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="520" y="572" text-anchor="middle" fill="#ff6b6b" font-size="9">REP PENALTY</text>
+  <text x="520" y="584" text-anchor="middle" fill="#666" font-size="7">diversity control</text>
+
+  <rect x="620" y="555" width="160" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="700" y="572" text-anchor="middle" fill="#ff6b6b" font-size="9">STREAMING</text>
+  <text x="700" y="584" text-anchor="middle" fill="#666" font-size="7">token callback</text>
+
+  <!-- Arrow down -->
+  <polygon points="450,605 440,620 460,620" fill="#e94560"/>
+  <text x="475" y="617" fill="#666" font-size="8">embeddings + text</text>
+
+  <!-- CRATE: sovereign-embeddings -->
+  <rect x="60" y="625" width="780" height="110" rx="8" fill="url(#crate)" stroke="#ffd93d" stroke-width="1"/>
+  <text x="80" y="655" fill="#ffd93d" font-size="16" font-weight="bold">sovereign-embeddings</text>
+  <text x="80" y="675" fill="#888" font-size="10">VECTOR STORE</text>
+
+  <rect x="80" y="690" width="180" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="170" y="707" text-anchor="middle" fill="#ffd93d" font-size="9">COSINE SEARCH</text>
+  <text x="170" y="719" text-anchor="middle" fill="#666" font-size="7">similarity matching</text>
+
+  <rect x="280" y="690" width="180" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="370" y="707" text-anchor="middle" fill="#ffd93d" font-size="9">SHA-256 HASH</text>
+  <text x="370" y="719" text-anchor="middle" fill="#666" font-size="7">integrity check</text>
+
+  <rect x="480" y="690" width="180" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="570" y="707" text-anchor="middle" fill="#ffd93d" font-size="9">PGVECTOR</text>
+  <text x="570" y="719" text-anchor="middle" fill="#666" font-size="7">PostgreSQL ready</text>
+
+  <rect x="680" y="690" width="140" height="35" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="750" y="707" text-anchor="middle" fill="#ffd93d" font-size="9">IN-MEMORY</text>
+  <text x="750" y="719" text-anchor="middle" fill="#666" font-size="7">default impl</text>
+
+  <!-- Arrow down -->
+  <polygon points="450,740 440,755 460,755" fill="#e94560"/>
+  <text x="475" y="752" fill="#666" font-size="8">sealed weights</text>
+
+  <!-- CRATE: sovereign-seal -->
+  <rect x="60" y="760" width="780" height="100" rx="8" fill="url(#crate)" stroke="#a8e6cf" stroke-width="1"/>
+  <text x="80" y="790" fill="#a8e6cf" font-size="16" font-weight="bold">sovereign-seal</text>
+  <text x="80" y="810" fill="#888" font-size="10">WORM INTEGRITY</text>
+
+  <rect x="80" y="825" width="180" height="25" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="170" y="842" text-anchor="middle" fill="#a8e6cf" font-size="9">SHA-256 hash chain</text>
+
+  <rect x="280" y="825" width="180" height="25" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="370" y="842" text-anchor="middle" fill="#a8e6cf" font-size="9">chunk checksum</text>
+
+  <rect x="480" y="825" width="180" height="25" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="570" y="842" text-anchor="middle" fill="#a8e6cf" font-size="9">tamper detection</text>
+
+  <rect x="680" y="825" width="140" height="25" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="750" y="842" text-anchor="middle" fill="#a8e6cf" font-size="9">verify weights</text>
+
+  <!-- Arrow down -->
+  <polygon points="450,865 440,880 460,880" fill="#e94560"/>
+
+  <!-- CRATE: sovereign-server -->
+  <rect x="60" y="885" width="780" height="130" rx="8" fill="url(#crate)" stroke="#c9b1ff" stroke-width="1"/>
+  <text x="80" y="915" fill="#c9b1ff" font-size="16" font-weight="bold">sovereign-server</text>
+  <text x="80" y="935" fill="#888" font-size="10">AXUM HTTP SERVER — :8080</text>
+
+  <rect x="80" y="950" width="140" height="50" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="150" y="968" text-anchor="middle" fill="#c9b1ff" font-size="9">POST</text>
+  <text x="150" y="983" text-anchor="middle" fill="#c9b1ff" font-size="8">/generate</text>
+
+  <rect x="240" y="950" width="120" height="50" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="300" y="968" text-anchor="middle" fill="#c9b1ff" font-size="9">POST</text>
+  <text x="300" y="983" text-anchor="middle" fill="#c9b1ff" font-size="8">/embed</text>
+
+  <rect x="380" y="950" width="120" height="50" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="440" y="968" text-anchor="middle" fill="#c9b1ff" font-size="9">POST</text>
+  <text x="440" y="983" text-anchor="middle" fill="#c9b1ff" font-size="8">/search</text>
+
+  <rect x="520" y="950" width="120" height="50" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="580" y="968" text-anchor="middle" fill="#c9b1ff" font-size="9">POST</text>
+  <text x="580" y="983" text-anchor="middle" fill="#c9b1ff" font-size="8">/seal</text>
+
+  <rect x="660" y="950" width="120" height="50" rx="4" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="720" y="968" text-anchor="middle" fill="#c9b1ff" font-size="9">GET</text>
+  <text x="720" y="983" text-anchor="middle" fill="#c9b1ff" font-size="8">/health</text>
+
+  <!-- Footer -->
+  <text x="450" y="1050" text-anchor="middle" fill="#444" font-size="10">51 tests · 6 crates · 2,774 lines of Rust</text>
+  <text x="450" y="1070" text-anchor="middle" fill="#333" font-size="9">SnapKitty Collective — 2026</text>
+</svg>
