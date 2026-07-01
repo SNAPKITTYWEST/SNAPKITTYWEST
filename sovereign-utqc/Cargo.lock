@@ -784,6 +784,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sovereign-phdae"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "thiserror",
+ "uuid",
+]
+
+[[package]]
 name = "sovereign-pirtm"
 version = "0.1.0"
 dependencies = [
@@ -981,6 +994,18 @@ dependencies = [
  "sha2",
  "thiserror",
  "utqc-core",
+]
+
+[[package]]
+name = "uuid"
+version = "1.23.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bf80a72845275afea99e7f2b434723d3bc7e38470fcd1c7ed39a599c73319a53"
+dependencies = [
+ "getrandom 0.4.3",
+ "js-sys",
+ "serde_core",
+ "wasm-bindgen",
 ]
 
 [[package]]
