@@ -64,6 +64,10 @@ tracing-subscriber  = { version = "0.3", features = ["env-filter", "json"] }
 # Libc for FFI
 libc         = "0.2"
 
+# AWS Bedrock — Megtron chat (Megtron persona → Claude Haiku via Bedrock)
+aws-config              = { version = "1", default-features = false, features = ["behavior-version-latest"] }
+aws-sdk-bedrockruntime  = "1"
+
 [build-dependencies]
 cc           = "1"         # compiles errant.c → liberrant.a
 

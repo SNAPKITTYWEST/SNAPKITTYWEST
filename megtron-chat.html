@@ -346,7 +346,7 @@ Speak. I am listening.</div>
 <div id="error-toast"></div>
 
 <script>
-const MEGTRON_URL = 'http://127.0.0.1:8080';
+const MEGTRON_URL = '';
 const messages   = document.getElementById('messages');
 const input      = document.getElementById('user-input');
 const sendBtn    = document.getElementById('send-btn');
@@ -373,7 +373,7 @@ sendBtn.addEventListener('click', send);
 // ── Health check ────────────────────────────────────────────────────────────
 async function checkHealth() {
   try {
-    const r = await fetch(`${MEGTRON_URL}/health`, { signal: AbortSignal.timeout(3000) });
+    const r = await fetch(`${MEGTRON_URL}/api/v1/health`, { signal: AbortSignal.timeout(3000) });
     if (r.ok) {
       statusDot.className  = 'status-dot';
       statusLabel.textContent = 'ONLINE';
@@ -480,7 +480,7 @@ async function send() {
       top_k:          50,
     };
 
-    const resp = await fetch(`${MEGTRON_URL}/chat`, {
+    const resp = await fetch(`${MEGTRON_URL}/megtron/chat`, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(body),
@@ -510,11 +510,11 @@ async function send() {
   } catch (err) {
     hideTyping();
     const msg = err.name === 'TimeoutError'
-      ? 'MEGTRON timeout — is sovereign-llm running on :8080?'
+      ? 'MEGTRON timeout — is magmad running on :3000?'
       : `Connection failed: ${err.message}`;
     showError(msg);
     appendMessage('megtron',
-      '[ MEGTRON offline — start sovereign-llm-server on :8080 ]',
+      '[ MEGTRON offline — start magmad on :3000 ]',
       null, null);
   }
 

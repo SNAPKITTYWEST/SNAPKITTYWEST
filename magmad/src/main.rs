@@ -16,6 +16,7 @@ mod config;
 mod errant_ffi;
 mod grpc;
 mod http;
+mod megtron;
 mod nats_bus;
 
 use std::sync::Arc;
@@ -57,12 +58,16 @@ async fn main() -> Result<()> {
         }
     };
 
+    // ── Bedrock client (Megtron chat) ─────────────────────────────────────
+    let bedrock = megtron::build_client().await;
+
     // ── Build shared HTTP state ───────────────────────────────────────────
     let http_state = http::AppState {
         config:   Arc::new(cfg.clone()),
         nats:     nats.clone(),
         worm_url: format!("{}/api/labs/ledge/seal", cfg.os_url),
         llm_url:  cfg.llm_url.clone(),
+        bedrock:  Arc::new(bedrock),
     };
 
     // ── REST + SSE server (primary interface) ─────────────────────────────

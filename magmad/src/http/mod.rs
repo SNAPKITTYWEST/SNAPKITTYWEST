@@ -30,16 +30,17 @@ use tokio::sync::mpsc;
 use tokio_stream::wrappers::ReceiverStream;
 use tracing::{error, info};
 
-use crate::{bob, errant_ffi};
+use crate::{bob, errant_ffi, megtron};
 
 // ── Shared application state ───────────────────────────────────────────────
 
 #[derive(Clone)]
 pub struct AppState {
-    pub config:   Arc<crate::config::Config>,
-    pub nats:     Option<Arc<crate::nats_bus::NatsBus>>,
-    pub worm_url: String,
-    pub llm_url:  String,   // sovereign-llm (Megtron) — WATSON stage + ORACLE search
+    pub config:        Arc<crate::config::Config>,
+    pub nats:          Option<Arc<crate::nats_bus::NatsBus>>,
+    pub worm_url:      String,
+    pub llm_url:       String,   // sovereign-llm (Megtron) — WATSON stage + ORACLE search
+    pub bedrock:       Arc<aws_sdk_bedrockruntime::Client>,
 }
 
 // ── Request / response types ───────────────────────────────────────────────
@@ -95,8 +96,9 @@ pub fn router(state: AppState) -> Router {
         // Legacy MAGMA protocol endpoints (snap-os compatibility)
         .route("/api/labs/ledge/seal",post(legacy_seal))
         .route("/api/sovereign/dispatch", post(legacy_dispatch))
-        // MEGTRON chat UI — served from embedded HTML
-        .route("/megtron", get(megtron_ui))
+        // MEGTRON chat UI + Bedrock-backed chat endpoint
+        .route("/megtron",      get(megtron_ui))
+        .route("/megtron/chat", post(megtron_chat))
         .with_state(state)
 }
 
@@ -105,6 +107,19 @@ async fn megtron_ui() -> impl IntoResponse {
         [(axum::http::header::CONTENT_TYPE, "text/html; charset=utf-8")],
         include_str!("../../../megtron-chat.html"),
     )
+}
+
+async fn megtron_chat(
+    State(state): State<AppState>,
+    Json(req): Json<megtron::ChatRequest>,
+) -> impl IntoResponse {
+    match megtron::chat(&state.bedrock, req).await {
+        Ok(resp) => (StatusCode::OK, Json(serde_json::to_value(resp).unwrap())),
+        Err(e)   => (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            Json(serde_json::json!({ "error": e.to_string() })),
+        ),
+    }
 }
 
 // ── POST /api/v1/orchestrate ── SSE stream ─────────────────────────────────
