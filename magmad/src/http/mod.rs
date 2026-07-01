@@ -95,7 +95,16 @@ pub fn router(state: AppState) -> Router {
         // Legacy MAGMA protocol endpoints (snap-os compatibility)
         .route("/api/labs/ledge/seal",post(legacy_seal))
         .route("/api/sovereign/dispatch", post(legacy_dispatch))
+        // MEGTRON chat UI — served from embedded HTML
+        .route("/megtron", get(megtron_ui))
         .with_state(state)
+}
+
+async fn megtron_ui() -> impl IntoResponse {
+    (
+        [(axum::http::header::CONTENT_TYPE, "text/html; charset=utf-8")],
+        include_str!("../../../megtron-chat.html"),
+    )
 }
 
 // ── POST /api/v1/orchestrate ── SSE stream ─────────────────────────────────
