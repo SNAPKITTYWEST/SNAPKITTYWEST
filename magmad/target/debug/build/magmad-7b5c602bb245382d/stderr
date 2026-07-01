@@ -1,0 +1,1 @@
+tonic_build warning: Could not find `protoc`. If `protoc` is installed, try setting the `PROTOC` environment variable to the path of the `protoc` binary. Try installing `protobuf-compiler` or `protobuf` using your package manager. It is also available at https://github.com/protocolbuffers/protobuf/releases  For more information: https://docs.rs/prost-build/#sourcing-protoc
