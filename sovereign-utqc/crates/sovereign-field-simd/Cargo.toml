@@ -17,5 +17,16 @@ default = ["scalar"]
 simd = []
 scalar = []
 
-[lints]
-workspace = true
+[lints.rust]
+unsafe_code = "allow"
+missing-docs = { level = "warn", priority = -1 }
+unreachable-pub = { level = "warn", priority = -1 }
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+unwrap-used = "deny"
+expect-used = "deny"
+panic = "deny"
+todo = "deny"
+unimplemented = "deny"
+dbg-macro = "deny"

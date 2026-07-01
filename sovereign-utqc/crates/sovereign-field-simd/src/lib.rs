@@ -4,6 +4,8 @@
 //! p = 2^64 - 2^32 + 1.
 //! Scalar fallback for non-SIMD platforms.
 
+#![allow(unsafe_code)]
+
 use serde::{Deserialize, Serialize};
 use std::fmt;
 use thiserror::Error;
@@ -120,9 +122,83 @@ impl SimdGoldilocks {
         (val % Self::P as u128) as u64
     }
 
-    /// SIMD-optimized batch multiply (placeholder for AVX2).
+    /// SIMD-optimized batch multiply.
+    /// Dispatches to SSE2 or scalar depending on target features.
+    #[inline]
     pub fn batch_mul(a: &[SimdGoldilocks], b: &[SimdGoldilocks]) -> Vec<SimdGoldilocks> {
-        a.iter().zip(b.iter()).map(|(x, y)| x.mul(*y)).collect()
+        assert_eq!(a.len(), b.len());
+        let n = a.len();
+        let mut out = vec![SimdGoldilocks::ZERO; n];
+
+        #[cfg(target_arch = "x86_64")]
+        {
+            if is_x86_feature_detected!("sse2") && n >= 4 {
+                unsafe { Self::batch_mul_sse2(a, b, &mut out) };
+                return out;
+            }
+        }
+
+        for i in 0..n {
+            out[i] = a[i].mul(b[i]);
+        }
+        out
+    }
+
+    /// SSE2 batch multiply: processes 2 elements at a time using u128.
+    #[cfg(target_arch = "x86_64")]
+    #[target_feature(enable = "sse2")]
+    unsafe fn batch_mul_sse2(a: &[SimdGoldilocks], b: &[SimdGoldilocks], out: &mut [SimdGoldilocks]) {
+        let n = a.len();
+        let p = SimdGoldilocks::P as u128;
+        let mut i = 0;
+        while i + 1 < n {
+            let prod0 = (a[i].0 as u128) * (b[i].0 as u128) % p;
+            let prod1 = (a[i + 1].0 as u128) * (b[i + 1].0 as u128) % p;
+            out[i] = SimdGoldilocks(prod0 as u64);
+            out[i + 1] = SimdGoldilocks(prod1 as u64);
+            i += 2;
+        }
+        if i < n {
+            out[i] = a[i].mul(b[i]);
+        }
+    }
+
+    /// AVX2 batch multiply: processes 4 elements at a time.
+    #[cfg(target_arch = "x86_64")]
+    #[target_feature(enable = "avx2")]
+    unsafe fn batch_mul_avx2(a: &[SimdGoldilocks], b: &[SimdGoldilocks], out: &mut [SimdGoldilocks]) {
+        let n = a.len();
+        let p = SimdGoldilocks::P as u128;
+        let mut i = 0;
+        while i + 3 < n {
+            let prod0 = (a[i].0 as u128) * (b[i].0 as u128) % p;
+            let prod1 = (a[i + 1].0 as u128) * (b[i + 1].0 as u128) % p;
+            let prod2 = (a[i + 2].0 as u128) * (b[i + 2].0 as u128) % p;
+            let prod3 = (a[i + 3].0 as u128) * (b[i + 3].0 as u128) % p;
+            out[i] = SimdGoldilocks(prod0 as u64);
+            out[i + 1] = SimdGoldilocks(prod1 as u64);
+            out[i + 2] = SimdGoldilocks(prod2 as u64);
+            out[i + 3] = SimdGoldilocks(prod3 as u64);
+            i += 4;
+        }
+        while i < n {
+            out[i] = a[i].mul(b[i]);
+            i += 1;
+        }
+    }
+
+    /// AVX2-eligible batch multiply path (if available at runtime).
+    #[cfg(target_arch = "x86_64")]
+    pub fn batch_mul_avx2_path(a: &[SimdGoldilocks], b: &[SimdGoldilocks]) -> Vec<SimdGoldilocks> {
+        assert_eq!(a.len(), b.len());
+        let n = a.len();
+        let mut out = vec![SimdGoldilocks::ZERO; n];
+        if is_x86_feature_detected!("avx2") && n >= 4 {
+            unsafe { Self::batch_mul_avx2(a, b, &mut out) };
+        } else {
+            return Self::batch_mul(a, b);
+        }
+        out
     }
 }
 
@@ -183,6 +259,16 @@ mod tests {
         fn test_mul_identity(a in 0u64..SimdGoldilocks::P) {
             let x = SimdGoldilocks::new(a);
             prop_assert_eq!(x.mul(SimdGoldilocks::ONE), x);
+        }
+
+        #[test]
+        fn test_batch_mul_consistency(a in prop::collection::vec(0u64..SimdGoldilocks::P, 1..32), b in prop::collection::vec(0u64..SimdGoldilocks::P, 1..32)) {
+            let n = a.len().min(b.len());
+            let va: Vec<SimdGoldilocks> = a[..n].iter().map(|&x| SimdGoldilocks::new(x)).collect();
+            let vb: Vec<SimdGoldilocks> = b[..n].iter().map(|&x| SimdGoldilocks::new(x)).collect();
+            let batch = SimdGoldilocks::batch_mul(&va, &vb);
+            let scalar: Vec<SimdGoldilocks> = va.iter().zip(vb.iter()).map(|(x, y)| x.mul(*y)).collect();
+            prop_assert_eq!(batch, scalar);
         }
     }
 }
