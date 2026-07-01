@@ -1,3 +1,5 @@
+mod persona;
+
 use axum::{
     extract::State,
     http::StatusCode,
@@ -69,6 +71,30 @@ struct SearchResult {
     id: String,
     text: String,
     score: f32,
+}
+
+// ── Chat ─────────────────────────────────────────────────────────────────────
+
+#[derive(Deserialize)]
+struct ChatRequest {
+    message: String,
+    /// Conversation history: [[user_msg, assistant_msg], ...]
+    #[serde(default)]
+    history: Vec<[String; 2]>,
+    #[serde(default = "default_temperature")]
+    temperature: f32,
+    #[serde(default = "default_top_k")]
+    top_k: usize,
+    #[serde(default = "default_max_tokens")]
+    max_new_tokens: usize,
+}
+
+#[derive(Serialize)]
+struct ChatResponse {
+    response: String,
+    worm_hash: String,
+    persona: &'static str,
+    seal: &'static str,
 }
 
 #[derive(Serialize)]
@@ -178,6 +204,45 @@ async fn search(
     Ok(Json(search_results))
 }
 
+async fn chat(
+    State(state): State<AppState>,
+    Json(req): Json<ChatRequest>,
+) -> Result<Json<ChatResponse>, StatusCode> {
+    let history: Vec<(String, String)> = req.history
+        .into_iter()
+        .map(|[u, a]| (u, a))
+        .collect();
+
+    let prompt = persona::format_chat(&history, &req.message);
+
+    let engine = state.engine.lock().await;
+    let config = InferenceConfig {
+        temperature: req.temperature,
+        top_k: req.top_k,
+        max_new_tokens: req.max_new_tokens,
+        ..Default::default()
+    };
+
+    let raw = engine.generate(&prompt, &config);
+
+    // Strip any "User:" continuation the model hallucinates
+    let response = raw
+        .split("\nUser:")
+        .next()
+        .unwrap_or(&raw)
+        .trim()
+        .to_string();
+
+    let worm_hash = persona::chain_hash(&format!("{}:{}", req.message, response));
+
+    Ok(Json(ChatResponse {
+        response,
+        worm_hash,
+        persona: "MEGTRON",
+        seal: "Ω↺Ψ↺Δ↺Λ↺Σ↺Φ↺α",
+    }))
+}
+
 async fn seal_weights(
     State(state): State<AppState>,
 ) -> Result<Json<serde_json::Value>, StatusCode> {
@@ -214,9 +279,11 @@ async fn main() {
     let app = Router::new()
         .route("/health", get(health))
         .route("/generate", post(generate))
+        .route("/chat", post(chat))
         .route("/embed", post(embed))
         .route("/search", post(search))
         .route("/seal", post(seal_weights))
+        .layer(tower_http::cors::CorsLayer::permissive())
         .layer(tower_http::trace::TraceLayer::new_for_http())
         .with_state(state);
 
