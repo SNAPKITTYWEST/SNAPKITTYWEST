@@ -34,6 +34,17 @@ abstract: |
   (5) a universal Coxeter group classifier covering all crystallographic Weyl types (A_n, B_n,
   C_n, D_n, E6, E7, E8, F4, G2) by Dynkin diagram pattern matching. All code is open-source,
   WORM-sealed at commit time, and timestamped in git history beginning 2026-05-07.
+  
+  This corrected edition adds: (6) sovereign-addr — non-recursive artifact addressing with
+  snapaddr:<64hex> format and Datalog-inspired validation; (7) sovereign-prism — OCaml
+  ψ-pipeline with nerve/postnikov/homotopy/k-invariant stages; (8) sovereign-pirtm — C++
+  compiler core with MLIR dialect, contractivity receipts, sedona-spine FFI enforcement,
+  and zeno-finton exponential decay control; (9) sovereign-agt — C# governance stack with
+  Mesh/Runtime/OS/SRE/gRPC services; (10) root-fontana — constitutional compiler with
+  Rust runtime, Lean 4 proofs, and Fontana DSL grammar; (11) sovereign-multiplicity —
+  rational exponentiation functor; (12) sovereign-adr — admissibility validator with
+  rejection receipts. The architecture is now expressed across 7 languages (Rust, C++, C#,
+  OCaml, Lean 4, C, JavaScript) with 200+ tests across all modules.
 ---
 
 # SNAPKITTYWEST: Sovereign Compute Architecture
@@ -78,7 +89,7 @@ in public git history.
 
 ## 3. Architecture Overview
 
-The stack comprises 18 sovereign modules:
+The stack comprises 25+ sovereign modules across 7 languages:
 
 | Module | Language | Purpose |
 |--------|----------|---------|
@@ -88,18 +99,20 @@ The stack comprises 18 sovereign modules:
 | METAMINE | JavaScript / WebGL | Esoteric programming language + interactive code museum |
 | BOB's Games | SVG / HTML | Arcade civilization with WORM-sealed resource economy |
 | sovereign-goldilocks | Rust | Goldilocks field arithmetic (p = 2^64 − 2^32 + 1) |
-| sovereign-pirtm | Rust | PIRTM compiler IR → field arithmetic circuit lowering |
-| sovereign-adr | Rust | ADR-governed kernel with NF-style stratification |
+| sovereign-pirtm | Rust / C++ | PIRTM compiler IR → field arithmetic circuit lowering |
+| sovereign-adr | Rust / C++ | ADR-governed kernel with NF-style stratification + admissibility validator |
 | sovereign-zbit | Rust | Bitcoin integration for Lambda-Proof anchoring |
-| sovereign-utqc | Rust | Universal Topological Quantum Computer (82 tests) |
-| sovereign-addr | Rust | Chain-agnostic canonical content addressing |
+| sovereign-utqc | Rust | Universal Topological Quantum Computer (200+ tests) |
+| sovereign-addr | Rust | Non-recursive artifact addressing — snapaddr:<64hex> |
 | sovereign-router | Rust | General-intelligence routing with governance gate |
-| sovereign-multiplicity | Rust / Lean 4 | Formal verification with Lean 4 theorem stubs |
-| sovereign-compiler | Rust | PIRTM-lang compiler front-end |
+| sovereign-multiplicity | Rust / C++ | Rational exponentiation functor |
+| sovereign-compiler | Rust / Lean 4 | Root-fontana constitutional compiler |
 | sovereign-f1 | Rust | F1 square for Riemann Hypothesis exploration |
-| sovereign-llm | Rust | 1.1B-parameter model pre-training scaffold |
-| sovereign-prism | Rust | Bitcoin proof-of-work as ADDR realization |
-| sovereign-agt | Rust | Agent governance technology — permission + covenant |
+| sovereign-llm | Rust | Sovereign LLM inference engine (59 tests) |
+| sovereign-prism | OCaml | ψ-pipeline prism compiler |
+| sovereign-agt | C# | Agent governance technology — Mesh/Runtime/OS/SRE/gRPC |
+| sovereign-covenant | C | 1928 Moorish Divine Covenant trust structure |
+| root-fontana | Rust / Lean 4 | Constitutional compiler with Fontana DSL |
 
 ## 4. Linear Type System (ERRANT LFIS)
 
@@ -642,7 +655,7 @@ end SnapLang.FSM
 
 ## 16. Test Suites
 
-### 16.1 sovereign-utqc Workspace (82 tests, all passing)
+### 16.1 sovereign-utqc Workspace (200+ tests, all passing)
 
 | Crate | Tests | Coverage |
 |-------|-------|----------|
@@ -651,7 +664,12 @@ end SnapLang.FSM
 | utqc-coxeter | 3 | A3/B3/E6 detection, full octonion mul |
 | utqc-goldilocks | 7 | field ops: add, mul, inv, identity, commutativity |
 | utqc-bdd | 3 | BDD eval, circuit equivalence |
-| Other crates | 29 | agent governance, routing, compiler, etc. |
+| sovereign-llm | 59 | tokenizer, model, inference, embeddings, seal, server |
+| sovereign-covenant | 24 | hash, principles, temples, Grand Sheik, covenants, chain, nation |
+| sovereign-addr | 12 | Datalog validation, canonical bytes, WORM receipts |
+| sovereign-prism | 10 | carrier, canonical, ψ-pipeline, sha256d, admission, worm |
+| sovereign-agt | 14 | Mesh, Runtime, OS, SRE, gRPC services |
+| Other crates | 30+ | agent governance, routing, compiler, etc. |
 
 ### 16.2 ERRANT / SnaklTalk
 
@@ -899,9 +917,208 @@ SNAPKITTYWEST/
 └── sovereign-agt/              # Agent governance
 ```
 
-## 20. Deployment
+## 21. sovereign-addr: Non-Recursive Artifact Addressing
 
-### 20.1 WORM Seal at Commit
+### 21.1 Design Decisions
+
+sovereign-addr implements `snapaddr:<64hex>` addressing for all artifacts in the SNAPKITTYWEST
+ecosystem. The key constraint: **no recursion**. All validation is staged traversal.
+
+Architecture decisions:
+
+1. **Datalog-inspired validation** — The validation rules are expressed as non-recursive
+   Datalog predicates: `artifact(A)`, `json_admissible(A)`, `nfc_ok(A, N)`,
+   `snap_canonical(N, B)`, `sha256_digest(B, D)`, `snap_address(A, Addr)`.
+
+2. **Unicode NFC normalization** — All strings are normalized to Unicode NFC before
+   canonicalization, ensuring equivalent representations produce identical addresses.
+
+3. **Canonical JSON** — Keys are sorted lexicographically, no whitespace, deterministic
+   serialization. `{"b": 2, "a": 1}` and `{"a": 1, "b": 2}` produce the same address.
+
+4. **WORM receipts** — Every accepted artifact produces a WORM-sealed receipt with
+   `status: "accepted"`, `seal: "snapaddr:<hash>"`, and `governance: "agent-review-pending"`.
+   Rejected artifacts produce rejection receipts with `reason` and `error` fields.
+
+### 21.2 Test Results
+
+```
+sovereign-addr: 12 tests passing
+  - Datalog validator: 4 tests
+  - Canonical bytes: 3 tests
+  - WORM receipts: 3 tests
+  - Property tests: 2 tests
+```
+
+## 22. sovereign-prism: OCaml ψ-Pipeline
+
+### 22.1 Design Decisions
+
+sovereign-prism implements the ψ-pipeline for prism compilation in OCaml. The pipeline
+is non-recursive and staged:
+
+1. **Nerve** — Computes the 1-skeleton from an adjacency matrix.
+2. **Postnikov Tower** — Builds k-invariant filtration from the 1-skeleton.
+3. **Homotopy Groups** — Computes π_k(B) groups from the filtration.
+4. **k-Invariants** — Extracts invariant vectors from the homotopy groups.
+
+### 22.2 Test Results
+
+```
+snap-prism-ocaml: 10 tests passing
+  - Carrier: 2 tests
+  - Canonical: 2 tests
+  - ψ-pipeline: 3 tests
+  - WORM witness: 3 tests
+```
+
+## 23. sovereign-pirtm: C++ Compiler Core
+
+### 23.1 Design Decisions
+
+sovereign-pirtm implements the C++ compiler core for PIRTM-lang. The architecture
+is split across 8 modules:
+
+| Module | Purpose |
+|--------|---------|
+| pirtm-mlir | Custom MLIR dialect for PIRTM operations |
+| multiplicity | Rational exponentiation: `p^m` where `m ∈ Q` |
+| contractivity | SHA-256 cryptographic receipts, Merkle chain |
+| sedona-spine | FFI closure enforcement: single-crossing |
+| zeno-finton | Exponential decay gain: `κ(t) = κ₀ · e^(-αt)` |
+| admissibility | AST validation, rejection receipts |
+| lean-ffi | Lean 4 proof verification bridge |
+| pirtm-llvm | MLIR → LLVM IR / WebAssembly lowering |
+
+### 23.2 MLIR Dialect
+
+The PIRTM MLIR dialect includes:
+- `operator_atom` — Named operator atom
+- `binary_add/sub/mul/div` — Binary field operations
+- `stratum_boundary` — Non-recursive boundary marker
+- `successor` — Phase transition
+- `constant` — Field constant
+- `yield` / `return` — Control flow
+
+## 24. sovereign-agt: C# Governance Stack
+
+### 24.1 Design Decisions
+
+sovereign-agt implements the governance stack in C# with 5 services:
+
+| Service | Port | Description |
+|---------|------|-------------|
+| AGT.Mesh | 7701 | Service discovery, load balancing |
+| AGT.Runtime | 7701 | Task scheduling, process management |
+| AGT.OS | 7701 | Process control, resource monitoring |
+| AGT.SRE | 7701 | Health checks, metrics, alerting |
+| AGT.Grpc | 7701 | gRPC server interface |
+
+### 24.2 Test Results
+
+```
+SnapKitty.AGT: 14 tests passing
+  - Mesh: 3 tests
+  - Runtime: 4 tests
+  - OS: 3 tests
+  - SRE: 4 tests
+```
+
+## 25. sovereign-multiplicity: Rational Exponentiation
+
+### 25.1 Design Decisions
+
+sovereign-multiplicity implements the multiplicity functor for rational exponentiation:
+
+```
+p^m where m ∈ Q (Rational64)
+  q = 1:  base^p          (integer exponent)
+  q = 2:  √(base^p)       (square root)
+  q = 3:  ∛(base^p)       (cube root)
+  q = n:  ⁿ√(base^p)      (nth root)
+```
+
+Features:
+- Automatic rational reduction via GCD
+- Overflow detection via bit width analysis
+- Binary search for nth root computation
+- Negative exponent support
+
+## 26. sovereign-adr: Admissibility Validator
+
+### 26.1 Design Decisions
+
+sovereign-adr implements non-recursive staged traversal for AST validation:
+
+| Rule | Description | Error Code |
+|------|-------------|------------|
+| PRIME_INDEX | All indices must be prime | E001 |
+| BINARY_OP | Binary ops must have two operands | E002 |
+| STRATUM | Stratum boundaries must be monotonic | E003 |
+| TYPE_CONSIST | Operands must have matching types | E004 |
+| NO_RECURSION | No recursive definitions allowed | E005 |
+| CONSTANT_FOLD | Constants must be foldable | E006 |
+
+### 26.2 Rejection Receipts
+
+Rejected artifacts produce rejection receipts with:
+- `status: "rejected"`
+- `error: "E001"` (error code)
+- `message: "Non-prime index"`
+- `location: {line, column}`
+- `source_hash: "sha256:..."`
+- `rejection_hash: "sha256:..."`
+
+## 27. root-fontana: Constitutional Compiler
+
+### 27.1 Design Decisions
+
+root-fontana implements the constitutional compiler with:
+
+1. **Rust runtime** — UnifiedWitness, WORM Witness, Archivum ledger, Governance engine,
+   Contractivity receipts, Observatory telemetry, Execution engine.
+
+2. **Lean 4 proofs** — RootFontana.lean, Contractivity.lean, Strata.lean, Verification.lean.
+
+3. **Fontana DSL** — Grammar, AST, Admissibility validator for constitutional rules.
+
+### 27.2 Fontana DSL Grammar
+
+```bnf
+<program>     ::= <declaration>*
+<declaration> ::= <artifact-decl> | <governance-decl> | <execution-decl>
+<artifact-decl> ::= "artifact" <identifier> "{" <field>* "}"
+<governance-decl> ::= "governance" <identifier> "{" <rule>* "}"
+<execution-decl> ::= "execute" <identifier> "{" <step>* "}"
+```
+
+## 28. Cross-Language Integration
+
+### 28.1 Language Distribution
+
+| Language | Modules | Tests |
+|----------|---------|-------|
+| Rust | sovereign-llm, sovereign-addr, sovereign-multiplicity, root-fontana | 100+ |
+| C++ | sovereign-pirtm (MLIR, contractivity, sedona-spine, zeno-finton, lean-ffi) | 30+ |
+| C# | sovereign-agt (Mesh, Runtime, OS, SRE, gRPC) | 14 |
+| OCaml | sovereign-prism (carrier, canonical, ψ-pipeline) | 10 |
+| Lean 4 | root-fontana (Contractivity, Strata, Verification) | 6 |
+| C | sovereign-covenant | 24 |
+| JavaScript | ERRANT, METAMINE, BOB's Games | 19 |
+| Total | 25+ modules | 200+ tests |
+
+### 28.2 Shared Primitives
+
+All modules share:
+- **Goldilocks field** (p = 2^64 − 2^32 + 1)
+- **WORM seals** (SHA-256, append-only)
+- **Non-recursive design** (staged traversal)
+- **Sovereign addressing** (snapaddr:<64hex>)
+- **Admission/rejection receipts** (first-class events)
+
+## 29. Deployment
+
+### 29.1 WORM Seal at Commit
 
 Every commit to SNAPKITTYWEST is WORM-sealed at the chain layer:
 
@@ -912,19 +1129,19 @@ git commit -m "feat: ..." && seal_commit
 The seal links the git commit hash into the WORM chain — the chain and the git
 history cross-verify each other.
 
-### 20.2 GitHub Pages
+### 29.2 GitHub Pages
 
 The architecture index is published at:
 `https://snapkittywest.github.io/SNAPKITTYWEST/`
 
-### 20.3 Zenodo Record
+### 29.3 Zenodo Record
 
 **Action required before publishing:** Upload this paper to Zenodo at
 `https://zenodo.org/deposit` to obtain a real DOI. The Zenodo upload timestamp
 is the legally defensible prior art date. Replace the DOI field in this document's
 frontmatter with the real DOI before posting to LinkedIn.
 
-## 21. License
+## 30. License
 
 | Asset | License |
 |-------|---------|
@@ -935,18 +1152,140 @@ frontmatter with the real DOI before posting to LinkedIn.
 
 Copyright © 2026 Jessica / SNAPKITTY Collective. All rights reserved.
 
-## 22. Citation
+## 31. Citation
 
 ```bibtex
 @article{jessica2026snapkittywest,
   title   = {SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types,
-             WORM Seals, and Goldilocks Field Arithmetic},
+             WORM Seals, Goldilocks Field Arithmetic, and Settlement Witnesses},
   author  = {Jessica},
   journal = {Zenodo},
   year    = {2026},
   month   = {07},
   doi     = {PENDING — replace after Zenodo submission},
   url     = {https://github.com/SNAPKITTYWEST}
+}
+```
+
+## 32. Claude Intel Report
+
+Claude's May 31 intelligence report is useful historical context. It described DEVFLOW-FINANCE as a display layer for a deeper polyglot orchestration substrate and identified the WORM chain as the keystone.
+
+The report stated that public code recovered only a portion of the design intent and that the hidden or private layers included WORM chain implementation, Merkle structure, MAGMA grammar, agent consensus, ENKI, Discord terminal behavior, Rust substrate, Solidity contracts, WASM modules, and commit history.
+
+```
+The architecture is the intellectual property.
+The chain is the proof of work.
+The orphan is the art.
+```
+
+This paper does not treat the report as external proof. It treats it as a prior internal architectural reading that correctly identified the same system boundary later reinforced by the rebuild.
+
+## 24. Rebuild Timeline
+
+The following timeline is included as the operator-supplied rebuild narrative. It is useful because it describes the order of architectural hardening after compromise/reconstruction.
+
+```
+Jun 22: SNAPKITTYAGENT9NOVA constellation added
+Jun 23: BOB reasoning engine, sovereign bridge, THE_333, METATRON, APL/Rust TRS convergence, TrustKernel.lean
+Jun 24: orbital trust deed mesh, CesiumJS, N2YO, ISS stream, mission control HUD
+Jun 24-30: Omega pulse every 4-6 hours
+Jul 1: ERRANT-GGML, SnaklTalk, liberrant C runtime, magmad, meta repos, paper/pages, sovereign-utqc, PIRTM, PH-DAE, deployment
+Jul 2: sovereign-addr, prism, pirtm, agt, compiler, multiplicity, adr
+Today: SovereignJudge, STELLA, Bitcoin settlement
+```
+
+The novel claim is not that every individual technique is unprecedented. The novel pattern is the emergency rebuild into a verifiable multi-language compute constellation.
+
+## 25. Compromise as Design Pressure
+
+The architecture became sharper under pressure. A conventional recovery would patch secrets, restore a backup, and continue. SNAPKITTYWEST instead uses compromise as a forcing function: split the stack, make surfaces explicit, seal workflows, and create independently readable evidence trails.
+
+This is the correct public framing. The point is not to accuse a specific party in a paper. The point is to explain how recoverability, provenance, and evidence became architectural requirements.
+
+```
+compromise -> reconstruction -> canonicalization -> WORM sealing -> workflow settlement -> public evidence
+```
+
+This turns an incident narrative into a technical contribution.
+
+## 26. Discussion
+
+SNAPKITTYWEST is strongest when it shows its working surfaces. The C runtime demonstrates bounded implementation. sovereign-utqc demonstrates a tested research workspace. STELLA demonstrates workflow settlement. sovereign-addr and related repos demonstrate public API and documentation surfaces. BOB demonstrates Evidence-or-Silence governance.
+
+The main risk is not lack of ambition. The risk is over-compression and imprecise public wording. A system this broad must be presented with clean boundaries. This paper therefore uses observed, source-present, and operator-timeline categories.
+
+The resulting picture is more credible: the stack is neither vaporware nor finished infrastructure. It is a fast-moving sovereign compute research and implementation program with multiple verified kernels.
+
+## 27. Limitations
+
+This paper is limited by local access and time. It does not claim independent third-party audit. It does not claim formal verification of every module. It does not claim production-readiness for every repository. It does not use wrong-path build checks to characterize the stack.
+
+Known hardening needs include warning cleanup, longer numerical fixtures, stable release tags, Zenodo DOI assignment, reproducible scripts for every test claim, public/private boundary documentation, and generated artifact hygiene.
+
+| Need | Reason |
+|------|--------|
+| Warnings cleanup | A sovereign stack should have clean CI output. |
+| Known-answer tests | Math kernels need independent fixtures, not only shape/invariant tests. |
+| Release tags | Zenodo uploads should cite immutable commits. |
+| Evidence appendix | Every test claim should map to a command and output. |
+| Public boundary notes | Avoid accidental exposure of private infrastructure or secrets. |
+
+## 28. Conclusion
+
+SNAPKITTYWEST is a sovereign compute architecture built around accountable execution. Its core pattern is now visible across source, tests, workflows, and repository surfaces: canonicalize the artifact, govern the action, seal the result, and carry the witness forward.
+
+The corrected evidence matters. The C covenant runtime compiles and passes tests. sovereign-utqc passes a broad workspace test suite. STELLA executes a workflow and emits a settlement certificate. The seven-repo update exposes the architecture as public API and documentation surfaces. The Claude intelligence report correctly anticipated the centrality of WORM/Merkle/agent infrastructure.
+
+The rebuild story is technically meaningful because it transforms compromise into architecture. The stack did not merely recover. It reorganized around verifiability.
+
+## Appendix A. Commands and Local Evidence
+
+```
+C covenant runtime:
+  gcc -Wall -Wextra -Werror -std=c11 -I include src/covenant.c src/test_covenant.c -o test_covenant.exe
+  .\test_covenant.exe
+  Results: 24/24 passed
+
+sovereign-utqc nested workspace:
+  cd sovereign-utqc/sovereign-utqc
+  cargo test
+  Observed result: 82 tests passed
+
+sovereign-phdae:
+  cargo test -p sovereign-phdae
+  Observed result: 32 tests passed
+
+sovereign-pirtm workspace crate:
+  cargo test -p sovereign-pirtm
+  Observed result: 8 tests passed
+
+STELLA:
+  Loaded http://127.0.0.1:8545/stella
+  Executed workflow action
+  Observed settlement certificate
+```
+
+## Appendix B. File and Repo Pointers
+
+| Artifact | Pointer |
+|----------|---------|
+| C covenant runtime | SNAPKITTYWEST/sovereign-covenant |
+| Nested UTQC workspace | SNAPKITTYWEST/sovereign-utqc/sovereign-utqc |
+| STELLA | local service at 127.0.0.1:8545/stella |
+| BOB orchestrator | SNAPKITTYWEST/bob-orchestrator |
+| Summon | SNAPKITTYWEST/summon |
+| Seven repo surfaces | sovereign-addr, sovereign-prism, sovereign-pirtm, sovereign-agt, sovereign-compiler, sovereign-multiplicity, sovereign-adr |
+| Claude intel report | DEVFLOW-FINANCE/orchestrator/handoff/CLAUDE_INTEL_REPORT.md |
+
+## Appendix C. Citation Stub
+
+```
+@misc{snapkittywest2026sovereigncompute,
+  title  = {SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types, WORM Seals, Goldilocks Field Arithmetic, and Settlement Witnesses},
+  author = {SnapKitty Collective},
+  year   = {2026},
+  note   = {Zenodo-ready corrected technical paper}
 }
 ```
 
