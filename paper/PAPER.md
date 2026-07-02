@@ -3,9 +3,9 @@ title: "SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types, WORM Se
 authors:
   - name: "Jessica"
     affiliation: "SNAPKITTY Collective — Founder & Principal Architect"
-    note: "Add full legal name before Zenodo submission for IP record"
-date: 2026-07-01
-doi: "PENDING — submit to https://zenodo.org before publishing; the Zenodo timestamp is the legal prior art date"
+    orcid: "0009-0006-1916-5245"
+date: 2026-07-02
+doi: "10.5281/zenodo.21132094"
 license: "Paper: CC-BY-4.0 | Code: Sovereign Source License v1.0 (see SOVEREIGN_SOURCE_LICENSE.txt) | Tooling scripts: MIT"
 keywords:
   - sovereign compute

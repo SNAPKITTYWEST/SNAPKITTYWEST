@@ -91,7 +91,9 @@ The backend is not hidden. It is the product.
 
 ### 📄 Publication
 
-**[Zenodo Paper](https://zenodo.org/record/XXXXXXX)** — SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types, WORM Seals, and Goldilocks Field Arithmetic
+**[Zenodo Paper](https://doi.org/10.5281/zenodo.21132094)** — SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types, WORM Seals, and Goldilocks Field Arithmetic
+
+**ORCID:** [0009-0006-1916-5245](https://orcid.org/0009-0006-1916-5245)
 
 **[GitHub Pages](https://snapkittyswest.github.io/SNAPKITTYWEST/)** — Full architecture documentation with interactive diagrams
 

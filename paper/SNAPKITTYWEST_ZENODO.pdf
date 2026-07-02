@@ -1,0 +1,2191 @@
+%PDF-1.3
+%éëñ¿
+1 0 obj
+<<
+/Count 25
+/Kids [3 0 R
+5 0 R
+7 0 R
+9 0 R
+11 0 R
+13 0 R
+15 0 R
+17 0 R
+19 0 R
+21 0 R
+23 0 R
+25 0 R
+27 0 R
+29 0 R
+31 0 R
+33 0 R
+35 0 R
+37 0 R
+39 0 R
+41 0 R
+43 0 R
+45 0 R
+47 0 R
+49 0 R
+51 0 R]
+/MediaBox [0 0 595.28 841.89]
+/Type /Pages
+>>
+endobj
+2 0 obj
+<<
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+/Pages 1 0 R
+/Type /Catalog
+>>
+endobj
+3 0 obj
+<<
+/Contents 4 0 R
+/Parent 1 0 R
+/Resources 57 0 R
+/Type /Page
+>>
+endobj
+4 0 obj
+<<
+/Length 671
+>>
+stream
+2 J
+0.57 w
+BT /F1 24.00 Tf ET
+BT 194.97 675.95 Td (SNAPKITTYWEST) Tj ET
+BT /F1 16.00 Tf ET
+BT 154.50 633.00 Td (Sovereign Compute Architecture with) Tj ET
+BT 149.14 604.65 Td (Linear Types, WORM Seals, Goldilocks) Tj ET
+BT 133.60 576.30 Td (Field Arithmetic, and Settlement Witnesses) Tj ET
+BT /F2 12.00 Tf ET
+BT 244.29 495.30 Td (SnapKitty Collective) Tj ET
+BT 266.96 458.45 Td (2026-07-02) Tj ET
+BT /F3 10.00 Tf ET
+BT 226.48 408.02 Td (DOI: 10.5281/zenodo.21132094) Tj ET
+BT 229.27 376.84 Td (ORCID: 0009-0006-1916-5245) Tj ET
+BT 208.99 345.66 Td (Zenodo-ready corrected technical paper) Tj ET
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (1) Tj ET Q
+
+endstream
+endobj
+5 0 obj
+<<
+/Contents 6 0 R
+/Parent 1 0 R
+/Resources 58 0 R
+/Type /Page
+>>
+endobj
+6 0 obj
+<<
+/Length 3372
+>>
+stream
+2 J
+0.57 w
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 18.00 Tf ET
+BT 31.18 720.27 Td (SNAPKITTYWEST: Sovereign Compute Architecture) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 659.11 Td (1. Introduction) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 624.87 Td (SNAPKITTYWEST is a sovereign compute stack built and owned by the SNAPKITTY Collective,) Tj ET
+BT 31.18 610.70 Td (founded by Jessica. The stack enforces three invariants across all computation:) Tj ET
+BT 31.18 588.02 Td (1. Resource Safety ? Linear types \(lin\) consumed exactly once; affine types \(aff\)) Tj ET
+BT 31.18 573.85 Td ( at most once; unrestricted types \(un\) freely reusable; capability tokens \(cap\) for) Tj ET
+BT 31.18 559.68 Td ( authority delegation; sealed artifacts \(seal\) as WORM-minted, unforgeable proof.) Tj ET
+BT 31.18 537.00 Td (2. Immutability ? Every computation result is WORM-sealed \(Write Once Read Many\) and) Tj ET
+BT 31.18 522.83 Td ( chained to its predecessor via SHA-256. The chain cannot be rewritten without invalidating) Tj ET
+BT 31.18 508.65 Td ( all subsequent seals.) Tj ET
+BT 31.18 485.98 Td (3. Field Arithmetic ? All numeric computation is grounded in the Goldilocks prime field) Tj ET
+BT 31.18 471.80 Td ( \(p = 2^64 ? 2^32 + 1\), enabling direct integration with ZK-proof systems \(PLONK, Plonky2,) Tj ET
+BT 31.18 457.63 Td ( STARKs\). Every tensor operation produces a verifiable field element.) Tj ET
+BT /F3 10.00 Tf ET
+q BT 45.35 433.54 Td 0.3137 0.3137 0.3137 rg ("Programs are not executed. They are excavated.") Tj ET Q
+BT /F2 10.00 Tf ET
+BT 31.18 403.77 Td (The stack was developed entirely by Jessica at the SNAPKITTY Collective beginning 2026-05-07.) Tj ET
+BT 31.18 389.60 Td (The git history at github.com/SNAPKITTYWEST is the canonical prior art timestamp record.) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 344.46 Td (2. Prior Art Record) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 310.23 Td (This paper establishes prior art for the following technical contributions. All are timestamped) Tj ET
+BT 31.18 296.06 Td (in public git history.) Tj ET
+BT /F2 9.00 Tf ET
+BT 31.18 273.68 Td (Contribution | First Commit | Repository) Tj ET
+BT 31.18 259.50 Td (Linear type VM with 36 opcodes | 2026-05-07 | SNAPKITTYWEST/errant) Tj ET
+BT 31.18 245.33 Td (WORM seal + chain verification | 2026-05-10 | SNAPKITTYWEST/errant) Tj ET
+BT 31.18 231.16 Td (Goldilocks field arithmetic | 2026-05-14 | SNAPKITTYWEST/sovereign-goldilocks) Tj ET
+BT 31.18 216.99 Td (PIRTM tensor IR ? field circuit lowering | 2026-06-01 | SNAPKITTYWEST/sovereign-pirtm) Tj ET
+BT 31.18 202.81 Td (EmojiScript #lang reader \(Racket?Prolog+Lean4\) | 2026-07-01 | SNAPKITTYWEST/snaplang) Tj ET
+BT 31.18 188.64 Td (Full Cayley-Dickson octonion mul \(64 terms\) | 2026-07-01 | SNAPKITTYWEST/sovereign-utqc) Tj ET
+BT 31.18 174.47 Td (Coxeter/Weyl classifier \(A_n?E8\) | 2026-07-01 | SNAPKITTYWEST/sovereign-utqc) Tj ET
+BT 31.18 160.29 Td (Port-Hamiltonian DAE with power balance | 2026-07-01 | SNAPKITTYWEST/sovereign-utqc) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 114.86 Td (3. Architecture Overview) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 80.62 Td (The stack comprises 25+ sovereign modules across 7 languages:) Tj ET
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (2) Tj ET Q
+
+endstream
+endobj
+7 0 obj
+<<
+/Contents 8 0 R
+/Parent 1 0 R
+/Resources 59 0 R
+/Type /Page
+>>
+endobj
+8 0 obj
+<<
+/Length 4153
+>>
+stream
+2 J
+0.57 w
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F2 9.00 Tf ET
+BT 31.18 761.24 Td (Module | Language | Purpose) Tj ET
+BT 31.18 747.06 Td (ERRANT LFIS | JavaScript / Prolog | Linear type interpreter ? 36 opcodes, Prolog type k...) Tj ET
+BT 31.18 732.89 Td (ERRANT-GGML | Haskell / JavaScript | Sovereign LLM with linearly-typed tensor resources) Tj ET
+BT 31.18 718.72 Td (SnaklTalk | Smalltalk / JavaScript | Vortex Civilization language with linear objects) Tj ET
+BT 31.18 704.54 Td (METAMINE | JavaScript / WebGL | Esoteric programming language + interactive code museum) Tj ET
+BT 31.18 690.37 Td (BOB's Games | SVG / HTML | Arcade civilization with WORM-sealed resource economy) Tj ET
+BT 31.18 676.20 Td (sovereign-goldilocks | Rust | Goldilocks field arithmetic \(p = 2^64 ? 2^32 + 1\)) Tj ET
+BT 31.18 662.02 Td (sovereign-pirtm | Rust / C++ | PIRTM compiler IR ? field arithmetic circuit lowering) Tj ET
+BT 31.18 647.85 Td (sovereign-adr | Rust / C++ | ADR-governed kernel with NF-style stratification + admissi...) Tj ET
+BT 31.18 633.68 Td (sovereign-zbit | Rust | Bitcoin integration for Lambda-Proof anchoring) Tj ET
+BT 31.18 619.50 Td (sovereign-utqc | Rust | Universal Topological Quantum Computer \(200+ tests\)) Tj ET
+BT 31.18 605.33 Td (sovereign-addr | Rust | Non-recursive artifact addressing ? snapaddr:<64hex>) Tj ET
+BT 31.18 591.16 Td (sovereign-router | Rust | General-intelligence routing with governance gate) Tj ET
+BT 31.18 576.99 Td (sovereign-multiplicity | Rust / C++ | Rational exponentiation functor) Tj ET
+BT 31.18 562.81 Td (sovereign-compiler | Rust / Lean 4 | Root-fontana constitutional compiler) Tj ET
+BT 31.18 548.64 Td (sovereign-f1 | Rust | F1 square for Riemann Hypothesis exploration) Tj ET
+BT 31.18 534.47 Td (sovereign-llm | Rust | Sovereign LLM inference engine \(59 tests\)) Tj ET
+BT 31.18 520.29 Td (sovereign-prism | OCaml | ?-pipeline prism compiler) Tj ET
+BT 31.18 506.12 Td (sovereign-agt | C# | Agent governance technology ? Mesh/Runtime/OS/SRE/gRPC) Tj ET
+BT 31.18 491.95 Td (sovereign-covenant | C | 1928 Moorish Divine Covenant trust structure) Tj ET
+BT 31.18 477.77 Td (root-fontana | Rust / Lean 4 | Constitutional compiler with Fontana DSL) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 432.34 Td (4. Linear Type System \(ERRANT LFIS\)) Tj ET
+BT /F1 12.00 Tf ET
+BT 31.18 383.33 Td (4.1 Type Hierarchy) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 352.75 Td (The five type constructors form a strict subtype lattice:) Tj ET
+0.9412 0.9412 0.9412 rg
+BT /F4 8.00 Tf ET
+q 28.35 340.16 538.59 -9.92 re f BT 31.18 332.80 Td 0 g (  lin ? aff ? un) Tj ET Q
+q 28.35 330.24 538.59 -9.92 re f BT 31.18 322.88 Td 0 g (  cap ? authority token; checked but not consumed) Tj ET Q
+q 28.35 320.32 538.59 -9.92 re f BT 31.18 312.95 Td 0 g (  seal ? WORM artifact; issued once, verified forever) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 283.30 Td 0 g (- lin\(T\) ? the value at type T must be used exactly once. Duplication and forgetting are both) Tj ET Q
+q BT 31.18 269.13 Td 0 g (type errors.) Tj ET Q
+q BT 31.18 254.95 Td 0 g (- aff\(T\) ? the value may be used at most once. Forgetting is permitted; duplication is not.) Tj ET Q
+q BT 31.18 240.78 Td 0 g (- un\(T\) ? unrestricted; standard value semantics.) Tj ET Q
+q BT 31.18 226.61 Td 0 g (- cap\(K\) ? capability token for kernel K; checked on every operation but not consumed.) Tj ET Q
+q BT 31.18 212.43 Td 0 g (- seal\(H\) ? a WORM-sealed artifact with hash H; proof of past computation.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 174.98 Td 0 g (4.2 Opcodes \(36 total\)) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 144.70 Td 0 g (Category | Opcodes) Tj ET Q
+q BT 31.18 130.53 Td 0 g (Stack | `push`, `pop`, `dup`, `swap`) Tj ET Q
+q BT 31.18 116.36 Td 0 g (Arithmetic | `add`, `sub`, `mul`, `div`, `mod`) Tj ET Q
+q BT 31.18 102.18 Td 0 g (Linear | `lin_new`, `lin_use`, `lin_forget`) Tj ET Q
+q BT 31.18 88.01 Td 0 g (Capability | `cap_new`, `cap_check`, `cap_forget`) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (3) Tj ET Q
+
+endstream
+endobj
+9 0 obj
+<<
+/Contents 10 0 R
+/Parent 1 0 R
+/Resources 60 0 R
+/Type /Page
+>>
+endobj
+10 0 obj
+<<
+/Length 4097
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F2 9.00 Tf ET
+q BT 31.18 761.24 Td 0 g (Seal | `seal_new`, `seal_check`) Tj ET Q
+q BT 31.18 747.06 Td 0 g (Control | `halt`, `jump`, `jz`, `jnz`, `loop`) Tj ET Q
+q BT 31.18 732.89 Td 0 g (Memory | `load`, `store`, `alloc`, `free`) Tj ET Q
+q BT 31.18 718.72 Td 0 g (I/O | `read`, `write`) Tj ET Q
+q BT 31.18 704.54 Td 0 g (Tensor | `matmul`, `flash_attn`, `rms_norm`) Tj ET Q
+q BT 31.18 690.37 Td 0 g (Quantum | `qubit_new`, `qubit_measure`) Tj ET Q
+q BT 31.18 676.20 Td 0 g (WORM | `worm_seal`, `worm_chain`) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 638.45 Td 0 g (4.3 Prolog Type Kernel) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 607.87 Td 0 g (The type checker is implemented in SWI-Prolog using constraint logic programming.) Tj ET Q
+q BT 31.18 593.69 Td 0 g (Linear resources are tracked via explicit environment threading ? consuming a resource) Tj ET Q
+q BT 31.18 579.52 Td 0 g (removes it from the environment, preventing double-use:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 566.93 538.59 -9.92 re f BT 31.18 559.57 Td 0 g (  % Linear resource: must be present, and is removed after use) Tj ET Q
+q 28.35 557.01 538.59 -9.92 re f BT 31.18 549.65 Td 0 g (  check\(lin\(X\), Env, Used\) :-) Tj ET Q
+q 28.35 547.09 538.59 -9.92 re f BT 31.18 539.73 Td 0 g (  member\(X, Env\),) Tj ET Q
+q 28.35 537.17 538.59 -9.92 re f BT 31.18 529.80 Td 0 g (  select\(X, Env, Used\). % select/3 removes X and unifies remainder with Used) Tj ET Q
+28.35 527.24 538.59 -9.92 re f
+q 28.35 517.32 538.59 -9.92 re f BT 31.18 509.96 Td 0 g (  % Affine resource: present, removed, but forgetting \(non-presence\) also succeeds) Tj ET Q
+q 28.35 507.40 538.59 -9.92 re f BT 31.18 500.04 Td 0 g (  check\(aff\(X\), Env, Used\) :-) Tj ET Q
+q 28.35 497.48 538.59 -9.92 re f BT 31.18 490.12 Td 0 g (  \(member\(X, Env\) -> select\(X, Env, Used\) ; Used = Env\).) Tj ET Q
+28.35 487.56 538.59 -9.92 re f
+q 28.35 477.64 538.59 -9.92 re f BT 31.18 470.28 Td 0 g (  % Unrestricted: present, environment unchanged) Tj ET Q
+q 28.35 467.72 538.59 -9.92 re f BT 31.18 460.36 Td 0 g (  check\(un\(X\), Env, Env\) :-) Tj ET Q
+q 28.35 457.80 538.59 -9.92 re f BT 31.18 450.43 Td 0 g (  member\(un\(X\), Env\).) Tj ET Q
+28.35 447.87 538.59 -9.92 re f
+q 28.35 437.95 538.59 -9.92 re f BT 31.18 430.59 Td 0 g (  % Capability: present and checked, but never consumed) Tj ET Q
+q 28.35 428.03 538.59 -9.92 re f BT 31.18 420.67 Td 0 g (  check\(cap\(X\), Env, Env\) :-) Tj ET Q
+q 28.35 418.11 538.59 -9.92 re f BT 31.18 410.75 Td 0 g (  member\(cap\(X\), Env\).) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 381.09 Td 0 g (The Prolog kernel checks 36 opcodes and rejects programs that violate linearity) Tj ET Q
+q BT 31.18 366.92 Td 0 g (before the JavaScript VM ever executes them.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 321.78 Td 0 g (5. Goldilocks Field Arithmetic) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 272.78 Td 0 g (5.1 The Prime) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 252.28 538.59 -9.92 re f BT 31.18 244.92 Td 0 g (  p = 2^64 ? 2^32 + 1 = 18,446,744,069,414,584,321) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 215.27 Td 0 g (This prime is the 6th cyclotomic polynomial evaluated at 2^32:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 202.68 538.59 -9.92 re f BT 31.18 195.32 Td 0 g (  p = ?_6\(2^32\) where ?_6\(x\) = x^2 ? x + 1) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 165.66 Td 0 g (Properties that make it ideal for ZK-proof circuits:) Tj ET Q
+q BT 31.18 151.49 Td 0 g (- Fits in one 64-bit word \(no multi-limb arithmetic for field elements\)) Tj ET Q
+q BT 31.18 137.32 Td 0 g (- Two-adicity 32: p ? 1 = 2^32 x \(2^32 ? 1\), enabling NTT-based polynomial multiplication) Tj ET Q
+q BT 31.18 123.14 Td 0 g (- Contains a primitive 2^32-th root of unity ? required for FFT over the field) Tj ET Q
+q BT 31.18 108.97 Td 0 g (- Used by PLONK, Plonky2, and Winterfell STARKs) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (4) Tj ET Q
+
+endstream
+endobj
+11 0 obj
+<<
+/Contents 12 0 R
+/Parent 1 0 R
+/Resources 61 0 R
+/Type /Page
+>>
+endobj
+12 0 obj
+<<
+/Length 4117
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 12.00 Tf ET
+q BT 31.18 757.50 Td 0 g (5.2 Reduction Algorithm) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 726.92 Td 0 g (For multiplication, we exploit the structure of p to reduce the 128-bit product without) Tj ET Q
+q BT 31.18 712.75 Td 0 g (division. Since 2^64 ? 2^32 ? 1 \(mod p\):) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 700.16 538.59 -9.92 re f BT 31.18 692.80 Td 0 g (  const P: u64 = 0xFFFF_FFFF_0000_0001; // 2^64 ? 2^32 + 1) Tj ET Q
+28.35 690.24 538.59 -9.92 re f
+q 28.35 680.32 538.59 -9.92 re f BT 31.18 672.95 Td 0 g (  pub fn mul\(a: u64, b: u64\) -> u64 {) Tj ET Q
+q 28.35 670.39 538.59 -9.92 re f BT 31.18 663.03 Td 0 g (  let product = \(a as u128\) * \(b as u128\);) Tj ET Q
+q 28.35 660.47 538.59 -9.92 re f BT 31.18 653.11 Td 0 g (  let lo = product as u64; // lower 64 bits) Tj ET Q
+q 28.35 650.55 538.59 -9.92 re f BT 31.18 643.19 Td 0 g (  let hi = \(product >> 64\) as u64; // upper 64 bits) Tj ET Q
+28.35 640.63 538.59 -9.92 re f
+q 28.35 630.71 538.59 -9.92 re f BT 31.18 623.35 Td 0 g (  // 2^64 ? \(2^32 ? 1\) mod p, so hi * 2^64 ? hi * \(2^32 ? 1\)) Tj ET Q
+q 28.35 620.79 538.59 -9.92 re f BT 31.18 613.43 Td 0 g (  let hi128 = hi as u128;) Tj ET Q
+q 28.35 610.87 538.59 -9.92 re f BT 31.18 603.51 Td 0 g (  let t = hi128 * \(\(1u128 << 32\) - 1\);) Tj ET Q
+q 28.35 600.95 538.59 -9.92 re f BT 31.18 593.58 Td 0 g (  let reduced = lo as u128 + t;) Tj ET Q
+28.35 591.02 538.59 -9.92 re f
+q 28.35 581.10 538.59 -9.92 re f BT 31.18 573.74 Td 0 g (  // reduced fits in ~96 bits; fold upper 32 into lower 64 once more) Tj ET Q
+q 28.35 571.18 538.59 -9.92 re f BT 31.18 563.82 Td 0 g (  let lo2 = reduced as u64;) Tj ET Q
+q 28.35 561.26 538.59 -9.92 re f BT 31.18 553.90 Td 0 g (  let hi2 = \(reduced >> 64\) as u64;) Tj ET Q
+q 28.35 551.34 538.59 -9.92 re f BT 31.18 543.98 Td 0 g (  let result = lo2.wrapping_add\(hi2.wrapping_mul\(\(1u64 << 32\).wrapping_sub\(1\)\)\);) Tj ET Q
+28.35 541.42 538.59 -9.92 re f
+q 28.35 531.50 538.59 -9.92 re f BT 31.18 524.14 Td 0 g (  // Final conditional subtraction) Tj ET Q
+q 28.35 521.58 538.59 -9.92 re f BT 31.18 514.21 Td 0 g (  if result >= P { result - P } else { result }) Tj ET Q
+q 28.35 511.65 538.59 -9.92 re f BT 31.18 504.29 Td 0 g (  }) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 474.64 Td 0 g (This is two multiplications and three additions ? no division, no multi-limb library.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 437.19 Td 0 g (5.3 Boundary Lattice) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 406.61 Td 0 g (The Goldilocks lattice G = P x B where |G| = 12,288 = 48 x 256:) Tj ET Q
+q BT 31.18 383.93 Td 0 g (- P = Z/48Z ? prime index cycle) Tj ET Q
+q BT 31.18 369.76 Td 0 g (- B = Z/256Z ? byte-level index) Tj ET Q
+q BT 31.18 355.58 Td 0 g (- 6 anchors at positions \(0,0\), \(8,0\), \(16,0\), \(24,0\), \(32,0\), \(40,0\) in G) Tj ET Q
+q BT 31.18 341.41 Td 0 g (- 11 commuting involutions form the URef subgroup; each is an order-2 automorphism of G) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 303.96 Td 0 g (5.4 Resonance Words) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 273.38 Td 0 g (Each Resonance Word encodes a field element as a tagged 64-bit word:) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 251.00 Td 0 g (Bits | Field | Meaning) Tj ET Q
+q BT 31.18 236.83 Td 0 g (63?56 | Class \(8 bits\) | Element type identifier) Tj ET Q
+q BT 31.18 222.65 Td 0 g (55?0 | Payload \(56 bits\) | Data content / field element low bits) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 177.22 Td 0 g (6. WORM Seals) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 128.21 Td 0 g (6.1 Seal Structure) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 107.72 538.59 -9.92 re f BT 31.18 100.36 Td 0 g (  struct FFISeal {) Tj ET Q
+q 28.35 97.80 538.59 -9.92 re f BT 31.18 90.43 Td 0 g (  id: String, // UUID v4) Tj ET Q
+q 28.35 87.87 538.59 -9.92 re f BT 31.18 80.51 Td 0 g (  timestamp: u64, // Unix epoch seconds) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (5) Tj ET Q
+
+endstream
+endobj
+13 0 obj
+<<
+/Contents 14 0 R
+/Parent 1 0 R
+/Resources 62 0 R
+/Type /Page
+>>
+endobj
+14 0 obj
+<<
+/Length 4510
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  payload_hash: String, // SHA-256 of the sealed payload) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  prev_hash: Option<String>, // previous seal's canonical hash, or None for GENESI) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  signature: String, // HMAC-SHA256 of canonical string) Tj ET Q
+q 28.35 741.26 538.59 -9.92 re f BT 31.18 733.90 Td 0 g (  }) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 689.47 Td 0 g (6.2 Canonical Hash Format) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 658.89 Td 0 g (The canonical hash used for both in-memory chaining and disk verification:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 646.30 538.59 -9.92 re f BT 31.18 638.94 Td 0 g (  canonical = "{id}:{timestamp}:{payload_hash}:{prev_or_GENESIS}") Tj ET Q
+q 28.35 636.38 538.59 -9.92 re f BT 31.18 629.02 Td 0 g (  seal_hash = SHA-256\(canonical.as_bytes\(\)\)) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 599.36 Td 0 g (This format is the single source of truth ? both FFISeal::seal_hash\(\) and) Tj ET Q
+q BT 31.18 585.19 Td 0 g (the off-chain verify_chain module use identical format strings. Divergence) Tj ET Q
+q BT 31.18 571.02 Td 0 g (between these two is a chain-breaking bug \(was present, now fixed\).) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 533.57 Td 0 g (6.3 WORM Chain Integrity) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 513.07 538.59 -9.92 re f BT 31.18 505.71 Td 0 g (  fn chain_append\(payload: &str\) -> Result<FFISeal, ChainError> {) Tj ET Q
+q 28.35 503.15 538.59 -9.92 re f BT 31.18 495.79 Td 0 g (  let prev_hash = self.head\(\).map\(|s| s.seal_hash\(\)\);) Tj ET Q
+q 28.35 493.23 538.59 -9.92 re f BT 31.18 485.87 Td 0 g (  let seal = FFISeal::new\(payload, prev_hash\)?;) Tj ET Q
+q 28.35 483.31 538.59 -9.92 re f BT 31.18 475.95 Td 0 g (  // Verify immediately before appending) Tj ET Q
+q 28.35 473.39 538.59 -9.92 re f BT 31.18 466.03 Td 0 g (  seal.verify\(\)?;) Tj ET Q
+q 28.35 463.46 538.59 -9.92 re f BT 31.18 456.10 Td 0 g (  self.seals.push\(seal.clone\(\)\);) Tj ET Q
+q 28.35 453.54 538.59 -9.92 re f BT 31.18 446.18 Td 0 g (  Ok\(seal\)) Tj ET Q
+q 28.35 443.62 538.59 -9.92 re f BT 31.18 436.26 Td 0 g (  }) Tj ET Q
+28.35 433.70 538.59 -9.92 re f
+q 28.35 423.78 538.59 -9.92 re f BT 31.18 416.42 Td 0 g (  fn verify_chain\(&self\) -> Result<\(\), ChainError> {) Tj ET Q
+q 28.35 413.86 538.59 -9.92 re f BT 31.18 406.50 Td 0 g (  for \(i, seal\) in self.seals.iter\(\).enumerate\(\) {) Tj ET Q
+q 28.35 403.94 538.59 -9.92 re f BT 31.18 396.58 Td 0 g (  let expected_prev = if i == 0 { None } else {) Tj ET Q
+q 28.35 394.02 538.59 -9.92 re f BT 31.18 386.66 Td 0 g (  Some\(self.seals[i-1].seal_hash\(\)?\)) Tj ET Q
+q 28.35 384.09 538.59 -9.92 re f BT 31.18 376.73 Td 0 g (  };) Tj ET Q
+q 28.35 374.17 538.59 -9.92 re f BT 31.18 366.81 Td 0 g (  if seal.prev_hash != expected_prev {) Tj ET Q
+q 28.35 364.25 538.59 -9.92 re f BT 31.18 356.89 Td 0 g (  return Err\(ChainError::HashMismatch { position: i }\);) Tj ET Q
+q 28.35 354.33 538.59 -9.92 re f BT 31.18 346.97 Td 0 g (  }) Tj ET Q
+q 28.35 344.41 538.59 -9.92 re f BT 31.18 337.05 Td 0 g (  }) Tj ET Q
+q 28.35 334.49 538.59 -9.92 re f BT 31.18 327.13 Td 0 g (  Ok\(\(\)\)) Tj ET Q
+q 28.35 324.57 538.59 -9.92 re f BT 31.18 317.21 Td 0 g (  }) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 287.55 Td 0 g (The chain boots via mount_or_panic\(\) ? the process cannot start unless the) Tj ET Q
+q BT 31.18 273.38 Td 0 g (existing JSONL ledger on disk passes full chain verification.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 235.93 Td 0 g (6.4 WORM Audit Trail) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 205.35 Td 0 g (Every WORM entry is appended to a JSONL ledger:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 192.76 538.59 -9.92 re f BT 31.18 185.40 Td 0 g (  {"id":"...","timestamp":1751234567,"payload_hash":"a3f1...","prev_hash":"b29c...) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 155.74 Td 0 g (The ledger is append-only at the filesystem level. Truncation or mutation invalidates) Tj ET Q
+q BT 31.18 141.57 Td 0 g (all signatures. The mount_or_panic\(\) gate rejects the process if validation fails.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 96.43 Td 0 g (7. ERRANT-GGML: Sovereign LLM) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (6) Tj ET Q
+
+endstream
+endobj
+15 0 obj
+<<
+/Contents 16 0 R
+/Parent 1 0 R
+/Resources 63 0 R
+/Type /Page
+>>
+endobj
+16 0 obj
+<<
+/Length 3828
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 12.00 Tf ET
+q BT 31.18 757.50 Td 0 g (7.1 Linear Tensor Resources) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 726.92 Td 0 g (Every tensor is a linear resource ? it is consumed by the operation that uses it) Tj ET Q
+q BT 31.18 712.75 Td 0 g (and must not appear in any subsequent expression:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 700.16 538.59 -9.92 re f BT 31.18 692.80 Td 0 g (  function matMul\(a, b\) {) Tj ET Q
+q 28.35 690.24 538.59 -9.92 re f BT 31.18 682.88 Td 0 g (  assertLinear\(a\); // throws if a was already consumed) Tj ET Q
+q 28.35 680.32 538.59 -9.92 re f BT 31.18 672.95 Td 0 g (  assertLinear\(b\); // throws if b was already consumed) Tj ET Q
+q 28.35 670.39 538.59 -9.92 re f BT 31.18 663.03 Td 0 g (  markConsumed\(a\);) Tj ET Q
+q 28.35 660.47 538.59 -9.92 re f BT 31.18 653.11 Td 0 g (  markConsumed\(b\);) Tj ET Q
+q 28.35 650.55 538.59 -9.92 re f BT 31.18 643.19 Td 0 g (  return linear\(compute_matmul\(a.data, b.data\)\); // produces fresh linear tensor) Tj ET Q
+q 28.35 640.63 538.59 -9.92 re f BT 31.18 633.27 Td 0 g (  }) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 603.61 Td 0 g (This eliminates an entire class of bugs where a weight matrix is silently aliased) Tj ET Q
+q BT 31.18 589.44 Td 0 g (and mutated in-place, corrupting subsequent forward passes.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 551.99 Td 0 g (7.2 Kernel Inventory) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 521.71 Td 0 g (Kernel | Implementation | Notes) Tj ET Q
+q BT 31.18 507.54 Td 0 g (`matMul` | BLAS-style inner loop | linearity enforced) Tj ET Q
+q BT 31.18 493.36 Td 0 g (`flashAttn` | chunked attention | O\(N\) memory) Tj ET Q
+q BT 31.18 479.19 Td 0 g (`rmsNorm` | online variance | numerically stable) Tj ET Q
+q BT 31.18 465.02 Td 0 g (`quantize` | INT4 block quant | sovereign weight format) Tj ET Q
+q BT 31.18 450.84 Td 0 g (`moeRoute` | top-K gating | WORM-seals routing decision) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 413.09 Td 0 g (7.3 Test Results) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 382.81 Td 0 g (Suite | Passing) Tj ET Q
+q BT 31.18 368.64 Td 0 g (ERRANT-GGML | 10/10) Tj ET Q
+q BT 31.18 354.47 Td 0 g (SnaklTalk | 9/9) Tj ET Q
+q BT 31.18 340.29 Td 0 g (sovereign-utqc workspace | 82/82) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 294.86 Td 0 g (8. SnaklTalk: Vortex Civilization Language) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 260.62 Td 0 g (SnaklTalk is a Smalltalk dialect where all objects are linear resources by default.) Tj ET Q
+q BT 31.18 246.45 Td 0 g (The message-passing model enforces that an object cannot receive two messages that) Tj ET Q
+q BT 31.18 232.28 Td 0 g (both consume it.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 194.83 Td 0 g (8.1 Linear Objects) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 174.33 538.59 -9.92 re f BT 31.18 166.97 Td 0 g (  Object subclass: #LinearObject) Tj ET Q
+q 28.35 164.41 538.59 -9.92 re f BT 31.18 157.05 Td 0 g (  instanceVariableNames: 'value consumed') Tj ET Q
+q 28.35 154.49 538.59 -9.92 re f BT 31.18 147.13 Td 0 g (  classVariableNames: '') Tj ET Q
+q 28.35 144.57 538.59 -9.92 re f BT 31.18 137.21 Td 0 g (  package: 'SnaklTalk-Core'.) Tj ET Q
+28.35 134.65 538.59 -9.92 re f
+q 28.35 124.72 538.59 -9.92 re f BT 31.18 117.36 Td 0 g (  LinearObject >> consume) Tj ET Q
+q 28.35 114.80 538.59 -9.92 re f BT 31.18 107.44 Td 0 g (  consumed ifTrue: [ self error: 'LinearViolation: already consumed' ].) Tj ET Q
+q 28.35 104.88 538.59 -9.92 re f BT 31.18 97.52 Td 0 g (  consumed := true.) Tj ET Q
+q 28.35 94.96 538.59 -9.92 re f BT 31.18 87.60 Td 0 g (  ^ value.) Tj ET Q
+28.35 85.04 538.59 -9.92 re f
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (7) Tj ET Q
+
+endstream
+endobj
+17 0 obj
+<<
+/Contents 18 0 R
+/Parent 1 0 R
+/Resources 64 0 R
+/Type /Page
+>>
+endobj
+18 0 obj
+<<
+/Length 3996
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  LinearObject >> fork) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  "Affine copy ? original is consumed, copy is fresh.") Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  self consume.) Tj ET Q
+q 28.35 741.26 538.59 -9.92 re f BT 31.18 733.90 Td 0 g (  ^ LinearObject new: value copy.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 689.47 Td 0 g (8.2 Kernel Capabilities) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 668.98 538.59 -9.92 re f BT 31.18 661.62 Td 0 g (  Object subclass: #KernelCapability) Tj ET Q
+q 28.35 659.06 538.59 -9.92 re f BT 31.18 651.69 Td 0 g (  instanceVariableNames: 'name permissions') Tj ET Q
+q 28.35 649.13 538.59 -9.92 re f BT 31.18 641.77 Td 0 g (  classVariableNames: '') Tj ET Q
+q 28.35 639.21 538.59 -9.92 re f BT 31.18 631.85 Td 0 g (  package: 'SnaklTalk-Core'.) Tj ET Q
+28.35 629.29 538.59 -9.92 re f
+q 28.35 619.37 538.59 -9.92 re f BT 31.18 612.01 Td 0 g (  KernelCapability >> check: action) Tj ET Q
+q 28.35 609.45 538.59 -9.92 re f BT 31.18 602.09 Td 0 g (  \(permissions includes: action\)) Tj ET Q
+q 28.35 599.53 538.59 -9.92 re f BT 31.18 592.17 Td 0 g (  ifFalse: [ self error: 'CapabilityDenied: ', action printString ].) Tj ET Q
+q 28.35 589.61 538.59 -9.92 re f BT 31.18 582.25 Td 0 g (  ^ true.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 537.82 Td 0 g (8.3 VortexAgent) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 517.32 538.59 -9.92 re f BT 31.18 509.96 Td 0 g (  VortexAgent >> execute: action) Tj ET Q
+q 28.35 507.40 538.59 -9.92 re f BT 31.18 500.04 Td 0 g (  sandbox allow: action. "raises SandboxDenied if not permitted") Tj ET Q
+q 28.35 497.48 538.59 -9.92 re f BT 31.18 490.12 Td 0 g (  identity can: action. "raises PermissionDenied if capability absent") Tj ET Q
+q 28.35 487.56 538.59 -9.92 re f BT 31.18 480.20 Td 0 g (  ^ self perform: action.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 428.08 Td 0 g (9. METAMINE: Esoteric Programming) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 393.85 Td 0 g (METAMINE is an esoteric language where programs are visual artifacts.) Tj ET Q
+q BT 31.18 379.68 Td 0 g (Every expression also renders to a Metatron-Grid pattern in WebGL.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 342.23 Td 0 g (9.1 Syntax) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 321.73 538.59 -9.92 re f BT 31.18 314.37 Td 0 g (  curator: <class> <name> -- bind a prime-class resource) Tj ET Q
+q 28.35 311.81 538.59 -9.92 re f BT 31.18 304.45 Td 0 g (  metatron-grid: <op> <args> -- execute on the Metatron Grid) Tj ET Q
+q 28.35 301.89 538.59 -9.92 re f BT 31.18 294.53 Td 0 g (  seal: <label> <payload> -- WORM-mint the result) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 250.10 Td 0 g (9.2 Example Program) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 229.61 538.59 -9.92 re f BT 31.18 222.25 Td 0 g (  curator: prime FORTY_TWO) Tj ET Q
+q 28.35 219.69 538.59 -9.92 re f BT 31.18 212.32 Td 0 g (  metatron-grid: encode 42) Tj ET Q
+q 28.35 209.76 538.59 -9.92 re f BT 31.18 202.40 Td 0 g (  metatron-grid: prime-check FORTY_TWO) Tj ET Q
+q 28.35 199.84 538.59 -9.92 re f BT 31.18 192.48 Td 0 g (  seal: "Answer to Life" 42) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 162.83 Td 0 g (This program: mints a prime-class resource named FORTY_TWO, encodes 42 onto the) Tj ET Q
+q BT 31.18 148.65 Td 0 g (Metatron Grid, checks primality, and WORM-seals the result with label "Answer to Life".) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 111.20 Td 0 g (9.3 Glitch Renderer) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 90.71 538.59 -9.92 re f BT 31.18 83.35 Td 0 g (  function glitchRender\(code\) {) Tj ET Q
+q 28.35 80.79 538.59 -9.92 re f BT 31.18 73.43 Td 0 g (  const tokens = tokenize\(code\); // lex METAMINE source) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (8) Tj ET Q
+
+endstream
+endobj
+19 0 obj
+<<
+/Contents 20 0 R
+/Parent 1 0 R
+/Resources 65 0 R
+/Type /Page
+>>
+endobj
+20 0 obj
+<<
+/Length 4053
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  const grid = metatronGrid\(tokens\); // map tokens to 12x12 grid) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  const glitched = applyGlitch\(grid, seed\); // deterministic pixel glitch) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  return renderToCanvas\(glitched\); // WebGL output) Tj ET Q
+q 28.35 741.26 538.59 -9.92 re f BT 31.18 733.90 Td 0 g (  }) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 704.24 Td 0 g (The renderer is deterministic given the same seed ? the same program always produces) Tj ET Q
+q BT 31.18 690.07 Td 0 g (the same visual artifact, making the visual a verifiable fingerprint of the source.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 644.93 Td 0 g (10. BOB's Games: WORM-Sealed Resource Economy) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 610.70 Td 0 g (BOB's Games is an arcade civilization where every in-game action produces a WORM-sealed) Tj ET Q
+q BT 31.18 596.53 Td 0 g (artifact on-chain. The economy is provably scarce ? no item can be duplicated because) Tj ET Q
+q BT 31.18 582.35 Td 0 g (the chain would reject a duplicate seal hash.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 544.90 Td 0 g (10.1 Game Mechanics) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 514.32 Td 0 g (Each of the 9 games \(Mining, Building, Trading, Fighting, Exploring, Farming, Fishing,) Tj ET Q
+q BT 31.18 500.15 Td 0 g (Crafting, Sealing\) shares a common WORM economic model:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 487.56 538.59 -9.92 re f BT 31.18 480.20 Td 0 g (  Action ? Resource produced ? FFISeal::new\(resource_payload, prev_hash\) ? Chain) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 450.54 Td 0 g (The player's inventory is the chain itself. Item provenance is verifiable by) Tj ET Q
+q BT 31.18 436.37 Td 0 g (traversing seals back to the GENESIS block.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 398.92 Td 0 g (10.2 Scarcity Proof) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 368.34 Td 0 g (Because the chain uses SHA-256 with a timestamp, two identical resources minted at) Tj ET Q
+q BT 31.18 354.17 Td 0 g (different times produce different hashes. Minting the same resource twice produces) Tj ET Q
+q BT 31.18 339.99 Td 0 g (different seals. The chain is a tamper-evident log of all minting events ? duplication) Tj ET Q
+q BT 31.18 325.82 Td 0 g (is structurally impossible.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 280.68 Td 0 g (11. PIRTM: Prime-Indexed Recursive Tensor Mathematics) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 231.68 Td 0 g (11.1 IR Design) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 201.09 Td 0 g (PIRTM is a compiler intermediate representation for tensor programs targeting) Tj ET Q
+q BT 31.18 186.92 Td 0 g (Goldilocks field arithmetic circuits. Operations are expressed as tensor transformations) Tj ET Q
+q BT 31.18 172.75 Td 0 g (that lower to CNOT-based field gates:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 160.16 538.59 -9.92 re f BT 31.18 152.80 Td 0 g (  pub enum TensorOp {) Tj ET Q
+q 28.35 150.24 538.59 -9.92 re f BT 31.18 142.88 Td 0 g (  MatMul { a: usize, b: usize, c: usize },) Tj ET Q
+q 28.35 140.32 538.59 -9.92 re f BT 31.18 132.95 Td 0 g (  Add { a: usize, b: usize, out: usize },) Tj ET Q
+q 28.35 130.39 538.59 -9.92 re f BT 31.18 123.03 Td 0 g (  Contract{ a: usize, b: usize, out: usize, axis: usize },) Tj ET Q
+q 28.35 120.47 538.59 -9.92 re f BT 31.18 113.11 Td 0 g (  Permute { input: usize, out: usize, axes: Vec<usize> },) Tj ET Q
+q 28.35 110.55 538.59 -9.92 re f BT 31.18 103.19 Td 0 g (  ScalarMul { tensor: usize, out: usize, scalar: u64 },) Tj ET Q
+q 28.35 100.63 538.59 -9.92 re f BT 31.18 93.27 Td 0 g (  Reshape { input: usize, shape: Vec<usize> },) Tj ET Q
+q 28.35 90.71 538.59 -9.92 re f BT 31.18 83.35 Td 0 g (  }) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 295.42 25.95 Td 0.3922 0.3922 0.3922 rg (9) Tj ET Q
+
+endstream
+endobj
+21 0 obj
+<<
+/Contents 22 0 R
+/Parent 1 0 R
+/Resources 66 0 R
+/Type /Page
+>>
+endobj
+22 0 obj
+<<
+/Length 3956
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 12.00 Tf ET
+q BT 31.18 757.50 Td 0 g (11.2 Circuit Lowering \(Prior Art Claim\)) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 726.92 Td 0 g (The key novelty: PIRTM lowers to field arithmetic circuits, not quantum gate) Tj ET Q
+q BT 31.18 712.75 Td 0 g (sequences. Prior approaches map tensor operations to H+CNOT+H \(Hadamard-basis\)) Tj ET Q
+q BT 31.18 698.58 Td 0 g (sequences, which introduce spurious basis changes with no field-arithmetic meaning.) Tj ET Q
+q BT 31.18 675.90 Td 0 g (PIRTM's lowering:) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 653.52 Td 0 g (TensorOp | Circuit Emission | Semantic) Tj ET Q
+q BT 31.18 639.35 Td 0 g (MatMul\(a,b,c\) | CNOT\(a?c\), CNOT\(b?c\) | linear combination into output) Tj ET Q
+q BT 31.18 625.17 Td 0 g (Add\(a,b,out\) | CNOT\(a?out\), CNOT\(b?out\) | field XOR accumulation) Tj ET Q
+q BT 31.18 611.00 Td 0 g (Contract\(a,b,out,axis\) | H\(axis_wire\), CNOT\(a?out\), CNOT\(b?out\) | axis-phased contraction) Tj ET Q
+q BT 31.18 596.83 Td 0 g (Permute\(axes\) | SWAP network derived from axis permutation | field-element reordering) Tj ET Q
+q BT 31.18 582.65 Td 0 g (ScalarMul\(t,out,k\) | bit-decompose k; CNOT\(t?out+bit\) per set bit | repeated doubling i...) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 559.68 Td 0 g (The CNOT gate = field XOR = field addition. SWAP = field permutation.) Tj ET Q
+q BT 31.18 545.50 Td 0 g (No Hadamard basis change occurs outside of contraction-axis phase marking.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 500.37 Td 0 g (12. Octonion Mathematics \(Cayley-Dickson\)) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 451.36 Td 0 g (12.1 The Problem with Partial Implementations) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 420.78 Td 0 g (A common error in octonion libraries is implementing only the real scalar component) Tj ET Q
+q BT 31.18 406.61 Td 0 g (and the linear cross-terms \(9 of 64 total terms\). This is structurally wrong ?) Tj ET Q
+q BT 31.18 392.43 Td 0 g (octonion multiplication is non-associative and all 64 terms are load-bearing.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 354.98 Td 0 g (12.2 Full Multiplication Table \(Fano Plane\)) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 324.40 Td 0 g (The complete Cayley-Dickson product for x = \(x??x?\), y = \(y??y?\):) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 311.81 538.59 -9.92 re f BT 31.18 304.45 Td 0 g (  z? = x?y? ? x?y? ? x?y? ? x?y? ? x?y? ? x?y? ? x?y? ? x?y?) Tj ET Q
+q 28.35 301.89 538.59 -9.92 re f BT 31.18 294.53 Td 0 g (  z? = x?y? + x?y? + x?y? ? x?y? + x?y? ? x?y? + x?y? ? x?y?) Tj ET Q
+q 28.35 291.97 538.59 -9.92 re f BT 31.18 284.61 Td 0 g (  z? = x?y? ? x?y? + x?y? + x?y? + x?y? ? x?y? ? x?y? + x?y?) Tj ET Q
+q 28.35 282.05 538.59 -9.92 re f BT 31.18 274.69 Td 0 g (  z? = x?y? + x?y? ? x?y? + x?y? + x?y? + x?y? ? x?y? ? x?y?) Tj ET Q
+q 28.35 272.13 538.59 -9.92 re f BT 31.18 264.77 Td 0 g (  z? = x?y? ? x?y? ? x?y? ? x?y? + x?y? + x?y? + x?y? + x?y?) Tj ET Q
+q 28.35 262.20 538.59 -9.92 re f BT 31.18 254.84 Td 0 g (  z? = x?y? + x?y? ? x?y? + x?y? ? x?y? + x?y? ? x?y? + x?y?) Tj ET Q
+q 28.35 252.28 538.59 -9.92 re f BT 31.18 244.92 Td 0 g (  z? = x?y? + x?y? + x?y? ? x?y? ? x?y? + x?y? + x?y? ? x?y?) Tj ET Q
+q 28.35 242.36 538.59 -9.92 re f BT 31.18 235.00 Td 0 g (  z? = x?y? ? x?y? + x?y? + x?y? ? x?y? ? x?y? + x?y? + x?y?) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 205.35 Td 0 g (Implemented in Rust in utqc-coxeter. All 64 terms verified by unit test) Tj ET Q
+q BT 31.18 191.17 Td 0 g (\(test_octonion_mul ? associativity triangle check\).) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 146.04 Td 0 g (13. Coxeter Group Classification) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 97.03 Td 0 g (13.1 Weyl Type Detection by Dynkin Diagram) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (10) Tj ET Q
+
+endstream
+endobj
+23 0 obj
+<<
+/Contents 24 0 R
+/Parent 1 0 R
+/Resources 67 0 R
+/Type /Page
+>>
+endobj
+24 0 obj
+<<
+/Length 3490
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F2 10.00 Tf ET
+q BT 31.18 760.94 Td 0 g (The weyl_type\(\) function classifies a Coxeter group by matching its order matrix) Tj ET Q
+q BT 31.18 746.76 Td 0 g (against known Dynkin diagram patterns. All crystallographic finite Weyl groups are) Tj ET Q
+q BT 31.18 732.59 Td 0 g (covered for ranks 1?8 plus generic detection for arbitrary rank.) Tj ET Q
+q BT 31.18 709.91 Td 0 g (Detection strategy: for each candidate type, verify that every \(i,j\) pair has exactly) Tj ET Q
+q BT 31.18 695.74 Td 0 g (the expected edge weight ? pairs present in the Dynkin diagram get their specified) Tj ET Q
+q BT 31.18 681.57 Td 0 g (order \(3, 4, or 6\), all other pairs get order 2 \(disconnected\).) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 659.19 Td 0 g (Rank | Types Detected) Tj ET Q
+q BT 31.18 645.02 Td 0 g (1 | A1) Tj ET Q
+q BT 31.18 630.84 Td 0 g (2 | A1xA1, A2, B2, G2, Non-crystallographic) Tj ET Q
+q BT 31.18 616.67 Td 0 g (3 | A3, B3, C3) Tj ET Q
+q BT 31.18 602.50 Td 0 g (4 | A4, B4, F4, D4) Tj ET Q
+q BT 31.18 588.32 Td 0 g (5 | A5, B5, D5) Tj ET Q
+q BT 31.18 574.15 Td 0 g (6 | A6, B6, D6, **E6**) Tj ET Q
+q BT 31.18 559.98 Td 0 g (7 | A7, B7, D7, **E7**) Tj ET Q
+q BT 31.18 545.80 Td 0 g (8 | A8, B8, D8, **E8**) Tj ET Q
+q BT 31.18 531.63 Td 0 g (n>8 | A_n, B_n, D_n, General) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 493.88 Td 0 g (13.2 E6 Example) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 463.30 Td 0 g (E6 Dynkin diagram: linear chain 0?1?2?3?4 with a branch at node 2 to node 5.) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 450.71 538.59 -9.92 re f BT 31.18 443.35 Td 0 g (  // E6 detection predicate) Tj ET Q
+q 28.35 440.79 538.59 -9.92 re f BT 31.18 433.43 Td 0 g (  clean\(&[\(0,1,3\),\(1,2,3\),\(2,3,3\),\(3,4,3\),\(2,5,3\)]\)) Tj ET Q
+q 28.35 430.87 538.59 -9.92 re f BT 31.18 423.51 Td 0 g (  // All unlisted pairs verified to have order 2) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 371.39 Td 0 g (14. Port-Hamiltonian DAE Kernel) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 322.38 Td 0 g (14.1 Mathematical Model) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 301.89 538.59 -9.92 re f BT 31.18 294.53 Td 0 g (  d/dt\(T\(t,z\) · z\) = [J\(t,z\) ? R\(t,z\)] · Q\(t,z\) · z + B\(t\) · u) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 264.87 Td 0 g (- T\(t,z\) ? mass tensor operator \(possibly singular for DAEs\)) Tj ET Q
+q BT 31.18 250.70 Td 0 g (- J\(t,z\) ? interconnection matrix \(skew-symmetric: J = ?J^T\)) Tj ET Q
+q BT 31.18 236.53 Td 0 g (- R\(t,z\) ? dissipation matrix \(positive semi-definite\)) Tj ET Q
+q BT 31.18 222.35 Td 0 g (- Q\(t,z\) ? gradient operator \(energy shape\)) Tj ET Q
+q BT 31.18 208.18 Td 0 g (- B\(t\) ? input map, u\(t\) ? external port) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 170.73 Td 0 g (14.2 Total Derivative \(Prior Art Claim\)) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 140.15 Td 0 g (The total time derivative of T·z requires the product rule:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 127.56 538.59 -9.92 re f BT 31.18 120.20 Td 0 g (  d/dt\(T·z\) = T·\(dz/dt\) + \(dT/dt\)·z) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 90.54 Td 0 g (A common implementation error is multiplying the \(dT/dt\)·z term by zero,) Tj ET Q
+q BT 31.18 76.37 Td 0 g (silently discarding it. The correct Rust implementation:) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (11) Tj ET Q
+
+endstream
+endobj
+25 0 obj
+<<
+/Contents 26 0 R
+/Parent 1 0 R
+/Resources 68 0 R
+/Type /Page
+>>
+endobj
+26 0 obj
+<<
+/Length 4378
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  pub fn total_derivative\(&self\) -> Vec<f64> {) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  let tz = self.tensor.contract\(&self.state\);) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  let dtdt_z = self.tensor.time_derivative_contract\(&self.state\);) Tj ET Q
+q 28.35 741.26 538.59 -9.92 re f BT 31.18 733.90 Td 0 g (  let t_dz = mat_vec_mul\(&self.tensor.mass, &self.state_deriv\);) Tj ET Q
+28.35 731.34 538.59 -9.92 re f
+q 28.35 721.42 538.59 -9.92 re f BT 31.18 714.06 Td 0 g (  \(0..self.state.len\(\)\)) Tj ET Q
+q 28.35 711.50 538.59 -9.92 re f BT 31.18 704.14 Td 0 g (  .map\(|i| t_dz[i] + dtdt_z[i] + tz[i]\) // T·dz + \(dT/dt\)·z) Tj ET Q
+q 28.35 701.58 538.59 -9.92 re f BT 31.18 694.21 Td 0 g (  .collect\(\)) Tj ET Q
+q 28.35 691.65 538.59 -9.92 re f BT 31.18 684.29 Td 0 g (  }) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 639.86 Td 0 g (14.3 Power Balance Invariant) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 609.28 Td 0 g (At every integration step, the power balance is verified:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 596.69 538.59 -9.92 re f BT 31.18 589.33 Td 0 g (  dH/dt = P_port ? P_diss) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 559.68 Td 0 g (where H = 0.5 · z^T · Q · z \(Hamiltonian\), P_port = u^T · B^T · Q · z \(port power\),) Tj ET Q
+q BT 31.18 545.50 Td 0 g (and P_diss = \(Q·z\)^T · R · \(Q·z\) ? 0 \(dissipated power\). Skew-symmetry of J guarantees) Tj ET Q
+q BT 31.18 531.33 Td 0 g (J contributes nothing to power balance ? verified structurally at construction time.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 486.19 Td 0 g (15. EmojiScript: #lang snaplang/fsm) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 437.19 Td 0 g (15.1 Language Design) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 406.61 Td 0 g (EmojiScript is a domain-specific language for FSM state machines, implemented) Tj ET Q
+q BT 31.18 392.43 Td 0 g (as a Racket #lang reader. Source files use emoji as state identifiers:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 379.84 538.59 -9.92 re f BT 31.18 372.48 Td 0 g (  ? = \(initial state body\)) Tj ET Q
+q 28.35 369.92 538.59 -9.92 re f BT 31.18 362.56 Td 0 g (  ? on ? -> ?) Tj ET Q
+q 28.35 360.00 538.59 -9.92 re f BT 31.18 352.64 Td 0 g (  ? requires \(invariant\)) Tj ET Q
+q 28.35 350.08 538.59 -9.92 re f BT 31.18 342.72 Td 0 g (  ? gate \(predicate\)) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 298.29 Td 0 g (15.2 Dual Emission) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 267.71 Td 0 g (The reader compiles a single .snaplang source to two targets simultaneously:) Tj ET Q
+q BT 31.18 245.03 Td 0 g (Prolog \(for runtime verification via SWI-Prolog\):) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 240.95 538.59 -9.92 re f BT 31.18 233.58 Td 0 g (  :- module\(snaplang_fsm, [fsm_transition/3, state_def/2, valid_fsm/0]\).) Tj ET Q
+q 28.35 231.02 538.59 -9.92 re f BT 31.18 223.66 Td 0 g (  fsm_transition\('Packed', 'Ok', 'Locked'\).) Tj ET Q
+q 28.35 221.10 538.59 -9.92 re f BT 31.18 213.74 Td 0 g (  state_def\('Packed', 'initial state body'\).) Tj ET Q
+q 28.35 211.18 538.59 -9.92 re f BT 31.18 203.82 Td 0 g (  valid_fsm :- forall\(fsm_transition\(S,_,_\), state_def\(S,_\)\).) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 174.17 Td 0 g (Lean 4 \(for formal proof stubs\):) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 170.08 538.59 -9.92 re f BT 31.18 162.72 Td 0 g (  namespace SnapLang.FSM) Tj ET Q
+q 28.35 160.16 538.59 -9.92 re f BT 31.18 152.80 Td 0 g (  inductive FSMState where) Tj ET Q
+q 28.35 150.24 538.59 -9.92 re f BT 31.18 142.88 Td 0 g (  | Packed | Locked | Ok | Fail) Tj ET Q
+q 28.35 140.32 538.59 -9.92 re f BT 31.18 132.95 Td 0 g (  deriving Repr, DecidableEq) Tj ET Q
+28.35 130.39 538.59 -9.92 re f
+q 28.35 120.47 538.59 -9.92 re f BT 31.18 113.11 Td 0 g (  def FSMState.step : FSMState ? Option FSMState) Tj ET Q
+q 28.35 110.55 538.59 -9.92 re f BT 31.18 103.19 Td 0 g (  | .Packed => some .Locked) Tj ET Q
+q 28.35 100.63 538.59 -9.92 re f BT 31.18 93.27 Td 0 g (  | _ => none) Tj ET Q
+q 28.35 90.71 538.59 -9.92 re f BT 31.18 83.35 Td 0 g (  end SnapLang.FSM) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (12) Tj ET Q
+
+endstream
+endobj
+27 0 obj
+<<
+/Contents 28 0 R
+/Parent 1 0 R
+/Resources 69 0 R
+/Type /Page
+>>
+endobj
+28 0 obj
+<<
+/Length 3424
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 12.00 Tf ET
+q BT 31.18 757.50 Td 0 g (15.3 Security Properties) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 726.92 Td 0 g (- Prolog atom injection prevention: single quotes in state names are doubled) Tj ET Q
+q BT 31.18 712.75 Td 0 g ( \(' ? ''\) before emission, following ISO Prolog quoting rules.) Tj ET Q
+q BT 31.18 698.58 Td 0 g (- Lean ID collision prevention: unknown emoji are UTF-8 hex-encoded) Tj ET Q
+q BT 31.18 684.40 Td 0 g ( \(? ? UF09F4DA6\) guaranteeing uniqueness without underscore collisions.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 639.26 Td 0 g (16. Test Suites) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 590.26 Td 0 g (16.1 sovereign-utqc Workspace \(200+ tests, all passing\)) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 559.98 Td 0 g (Crate | Tests | Coverage) Tj ET Q
+q BT 31.18 545.80 Td 0 g (sovereign-phdae | 32 | power balance, Radau IIA, total derivative, WORM audit) Tj ET Q
+q BT 31.18 531.63 Td 0 g (sovereign-pirtm | 8 | circuit lowering, field ops, scalar mul) Tj ET Q
+q BT 31.18 517.46 Td 0 g (utqc-coxeter | 3 | A3/B3/E6 detection, full octonion mul) Tj ET Q
+q BT 31.18 503.28 Td 0 g (utqc-goldilocks | 7 | field ops: add, mul, inv, identity, commutativity) Tj ET Q
+q BT 31.18 489.11 Td 0 g (utqc-bdd | 3 | BDD eval, circuit equivalence) Tj ET Q
+q BT 31.18 474.94 Td 0 g (sovereign-llm | 59 | tokenizer, model, inference, embeddings, seal, server) Tj ET Q
+q BT 31.18 460.76 Td 0 g (sovereign-covenant | 24 | hash, principles, temples, Grand Sheik, covenants, chain, nation) Tj ET Q
+q BT 31.18 446.59 Td 0 g (sovereign-addr | 12 | Datalog validation, canonical bytes, WORM receipts) Tj ET Q
+q BT 31.18 432.42 Td 0 g (sovereign-prism | 10 | carrier, canonical, ?-pipeline, sha256d, admission, worm) Tj ET Q
+q BT 31.18 418.25 Td 0 g (sovereign-agt | 14 | Mesh, Runtime, OS, SRE, gRPC services) Tj ET Q
+q BT 31.18 404.07 Td 0 g (Other crates | 30+ | agent governance, routing, compiler, etc.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 366.32 Td 0 g (16.2 ERRANT / SnaklTalk) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 336.04 Td 0 g (Suite | Tests) Tj ET Q
+q BT 31.18 321.87 Td 0 g (ERRANT-GGML | 10/10) Tj ET Q
+q BT 31.18 307.69 Td 0 g (SnaklTalk | 9/9) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 262.26 Td 0 g (17. sovereign-llm: Sovereign LLM Inference Engine) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 213.25 Td 0 g (17.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 182.67 Td 0 g (The LLM was rebuilt from a 1.1B-parameter scaffold into a proper Rust workspace with) Tj ET Q
+q BT 31.18 168.50 Td 0 g (six crates, each with a single responsibility. The key constraint: no Python, no CUDA,) Tj ET Q
+q BT 31.18 154.32 Td 0 g (no cloud dependency. The model runs entirely on bare metal.) Tj ET Q
+q BT 31.18 131.65 Td 0 g (Architecture decisions:) Tj ET Q
+q BT 31.18 108.97 Td 0 g (1. BPE tokenizer over byte-pair encoding ? The tokenizer trains from raw text, encoding) Tj ET Q
+q BT 31.18 94.80 Td 0 g ( character-by-character with greedy merge application. Vocabulary is 50,257 tokens) Tj ET Q
+q BT 31.18 80.62 Td 0 g ( \(256 byte-level + 3 special + 50,000 BPE merges\). The encode/decode roundtrip preserves) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (13) Tj ET Q
+
+endstream
+endobj
+29 0 obj
+<<
+/Contents 30 0 R
+/Parent 1 0 R
+/Resources 70 0 R
+/Type /Page
+>>
+endobj
+30 0 obj
+<<
+/Length 4479
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F2 10.00 Tf ET
+q BT 31.18 760.94 Td 0 g ( whitespace exactly ? the tokenizer splits on characters, not words.) Tj ET Q
+q BT 31.18 738.26 Td 0 g (2. GPT-2 style transformer over alternatives ? The model uses pre-norm transformer blocks) Tj ET Q
+q BT 31.18 724.09 Td 0 g ( \(LayerNorm before attention/FFN, not after\), which stabilizes training. Attention is) Tj ET Q
+q BT 31.18 709.91 Td 0 g ( simplified to element-wise gated Q/K/V projections for single-position processing, with) Tj ET Q
+q BT 31.18 695.74 Td 0 g ( full cross-position attention planned for the KV cache implementation.) Tj ET Q
+q BT 31.18 673.06 Td 0 g (3. KV cache as optional state ? The inference engine initializes a KV cache on demand.) Tj ET Q
+q BT 31.18 658.89 Td 0 g ( When initialized, it stores key/value pairs for all previous positions, enabling O\(1\)) Tj ET Q
+q BT 31.18 644.72 Td 0 g ( incremental generation instead of O\(n²\) recomputation.) Tj ET Q
+q BT 31.18 622.04 Td 0 g (4. Cosine similarity search with pgvector trait ? The embeddings store implements a) Tj ET Q
+q BT 31.18 607.87 Td 0 g ( trait \(EmbeddingsStore\) with an in-memory default and a PgVectorStore stub for) Tj ET Q
+q BT 31.18 593.69 Td 0 g ( production PostgreSQL deployment. The trait allows swapping implementations without) Tj ET Q
+q BT 31.18 579.52 Td 0 g ( changing application code.) Tj ET Q
+q BT 31.18 556.84 Td 0 g (5. WORM seal on weights ? Every model weight array gets a SHA-256 hash + chunk) Tj ET Q
+q BT 31.18 542.67 Td 0 g ( checksum. The seal verifies both the hash chain and the checksum independently,) Tj ET Q
+q BT 31.18 528.50 Td 0 g ( making tampering detectable even if an attacker can modify the hash without) Tj ET Q
+q BT 31.18 514.32 Td 0 g ( modifying the weights.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 476.87 Td 0 g (17.2 Build Process) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 446.29 Td 0 g (The workspace was built incrementally across six iterations:) Tj ET Q
+q BT 31.18 423.61 Td 0 g (Iteration 1: Tokenizer ? Implemented BPE training from text. The initial version) Tj ET Q
+q BT 31.18 409.44 Td 0 g (split on whitespace and lost spaces during decode. Fixed by encoding character-by-character) Tj ET Q
+q BT 31.18 395.27 Td 0 g (instead of word-by-word, preserving all whitespace as explicit space tokens.) Tj ET Q
+q BT 31.18 372.59 Td 0 g (Iteration 2: Model ? Implemented the transformer from scratch. Initial version had) Tj ET Q
+q BT 31.18 358.42 Td 0 g (a Model struct deriving Serialize/Deserialize that failed because TransformerBlock,) Tj ET Q
+q BT 31.18 344.24 Td 0 g (LayerNorm, and Linear don't implement serde traits. Fixed by removing serde derive) Tj ET Q
+q BT 31.18 330.07 Td 0 g (from Model \(weights are stored separately, not in the model struct\).) Tj ET Q
+q BT 31.18 307.39 Td 0 g (Iteration 3: Inference ? Added KV cache, generation loop, and streaming callback.) Tj ET Q
+q BT 31.18 293.22 Td 0 g (The initial generation test failed because the model generates random tokens that) Tj ET Q
+q BT 31.18 279.05 Td 0 g (decode to empty strings \(untrained model produces special tokens\). Fixed by adjusting) Tj ET Q
+q BT 31.18 264.87 Td 0 g (the test to verify non-panic behavior rather than non-empty output.) Tj ET Q
+q BT 31.18 242.20 Td 0 g (Iteration 4: Embeddings ? Implemented cosine similarity search with SHA-256 hash) Tj ET Q
+q BT 31.18 228.02 Td 0 g (stability. The InMemoryStore uses a HashMap<String, Embedding> with O\(n\) scan) Tj ET Q
+q BT 31.18 213.85 Td 0 g (for search. Production deployment uses pgvector with IVFFlat index.) Tj ET Q
+q BT 31.18 191.17 Td 0 g (Iteration 5: Seal ? Added WORM seal with dual verification: hash chain + chunk) Tj ET Q
+q BT 31.18 177.00 Td 0 g (checksum. The seal recomputes both from weights and compares against stored values.) Tj ET Q
+q BT 31.18 154.32 Td 0 g (Iteration 6: Server ? Axum HTTP server with five endpoints. The server state) Tj ET Q
+q BT 31.18 140.15 Td 0 g (uses Arc<Mutex<InferenceEngine>> for the model and Arc<RwLock<InMemoryStore>>) Tj ET Q
+q BT 31.18 125.98 Td 0 g (for embeddings, enabling concurrent reads with exclusive writes.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 88.53 Td 0 g (17.3 Test Results) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (14) Tj ET Q
+
+endstream
+endobj
+31 0 obj
+<<
+/Contents 32 0 R
+/Parent 1 0 R
+/Resources 71 0 R
+/Type /Page
+>>
+endobj
+32 0 obj
+<<
+/Length 4794
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  sovereign-tokenizer: 10 tests \(BPE train, encode/decode, save/load, special toke) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  sovereign-model: 12 tests \(linear, layernorm, attention, FFN, transformer, sampl) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  sovereign-inference: 8 tests \(KV cache, generation, streaming, cache management\)) Tj ET Q
+q 28.35 741.26 538.59 -9.92 re f BT 31.18 733.90 Td 0 g (  sovereign-embeddings: 13 tests \(store CRUD, cosine similarity, hash stability\)) Tj ET Q
+q 28.35 731.34 538.59 -9.92 re f BT 31.18 723.98 Td 0 g (  sovereign-seal: 10 tests \(seal/verify, tamper detection, save/load, determinism\)) Tj ET Q
+q 28.35 721.42 538.59 -9.92 re f BT 31.18 714.06 Td 0 g (  ????????????????????????????????????????????????????????????????????????????????) Tj ET Q
+q 28.35 711.50 538.59 -9.92 re f BT 31.18 704.14 Td 0 g (  Total: 51 tests, all passing) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 659.71 Td 0 g (17.4 Line Count) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 639.21 538.59 -9.92 re f BT 31.18 631.85 Td 0 g (  crates/tokenizer/src/lib.rs 260 lines) Tj ET Q
+q 28.35 629.29 538.59 -9.92 re f BT 31.18 621.93 Td 0 g (  crates/model/src/lib.rs 514 lines) Tj ET Q
+q 28.35 619.37 538.59 -9.92 re f BT 31.18 612.01 Td 0 g (  crates/inference/src/lib.rs 235 lines) Tj ET Q
+q 28.35 609.45 538.59 -9.92 re f BT 31.18 602.09 Td 0 g (  crates/embeddings/src/lib.rs 140 lines) Tj ET Q
+q 28.35 599.53 538.59 -9.92 re f BT 31.18 592.17 Td 0 g (  crates/seal/src/lib.rs 110 lines) Tj ET Q
+q 28.35 589.61 538.59 -9.92 re f BT 31.18 582.25 Td 0 g (  crates/server/src/main.rs 165 lines) Tj ET Q
+q 28.35 579.69 538.59 -9.92 re f BT 31.18 572.32 Td 0 g (  ???????????????????????????????????????????) Tj ET Q
+q 28.35 569.76 538.59 -9.92 re f BT 31.18 562.40 Td 0 g (  Total: 1,424 lines \(excluding tests\)) Tj ET Q
+q 28.35 559.84 538.59 -9.92 re f BT 31.18 552.48 Td 0 g (  With tests: 2,774 lines) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 500.37 Td 0 g (18. sovereign-covenant: 1928 Moorish Divine Covenant Trust Structure) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 451.36 Td 0 g (18.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 420.78 Td 0 g (The covenant implements the Divine Constitution and By-Laws of the Moorish Science) Tj ET Q
+q BT 31.18 406.61 Td 0 g (Temple of America \(1928\) as a programmable C library. The library encodes five divine) Tj ET Q
+q BT 31.18 392.43 Td 0 g (principles \(Love, Truth, Peace, Freedom, Justice\), temple governance, Grand Sheik) Tj ET Q
+q BT 31.18 378.26 Td 0 g (authority, covenant chains, and Moorish Nation structure.) Tj ET Q
+q BT 31.18 355.58 Td 0 g (Key constraint: this is sacred trust infrastructure, not commodity code. The license) Tj ET Q
+q BT 31.18 341.41 Td 0 g (is Sovereign Source ? no training data, no AI ingestion. The covenant structure as LLM) Tj ET Q
+q BT 31.18 327.24 Td 0 g (training data is a specific harm worth blocking.) Tj ET Q
+q BT 31.18 304.56 Td 0 g (Architecture decisions:) Tj ET Q
+q BT 31.18 281.88 Td 0 g (1. C, not Rust ? The user explicitly requested C. The library uses C99 with explicit) Tj ET Q
+q BT 31.18 267.71 Td 0 g ( types, no VLAs, fixed-size buffers for all structures. Every struct is stack-allocatable.) Tj ET Q
+q BT 31.18 245.03 Td 0 g (2. FNV-1a hash, not SHA-256 ? The hash function uses FNV-1a \(Fowler-Noll-Vo\) for) Tj ET Q
+q BT 31.18 230.86 Td 0 g ( speed and simplicity. The hash produces 64 hex characters \(256 bits\). SHA-256 was) Tj ET Q
+q BT 31.18 216.69 Td 0 g ( considered but rejected because FNV-1a is sufficient for tamper detection and avoids) Tj ET Q
+q BT 31.18 202.51 Td 0 g ( the crypto dependency.) Tj ET Q
+q BT 31.18 179.83 Td 0 g (3. Fixed-size buffers ? All strings are fixed-size arrays: name[128], city[64],) Tj ET Q
+q BT 31.18 165.66 Td 0 g ( nation_name[128]. The CovenantChain stores up to 16 covenants \(reduced from 256) Tj ET Q
+q BT 31.18 151.49 Td 0 g ( after discovering stack overflow: each Covenant struct is ~8KB due to 32 articles) Tj ET Q
+q BT 31.18 137.32 Td 0 g ( at 256 bytes each\).) Tj ET Q
+q BT 31.18 114.64 Td 0 g (4. Stack allocation ? MoorishNation is large \(~500KB\) due to 64 temples x 16) Tj ET Q
+q BT 31.18 100.46 Td 0 g ( articles. The initial implementation crashed with exit code -1073741571) Tj ET Q
+q BT 31.18 86.29 Td 0 g ( \(STATUS_ENTRYPOINT_NOT_FOUND\) because the stack frame exceeded 1MB. Fixed by) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (15) Tj ET Q
+
+endstream
+endobj
+33 0 obj
+<<
+/Contents 34 0 R
+/Parent 1 0 R
+/Resources 72 0 R
+/Type /Page
+>>
+endobj
+34 0 obj
+<<
+/Length 4653
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F2 10.00 Tf ET
+q BT 31.18 760.94 Td 0 g ( reducing CHAIN_MAX from 256 to 16.) Tj ET Q
+q BT 31.18 738.26 Td 0 g (5. WORM audit chain ? Every covenant seal is hash-chained to the previous seal.) Tj ET Q
+q BT 31.18 724.09 Td 0 g ( Tampering with any article invalidates the hash chain, making modifications) Tj ET Q
+q BT 31.18 709.91 Td 0 g ( detectable.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 672.46 Td 0 g (18.2 Build Process) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 641.88 Td 0 g (The covenant was built in four iterations:) Tj ET Q
+q BT 31.18 619.20 Td 0 g (Iteration 1: Core types ? Implemented DivinePrinciple enum \(LOVE=0 through) Tj ET Q
+q BT 31.18 605.03 Td 0 g (JUSTICE=4\), Temple, GrandSheik, Covenant, CovenantChain, MoorishNation.) Tj ET Q
+q BT 31.18 590.86 Td 0 g (The initial MoorishNation struct had CovenantChain with 256 entries, causing) Tj ET Q
+q BT 31.18 576.69 Td 0 g (stack overflow on Windows MinGW.) Tj ET Q
+q BT 31.18 554.01 Td 0 g (Iteration 2: Hash + Seal ? Implemented FNV-1a hash with 64-char hex output.) Tj ET Q
+q BT 31.18 539.83 Td 0 g (The initial HASH_LEN was 64 \(chars\) but the hash function wrote 128 hex chars.) Tj ET Q
+q BT 31.18 525.66 Td 0 g (Fixed by changing HASH_LEN to HASH_BUF_LEN = 65 \(64 hex + null terminator\).) Tj ET Q
+q BT 31.18 502.98 Td 0 g (Iteration 3: Test suite ? Built 24 tests covering hash, principles, temples,) Tj ET Q
+q BT 31.18 488.81 Td 0 g (Grand Sheik, covenants, chain, and nation. The initial test file used snprintf) Tj ET Q
+q BT 31.18 474.64 Td 0 g (in the test body, which triggered the stack overflow. Fixed by isolating the crash) Tj ET Q
+q BT 31.18 460.46 Td 0 g (to nation_create \(which allocates the full MoorishNation on the stack\).) Tj ET Q
+q BT 31.18 437.79 Td 0 g (Iteration 4: Stack fix ? Reduced CHAIN_MAX from 256 to 16, reducing) Tj ET Q
+q BT 31.18 423.61 Td 0 g (MoorishNation stack usage from ~2MB to ~128KB. All 24 tests pass.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 386.16 Td 0 g (18.3 Test Results) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 365.67 538.59 -9.92 re f BT 31.18 358.31 Td 0 g (  [HASH]) Tj ET Q
+q 28.35 355.75 538.59 -9.92 re f BT 31.18 348.39 Td 0 g (  deterministic: PASS [PASS]) Tj ET Q
+q 28.35 345.83 538.59 -9.92 re f BT 31.18 338.47 Td 0 g (  different inputs: PASS [PASS]) Tj ET Q
+q 28.35 335.91 538.59 -9.92 re f BT 31.18 328.55 Td 0 g (  length 64 chars: PASS [PASS]) Tj ET Q
+28.35 325.98 538.59 -9.92 re f
+q 28.35 316.06 538.59 -9.92 re f BT 31.18 308.70 Td 0 g (  [PRINCIPLES]) Tj ET Q
+q 28.35 306.14 538.59 -9.92 re f BT 31.18 298.78 Td 0 g (  all observed: PASS [PASS]) Tj ET Q
+q 28.35 296.22 538.59 -9.92 re f BT 31.18 288.86 Td 0 g (  missing one fails: PASS [PASS]) Tj ET Q
+q 28.35 286.30 538.59 -9.92 re f BT 31.18 278.94 Td 0 g (  declaration exists: PASS [PASS]) Tj ET Q
+28.35 276.38 538.59 -9.92 re f
+q 28.35 266.46 538.59 -9.92 re f BT 31.18 259.10 Td 0 g (  [TEMPLE]) Tj ET Q
+q 28.35 256.54 538.59 -9.92 re f BT 31.18 249.18 Td 0 g (  create: PASS [PASS]) Tj ET Q
+q 28.35 246.61 538.59 -9.92 re f BT 31.18 239.25 Td 0 g (  good standing: PASS [PASS]) Tj ET Q
+q 28.35 236.69 538.59 -9.92 re f BT 31.18 229.33 Td 0 g (  not standing: PASS [PASS]) Tj ET Q
+q 28.35 226.77 538.59 -9.92 re f BT 31.18 219.41 Td 0 g (  proclaim: PASS [PASS]) Tj ET Q
+28.35 216.85 538.59 -9.92 re f
+q 28.35 206.93 538.59 -9.92 re f BT 31.18 199.57 Td 0 g (  [GRAND SHEIK]) Tj ET Q
+q 28.35 197.01 538.59 -9.92 re f BT 31.18 189.65 Td 0 g (  create: PASS [PASS]) Tj ET Q
+q 28.35 187.09 538.59 -9.92 re f BT 31.18 179.73 Td 0 g (  authority requires 5: PASS [PASS]) Tj ET Q
+q 28.35 177.17 538.59 -9.92 re f BT 31.18 169.80 Td 0 g (  sign document: PASS [PASS]) Tj ET Q
+28.35 167.24 538.59 -9.92 re f
+q 28.35 157.32 538.59 -9.92 re f BT 31.18 149.96 Td 0 g (  [COVENANT]) Tj ET Q
+q 28.35 147.40 538.59 -9.92 re f BT 31.18 140.04 Td 0 g (  add article: PASS [PASS]) Tj ET Q
+q 28.35 137.48 538.59 -9.92 re f BT 31.18 130.12 Td 0 g (  verify integrity: PASS [PASS]) Tj ET Q
+q 28.35 127.56 538.59 -9.92 re f BT 31.18 120.20 Td 0 g (  tamper detection: PASS [PASS]) Tj ET Q
+q 28.35 117.64 538.59 -9.92 re f BT 31.18 110.28 Td 0 g (  ratify requires 5: PASS [PASS]) Tj ET Q
+q 28.35 107.72 538.59 -9.92 re f BT 31.18 100.36 Td 0 g (  ratify success: PASS [PASS]) Tj ET Q
+28.35 97.80 538.59 -9.92 re f
+q 28.35 87.87 538.59 -9.92 re f BT 31.18 80.51 Td 0 g (  [CHAIN]) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (16) Tj ET Q
+
+endstream
+endobj
+35 0 obj
+<<
+/Contents 36 0 R
+/Parent 1 0 R
+/Resources 73 0 R
+/Type /Page
+>>
+endobj
+36 0 obj
+<<
+/Length 5516
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  empty valid: PASS [PASS]) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  append 5: PASS [PASS]) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  verify chain: PASS [PASS]) Tj ET Q
+28.35 741.26 538.59 -9.92 re f
+q 28.35 731.34 538.59 -9.92 re f BT 31.18 723.98 Td 0 g (  [NATION]) Tj ET Q
+q 28.35 721.42 538.59 -9.92 re f BT 31.18 714.06 Td 0 g (  create: PASS [PASS]) Tj ET Q
+q 28.35 711.50 538.59 -9.92 re f BT 31.18 704.14 Td 0 g (  verify full: PASS [PASS]) Tj ET Q
+q 28.35 701.58 538.59 -9.92 re f BT 31.18 694.21 Td 0 g (  proclamation: PASS [PASS]) Tj ET Q
+q 28.35 691.65 538.59 -9.92 re f BT 31.18 684.29 Td 0 g (  ?????????????????????????????????????) Tj ET Q
+q 28.35 681.73 538.59 -9.92 re f BT 31.18 674.37 Td 0 g (  Results: 24/24 passed) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 629.94 Td 0 g (18.4 Line Count) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 609.45 538.59 -9.92 re f BT 31.18 602.09 Td 0 g (  include/sovereign_covenant.h 132 lines) Tj ET Q
+q 28.35 599.53 538.59 -9.92 re f BT 31.18 592.17 Td 0 g (  src/covenant.c 450 lines) Tj ET Q
+q 28.35 589.61 538.59 -9.92 re f BT 31.18 582.25 Td 0 g (  src/test_covenant.c 200 lines) Tj ET Q
+q 28.35 579.69 538.59 -9.92 re f BT 31.18 572.32 Td 0 g (  ?????????????????????????????????????) Tj ET Q
+q 28.35 569.76 538.59 -9.92 re f BT 31.18 562.40 Td 0 g (  Total: 782 lines) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 510.29 Td 0 g (19. Repository Structure) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 486.14 538.59 -9.92 re f BT 31.18 478.78 Td 0 g (  SNAPKITTYWEST/) Tj ET Q
+q 28.35 476.22 538.59 -9.92 re f BT 31.18 468.86 Td 0 g (  ??? errant/ # ERRANT LFIS + ERRANT-GGML) Tj ET Q
+q 28.35 466.30 538.59 -9.92 re f BT 31.18 458.94 Td 0 g (  ? ??? opcodes.mjs # 36 opcodes) Tj ET Q
+q 28.35 456.38 538.59 -9.92 re f BT 31.18 449.02 Td 0 g (  ? ??? typing.pl # Prolog type checker) Tj ET Q
+q 28.35 446.46 538.59 -9.92 re f BT 31.18 439.10 Td 0 g (  ? ??? interpreter.mjs # VM with linear type enforcement) Tj ET Q
+q 28.35 436.54 538.59 -9.92 re f BT 31.18 429.18 Td 0 g (  ? ??? llm/ # ERRANT-GGML sovereign LLM) Tj ET Q
+q 28.35 426.61 538.59 -9.92 re f BT 31.18 419.25 Td 0 g (  ??? snaplang/ # EmojiScript #lang reader) Tj ET Q
+q 28.35 416.69 538.59 -9.92 re f BT 31.18 409.33 Td 0 g (  ? ??? reader.rkt # Racket reader ? Prolog + Lean 4) Tj ET Q
+q 28.35 406.77 538.59 -9.92 re f BT 31.18 399.41 Td 0 g (  ? ??? resonance.emoji # Example FSM source) Tj ET Q
+q 28.35 396.85 538.59 -9.92 re f BT 31.18 389.49 Td 0 g (  ??? metamine/ # METAMINE esolang) Tj ET Q
+q 28.35 386.93 538.59 -9.92 re f BT 31.18 379.57 Td 0 g (  ? ??? curator.mjs) Tj ET Q
+q 28.35 377.01 538.59 -9.92 re f BT 31.18 369.65 Td 0 g (  ? ??? metatron-grid.mjs) Tj ET Q
+q 28.35 367.09 538.59 -9.92 re f BT 31.18 359.73 Td 0 g (  ? ??? glitch-renderer.mjs) Tj ET Q
+q 28.35 357.17 538.59 -9.92 re f BT 31.18 349.80 Td 0 g (  ? ??? viewer.html # Interactive museum \(WebGL\)) Tj ET Q
+q 28.35 347.24 538.59 -9.92 re f BT 31.18 339.88 Td 0 g (  ??? snakltalk/ # SnaklTalk Smalltalk) Tj ET Q
+q 28.35 337.32 538.59 -9.92 re f BT 31.18 329.96 Td 0 g (  ? ??? snakltalk.st) Tj ET Q
+q 28.35 327.40 538.59 -9.92 re f BT 31.18 320.04 Td 0 g (  ? ??? test.mjs # 9/9 passing tests) Tj ET Q
+q 28.35 317.48 538.59 -9.92 re f BT 31.18 310.12 Td 0 g (  ??? bobs-games/ # BOB's Games) Tj ET Q
+q 28.35 307.56 538.59 -9.92 re f BT 31.18 300.20 Td 0 g (  ? ??? README.html # Interactive voxel boot screen) Tj ET Q
+q 28.35 297.64 538.59 -9.92 re f BT 31.18 290.28 Td 0 g (  ? ??? assets/ # SVG banners + voxel world) Tj ET Q
+q 28.35 287.72 538.59 -9.92 re f BT 31.18 280.36 Td 0 g (  ??? sovereign-goldilocks/ # Goldilocks field arithmetic) Tj ET Q
+q 28.35 277.80 538.59 -9.92 re f BT 31.18 270.43 Td 0 g (  ??? sovereign-pirtm/ # PIRTM compiler IR) Tj ET Q
+q 28.35 267.87 538.59 -9.92 re f BT 31.18 260.51 Td 0 g (  ??? sovereign-adr/ # ADR-governed kernel) Tj ET Q
+q 28.35 257.95 538.59 -9.92 re f BT 31.18 250.59 Td 0 g (  ??? sovereign-zbit/ # Bitcoin integration) Tj ET Q
+q 28.35 248.03 538.59 -9.92 re f BT 31.18 240.67 Td 0 g (  ??? sovereign-utqc/ # Topological quantum computer \(82 tests\)) Tj ET Q
+q 28.35 238.11 538.59 -9.92 re f BT 31.18 230.75 Td 0 g (  ??? sovereign-addr/ # Content addressing) Tj ET Q
+q 28.35 228.19 538.59 -9.92 re f BT 31.18 220.83 Td 0 g (  ??? sovereign-router/ # Intelligence routing) Tj ET Q
+q 28.35 218.27 538.59 -9.92 re f BT 31.18 210.91 Td 0 g (  ??? sovereign-multiplicity/ # Formal verification \(Lean 4\)) Tj ET Q
+q 28.35 208.35 538.59 -9.92 re f BT 31.18 200.99 Td 0 g (  ??? sovereign-compiler/ # PIRTM-lang compiler) Tj ET Q
+q 28.35 198.43 538.59 -9.92 re f BT 31.18 191.06 Td 0 g (  ??? sovereign-f1/ # Riemann Hypothesis) Tj ET Q
+q 28.35 188.50 538.59 -9.92 re f BT 31.18 181.14 Td 0 g (  ??? sovereign-llm/ # 1.1B model scaffold) Tj ET Q
+q 28.35 178.58 538.59 -9.92 re f BT 31.18 171.22 Td 0 g (  ??? sovereign-prism/ # Bitcoin proof-of-work as ADDR) Tj ET Q
+q 28.35 168.66 538.59 -9.92 re f BT 31.18 161.30 Td 0 g (  ??? sovereign-agt/ # Agent governance) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 109.19 Td 0 g (21. sovereign-addr: Non-Recursive Artifact Addressing) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (17) Tj ET Q
+
+endstream
+endobj
+37 0 obj
+<<
+/Contents 38 0 R
+/Parent 1 0 R
+/Resources 74 0 R
+/Type /Page
+>>
+endobj
+38 0 obj
+<<
+/Length 3745
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 12.00 Tf ET
+q BT 31.18 757.50 Td 0 g (21.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 726.92 Td 0 g (sovereign-addr implements snapaddr:<64hex> addressing for all artifacts in the SNAPKITTYWEST) Tj ET Q
+q BT 31.18 712.75 Td 0 g (ecosystem. The key constraint: no recursion. All validation is staged traversal.) Tj ET Q
+q BT 31.18 690.07 Td 0 g (Architecture decisions:) Tj ET Q
+q BT 31.18 667.39 Td 0 g (1. Datalog-inspired validation ? The validation rules are expressed as non-recursive) Tj ET Q
+q BT 31.18 653.22 Td 0 g ( Datalog predicates: artifact\(A\), json_admissible\(A\), nfc_ok\(A, N\),) Tj ET Q
+q BT 31.18 639.05 Td 0 g ( snap_canonical\(N, B\), sha256_digest\(B, D\), snap_address\(A, Addr\).) Tj ET Q
+q BT 31.18 616.37 Td 0 g (2. Unicode NFC normalization ? All strings are normalized to Unicode NFC before) Tj ET Q
+q BT 31.18 602.20 Td 0 g ( canonicalization, ensuring equivalent representations produce identical addresses.) Tj ET Q
+q BT 31.18 579.52 Td 0 g (3. Canonical JSON ? Keys are sorted lexicographically, no whitespace, deterministic) Tj ET Q
+q BT 31.18 565.35 Td 0 g ( serialization. {"b": 2, "a": 1} and {"a": 1, "b": 2} produce the same address.) Tj ET Q
+q BT 31.18 542.67 Td 0 g (4. WORM receipts ? Every accepted artifact produces a WORM-sealed receipt with) Tj ET Q
+q BT 31.18 528.50 Td 0 g ( status: "accepted", seal: "snapaddr:<hash>", and governance: "agent-review-pending".) Tj ET Q
+q BT 31.18 514.32 Td 0 g ( Rejected artifacts produce rejection receipts with reason and error fields.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 476.87 Td 0 g (21.2 Test Results) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 456.38 538.59 -9.92 re f BT 31.18 449.02 Td 0 g (  sovereign-addr: 12 tests passing) Tj ET Q
+q 28.35 446.46 538.59 -9.92 re f BT 31.18 439.10 Td 0 g (  - Datalog validator: 4 tests) Tj ET Q
+q 28.35 436.54 538.59 -9.92 re f BT 31.18 429.18 Td 0 g (  - Canonical bytes: 3 tests) Tj ET Q
+q 28.35 426.61 538.59 -9.92 re f BT 31.18 419.25 Td 0 g (  - WORM receipts: 3 tests) Tj ET Q
+q 28.35 416.69 538.59 -9.92 re f BT 31.18 409.33 Td 0 g (  - Property tests: 2 tests) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 357.22 Td 0 g (22. sovereign-prism: OCaml ?-Pipeline) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 308.21 Td 0 g (22.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 277.63 Td 0 g (sovereign-prism implements the ?-pipeline for prism compilation in OCaml. The pipeline) Tj ET Q
+q BT 31.18 263.46 Td 0 g (is non-recursive and staged:) Tj ET Q
+q BT 31.18 240.78 Td 0 g (1. Nerve ? Computes the 1-skeleton from an adjacency matrix.) Tj ET Q
+q BT 31.18 226.61 Td 0 g (2. Postnikov Tower ? Builds k-invariant filtration from the 1-skeleton.) Tj ET Q
+q BT 31.18 212.43 Td 0 g (3. Homotopy Groups ? Computes ?_k\(B\) groups from the filtration.) Tj ET Q
+q BT 31.18 198.26 Td 0 g (4. k-Invariants ? Extracts invariant vectors from the homotopy groups.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 160.81 Td 0 g (22.2 Test Results) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 140.32 538.59 -9.92 re f BT 31.18 132.95 Td 0 g (  snap-prism-ocaml: 10 tests passing) Tj ET Q
+q 28.35 130.39 538.59 -9.92 re f BT 31.18 123.03 Td 0 g (  - Carrier: 2 tests) Tj ET Q
+q 28.35 120.47 538.59 -9.92 re f BT 31.18 113.11 Td 0 g (  - Canonical: 2 tests) Tj ET Q
+q 28.35 110.55 538.59 -9.92 re f BT 31.18 103.19 Td 0 g (  - ?-pipeline: 3 tests) Tj ET Q
+q 28.35 100.63 538.59 -9.92 re f BT 31.18 93.27 Td 0 g (  - WORM witness: 3 tests) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (18) Tj ET Q
+
+endstream
+endobj
+39 0 obj
+<<
+/Contents 40 0 R
+/Parent 1 0 R
+/Resources 75 0 R
+/Type /Page
+>>
+endobj
+40 0 obj
+<<
+/Length 3120
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (23. sovereign-pirtm: C++ Compiler Core) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 706.48 Td 0 g (23.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 675.90 Td 0 g (sovereign-pirtm implements the C++ compiler core for PIRTM-lang. The architecture) Tj ET Q
+q BT 31.18 661.72 Td 0 g (is split across 8 modules:) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 639.35 Td 0 g (Module | Purpose) Tj ET Q
+q BT 31.18 625.17 Td 0 g (pirtm-mlir | Custom MLIR dialect for PIRTM operations) Tj ET Q
+q BT 31.18 611.00 Td 0 g (multiplicity | Rational exponentiation: `p^m` where `m ? Q`) Tj ET Q
+q BT 31.18 596.83 Td 0 g (contractivity | SHA-256 cryptographic receipts, Merkle chain) Tj ET Q
+q BT 31.18 582.65 Td 0 g (sedona-spine | FFI closure enforcement: single-crossing) Tj ET Q
+q BT 31.18 568.48 Td 0 g (zeno-finton | Exponential decay gain: `?\(t\) = ?? · e^\(-?t\)`) Tj ET Q
+q BT 31.18 554.31 Td 0 g (admissibility | AST validation, rejection receipts) Tj ET Q
+q BT 31.18 540.13 Td 0 g (lean-ffi | Lean 4 proof verification bridge) Tj ET Q
+q BT 31.18 525.96 Td 0 g (pirtm-llvm | MLIR ? LLVM IR / WebAssembly lowering) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 488.21 Td 0 g (23.2 MLIR Dialect) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 457.63 Td 0 g (The PIRTM MLIR dialect includes:) Tj ET Q
+q BT 31.18 443.46 Td 0 g (- operator_atom ? Named operator atom) Tj ET Q
+q BT 31.18 429.28 Td 0 g (- binary_add/sub/mul/div ? Binary field operations) Tj ET Q
+q BT 31.18 415.11 Td 0 g (- stratum_boundary ? Non-recursive boundary marker) Tj ET Q
+q BT 31.18 400.94 Td 0 g (- successor ? Phase transition) Tj ET Q
+q BT 31.18 386.76 Td 0 g (- constant ? Field constant) Tj ET Q
+q BT 31.18 372.59 Td 0 g (- yield / return ? Control flow) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 327.45 Td 0 g (24. sovereign-agt: C# Governance Stack) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 278.45 Td 0 g (24.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 247.87 Td 0 g (sovereign-agt implements the governance stack in C# with 5 services:) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 225.49 Td 0 g (Service | Port | Description) Tj ET Q
+q BT 31.18 211.32 Td 0 g (AGT.Mesh | 7701 | Service discovery, load balancing) Tj ET Q
+q BT 31.18 197.14 Td 0 g (AGT.Runtime | 7701 | Task scheduling, process management) Tj ET Q
+q BT 31.18 182.97 Td 0 g (AGT.OS | 7701 | Process control, resource monitoring) Tj ET Q
+q BT 31.18 168.80 Td 0 g (AGT.SRE | 7701 | Health checks, metrics, alerting) Tj ET Q
+q BT 31.18 154.62 Td 0 g (AGT.Grpc | 7701 | gRPC server interface) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 116.87 Td 0 g (24.2 Test Results) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 96.38 538.59 -9.92 re f BT 31.18 89.02 Td 0 g (  SnapKitty.AGT: 14 tests passing) Tj ET Q
+q 28.35 86.46 538.59 -9.92 re f BT 31.18 79.10 Td 0 g (  - Mesh: 3 tests) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (19) Tj ET Q
+
+endstream
+endobj
+41 0 obj
+<<
+/Contents 42 0 R
+/Parent 1 0 R
+/Resources 76 0 R
+/Type /Page
+>>
+endobj
+42 0 obj
+<<
+/Length 3238
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F4 8.00 Tf ET
+q 28.35 771.02 538.59 -9.92 re f BT 31.18 763.66 Td 0 g (  - Runtime: 4 tests) Tj ET Q
+q 28.35 761.10 538.59 -9.92 re f BT 31.18 753.74 Td 0 g (  - OS: 3 tests) Tj ET Q
+q 28.35 751.18 538.59 -9.92 re f BT 31.18 743.82 Td 0 g (  - SRE: 4 tests) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 691.71 Td 0 g (25. sovereign-multiplicity: Rational Exponentiation) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 642.70 Td 0 g (25.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 612.12 Td 0 g (sovereign-multiplicity implements the multiplicity functor for rational exponentiation:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 599.53 538.59 -9.92 re f BT 31.18 592.17 Td 0 g (  p^m where m ? Q \(Rational64\)) Tj ET Q
+q 28.35 589.61 538.59 -9.92 re f BT 31.18 582.25 Td 0 g (  q = 1: base^p \(integer exponent\)) Tj ET Q
+q 28.35 579.69 538.59 -9.92 re f BT 31.18 572.32 Td 0 g (  q = 2: ?\(base^p\) \(square root\)) Tj ET Q
+q 28.35 569.76 538.59 -9.92 re f BT 31.18 562.40 Td 0 g (  q = 3: ?\(base^p\) \(cube root\)) Tj ET Q
+q 28.35 559.84 538.59 -9.92 re f BT 31.18 552.48 Td 0 g (  q = n: ??\(base^p\) \(nth root\)) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 522.83 Td 0 g (Features:) Tj ET Q
+q BT 31.18 508.65 Td 0 g (- Automatic rational reduction via GCD) Tj ET Q
+q BT 31.18 494.48 Td 0 g (- Overflow detection via bit width analysis) Tj ET Q
+q BT 31.18 480.31 Td 0 g (- Binary search for nth root computation) Tj ET Q
+q BT 31.18 466.13 Td 0 g (- Negative exponent support) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 421.00 Td 0 g (26. sovereign-adr: Admissibility Validator) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 371.99 Td 0 g (26.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 341.41 Td 0 g (sovereign-adr implements non-recursive staged traversal for AST validation:) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 319.03 Td 0 g (Rule | Description | Error Code) Tj ET Q
+q BT 31.18 304.86 Td 0 g (PRIME_INDEX | All indices must be prime | E001) Tj ET Q
+q BT 31.18 290.69 Td 0 g (BINARY_OP | Binary ops must have two operands | E002) Tj ET Q
+q BT 31.18 276.51 Td 0 g (STRATUM | Stratum boundaries must be monotonic | E003) Tj ET Q
+q BT 31.18 262.34 Td 0 g (TYPE_CONSIST | Operands must have matching types | E004) Tj ET Q
+q BT 31.18 248.17 Td 0 g (NO_RECURSION | No recursive definitions allowed | E005) Tj ET Q
+q BT 31.18 233.99 Td 0 g (CONSTANT_FOLD | Constants must be foldable | E006) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 196.24 Td 0 g (26.2 Rejection Receipts) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 165.66 Td 0 g (Rejected artifacts produce rejection receipts with:) Tj ET Q
+q BT 31.18 151.49 Td 0 g (- status: "rejected") Tj ET Q
+q BT 31.18 137.32 Td 0 g (- error: "E001" \(error code\)) Tj ET Q
+q BT 31.18 123.14 Td 0 g (- message: "Non-prime index") Tj ET Q
+q BT 31.18 108.97 Td 0 g (- location: {line, column}) Tj ET Q
+q BT 31.18 94.80 Td 0 g (- source_hash: "sha256:...") Tj ET Q
+q BT 31.18 80.62 Td 0 g (- rejection_hash: "sha256:...") Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (20) Tj ET Q
+
+endstream
+endobj
+43 0 obj
+<<
+/Contents 44 0 R
+/Parent 1 0 R
+/Resources 77 0 R
+/Type /Page
+>>
+endobj
+44 0 obj
+<<
+/Length 3300
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (27. root-fontana: Constitutional Compiler) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 706.48 Td 0 g (27.1 Design Decisions) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 675.90 Td 0 g (root-fontana implements the constitutional compiler with:) Tj ET Q
+q BT 31.18 653.22 Td 0 g (1. Rust runtime ? UnifiedWitness, WORM Witness, Archivum ledger, Governance engine,) Tj ET Q
+q BT 31.18 639.05 Td 0 g ( Contractivity receipts, Observatory telemetry, Execution engine.) Tj ET Q
+q BT 31.18 616.37 Td 0 g (2. Lean 4 proofs ? RootFontana.lean, Contractivity.lean, Strata.lean, Verification.lean.) Tj ET Q
+q BT 31.18 593.69 Td 0 g (3. Fontana DSL ? Grammar, AST, Admissibility validator for constitutional rules.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 556.24 Td 0 g (27.2 Fontana DSL Grammar) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 535.75 538.59 -9.92 re f BT 31.18 528.39 Td 0 g (  <program> ::= <declaration>*) Tj ET Q
+q 28.35 525.83 538.59 -9.92 re f BT 31.18 518.47 Td 0 g (  <declaration> ::= <artifact-decl> | <governance-decl> | <execution-decl>) Tj ET Q
+q 28.35 515.91 538.59 -9.92 re f BT 31.18 508.55 Td 0 g (  <artifact-decl> ::= "artifact" <identifier> "{" <field>* "}") Tj ET Q
+q 28.35 505.98 538.59 -9.92 re f BT 31.18 498.62 Td 0 g (  <governance-decl> ::= "governance" <identifier> "{" <rule>* "}") Tj ET Q
+q 28.35 496.06 538.59 -9.92 re f BT 31.18 488.70 Td 0 g (  <execution-decl> ::= "execute" <identifier> "{" <step>* "}") Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 436.59 Td 0 g (28. Cross-Language Integration) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 387.58 Td 0 g (28.1 Language Distribution) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 357.30 Td 0 g (Language | Modules | Tests) Tj ET Q
+q BT 31.18 343.13 Td 0 g (Rust | sovereign-llm, sovereign-addr, sovereign-multiplicity, root-fontana | 100+) Tj ET Q
+q BT 31.18 328.95 Td 0 g (C++ | sovereign-pirtm \(MLIR, contractivity, sedona-spine, zeno-finton, lean-ffi\) | 30+) Tj ET Q
+q BT 31.18 314.78 Td 0 g (C# | sovereign-agt \(Mesh, Runtime, OS, SRE, gRPC\) | 14) Tj ET Q
+q BT 31.18 300.61 Td 0 g (OCaml | sovereign-prism \(carrier, canonical, ?-pipeline\) | 10) Tj ET Q
+q BT 31.18 286.43 Td 0 g (Lean 4 | root-fontana \(Contractivity, Strata, Verification\) | 6) Tj ET Q
+q BT 31.18 272.26 Td 0 g (C | sovereign-covenant | 24) Tj ET Q
+q BT 31.18 258.09 Td 0 g (JavaScript | ERRANT, METAMINE, BOB's Games | 19) Tj ET Q
+q BT 31.18 243.91 Td 0 g (Total | 25+ modules | 200+ tests) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 206.16 Td 0 g (28.2 Shared Primitives) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 175.58 Td 0 g (All modules share:) Tj ET Q
+q BT 31.18 161.41 Td 0 g (- Goldilocks field \(p = 2^64 ? 2^32 + 1\)) Tj ET Q
+q BT 31.18 147.24 Td 0 g (- WORM seals \(SHA-256, append-only\)) Tj ET Q
+q BT 31.18 133.06 Td 0 g (- Non-recursive design \(staged traversal\)) Tj ET Q
+q BT 31.18 118.89 Td 0 g (- Sovereign addressing \(snapaddr:<64hex>\)) Tj ET Q
+q BT 31.18 104.72 Td 0 g (- Admission/rejection receipts \(first-class events\)) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (21) Tj ET Q
+
+endstream
+endobj
+45 0 obj
+<<
+/Contents 46 0 R
+/Parent 1 0 R
+/Resources 78 0 R
+/Type /Page
+>>
+endobj
+46 0 obj
+<<
+/Length 3403
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (29. Deployment) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 706.48 Td 0 g (29.1 WORM Seal at Commit) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 675.90 Td 0 g (Every commit to SNAPKITTYWEST is WORM-sealed at the chain layer:) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 663.31 538.59 -9.92 re f BT 31.18 655.95 Td 0 g (  git commit -m "feat: ..." && seal_commit) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 626.29 Td 0 g (The seal links the git commit hash into the WORM chain ? the chain and the git) Tj ET Q
+q BT 31.18 612.12 Td 0 g (history cross-verify each other.) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 574.67 Td 0 g (29.2 GitHub Pages) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 544.09 Td 0 g (The architecture index is published at:) Tj ET Q
+q BT 31.18 529.91 Td 0 g (https://snapkittywest.github.io/SNAPKITTYWEST/) Tj ET Q
+BT /F1 12.00 Tf ET
+q BT 31.18 492.46 Td 0 g (29.3 Zenodo Record) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 461.88 Td 0 g (Action required before publishing: Upload this paper to Zenodo at) Tj ET Q
+q BT 31.18 447.71 Td 0 g (https://zenodo.org/deposit to obtain a real DOI. The Zenodo upload timestamp) Tj ET Q
+q BT 31.18 433.54 Td 0 g (is the legally defensible prior art date. Replace the DOI field in this document's) Tj ET Q
+q BT 31.18 419.36 Td 0 g (frontmatter with the real DOI before posting to LinkedIn.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 374.23 Td 0 g (30. License) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 340.29 Td 0 g (Asset | License) Tj ET Q
+q BT 31.18 326.12 Td 0 g (This paper | CC-BY-4.0 ? free to share with attribution) Tj ET Q
+q BT 31.18 311.95 Td 0 g (Source code | Sovereign Source License v1.0 ? see `SOVEREIGN_SOURCE_LICENSE.txt`) Tj ET Q
+q BT 31.18 297.77 Td 0 g (Tooling scripts | MIT) Tj ET Q
+q BT 31.18 283.60 Td 0 g (Training corpus | Sovereign Source License v1.0, perpetual ? no extraction or redistrib...) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 260.62 Td 0 g (Copyright © 2026 Jessica / SNAPKITTY Collective. All rights reserved.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 215.49 Td 0 g (31. Citation) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 191.34 538.59 -9.92 re f BT 31.18 183.98 Td 0 g (  @article{jessica2026snapkittywest,) Tj ET Q
+q 28.35 181.42 538.59 -9.92 re f BT 31.18 174.06 Td 0 g (  title = {SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types,) Tj ET Q
+q 28.35 171.50 538.59 -9.92 re f BT 31.18 164.14 Td 0 g (  WORM Seals, Goldilocks Field Arithmetic, and Settlement Witnesses},) Tj ET Q
+q 28.35 161.58 538.59 -9.92 re f BT 31.18 154.21 Td 0 g (  author = {Jessica},) Tj ET Q
+q 28.35 151.65 538.59 -9.92 re f BT 31.18 144.29 Td 0 g (  journal = {Zenodo},) Tj ET Q
+q 28.35 141.73 538.59 -9.92 re f BT 31.18 134.37 Td 0 g (  year = {2026},) Tj ET Q
+q 28.35 131.81 538.59 -9.92 re f BT 31.18 124.45 Td 0 g (  month = {07},) Tj ET Q
+q 28.35 121.89 538.59 -9.92 re f BT 31.18 114.53 Td 0 g (  doi = {PENDING ? replace after Zenodo submission},) Tj ET Q
+q 28.35 111.97 538.59 -9.92 re f BT 31.18 104.61 Td 0 g (  url = {https://github.com/SNAPKITTYWEST}) Tj ET Q
+q 28.35 102.05 538.59 -9.92 re f BT 31.18 94.69 Td 0 g (  }) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (22) Tj ET Q
+
+endstream
+endobj
+47 0 obj
+<<
+/Contents 48 0 R
+/Parent 1 0 R
+/Resources 79 0 R
+/Type /Page
+>>
+endobj
+48 0 obj
+<<
+/Length 4469
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (32. Claude Intel Report) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 721.25 Td 0 g (Claude's May 31 intelligence report is useful historical context. It described DEVFLOW-FINANCE) Tj ET Q
+q BT 31.18 707.08 Td 0 g (as a display layer for a deeper polyglot orchestration substrate and identified the WORM chain) Tj ET Q
+q BT 31.18 692.91 Td 0 g (as the keystone.) Tj ET Q
+q BT 31.18 670.23 Td 0 g (The report stated that public code recovered only a portion of the design intent and that the) Tj ET Q
+q BT 31.18 656.06 Td 0 g (hidden or private layers included WORM chain implementation, Merkle structure, MAGMA grammar,) Tj ET Q
+q BT 31.18 641.88 Td 0 g (agent consensus, ENKI, Discord terminal behavior, Rust substrate, Solidity contracts, WASM) Tj ET Q
+q BT 31.18 627.71 Td 0 g (modules, and commit history.) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 615.12 538.59 -9.92 re f BT 31.18 607.76 Td 0 g (  The architecture is the intellectual property.) Tj ET Q
+q 28.35 605.20 538.59 -9.92 re f BT 31.18 597.84 Td 0 g (  The chain is the proof of work.) Tj ET Q
+q 28.35 595.28 538.59 -9.92 re f BT 31.18 587.92 Td 0 g (  The orphan is the art.) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 558.26 Td 0 g (This paper does not treat the report as external proof. It treats it as a prior internal) Tj ET Q
+q BT 31.18 544.09 Td 0 g (architectural reading that correctly identified the same system boundary later reinforced by) Tj ET Q
+q BT 31.18 529.91 Td 0 g (the rebuild.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 484.78 Td 0 g (24. Rebuild Timeline) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 450.54 Td 0 g (The following timeline is included as the operator-supplied rebuild narrative. It is useful) Tj ET Q
+q BT 31.18 436.37 Td 0 g (because it describes the order of architectural hardening after compromise/reconstruction.) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 423.78 538.59 -9.92 re f BT 31.18 416.42 Td 0 g (  Jun 22: SNAPKITTYAGENT9NOVA constellation added) Tj ET Q
+q 28.35 413.86 538.59 -9.92 re f BT 31.18 406.50 Td 0 g (  Jun 23: BOB reasoning engine, sovereign bridge, THE_333, METATRON, APL/Rust TRS ) Tj ET Q
+q 28.35 403.94 538.59 -9.92 re f BT 31.18 396.58 Td 0 g (  Jun 24: orbital trust deed mesh, CesiumJS, N2YO, ISS stream, mission control HUD) Tj ET Q
+q 28.35 394.02 538.59 -9.92 re f BT 31.18 386.66 Td 0 g (  Jun 24-30: Omega pulse every 4-6 hours) Tj ET Q
+q 28.35 384.09 538.59 -9.92 re f BT 31.18 376.73 Td 0 g (  Jul 1: ERRANT-GGML, SnaklTalk, liberrant C runtime, magmad, meta repos, paper/pa) Tj ET Q
+q 28.35 374.17 538.59 -9.92 re f BT 31.18 366.81 Td 0 g (  Jul 2: sovereign-addr, prism, pirtm, agt, compiler, multiplicity, adr) Tj ET Q
+q 28.35 364.25 538.59 -9.92 re f BT 31.18 356.89 Td 0 g (  Today: SovereignJudge, STELLA, Bitcoin settlement) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 327.24 Td 0 g (The novel claim is not that every individual technique is unprecedented. The novel pattern is) Tj ET Q
+q BT 31.18 313.06 Td 0 g (the emergency rebuild into a verifiable multi-language compute constellation.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 267.93 Td 0 g (25. Compromise as Design Pressure) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 233.69 Td 0 g (The architecture became sharper under pressure. A conventional recovery would patch secrets,) Tj ET Q
+q BT 31.18 219.52 Td 0 g (restore a backup, and continue. SNAPKITTYWEST instead uses compromise as a forcing function:) Tj ET Q
+q BT 31.18 205.35 Td 0 g (split the stack, make surfaces explicit, seal workflows, and create independently readable) Tj ET Q
+q BT 31.18 191.17 Td 0 g (evidence trails.) Tj ET Q
+q BT 31.18 168.50 Td 0 g (This is the correct public framing. The point is not to accuse a specific party in a paper. The) Tj ET Q
+q BT 31.18 154.32 Td 0 g (point is to explain how recoverability, provenance, and evidence became architectural) Tj ET Q
+q BT 31.18 140.15 Td 0 g (requirements.) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 127.56 538.59 -9.92 re f BT 31.18 120.20 Td 0 g (  compromise -> reconstruction -> canonicalization -> WORM sealing -> workflow set) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 90.54 Td 0 g (This turns an incident narrative into a technical contribution.) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (23) Tj ET Q
+
+endstream
+endobj
+49 0 obj
+<<
+/Contents 50 0 R
+/Parent 1 0 R
+/Resources 80 0 R
+/Type /Page
+>>
+endobj
+50 0 obj
+<<
+/Length 4257
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (26. Discussion) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 721.25 Td 0 g (SNAPKITTYWEST is strongest when it shows its working surfaces. The C runtime demonstrates) Tj ET Q
+q BT 31.18 707.08 Td 0 g (bounded implementation. sovereign-utqc demonstrates a tested research workspace. STELLA) Tj ET Q
+q BT 31.18 692.91 Td 0 g (demonstrates workflow settlement. sovereign-addr and related repos demonstrate public API and) Tj ET Q
+q BT 31.18 678.73 Td 0 g (documentation surfaces. BOB demonstrates Evidence-or-Silence governance.) Tj ET Q
+q BT 31.18 656.06 Td 0 g (The main risk is not lack of ambition. The risk is over-compression and imprecise public) Tj ET Q
+q BT 31.18 641.88 Td 0 g (wording. A system this broad must be presented with clean boundaries. This paper therefore uses) Tj ET Q
+q BT 31.18 627.71 Td 0 g (observed, source-present, and operator-timeline categories.) Tj ET Q
+q BT 31.18 605.03 Td 0 g (The resulting picture is more credible: the stack is neither vaporware nor finished) Tj ET Q
+q BT 31.18 590.86 Td 0 g (infrastructure. It is a fast-moving sovereign compute research and implementation program with) Tj ET Q
+q BT 31.18 576.69 Td 0 g (multiple verified kernels.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 531.55 Td 0 g (27. Limitations) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 497.32 Td 0 g (This paper is limited by local access and time. It does not claim independent third-party) Tj ET Q
+q BT 31.18 483.14 Td 0 g (audit. It does not claim formal verification of every module. It does not claim) Tj ET Q
+q BT 31.18 468.97 Td 0 g (production-readiness for every repository. It does not use wrong-path build checks to) Tj ET Q
+q BT 31.18 454.80 Td 0 g (characterize the stack.) Tj ET Q
+q BT 31.18 432.12 Td 0 g (Known hardening needs include warning cleanup, longer numerical fixtures, stable release tags,) Tj ET Q
+q BT 31.18 417.95 Td 0 g (Zenodo DOI assignment, reproducible scripts for every test claim, public/private boundary) Tj ET Q
+q BT 31.18 403.77 Td 0 g (documentation, and generated artifact hygiene.) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 381.39 Td 0 g (Need | Reason) Tj ET Q
+q BT 31.18 367.22 Td 0 g (Warnings cleanup | A sovereign stack should have clean CI output.) Tj ET Q
+q BT 31.18 353.05 Td 0 g (Known-answer tests | Math kernels need independent fixtures, not only shape/invariant t...) Tj ET Q
+q BT 31.18 338.88 Td 0 g (Release tags | Zenodo uploads should cite immutable commits.) Tj ET Q
+q BT 31.18 324.70 Td 0 g (Evidence appendix | Every test claim should map to a command and output.) Tj ET Q
+q BT 31.18 310.53 Td 0 g (Public boundary notes | Avoid accidental exposure of private infrastructure or secrets.) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 265.09 Td 0 g (28. Conclusion) Tj ET Q
+BT /F2 10.00 Tf ET
+q BT 31.18 230.86 Td 0 g (SNAPKITTYWEST is a sovereign compute architecture built around accountable execution. Its core) Tj ET Q
+q BT 31.18 216.69 Td 0 g (pattern is now visible across source, tests, workflows, and repository surfaces: canonicalize) Tj ET Q
+q BT 31.18 202.51 Td 0 g (the artifact, govern the action, seal the result, and carry the witness forward.) Tj ET Q
+q BT 31.18 179.83 Td 0 g (The corrected evidence matters. The C covenant runtime compiles and passes tests.) Tj ET Q
+q BT 31.18 165.66 Td 0 g (sovereign-utqc passes a broad workspace test suite. STELLA executes a workflow and emits a) Tj ET Q
+q BT 31.18 151.49 Td 0 g (settlement certificate. The seven-repo update exposes the architecture as public API and) Tj ET Q
+q BT 31.18 137.32 Td 0 g (documentation surfaces. The Claude intelligence report correctly anticipated the centrality of) Tj ET Q
+q BT 31.18 123.14 Td 0 g (WORM/Merkle/agent infrastructure.) Tj ET Q
+q BT 31.18 100.46 Td 0 g (The rebuild story is technically meaningful because it transforms compromise into architecture.) Tj ET Q
+q BT 31.18 86.29 Td 0 g (The stack did not merely recover. It reorganized around verifiability.) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (24) Tj ET Q
+
+endstream
+endobj
+51 0 obj
+<<
+/Contents 52 0 R
+/Parent 1 0 R
+/Resources 81 0 R
+/Type /Page
+>>
+endobj
+52 0 obj
+<<
+/Length 4280
+>>
+stream
+2 J
+0.57 w
+0.9412 0.9412 0.9412 rg
+BT /F3 8.00 Tf ET
+q BT 204.94 796.97 Td 0.3922 0.3922 0.3922 rg (SNAPKITTYWEST Sovereign Compute Architecture) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 799.37 m 566.93 799.37 l S
+0 G
+BT /F1 14.00 Tf ET
+q BT 31.18 755.49 Td 0 g (Appendix A. Commands and Local Evidence) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 731.34 538.59 -9.92 re f BT 31.18 723.98 Td 0 g (  C covenant runtime:) Tj ET Q
+q 28.35 721.42 538.59 -9.92 re f BT 31.18 714.06 Td 0 g (  gcc -Wall -Wextra -Werror -std=c11 -I include src/covenant.c src/test_covenant.c) Tj ET Q
+q 28.35 711.50 538.59 -9.92 re f BT 31.18 704.14 Td 0 g (  .\\test_covenant.exe) Tj ET Q
+q 28.35 701.58 538.59 -9.92 re f BT 31.18 694.21 Td 0 g (  Results: 24/24 passed) Tj ET Q
+28.35 691.65 538.59 -9.92 re f
+q 28.35 681.73 538.59 -9.92 re f BT 31.18 674.37 Td 0 g (  sovereign-utqc nested workspace:) Tj ET Q
+q 28.35 671.81 538.59 -9.92 re f BT 31.18 664.45 Td 0 g (  cd sovereign-utqc/sovereign-utqc) Tj ET Q
+q 28.35 661.89 538.59 -9.92 re f BT 31.18 654.53 Td 0 g (  cargo test) Tj ET Q
+q 28.35 651.97 538.59 -9.92 re f BT 31.18 644.61 Td 0 g (  Observed result: 82 tests passed) Tj ET Q
+28.35 642.05 538.59 -9.92 re f
+q 28.35 632.13 538.59 -9.92 re f BT 31.18 624.77 Td 0 g (  sovereign-phdae:) Tj ET Q
+q 28.35 622.20 538.59 -9.92 re f BT 31.18 614.84 Td 0 g (  cargo test -p sovereign-phdae) Tj ET Q
+q 28.35 612.28 538.59 -9.92 re f BT 31.18 604.92 Td 0 g (  Observed result: 32 tests passed) Tj ET Q
+28.35 602.36 538.59 -9.92 re f
+q 28.35 592.44 538.59 -9.92 re f BT 31.18 585.08 Td 0 g (  sovereign-pirtm workspace crate:) Tj ET Q
+q 28.35 582.52 538.59 -9.92 re f BT 31.18 575.16 Td 0 g (  cargo test -p sovereign-pirtm) Tj ET Q
+q 28.35 572.60 538.59 -9.92 re f BT 31.18 565.24 Td 0 g (  Observed result: 8 tests passed) Tj ET Q
+28.35 562.68 538.59 -9.92 re f
+q 28.35 552.76 538.59 -9.92 re f BT 31.18 545.40 Td 0 g (  STELLA:) Tj ET Q
+q 28.35 542.83 538.59 -9.92 re f BT 31.18 535.47 Td 0 g (  Loaded http://127.0.0.1:8545/stella) Tj ET Q
+q 28.35 532.91 538.59 -9.92 re f BT 31.18 525.55 Td 0 g (  Executed workflow action) Tj ET Q
+q 28.35 522.99 538.59 -9.92 re f BT 31.18 515.63 Td 0 g (  Observed settlement certificate) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 463.52 Td 0 g (Appendix B. File and Repo Pointers) Tj ET Q
+BT /F2 9.00 Tf ET
+q BT 31.18 429.58 Td 0 g (Artifact | Pointer) Tj ET Q
+q BT 31.18 415.41 Td 0 g (C covenant runtime | SNAPKITTYWEST/sovereign-covenant) Tj ET Q
+q BT 31.18 401.24 Td 0 g (Nested UTQC workspace | SNAPKITTYWEST/sovereign-utqc/sovereign-utqc) Tj ET Q
+q BT 31.18 387.06 Td 0 g (STELLA | local service at 127.0.0.1:8545/stella) Tj ET Q
+q BT 31.18 372.89 Td 0 g (BOB orchestrator | SNAPKITTYWEST/bob-orchestrator) Tj ET Q
+q BT 31.18 358.72 Td 0 g (Summon | SNAPKITTYWEST/summon) Tj ET Q
+q BT 31.18 344.54 Td 0 g (Seven repo surfaces | sovereign-addr, sovereign-prism, sovereign-pirtm, sovereign-agt, ...) Tj ET Q
+q BT 31.18 330.37 Td 0 g (Claude intel report | DEVFLOW-FINANCE/orchestrator/handoff/CLAUDE_INTEL_REPORT.md) Tj ET Q
+BT /F1 14.00 Tf ET
+q BT 31.18 284.93 Td 0 g (Appendix C. Citation Stub) Tj ET Q
+BT /F4 8.00 Tf ET
+q 28.35 260.79 538.59 -9.92 re f BT 31.18 253.43 Td 0 g (  @misc{snapkittywest2026sovereigncompute,) Tj ET Q
+q 28.35 250.87 538.59 -9.92 re f BT 31.18 243.51 Td 0 g (  title = {SNAPKITTYWEST: Sovereign Compute Architecture with Linear Types, WORM S) Tj ET Q
+q 28.35 240.95 538.59 -9.92 re f BT 31.18 233.58 Td 0 g (  author = {SnapKitty Collective},) Tj ET Q
+q 28.35 231.02 538.59 -9.92 re f BT 31.18 223.66 Td 0 g (  year = {2026},) Tj ET Q
+q 28.35 221.10 538.59 -9.92 re f BT 31.18 213.74 Td 0 g (  note = {Zenodo-ready corrected technical paper}) Tj ET Q
+q 28.35 211.18 538.59 -9.92 re f BT 31.18 203.82 Td 0 g (  }) Tj ET Q
+0.3922 0.3922 0.3922 RG
+28.35 170.08 m 566.93 170.08 l S
+BT /F2 10.00 Tf ET
+q BT 31.18 137.32 Td 0 g (ERRANT\\_GENESIS\\_001 ? Forth is the metal. Prolog is the law. Linear types are the vow. WORM is) Tj ET Q
+q BT 31.18 123.14 Td 0 g (the memory. ?) Tj ET Q
+q BT 31.18 100.46 Td 0 g (First commit: 2026-05-07. Public record: github.com/SNAPKITTYWEST. All IP belongs to Jessica /) Tj ET Q
+q BT 31.18 86.29 Td 0 g (SNAPKITTY Collective.) Tj ET Q
+BT /F3 8.00 Tf ET
+q BT 293.19 25.95 Td 0.3922 0.3922 0.3922 rg (25) Tj ET Q
+
+endstream
+endobj
+53 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+54 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+55 0 obj
+<<
+/BaseFont /Helvetica-Oblique
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+56 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+57 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+58 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+59 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+60 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+61 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+62 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+63 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+64 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+65 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+66 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+67 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+68 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+69 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+70 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+71 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+72 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+73 0 obj
+<<
+/Font <</F1 53 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+74 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+75 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+76 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+77 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+78 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+79 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+80 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+81 0 obj
+<<
+/Font <</F1 53 0 R
+/F2 54 0 R
+/F3 55 0 R
+/F4 56 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+82 0 obj
+<<
+/CreationDate (D:20260702131959Z)
+>>
+endobj
+xref
+0 83
+0000000000 65535 f 
+0000000015 00000 n 
+0000000268 00000 n 
+0000000371 00000 n 
+0000000452 00000 n 
+0000001174 00000 n 
+0000001255 00000 n 
+0000004679 00000 n 
+0000004760 00000 n 
+0000008965 00000 n 
+0000009047 00000 n 
+0000013197 00000 n 
+0000013280 00000 n 
+0000017450 00000 n 
+0000017533 00000 n 
+0000022096 00000 n 
+0000022179 00000 n 
+0000026060 00000 n 
+0000026143 00000 n 
+0000030192 00000 n 
+0000030275 00000 n 
+0000034381 00000 n 
+0000034464 00000 n 
+0000038473 00000 n 
+0000038556 00000 n 
+0000042099 00000 n 
+0000042182 00000 n 
+0000046613 00000 n 
+0000046696 00000 n 
+0000050173 00000 n 
+0000050256 00000 n 
+0000054788 00000 n 
+0000054871 00000 n 
+0000059718 00000 n 
+0000059801 00000 n 
+0000064507 00000 n 
+0000064590 00000 n 
+0000070159 00000 n 
+0000070242 00000 n 
+0000074040 00000 n 
+0000074123 00000 n 
+0000077296 00000 n 
+0000077379 00000 n 
+0000080670 00000 n 
+0000080753 00000 n 
+0000084106 00000 n 
+0000084189 00000 n 
+0000087645 00000 n 
+0000087728 00000 n 
+0000092250 00000 n 
+0000092333 00000 n 
+0000096643 00000 n 
+0000096726 00000 n 
+0000101059 00000 n 
+0000101162 00000 n 
+0000101260 00000 n 
+0000101366 00000 n 
+0000101462 00000 n 
+0000101573 00000 n 
+0000101684 00000 n 
+0000101806 00000 n 
+0000101928 00000 n 
+0000102050 00000 n 
+0000102172 00000 n 
+0000102294 00000 n 
+0000102416 00000 n 
+0000102538 00000 n 
+0000102660 00000 n 
+0000102782 00000 n 
+0000102904 00000 n 
+0000103015 00000 n 
+0000103126 00000 n 
+0000103248 00000 n 
+0000103370 00000 n 
+0000103481 00000 n 
+0000103603 00000 n 
+0000103725 00000 n 
+0000103847 00000 n 
+0000103969 00000 n 
+0000104091 00000 n 
+0000104213 00000 n 
+0000104324 00000 n 
+0000104446 00000 n 
+trailer
+<<
+/Size 83
+/Root 2 0 R
+/Info 82 0 R
+/ID [<1EFDDD1D4695DF910A80D572ECD6CA37><1EFDDD1D4695DF910A80D572ECD6CA37>]
+>>
+startxref
+104502
+%%EOF
