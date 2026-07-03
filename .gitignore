@@ -11,6 +11,10 @@ __pycache__/
 *.pyc
 .venv/
 
+# C# build output
+**/bin/
+**/obj/
+
 # OS
 .DS_Store
 Thumbs.db
