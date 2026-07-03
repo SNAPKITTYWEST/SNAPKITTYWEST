@@ -196,3 +196,39 @@ No component advances unless every previous component remains coherent.
 ☉⌹○◇△⬡ Ω — WORM SEALED
 
 ![](https://sovereign-analytics.snapkittywest.workers.dev/canary/SNAPKITTYWEST)
+
+---
+
+## Build & Test
+
+This repo contains three build targets:
+
+1. **C++ / LLVM / MLIR**
+   ```bash
+   cmake -S cpp -B build/cpp -G Ninja
+   cmake --build build/cpp
+   ctest --test-dir build/cpp --output-on-failure
+   ```
+
+2. **C# AGT**
+   ```bash
+   dotnet restore ./agt
+   dotnet build ./agt --configuration Release
+   dotnet test ./agt --configuration Release --no-build
+   ```
+
+3. **OCaml snap-prism**
+   ```bash
+   cd snap-prism
+   opam install . --deps-only -y
+   dune build
+   dune runtest
+   ```
+
+Or run everything:
+
+```bash
+./scripts/build-all.sh
+```
+
+**One command. Three languages. Zero excuses.**
