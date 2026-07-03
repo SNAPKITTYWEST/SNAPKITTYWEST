@@ -1,0 +1,12 @@
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\bin\Release\net8.0\SnapKitty.AGT.Runtime.deps.json
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\bin\Release\net8.0\SnapKitty.AGT.Runtime.dll
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\bin\Release\net8.0\SnapKitty.AGT.Runtime.pdb
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.AssemblyInfoInputs.cache
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.AssemblyInfo.cs
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.csproj.CoreCompileInputs.cache
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.sourcelink.json
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.dll
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\refint\SnapKitty.AGT.Runtime.dll
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\SnapKitty.AGT.Runtime.pdb
+C:\Users\jessi\IdeaProjects\SNAPKITTYWEST\sovereign-utqc\csharp\SnapKitty.AGT\SnapKitty.AGT.Runtime\obj\Release\net8.0\ref\SnapKitty.AGT.Runtime.dll

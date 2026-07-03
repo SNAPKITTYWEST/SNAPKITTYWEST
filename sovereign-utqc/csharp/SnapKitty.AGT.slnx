@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/SnapKitty.AGT/">
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.Cli/SnapKitty.AGT.Cli.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.Grpc/SnapKitty.AGT.Grpc.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.Mesh/SnapKitty.AGT.Mesh.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.OS/SnapKitty.AGT.OS.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.Runtime/SnapKitty.AGT.Runtime.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.SRE/SnapKitty.AGT.SRE.csproj" />
+    <Project Path="SnapKitty.AGT/SnapKitty.AGT.Tests/SnapKitty.AGT.Tests.csproj" />
+  </Folder>
+</Solution>
