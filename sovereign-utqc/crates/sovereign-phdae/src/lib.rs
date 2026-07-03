@@ -31,6 +31,8 @@ mod tensor;
 mod solver;
 mod audit;
 mod axiom;
+pub mod zeta_hamiltonian;
+pub mod lambda_loss;
 
 pub use matrix::{SkewSymMatrix, PsdMatrix, MatrixError};
 pub use tensor::TensorOperator;

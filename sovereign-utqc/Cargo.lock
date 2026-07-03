@@ -777,10 +777,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "sovereign-gitbucket"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "thiserror",
+]
+
+[[package]]
 name = "sovereign-hologram-runtime"
 version = "0.1.0"
 dependencies = [
  "serde",
+]
+
+[[package]]
+name = "sovereign-pcsel"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "sha2",
+ "sovereign-boundary-lattice",
+ "thiserror",
+ "utqc-goldilocks",
 ]
 
 [[package]]
@@ -815,11 +840,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "sovereign-prime-fock"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "thiserror",
+ "utqc-goldilocks",
+]
+
+[[package]]
 name = "sovereign-prime-mask"
 version = "0.1.0"
 dependencies = [
  "proptest",
  "serde",
+]
+
+[[package]]
+name = "sovereign-reg-hom"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "sha2",
+ "thiserror",
 ]
 
 [[package]]
@@ -829,6 +878,20 @@ dependencies = [
  "proptest",
  "serde",
  "sovereign-field-simd",
+]
+
+[[package]]
+name = "sovereign-subleq"
+version = "0.1.0"
+dependencies = [
+ "hex",
+ "proptest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "thiserror",
+ "utqc-core",
+ "utqc-goldilocks",
 ]
 
 [[package]]

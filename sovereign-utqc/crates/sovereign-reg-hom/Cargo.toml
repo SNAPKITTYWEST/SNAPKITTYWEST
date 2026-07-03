@@ -1,0 +1,26 @@
+[package]
+name = "sovereign-reg-hom"
+version.workspace = true
+edition.workspace = true
+description = "RegHom Registry: registry of regular homomorphisms between Banach spaces, Jacobian witnesses, composition"
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+sha2.workspace = true
+hex.workspace = true
+thiserror.workspace = true
+proptest.workspace = true
+
+[lints.rust]
+unsafe_code = "forbid"
+missing-docs = { level = "warn", priority = -1 }
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+unwrap-used = "deny"
+expect-used = "deny"
+panic = "deny"
+todo = "deny"
+unimplemented = "deny"
+dbg-macro = "deny"

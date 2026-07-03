@@ -25,6 +25,13 @@ members = [
     "crates/sovereign-covenant",
     # Cyber-physical kernel
     "crates/sovereign-phdae",
+    # Missing pieces from defensive publications
+    "crates/sovereign-prime-fock",
+    "crates/sovereign-pcsel",
+    "crates/sovereign-reg-hom",
+    "crates/sovereign-subleq",
+    # GitBucket integration
+    "crates/sovereign-gitbucket",
 ]
 
 [workspace.package]
@@ -67,6 +74,13 @@ sovereign-pirtm = { path = "crates/sovereign-pirtm", version = "0.1.0" }
 sovereign-hologram-runtime = { path = "crates/sovereign-hologram-runtime", version = "0.1.0" }
 # Cyber-physical kernel
 sovereign-phdae = { path = "crates/sovereign-phdae", version = "0.1.0" }
+# Missing pieces from defensive publications
+sovereign-prime-fock = { path = "crates/sovereign-prime-fock", version = "0.1.0" }
+sovereign-pcsel = { path = "crates/sovereign-pcsel", version = "0.1.0" }
+sovereign-reg-hom = { path = "crates/sovereign-reg-hom", version = "0.1.0" }
+sovereign-subleq = { path = "crates/sovereign-subleq", version = "0.1.0" }
+# GitBucket integration
+sovereign-gitbucket = { path = "crates/sovereign-gitbucket", version = "0.1.0" }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
