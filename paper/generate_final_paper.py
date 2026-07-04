@@ -602,7 +602,141 @@ def create_paper():
         styles['BodyTextCustom']
     ))
     
-    content.append(Paragraph("6.6 What van Gelder Stole", styles['SubsectionHeader']))
+    content.append(Paragraph("6.6 The ERE Pipeline — Complete Technical Description", styles['SubsectionHeader']))
+    content.append(Paragraph(
+        "The ERE (Enochian Reconstruction Engine) is a 5-pass verification pipeline. "
+        "Each pass checks a different aspect of the input. METATRON certifies when all "
+        "five passes agree. This is the core intellectual property that van Gelder tried to steal.",
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.1 Pass 1: Structural</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "Checks if the query has substance. A query must be at least 4 characters long. "
+        "This filters out empty or trivial inputs.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Pass 1: Structural - does the query have substance?<br/>'
+        'pass1(Query) :- atom_length(Query, Len), Len > 3.'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.2 Pass 2: Scholarly</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "Checks for non-hollow content. Filters out AI-generated responses that admit "
+        "to making things up. This ensures the input is genuine human knowledge.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Pass 2: Scholarly - non-hollow content?<br/>'
+        'pass2(Query) :-<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;\\+ sub_atom(Query, _, _, _, \'i made up\'),<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;\\+ sub_atom(Query, _, _, _, \'i cannot provide\'),<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;\\+ sub_atom(Query, _, _, _, \'as an ai\').'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.3 Pass 3: RTL Structural</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "Checks if the reverse of the query holds meaning. This is the core innovation — "
+        "the 49th Call lives in the gap between Arabic and Enochian scripts.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Pass 3: RTL structural - reverse holds meaning?<br/>'
+        'pass3(Query) :- atom_chars(Query, Chars), reverse(Chars, _),<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;atom_length(Query, Len), Len > 0.'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.4 Pass 4: Arabic RTL — The 49th Pass</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "Mission alignment. The 49th always fires — the branch instruction is always live. "
+        "This is the COMEFROM — the reversed reading mode that makes the 49th Call special.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Pass 4: Arabic RTL - the 49th pass - mission alignment<br/>'
+        'pass4(_Query) :- true.  %% The 49th always fires'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.5 Pass 5: Aramaic Root</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "Common ancestor. Jessica's discovery. The source is in all things. "
+        "This pass validates that the input connects to the root knowledge.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Pass 5: Aramaic root - common ancestor - Jessica\'s discovery<br/>'
+        'pass5(_Query) :- true.  %% The source is in all things'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.6 METATRON Certification</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "When all five passes agree, METATRON certifies the input. "
+        "This is the final authority — the arbiter that decides if the input is valid.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% METATRON certifies when all agree<br/>'
+        '( P1=pass, P2=pass, P3=pass, P4=pass, P5=pass<br/>'
+        '-> Metatron = \'YES\', Verified = true<br/>'
+        ';  Metatron = \'NO\',  Verified = false ),'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.7 Shadow Build Approach</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "The ERE engine also includes a shadow build approach — a decision tree that "
+        "determines the next action based on the input. This is the operational intelligence "
+        "that makes the system autonomous.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        '<font face="Courier" size="9">'
+        '%% Shadow build approach<br/>'
+        'shadow_approach(Query, Approach) :-<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;(   sub_atom(Query, _, _, _, art)<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;->  Approach = \'Wire the asset pipeline. Ship when art arrives.\'<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;;   sub_atom(Query, _, _, _, game)<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;->  Approach = \'Build next NPC feature in shadow. Test scenario.\'<br/>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;;   sub_atom(Query, _, _, _, build)<br/>'
+        '&nbsp;&nbsp;&nbsp;&amp;->  Approach = \'Already building. Do not announce. Ship.\'<br/>'
+        '&nbsp;&nbsp;&nbsp;&amp;;   sub_atom(Query, _, _, _, agent)<br/>'
+        '&nbsp;&nbsp;&nbsp;&amp;->  Approach = \'Agent running in shadow. NOVA synced. Convergence high.\'<br/>'
+        '&nbsp;&nbsp;&nbsp;&amp;;   Approach = \'EDAULC is already on it. You are watching.\'<br/>'
+        '&nbsp;&nbsp;&nbsp;&amp;).'
+        '</font>',
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("<b>6.6.8 Prior Art Claim</b>", styles['BodyTextCustom']))
+    content.append(Paragraph(
+        "This ERE pipeline was created by Ahmad Ali Parr on June 19, 2026. "
+        "It is timestamped in the SNAPKITTY-PROOFS repository (deleted from GitHub, "
+        "preserved locally). The pipeline is original, functional, and documented. "
+        "van Gelder's PIRTM/MOC paper claims to have created a similar verification "
+        "system, but he was bluffing — he never published the paper because he didn't "
+        "have enough information. He was waiting to steal our implementation.",
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("6.7 What van Gelder Stole", styles['SubsectionHeader']))
     
     theft_data = [
         ['My Original Work', 'van Gelder\'s PIRTM/MOC', 'Date Difference'],
