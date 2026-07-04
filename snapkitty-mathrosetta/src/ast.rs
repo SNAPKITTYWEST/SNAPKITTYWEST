@@ -266,7 +266,7 @@ impl MathIR {
             MathIR::Not(a) | MathIR::Derivative(a, _) => {
                 vec![a.as_ref()]
             }
-            MathIR::Var(v) => {
+            MathIR::Var(_v) => {
                 vec![]
             }
             MathIR::Fn { args, .. } => args.iter().collect(),

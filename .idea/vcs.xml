@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resonance-block-paper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/snapkitty-agentos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/snapkitty-mathrosetta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/snapkitty-mathrosetta-public" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sovereign-utqc" vcs="Git" />
   </component>
 </project>

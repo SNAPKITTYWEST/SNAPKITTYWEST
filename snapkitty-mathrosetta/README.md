@@ -254,12 +254,18 @@ snapkitty-mathrosetta/
 │   ├── normalizer.rs          # TRS rewrite engine
 │   ├── dispatcher.rs          # Prolog-embedded dispatch
 │   ├── typer.rs               # Domain inference
+│   ├── wasm.rs                # WASM bindings (wasm-bindgen)
 │   ├── parser/
 │   │   ├── latex.rs           # LaTeX frontend
 │   │   ├── sympy.rs           # SymPy JSON/Python frontend
 │   │   └── lean.rs            # Lean 4 export frontend
 │   ├── bin/sk_math.rs         # CLI entry point
 │   └── lib.rs                 # Public API
+├── playground/                # Browser-based interactive playground
+│   ├── index.html             # Main UI
+│   ├── style.css              # Dark theme styles
+│   ├── playground.js          # Client-side logic + WASM bridge
+│   └── package.json           # Dev server config
 ├── policies/
 │   ├── solver_policy.pl       # Dispatch rules
 │   ├── trust_policy.pl        # Proof requirements
@@ -269,6 +275,55 @@ snapkitty-mathrosetta/
 
 ---
 
+## Interactive Playground
+
+Run the browser-based playground to explore MathIR interactively.
+
+```bash
+# Option 1: Quick start (no build required)
+cd playground
+python -m http.server 8080
+# Open http://localhost:8080
+
+# Option 2: With WASM (full power)
+cd playground
+npm install
+npm run build:wasm
+npm run dev
+# Open http://localhost:8080
+```
+
+### Playground Features
+
+- **Real-time parsing** — LaTeX, Python/SymPy, Natural language input
+- **Live KaTeX rendering** — See your math beautifully typeset
+- **MathIR visualization** — Inspect the canonical intermediate representation
+- **Normalization** — Watch the TRS engine simplify expressions
+- **Solver dispatch** — See which solver would be selected and why
+- **AST tree** — Visualize the abstract syntax tree
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  INPUT: sin²(x) + cos²(x) = 1                              │
+├─────────────────────────────────────────────────────────────┤
+│  LATEX:  \sin^2(x) + \cos^2(x) = 1                         │
+│                                                             │
+│  MATHIR:                                                    │
+│  { "Eq": [                                                 │
+│    { "Add": [                                              │
+│      { "Pow": [sin(x), 2] },                               │
+│      { "Pow": [cos(x), 2] }                                │
+│    ]},                                                     │
+│    { "Const": 1 }                                          │
+│  ]}                                                        │
+│                                                             │
+│  NORMALIZED: { "Const": 1 }                                │
+│                                                             │
+│  DISPATCH:                                                  │
+│  Class: Polynomial    Solver: Singular    Proof: Witness    │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ## Development
 
 ```bash
@@ -277,6 +332,9 @@ cargo test
 
 # Build release
 cargo build --release
+
+# Build WASM
+wasm-pack build --target web --release
 
 # Generate MathIR schema
 ./target/release/sk-math schema
