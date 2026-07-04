@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-07-04",
+  "author": "Ahmad Ali Parr",
+  "total_simulations": 100000,
+  "total_success": 100000,
+  "total_rtl": 50000,
+  "success_rate": 1.0,
+  "rtl_rate": 0.5,
+  "elapsed_seconds": 119.33746409416199,
+  "simulations_per_second": 837.9598205731609,
+  "scripts": {
+    "49th Call (Enochian)": {
+      "count": 25000,
+      "success": 25000,
+      "rtl": 25000,
+      "avg_steps": 10000.0
+    },
+    "Rongorongo (Easter Island)": {
+      "count": 25000,
+      "success": 25000,
+      "rtl": 25000,
+      "avg_steps": 10000.0
+    },
+    "Proto-Elamite (Iran)": {
+      "count": 25000,
+      "success": 25000,
+      "rtl": 0,
+      "avg_steps": 2.0
+    },
+    "Voynich (15th Century)": {
+      "count": 25000,
+      "success": 25000,
+      "rtl": 0,
+      "avg_steps": 2.0
+    }
+  }
+}
