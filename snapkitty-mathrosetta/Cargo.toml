@@ -1,0 +1,33 @@
+[package]
+name = "mathir"
+version = "0.1.0"
+edition = "2021"
+description = "MathIR — Canonical Mathematical Intermediate Representation for SnapKitty Rosetta"
+license = "Apache-2.0"
+authors = ["Ahmad Ali Parr"]
+
+[lib]
+name = "mathir"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sk-math"
+path = "src/bin/sk_math.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["full"] }
+prost = "0.12"
+tonic = "0.12"
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
