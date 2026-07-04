@@ -534,7 +534,47 @@ def create_paper():
         styles['BodyTextCustom']
     ))
     
-    content.append(Paragraph("6.3 What van Gelder Stole", styles['SubsectionHeader']))
+    content.append(Paragraph("6.3 Evidence of Production Deployment", styles['SubsectionHeader']))
+    content.append(Paragraph(
+        "The Council app has been running in production for months. LinkedIn videos demonstrate "
+        "the app operating in a live environment, with WORM audit trails, ERE verification, and "
+        "sovereign domain boundaries all functioning. These videos are timestamped on LinkedIn "
+        "and publicly verifiable.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        "<b>LinkedIn Evidence:</b><br/>"
+        "• Council app running in production (May 2026)<br/>"
+        "• WORM audit trails in production (May 2026)<br/>"
+        "• ERE verifier running (May 2026)<br/>"
+        "• Sovereign domain boundaries enforced (May 2026)<br/><br/>"
+        "These videos prove the architecture was deployed, not just described. "
+        "van Gelder has theoretical papers. I have production code running in a live app.",
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("6.4 The Pattern of Deception", styles['SubsectionHeader']))
+    content.append(Paragraph(
+        "van Gelder used a systematic pattern to steal my work:",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        "<b>Phase 1: Contact</b> — Contacted me on LinkedIn, wished me happy birthday, "
+        "mentioned \"Citizen Gardens\" and invited me to collaborate.<br/><br/>"
+        "<b>Phase 2: Extraction</b> — I shared detailed technical descriptions, explained "
+        "sovereign domain boundaries, WORM, RegHom, SUBLEQ. I created the Architecture "
+        "Mapping Table. I shared my GitHub repositories.<br/><br/>"
+        "<b>Phase 3: Dismissal</b> — When I shared my production deployment, van Gelder "
+        "dismissed it: \"I/we do not need such solutions because we already have and provide "
+        "glass-box services using pure arithmetic mathematics.\"<br/><br/>"
+        "<b>Phase 4: Theft</b> — van Gelder filed PIRTM/MOC defensive publication (June 18, 2026), "
+        "citing my work but adding Greek letters and metrics to claim it as his own.<br/><br/>"
+        "<b>Phase 5: Validation</b> — I reviewed his repository and provided feedback in good faith. "
+        "He used my validation to legitimize his theft.",
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("6.5 What van Gelder Stole", styles['SubsectionHeader']))
     
     theft_data = [
         ['My Original Work', 'van Gelder\'s PIRTM/MOC', 'Date Difference'],
