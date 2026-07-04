@@ -574,7 +574,35 @@ def create_paper():
         styles['BodyTextCustom']
     ))
     
-    content.append(Paragraph("6.5 What van Gelder Stole", styles['SubsectionHeader']))
+    content.append(Paragraph("6.5 The Two ERE Engines — The Real Target", styles['SubsectionHeader']))
+    content.append(Paragraph(
+        "There were TWO ERE engines. van Gelder tried to steal the 5-pass ERE engine thinking "
+        "I would focus on the other one and get confused. But the 5-pass ERE engine is the one "
+        "that's actually valuable.",
+        styles['BodyTextCustom']
+    ))
+    content.append(Paragraph(
+        "<b>Engine 1: Prolog EDAULC</b> (edaulc_verify.pl)<br/>"
+        "• 5-pass ERE verification engine<br/>"
+        "• Pass 1: Structural - does the query have substance?<br/>"
+        "• Pass 2: Scholarly - non-hollow content?<br/>"
+        "• Pass 3: RTL structural - reverse holds meaning?<br/>"
+        "• Pass 4: Arabic RTL - the 49th pass - mission alignment<br/>"
+        "• Pass 5: Aramaic root - common ancestor - Jessica's discovery<br/>"
+        "• METATRON certifies when all agree<br/>"
+        "• Date: June 19, 2026<br/><br/>"
+        "<b>Engine 2: Haskell No-Cloning</b> (no_cloning.hs)<br/>"
+        "• 5-pass ERE pipeline with LinearTypes<br/>"
+        "• GHC LinearTypes enforces single-use at compiler level<br/>"
+        "• GADT syntax with explicit constructor-field multiplicity<br/>"
+        "• v2.0: linearity propagates through all GADT constructor boundaries<br/>"
+        "• Date: June 11, 2026<br/><br/>"
+        "<b>Both engines are in SNAPKITTY-PROOFS</b> — deleted from GitHub but still in local folder. "
+        "This is the evidence van Gelder tried to steal.",
+        styles['BodyTextCustom']
+    ))
+    
+    content.append(Paragraph("6.6 What van Gelder Stole", styles['SubsectionHeader']))
     
     theft_data = [
         ['My Original Work', 'van Gelder\'s PIRTM/MOC', 'Date Difference'],
