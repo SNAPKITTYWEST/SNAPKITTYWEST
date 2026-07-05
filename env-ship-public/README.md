@@ -166,6 +166,30 @@ Install on macOS:
 brew install jq
 ```
 
+## Interactive Demo
+
+```bash
+# Run the full interactive walkthrough
+./demo/interactive.sh
+
+# Or quick one-liner
+./demo/quick.sh
+```
+
+## Test Suite
+
+```bash
+# Run all tests
+bash tests/test.sh
+```
+
+## CI/CD
+
+GitHub Actions workflow validates on every push:
+- Encapsulate → Verify → Extract → Diff
+- Batch processing
+- Schema validation
+
 ## License
 
 MIT
