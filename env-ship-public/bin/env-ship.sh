@@ -17,12 +17,231 @@ readonly TRUST_PROTOCOL="${TRUST_PROTOCOL:-WORM_Chain}"
 readonly AUDIT_SPEC="${ENVELOPE_AUDIT_SPEC:-$(uuidgen 2>/dev/null || echo "00000000-0000-0000-0000-000000000000")}"
 
 # Dependencies check
-for cmd in jq sha256sum date base64 openssl; do
+for cmd in jq sha256sum date base64 openssl curl; do
     command -v "$cmd" >/dev/null || {
         echo "ERROR: Required dependency '$cmd' not found" >&2
         exit 1
     }
 done
+
+# ──────────────────────────────────────────────
+# Identity Provider (IdP) Integration
+# ──────────────────────────────────────────────
+
+# IdP Config (override via env)
+readonly IDP_PROVIDER="${ENVELOPE_IDP_PROVIDER:-github}"
+readonly IDP_CLIENT_ID="${ENVELOPE_IDP_CLIENT_ID:-}"
+readonly IDP_CLIENT_SECRET="${ENVELOPE_IDP_CLIENT_SECRET:-}"
+readonly IDP_REDIRECT_URI="${ENVELOPE_IDP_REDIRECT_URI:-http://localhost:8080/callback}"
+readonly IDP_SCOPES="${ENVELOPE_IDP_SCOPES:-openid email profile}"
+
+idp_discovery_url() {
+    case "$IDP_PROVIDER" in
+        github)     echo "https://github.com/login/oauth/authorize" ;;
+        google)     echo "https://accounts.google.com/o/oauth2/v2/auth" ;;
+        microsoft)  echo "https://login.microsoftonline.com/common/oauth2/v2.0/authorize" ;;
+        gitlab)     echo "https://gitlab.com/oauth/authorize" ;;
+        bitbucket)  echo "https://bitbucket.org/site/oauth2/authorize" ;;
+        oidc)       echo "${ENVELOPE_IDP_DISCOVERY_URL:-}" ;;
+        *)          echo "" ;;
+    esac
+}
+
+idp_token_url() {
+    case "$IDP_PROVIDER" in
+        github)     echo "https://github.com/login/oauth/access_token" ;;
+        google)     echo "https://oauth2.googleapis.com/token" ;;
+        microsoft)  echo "https://login.microsoftonline.com/common/oauth2/v2.0/token" ;;
+        gitlab)     echo "https://gitlab.com/oauth/token" ;;
+        bitbucket)  echo "https://bitbucket.org/site/oauth2/access_token" ;;
+        oidc)       echo "${ENVELOPE_IDP_TOKEN_URL:-}" ;;
+        *)          echo "" ;;
+    esac
+}
+
+idp_userinfo_url() {
+    case "$IDP_PROVIDER" in
+        github)     echo "https://api.github.com/user" ;;
+        google)     echo "https://www.googleapis.com/oauth2/v3/userinfo" ;;
+        microsoft)  echo "https://graph.microsoft.com/oidc/userinfo" ;;
+        gitlab)     echo "https://gitlab.com/oauth/userinfo" ;;
+        bitbucket)  echo "https://api.bitbucket.org/2.0/user" ;;
+        oidc)       echo "${ENVELOPE_IDP_USERINFO_URL:-}" ;;
+        *)          echo "" ;;
+    esac
+}
+
+# ──────────────────────────────────────────────
+# IdP Authentication Flow
+# ──────────────────────────────────────────────
+
+idp_auth() {
+    local provider="${1:-$IDP_PROVIDER}"
+    local client_id="${2:-$IDP_CLIENT_ID}"
+    local redirect_uri="${3:-$IDP_REDIRECT_URI}"
+    local scopes="${4:-$IDP_SCOPES}"
+
+    [[ -z "$client_id" ]] && { echo "ERROR: Client ID required (ENVELOPE_IDP_CLIENT_ID)" >&2; return 1; }
+
+    local auth_url
+    auth_url=$(idp_discovery_url)
+    [[ -z "$auth_url" ]] && { echo "ERROR: Unknown provider: $provider" >&2; return 1; }
+
+    local state
+    state=$(openssl rand -hex 16)
+
+    local params="client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scopes}&state=${state}&response_type=code"
+    local full_url="${auth_url}?${params}"
+
+    echo "┌────────────────────────────────────────────────────┐"
+    echo "│  Identity Provider Authentication                  │"
+    echo "├────────────────────────────────────────────────────┤"
+    echo "│  Provider: $provider"
+    echo "│  Client ID: ${client_id:0:20}..."
+    echo "│  Redirect URI: $redirect_uri"
+    echo "│  Scopes: $scopes"
+    echo "└────────────────────────────────────────────────────┘"
+    echo ""
+    echo "Opening browser for authentication..."
+    echo ""
+    echo "If browser doesn't open, visit:"
+    echo "$full_url"
+    echo ""
+
+    # Try to open browser
+    if command -v xdg-open >/dev/null; then
+        xdg-open "$full_url" 2>/dev/null &
+    elif command -v open >/dev/null; then
+        open "$full_url" 2>/dev/null &
+    elif command -v start >/dev/null; then
+        start "$full_url" 2>/dev/null &
+    fi
+
+    echo "Waiting for callback on $redirect_uri ..."
+    echo "Press Ctrl+C to cancel"
+    echo ""
+
+    # Simple HTTP server to catch callback
+    local code=""
+    local received_state=""
+
+    # Using netcat or python for simple server
+    if command -v python3 >/dev/null; then
+        code=$(python3 -c "
+import http.server
+import urllib.parse
+import sys
+
+code = [None]
+state = [None]
+
+class Handler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        parsed = urllib.parse.urlparse(self.path)
+        params = urllib.parse.parse_qs(parsed.query)
+        code[0] = params.get('code', [None])[0]
+        state[0] = params.get('state', [None])[0]
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(b'<html><body><h1>Authentication successful!</h1><p>You can close this window.</p></body></html>')
+
+server = http.server.HTTPServer(('localhost', 8080), Handler)
+server.handle_request()
+print(code[0] or '')
+" 2>/dev/null)
+    elif command -v nc >/dev/null; then
+        echo "Using netcat for callback (may need manual handling)..."
+    fi
+
+    [[ -z "$code" ]] && { echo "ERROR: No authorization code received" >&2; return 1; }
+
+    # Exchange code for token
+    local token_url
+    token_url=$(idp_token_url)
+    [[ -z "$token_url" ]] && { echo "ERROR: No token URL for provider" >&2; return 1; }
+
+    local token_response
+    token_response=$(curl -s -X POST "$token_url" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        -d "client_id=${client_id}" \
+        -d "client_secret=${IDP_CLIENT_SECRET}" \
+        -d "code=${code}" \
+        -d "redirect_uri=${redirect_uri}" \
+        -d "grant_type=authorization_code")
+
+    local access_token
+    access_token=$(printf '%s' "$token_response" | jq -r '.access_token // empty')
+    local id_token
+    id_token=$(printf '%s' "$token_response" | jq -r '.id_token // empty')
+
+    [[ -z "$access_token" ]] && { echo "ERROR: Failed to get access token" >&2; echo "$token_response"; return 1; }
+
+    # Get user info
+    local userinfo_url
+    userinfo_url=$(idp_userinfo_url)
+    local userinfo=""
+    if [[ -n "$userinfo_url" ]]; then
+        userinfo=$(curl -s -H "Authorization: Bearer $access_token" "$userinfo_url" 2>/dev/null || echo "{}")
+    fi
+
+    # Output identity claims
+    local claims
+    claims=$(jq -n \
+        --arg provider "$provider" \
+        --arg access_token "$access_token" \
+        --arg id_token "$id_token" \
+        --arg userinfo "$userinfo" \
+        '{
+            provider: $provider,
+            access_token: $access_token,
+            id_token: $id_token,
+            userinfo: ($userinfo | fromjson),
+            authenticated_at: now | strftime("%Y-%m-%dT%H:%M:%SZ")
+        }')
+
+    echo "$claims"
+}
+
+idp_claims_to_envelope() {
+    local claims_json="${1:-}"
+    local envelope_file="${2:-}"
+
+    [[ -z "$claims_json" || -z "$envelope_file" ]] && { echo "Usage: idp_claims_to_envelope <claims_json> <envelope_file>" >&2; return 1; }
+    [[ -f "$envelope_file" ]] || { echo "ERROR: Envelope not found: $envelope_file" >&2; return 1; }
+
+    local provider identity_id email name
+    provider=$(printf '%s' "$claims_json" | jq -r '.provider // "unknown"')
+    identity_id=$(printf '%s' "$claims_json" | jq -r '.userinfo.sub // .userinfo.id // .userinfo.login // "unknown"')
+    email=$(printf '%s' "$claims_json" | jq -r '.userinfo.email // .userinfo.mail // "unknown"')
+    name=$(printf '%s' "$claims_json" | jq -r '.userinfo.name // .userinfo.display_name // "unknown"')
+
+    local idp_claim
+    idp_claim=$(jq -n \
+        --arg provider "$provider" \
+        --arg identity_id "$identity_id" \
+        --arg email "$email" \
+        --arg name "$name" \
+        --arg timestamp "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+        '{
+            provider: $provider,
+            identity_id: $identity_id,
+            email: $email,
+            name: $name,
+            verified_at: $timestamp
+        }')
+
+    local updated
+    updated=$(jq --argjson claim "$idp_claim" '.idp_claim = $claim' "$envelope_file")
+    printf '%s\n' "$updated" > "$envelope_file"
+
+    echo "IdP claim added to envelope:"
+    echo "  Provider: $provider"
+    echo "  Identity: $identity_id"
+    echo "  Email: $email"
+    echo "  Name: $name"
+}
 
 # ──────────────────────────────────────────────
 # Core Functions
@@ -284,6 +503,64 @@ batch_encapsulate() {
 }
 
 # ──────────────────────────────────────────────
+# Identity Provider (IdP) Commands
+# ──────────────────────────────────────────────
+
+idp_auth_cmd() {
+    local provider="${1:-$IDP_PROVIDER}"
+    local client_id="${2:-$IDP_CLIENT_ID}"
+
+    idp_auth "$provider" "$client_id"
+}
+
+idp_claim_cmd() {
+    local envelope_file="${1:-}"
+    local claims_file="${2:-}"
+
+    [[ -z "$envelope_file" || -z "$claims_file" ]] && { usage; exit 1; }
+    [[ -f "$envelope_file" ]] || { echo "ERROR: Envelope not found: $envelope_file" >&2; exit 1; }
+    [[ -f "$claims_file" ]] || { echo "ERROR: Claims file not found: $claims_file" >&2; exit 1; }
+
+    local claims
+    claims=$(cat "$claims_file")
+
+    # Extract key identity fields
+    local provider identity_id email name verified_at
+    provider=$(printf '%s' "$claims" | jq -r '.provider // empty')
+    identity_id=$(printf '%s' "$claims" | jq -r '.userinfo.id // .userinfo.sub // empty')
+    email=$(printf '%s' "$claims" | jq -r '.userinfo.email // empty')
+    name=$(printf '%s' "$claims" | jq -r '.userinfo.name // .userinfo.login // empty')
+    verified_at=$(printf '%s' "$claims" | jq -r '.authenticated_at // empty')
+
+    [[ -z "$provider" ]] && { echo "ERROR: Invalid claims file (missing provider)" >&2; exit 1; }
+
+    local idp_claim
+    idp_claim=$(jq -n \
+        --arg provider "$provider" \
+        --arg identity_id "$identity_id" \
+        --arg email "$email" \
+        --arg name "$name" \
+        --arg verified_at "$verified_at" \
+        '{
+            provider: $provider,
+            identity_id: $identity_id,
+            email: $email,
+            name: $name,
+            verified_at: $verified_at
+        }')
+
+    local updated
+    updated=$(jq --argjson claim "$idp_claim" '.idp_claim = $claim' "$envelope_file")
+    printf '%s\n' "$updated" > "$envelope_file"
+
+    echo "IdP claim attached to envelope: $envelope_file"
+    echo "  Provider: $provider"
+    echo "  Identity ID: $identity_id"
+    echo "  Email: $email"
+    echo "  Name: $name"
+}
+
+# ──────────────────────────────────────────────
 # Usage
 # ──────────────────────────────────────────────
 
@@ -316,16 +593,33 @@ COMMANDS:
     batch <directory> [proof_directory] [sign_key]
         Process all .sh files.
 
+    idp-auth <provider> [--client-id ID] [--client-secret SECRET] [--redirect URI] [--scope SCOPES]
+        Authenticate with Identity Provider (GitHub, Google, Microsoft, OIDC).
+        Opens browser for OAuth2 flow, returns access token and user info.
+
+    idp-claim <envelope> <claims.json>
+        Attach IdP identity claim to envelope.
+
 EXAMPLES:
     env-ship encapsulate deploy.sh
     env-ship verify deploy.envelope
     env-ship extract deploy.envelope
+    env-ship idp-auth github --client-id xxx --client-secret yyy
+    env-ship idp-claim deploy.envelope idp_claims.json
 
 ENVIRONMENT:
-    ENVELOPE_AUTHOR       Override author (default: whoami)
-    ENVELOPE_INFRASTRUCTURE Override infrastructure
-    TRUST_PROTOCOL        Override trust protocol
-    ENVELOPE_AUDIT_SPEC   Override audit spec UUID
+    ENVELOPE_AUTHOR           Override author (default: whoami)
+    ENVELOPE_INFRASTRUCTURE   Override infrastructure
+    TRUST_PROTOCOL            Override trust protocol
+    ENVELOPE_AUDIT_SPEC       Override audit spec UUID
+    ENVELOPE_IDP_PROVIDER     IdP provider: github|google|microsoft|gitlab|bitbucket|oidc (default: github)
+    ENVELOPE_IDP_CLIENT_ID    OAuth2 client ID
+    ENVELOPE_IDP_CLIENT_SECRET OAuth2 client secret
+    ENVELOPE_IDP_REDIRECT_URI Redirect URI (default: http://localhost:8080/callback)
+    ENVELOPE_IDP_SCOPES       OAuth2 scopes (default: openid email profile)
+    ENVELOPE_IDP_DISCOVERY_URL  OIDC discovery URL (for generic oidc)
+    ENVELOPE_IDP_TOKEN_URL      OIDC token URL (for generic oidc)
+    ENVELOPE_IDP_USERINFO_URL   OIDC userinfo URL (for generic oidc)
 EOF
 }
 
@@ -377,6 +671,8 @@ main() {
         link-proof) link_proof "$@" ;;
         sign) sign "$@" ;;
         batch) batch_encapsulate "$@" ;;
+        idp-auth) idp_auth "$@" ;;
+        idp-claim) idp_claims_to_envelope "$@" ;;
         *) usage; exit 3 ;;
     esac
 }

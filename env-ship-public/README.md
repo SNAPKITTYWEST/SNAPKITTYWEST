@@ -118,52 +118,110 @@ export ENVELOPE_AUDIT_SPEC="your-uuid"
 ## How it works
 
 ```
+                    ┌─────────────────────────────────────────────────────────────┐
+                    │                    IDENTITY PROVIDER FLOW                    │
+                    └─────────────────────────────────────────────────────────────┘
+                                           │
+                                           ▼
+    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+    │   SCRIPT     │───▶│  ENCAPSULATE │───▶│   ENVELOPE   │───▶│   VERIFY     │
+    │  (deploy.sh) │    │  (base64 +   │    │  (JSON +     │    │  (hash +     │
+    └──────────────┘    │   SHA-256)   │    │   payload)   │    │   signature) │
+                        └──────────────┘    └──────────────┘    └──────────────┘
+                                 │                   │                   │
+                                 ▼                   ▼                   ▼
+                        ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+                        │  PROOF REF   │    │  IDP CLAIM   │    │  EXECUTE     │
+                        │ (lean://...) │    │ (OIDC/OAuth) │    │  (governed)  │
+                        └──────────────┘    └──────────────┘    └──────────────┘
+                                           │
+                        ┌──────────────────┼──────────────────┐
+                        ▼                  ▼                  ▼
+                   ┌─────────┐        ┌─────────┐        ┌─────────┐
+                   │ GitHub  │        │ Google  │        │Microsoft│
+                   │  OAuth  │        │  OAuth  │        │  OAuth  │
+                   └─────────┘        └─────────┘        └─────────┘
+                        │                  │                  │
+                        ▼                  ▼                  ▼
+                   ┌─────────────────────────────────────────────────────┐
+                   │              GENERIC OIDC (any provider)            │
+                   └─────────────────────────────────────────────────────┘
+```
+
+```bash
 script
   → base64 encode
   → SHA-256 hash
   → JSON envelope
   → optional Ed25519 signature
-  → optional proof reference
+  → optional proof reference (Lean/Isabelle/WORM)
+  → optional IdP claim (GitHub/Google/Microsoft/OIDC)
   → schema validation
   → verified extraction
   → governed execution
 ```
 
-## Envelope format
+## Identity Provider Integration
+
+env-ship supports OAuth2/OpenID Connect authentication with major providers:
+
+| Provider | Auth URL | Token URL | UserInfo URL |
+|----------|----------|-----------|--------------|
+| GitHub   | `github.com/login/oauth/authorize` | `github.com/login/oauth/access_token` | `api.github.com/user` |
+| Google   | `accounts.google.com/o/oauth2/v2/auth` | `oauth2.googleapis.com/token` | `googleapis.com/oauth2/v3/userinfo` |
+| Microsoft| `login.microsoftonline.com/.../authorize` | `login.microsoftonline.com/.../token` | `graph.microsoft.com/oidc/userinfo` |
+| GitLab   | `gitlab.com/oauth/authorize` | `gitlab.com/oauth/token` | `gitlab.com/oauth/userinfo` |
+| Bitbucket| `bitbucket.org/site/oauth2/authorize` | `bitbucket.org/site/oauth2/access_token` | `api.bitbucket.org/2.0/user` |
+| Generic OIDC | Custom | Custom | Custom |
+
+### Configuration
+
+```bash
+# Required
+export ENVELOPE_IDP_CLIENT_ID="your-client-id"
+export ENVELOPE_IDP_CLIENT_SECRET="your-client-secret"
+
+# Optional (defaults shown)
+export ENVELOPE_IDP_PROVIDER="github"          # github|google|microsoft|gitlab|bitbucket|oidc
+export ENVELOPE_IDP_REDIRECT_URI="http://localhost:8080/callback"
+export ENVELOPE_IDP_SCOPES="openid email profile"
+
+# For generic OIDC
+export ENVELOPE_IDP_DISCOVERY_URL="https://your-idp.com/.well-known/openid-configuration"
+export ENVELOPE_IDP_TOKEN_URL="https://your-idp.com/oauth/token"
+export ENVELOPE_IDP_USERINFO_URL="https://your-idp.com/oidc/userinfo"
+```
+
+### Usage
+
+```bash
+# 1. Authenticate with IdP (opens browser)
+env-ship idp-auth github
+# Output: JSON claims with access_token, id_token, userinfo
+
+# 2. Save claims to file
+env-ship idp-auth github > idp_claims.json
+
+# 3. Attach IdP claim to envelope
+env-ship idp-claim deploy.envelope idp_claims.json
+
+# 4. Verify envelope includes IdP claim
+env-ship inspect deploy.envelope
+# Shows: "idp_claim": { "provider": "github", "identity_id": "...", "email": "...", "name": "..." }
+```
+
+### IdP Claim Format (added to envelope)
 
 ```json
 {
-  "envelope_version": "1.0.0",
-  "envelope_id": "env-a1b2c3d4e5f6g7h8-1720000000",
-  "author": "your-name",
-  "infrastructure": "your-infra",
-  "trust_protocol": "your-protocol",
-  "audit_spec": "uuid",
-  "timestamp": "2026-07-05T00:00:00Z",
-  "hash": "sha256-of-original-script",
-  "proof_ref": "lean://Theorems/Proof.lean",
-  "payload_b64": "base64-encoded-script",
-  "signature": "optional-ed25519-signature"
+  "idp_claim": {
+    "provider": "github",
+    "identity_id": "12345678",
+    "email": "user@example.com",
+    "name": "User Name",
+    "verified_at": "2026-07-05T12:34:56Z"
+  }
 }
-```
-
-## Dependencies
-
-- `jq` - JSON processing
-- `sha256sum` - Hash computation
-- `base64` - Payload encoding
-- `openssl` - Signature operations
-
-Install on Ubuntu/Debian:
-
-```bash
-sudo apt-get install jq coreutils openssl
-```
-
-Install on macOS:
-
-```bash
-brew install jq
 ```
 
 ## Interactive Demo
@@ -181,6 +239,9 @@ brew install jq
 ```bash
 # Run all tests
 bash tests/test.sh
+
+# Run with IdP mock (requires local server)
+# ENVELOPE_IDP_CLIENT_ID=test ENVELOPE_IDP_CLIENT_SECRET=test bash tests/test.sh
 ```
 
 ## CI/CD
@@ -189,6 +250,7 @@ GitHub Actions workflow validates on every push:
 - Encapsulate → Verify → Extract → Diff
 - Batch processing
 - Schema validation
+- IdP claim attachment (mocked)
 
 ## License
 
