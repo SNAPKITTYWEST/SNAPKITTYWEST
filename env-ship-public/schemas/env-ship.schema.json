@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://env-ship.io/schemas/envelope-v1.json",
+  "title": "Script Envelope",
+  "type": "object",
+  "required": [
+    "envelope_version",
+    "envelope_id",
+    "author",
+    "infrastructure",
+    "trust_protocol",
+    "audit_spec",
+    "timestamp",
+    "hash",
+    "payload_b64"
+  ],
+  "properties": {
+    "envelope_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "envelope_id": { "type": "string", "pattern": "^env-[a-f0-9]{16}-\\d+$" },
+    "author": { "type": "string" },
+    "infrastructure": { "type": "string" },
+    "trust_protocol": { "type": "string" },
+    "audit_spec": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "proof_ref": {
+      "type": ["string", "null"],
+      "pattern": "^(proof|lean|isabelle|worm)://.+$"
+    },
+    "payload_b64": { "type": "string", "minLength": 1 },
+    "signature": {
+      "type": ["string", "null"],
+      "description": "Base64-encoded Ed25519 signature"
+    }
+  },
+  "additionalProperties": false
+}
