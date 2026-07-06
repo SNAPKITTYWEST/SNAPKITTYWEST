@@ -8,6 +8,26 @@
 
 ---
 
+## Glitch Art
+
+```
+                    GLITCH ROBOTS — BOB ENGINE v1.0
+    ═══════════════════════════════════════════════════════════════
+
+    [o-o]      ^_^      >_<      O_O      B-)
+     /| |\    /O O\    /X X\    /0 0\    /O O\
+     _/ \_    \___/    \===/    \ooo/    \___/
+               | |     / \ /     | |     / \ /
+
+    #@$%!     @#%&?    *;:+=    ~^`|/    &$@#?
+     /| |\    /O O\    /X X\    /0 0\    /O O\
+     _/ \_    \===/    \ooo/    \___/    \===/
+               | |     / \ /     | |     / \ /
+
+    ═══════════════════════════════════════════════════════════════
+    BOOT VERIFIED · AGENT ONLINE · WORM SEALED · EVIDENCE OR SILENCE
+```
+
 ## Vortex Civilization
 
 <p align="center">
@@ -33,6 +53,25 @@
 | 🌍 **BOB's World** | ✅ Playable | Metaverse |
 | 🔥 **BOB's Vortex Engine** | ✅ Playable | Raycaster |
 | 🎮 **BOB's Tetris** | 🟡 Loading | x86-64 NASM |
+| 🤖 **BOB Engine** | ✅ Playable | Glitch Art Engine |
+
+---
+
+## BOB Engine
+
+**Frameless · Buffer-Centric · Zero-GC · Deterministic**
+
+The BOB Engine renders ASCII robot avatars with deterministic glitch effects using:
+
+1. **Double-Buffered Avatar Slots** — zero-copy frame flipping
+2. **Glitch as XOR Mask** — precomputed, deterministic per agent seed
+3. **SIMD Row Blits** — AVX2 `vpshufb` + `vpblendvb` per row
+4. **ANSI Batch Write** — single `writev()` syscall per frame
+5. **Agent Metadata in RO Data** — const struct in `.rodata`
+
+```bash
+cd bob-engine && make demo
+```
 
 ---
 
@@ -51,6 +90,7 @@ SYNCING STRATEGY ENGINE...
 🧵 BOB'S PARALLIVE: ONLINE
 🌍 BOB'S WORLD: ONLINE
 🔥 BOB'S VORTEX ENGINE: ONLINE
+🤖 BOB ENGINE: ONLINE
 READY.
 ```
 
@@ -65,6 +105,7 @@ python snake/bob_snake.py
 python sims/bob_sims.py
 python minecraft/bob_minecraft.py
 open chess/bob_chess.html
+cd bob-engine && make demo
 ```
 
 ---
