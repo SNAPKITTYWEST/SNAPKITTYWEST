@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-07-04",
+  "author": "Ahmad Ali Parr",
+  "total_simulations": 50000,
+  "verified_count": 44580,
+  "failed_count": 5420,
+  "verified_rate": 0.8916,
+  "failed_rate": 0.1084,
+  "elapsed_seconds": 0.18631577491760254,
+  "simulations_per_second": 268361.6028868855,
+  "pass_rates": {
+    "structural": 0.97192,
+    "scholarly": 0.95566,
+    "invariants": 1.0,
+    "mission": 0.96402,
+    "root": 1.0
+  },
+  "failure_reasons": {
+    "structural_empty": 1404,
+    "mission_misaligned": 1799,
+    "scholarly_fabrication": 2217
+  },
+  "sample_results": [
+    {
+      "query": "run the ERE pipeline",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "test the hypothesis",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "verify the WORM chain",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "a",
+      "verified": false,
+      "metatron": "NO",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": false,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "build the sovereign OS",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "Already building. Do not announce. Ship.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "create a new agent",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "Agent running in shadow. NOVA synced. Convergence high.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "deploy to production",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "deploy to production",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "certify the system",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    },
+    {
+      "query": "optimize the algorithm",
+      "verified": true,
+      "metatron": "YES",
+      "shadow_approach": "EDAULC is already on it. You are watching.",
+      "pass1": true,
+      "pass2": true,
+      "pass3": true,
+      "pass4": true,
+      "pass5": true
+    }
+  ]
+}
