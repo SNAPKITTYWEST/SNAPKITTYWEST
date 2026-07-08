@@ -18,10 +18,23 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
-"RESONANCE-CORE/"  
-"SNAPKITTY-PROOFS/"  
-"all-apl/"  
-"exo-synchronicity/"  
-"mathrosetta/"  
-"SNAPKITTYWEST.github.io/"  
-".qwen/"  
+
+# Orphaned repos / submodules (not part of this repo)
+RESONANCE-CORE/
+SNAPKITTY-PROOFS/
+all-apl/
+exo-synchronicity/
+mathrosetta/
+SNAPKITTYWEST.github.io/
+.qwen/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Temp
+*.tmp
+*.log
+
+snapkitty-agentos/
