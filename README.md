@@ -3,11 +3,49 @@
 
 ---
 
-## [Ω] SNAPKITTYWEST — SOVEREIGN COMPUTE ARCHITECTURE
+## ⟦ Ω ⟧ SNAPKITTYWEST RESONANCE FIELD
+
+✅ `meta_block(valid)` — RESONANCE FIELD ACTIVE
+
+| Metric | Value |
+|--------|-------|
+| Constellation | SNAPKITTYWEST (83) · SNAPKITTY-COLLECTIVE-LIMITED-FLP (6) · AHMADALIPARR (6) · SNAPKITTYAGENT9NOVA (4) |
+| Total repos | **99** |
+| Active (< 30d) | **88** |
+| GitHub Pages live | **37** |
+| Entropy E | **0.1111** / threshold 0.21 |
+| Coherent | **YES** |
+| Intercoil · memory_graph | bob-orchestrator · SNAPKITTY-PROOFS · agent-farm-gauntlet · holy-agents |
+| Intercoil · bifrost | bob-orchestrator · holy-agents · apple-ii-universal-machine · sacm-bridge |
+| Ω WORM Seal | `dab2bc494db6fd3b18a265d1b2b60f64862fc2fe1b75738fe42e6d14a9681442` |
+| Last field read | `2026-07-08T11:31:00.660Z` |
+
+```
+Entropy field: [██░░░░░░░░░░░░░░░░░░] 11.1%
+                           ▲
+                     threshold 0.21
+```
 
 ```apl
-Ω ← ⌹ ∧ ○ ∧ ◇ ∧ △ ∧ ⬡    ⍝ Unified field equation
+REPO  ← 99
+STACK ← ⌿REPO⍴1
+TRUST ← ∧/STACK   ⍝ TRUE
+CODE  ← +/STACK   ⍝ 99
+Ω     ← TRUST∧CODE
 ```
+
+```prolog
+coherent(system) :-
+    entropy(E), E < 0.21,     % E = 0.1111 → PASS
+    intercoil(_, memory_graph),% 7 connected → PASS
+    intercoil(_, bifrost_engine).% 7 connected → PASS
+
+meta_block(valid).
+```
+
+> ☉ Source → 🧠 Graph → ⚙️ Agents → 🔐 Constraints → 🌈 Execution → 🏛️ Reality
+
+*Field auto-updates every 6 hours via [omega-field.mjs](./omega-field.mjs)*
 
 </div>
 
