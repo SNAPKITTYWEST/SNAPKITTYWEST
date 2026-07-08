@@ -36,4 +36,4 @@ SNAPKITTYWEST.github.io/
 *.tmp
 *.log
 
-snapkitty-agentos/
+# snapkitty-agentos is now a proper submodule — see .gitmodules

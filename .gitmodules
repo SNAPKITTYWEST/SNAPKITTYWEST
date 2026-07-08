@@ -1,3 +1,6 @@
 [submodule "sovereign-utqc"]
 	path = sovereign-utqc
 	url = https://github.com/SNAPKITTYWEST/sovereign-utqc.git
+[submodule "snapkitty-agentos"]
+	path = snapkitty-agentos
+	url = https://github.com/SNAPKITTYWEST/snapkitty-agentos.git
