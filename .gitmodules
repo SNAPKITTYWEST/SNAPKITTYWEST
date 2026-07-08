@@ -4,3 +4,6 @@
 [submodule "snapkitty-agentos"]
 	path = snapkitty-agentos
 	url = https://github.com/SNAPKITTYWEST/snapkitty-agentos.git
+[submodule "snapkitty-gitbucket"]
+	path = snapkitty-gitbucket
+	url = https://github.com/SNAPKITTYWEST/snapkitty-gitbucket.git
