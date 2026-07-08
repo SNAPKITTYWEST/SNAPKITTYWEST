@@ -37,3 +37,51 @@ SNAPKITTYWEST.github.io/
 *.log
 
 # snapkitty-agentos is now a proper submodule — see .gitmodules
+
+# Sovereign sub-projects (standalone repos, not part of this repo)
+sovereign-addr/
+sovereign-adr/
+sovereign-agt/
+sovereign-clojure/
+sovereign-compiler/
+sovereign-f1/
+sovereign-goldilocks/
+sovereign-judge/
+sovereign-llm/
+sovereign-multiplicity/
+sovereign-pirtm/
+sovereign-router/
+sovereign-uor/
+sovereign-zbit/
+
+# External project directories (moved to snapkitty-agentos/external/)
+sovereign-prism/
+sovereign-ruby/
+
+# Legacy project directories (kept on disk, not tracked here)
+bob-reasoning-engine/
+bobs-games/
+env-ship/
+env-ship-public/
+errant/
+magmad/
+metamine/
+orbital-trust-deed/
+snakltalk/
+snapkitty-mathrosetta/
+
+# Loose files (publications, artifacts, misc)
+AGENT_FARM_BLUEPRINT.md
+AHMAD_ALI_PARR_DEFENSIVE_COUNTER_PUBLICATION.pdf
+AHMAD_ALI_PARR_SUBLEQ_49TH_CALL.pdf
+BREAKING_THE_WESTERN_WALL.md
+edaulc_simulation_results.json
+EPISODE_01.md
+EPISODE_02.md
+ERE_COMBINED_PAPER.pdf
+fib.nb.json
+IMPLEMENTATION_STATUS.md
+megtron-chat.html
+README-2.md
+SNAPKITTY_PROOF_STACK_PAPER.pdf
+supleq_simulation_results.json
