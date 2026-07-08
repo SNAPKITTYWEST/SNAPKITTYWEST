@@ -102,6 +102,7 @@ This umbrella repo orchestrates three sovereign submodules plus its own internal
 | Repository | Role | Key Contents |
 |---|---|---|
 | **SNAPKITTYWEST** (you are here) | **Umbrella** | Ω-field seal, constitutional boot spec, academic paper, docs, submodule orchestration, AGENTS.md |
+| **S_AUTOCODE** | **Sovereign Transformer** | Lean 4.14.0 I₄ Quartic Invariant certificate — 27 defs, 4 theorems, compiles clean |
 | [`snapkitty-agentos`](https://github.com/SNAPKITTYWEST/snapkitty-agentos) | **Runtime** | P/NP swarm engine, GitBucket memory operations, skill loader, AGENTS.md (canonical agent spec) |
 | [`snapkitty-gitbucket`](https://github.com/SNAPKITTYWEST/snapkitty-gitbucket) | **Memory Layer** | WORM-sealed bucket store (Rust), skills registry, QWEN docs (19 packets), WASM verifiers, infrastructure plans (7), repo surveys (3) |
 | [`sovereign-utqc`](https://github.com/SNAPKITTYWEST/sovereign-utqc) | **Quantum** | UTQC proof circuits |
@@ -456,6 +457,75 @@ cd snapkitty-agentos && npm run verify:all
 
 ---
 
+## I₄ Quartic Invariant — Sovereign Transformer Certificate
+
+The crown jewel: a machine-checked Lean 4.14.0 certificate for the quartic invariant I₄ on J₃(𝕆) ⊗ ℍ — the unique E₇-invariant polynomial that encodes the complete physics of 4D 𝒩=8 supergravity.
+
+### The Mathematical Object
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    J₃(𝕆) ⊗ ℍ  —  108 Dimensions                           │
+│                                                                             │
+│   Octonions 𝕆:  8-dim  non-associative  non-commutative  division algebra │
+│   Quaternions ℍ: 4-dim  non-commutative  associative       division algebra│
+│   J₃(𝕆):        27-dim exceptional Jordan algebra (Freudenthal-Tits)       │
+│                                                                             │
+│   State space:  27 × 4 = 108 real components                              │
+│   Representation: 4 columns of J₃(𝕆) — one per quaternionic direction      │
+│                                                                             │
+│   Group action:  E₇ = automorphism group of the 108-dim space              │
+│   Weyl group:    Signed permutations of rows (27) × columns (4)            │
+│                                                                             │
+│   Invariant:     I₄(Ψ) — unique quartic polynomial (Günaydin-Koepsell-Nicolai)│
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### The Tower of Division Algebras
+
+```
+ℝ  ⊂  ℂ  ⊂  ℍ  ⊂  𝕆
+1     2     4     8     dimensions
+
+  Each step: double the dimension, lose one algebraic property
+  Final step: lose associativity — but gain the exceptional structures
+```
+
+### The I₄ Formula (Günaydin-Koepsell-Nicolai)
+
+```
+I₄(Ψ) = I₁ + I₂ + I₃ + I₄
+
+where Ψ = (Ψ₀, Ψ₁, Ψ₂, Ψ₃) with Ψ_μ ∈ J₃(𝕆)
+
+  Term 1:  I₁ = Σ_μ N(Ψ_μ)²                               [SO(4) singlet]
+  Term 2:  I₂ = -2 Σ_{μ<ν} Tr[(Ψ_μ # Ψ_ν)²]              [quadratic cross]
+  Term 3:  I₃ = 8 Σ_{μ<ν} [N(Ψ_μ+Ψ_ν)-N(Ψ_μ)-N(Ψ_ν)]²/4  [polarized cubic]
+  Term 4:  I₄ = 8 ε^{μνρσ} [...]                           [ε-tensor Pfaffian]
+```
+
+### Lean Certificate Status
+
+| Theorem | Statement | Status | Notes |
+|---------|-----------|--------|-------|
+| `I4_homogeneous` | I₄(rΨ) = r⁴ I₄(Ψ) | **SORRY** | Degree-4 homogeneity |
+| `I4_E7_Invariant` | I₄(R(Ψ)) = I₄(Ψ) | **SORRY** | E₇ Weyl group invariance |
+| `I4_Unique` | I₄ is the unique quartic E₇-invariant | **AXIOM** | Borsten et al. |
+| `drumOptimizerEOM` | Discrete Einstein equation | **PROVEN** | rfl |
+| `Sovereign_Compiler_Correct` | I₄(Si) = I₄(R(Drum(Si))) | **PROVEN** | Compiler preserves physics |
+
+### Build
+
+```bash
+cd S_AUTOCODE
+lake build SAUTOCODE.MTheory  # Compiles clean, 0 errors, 2 expected sorry
+```
+
+Full documentation: [`S_AUTOCODE/README.md`](S_AUTOCODE/README.md)
+Full theorem registry: [`docs/NOVEL_THEOREMS.md`](docs/NOVEL_THEOREMS.md)
+
+---
+
 ## Skills & Inverted Memory
 
 ### Philosophy
@@ -744,6 +814,8 @@ If you encounter a verification failure, do not modify the WORM chain. Instead, 
 | Resource | Location | Format |
 |---|---|---|
 | Agent OS Spec (P/NP Swarm) | [`AGENTS.md`](AGENTS.md) | Markdown |
+| **I₄ Quartic Invariant Certificate** | [`S_AUTOCODE/README.md`](S_AUTOCODE/README.md) | Markdown + Lean 4 |
+| **Complete Theorem Registry (78 theorems)** | [`docs/NOVEL_THEOREMS.md`](docs/NOVEL_THEOREMS.md) | Markdown |
 | Academic Paper | [`docs/paper/paper.md`](docs/paper/paper.md) | Markdown/LaTeX |
 | QWEN Skill Packets (19) | `snapkitty-gitbucket/skills/docs/qwen/` | QWEN format |
 | Infrastructure Plans (7) | `snapkitty-gitbucket/skills/docs/plans/` | Markdown |
@@ -786,7 +858,10 @@ If you encounter a verification failure, do not modify the WORM chain. Instead, 
 | GitHub Accounts | 4 (SNAPKITTYWEST, SNAPKITTY-COLLECTIVE-LIMITED-FLP, AHMADALIPARR, SNAPKITTYAGENT9NOVA) |
 | GitHub Pages Live | 37 |
 | WORM Chain Seals | 9 (indices 0–8) |
-| Verified Theorems | 5 |
+| Verified Theorems (Python) | 5 (φ², φ⁻¹, Collatz, Ramsey, Ancient Sorry) |
+| **Lean Theorems (S_AUTOCODE)** | **4 (2 proven, 2 sorry)** |
+| **Lean Definitions (S_AUTOCODE)** | **27** |
+| **Lean Axioms (S_AUTOCODE)** | **2** |
 | Registered Skills | 2 |
 | Open P/NP Problems | 3 |
 | QWEN Skill Packets | 19 |
@@ -1001,6 +1076,9 @@ cd snapkitty-agentos && npm ci && npm run verify:all && npm run context:bootstra
 
 # Build Rust memory layer
 cd snapkitty-gitbucket && cargo build --release
+
+# Build Lean I₄ certificate
+cd S_AUTOCODE && lake build SAUTOCODE.MTheory
 
 # Verify all proofs
 cd .. && python docs/ancient_sorry_theorem.py

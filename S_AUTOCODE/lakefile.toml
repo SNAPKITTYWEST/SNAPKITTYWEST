@@ -1,0 +1,11 @@
+name = "S_AUTOCODE"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["SAUTOCODE"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+
+[[lean_lib]]
+name = "SAUTOCODE"
