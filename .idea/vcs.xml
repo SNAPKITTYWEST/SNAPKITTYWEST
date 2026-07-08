@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
-<<<<<<< Updated upstream
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/RESONANCE-CORE" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SNAPKITTY-PROOFS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SNAPKITTYWEST.github.io" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/all-apl" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/env-ship-public" vcs="Git" />
-=======
->>>>>>> Stashed changes
-    <mapping directory="$PROJECT_DIR$/resonance-block-paper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exo-synchronicity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mathrosetta" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/snapkitty-agentos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/snapkitty-gitbucket" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/snapkitty-mathrosetta" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/snapkitty-mathrosetta-public" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sovereign-utqc" vcs="Git" />
   </component>
 </project>

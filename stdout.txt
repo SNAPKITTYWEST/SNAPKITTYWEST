@@ -1,0 +1,1 @@
+{"severity":"information","pos":{"line":3,"column":0},"keepFullRange":false,"fileName":"C:\\Users\\jessi\\IdeaProjects\\SNAPKITTYWEST\\S_AUTOCODE\\SAUTOCODE\\MTheory.lean","endPos":{"line":3,"column":6},"data":"s : Float","caption":""}
