@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapKitty — Sovereign Compute Architecture</title>
+<meta name="description" content="Self-verifying multi-witness proof system with WORM-chain consensus, P/NP swarm solving, and deterministic memory layers.">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⟦Ω⟧</text></svg>">
+<style>
+  :root {
+    --bg: #08080c;
+    --surface: #0d0d14;
+    --card: #11111a;
+    --border: #1a1a28;
+    --text: #c8c8d0;
+    --text-dim: #606078;
+    --accent: #6e8ef0;
+    --accent2: #a78bfa;
+    --green: #4ade80;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --cyan: #22d3ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: #000; }
+  a { color: var(--accent); text-decoration: none; transition: color .15s; }
+  a:hover { color: var(--accent2); }
+
+  /* Container */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    padding: 80px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  header .sigil { font-size: 48px; margin-bottom: 12px; opacity: .6; }
+  header h1 {
+    font-size: 40px; font-weight: 700; letter-spacing: -.02em;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header p { font-size: 18px; color: var(--text-dim); margin-top: 8px; max-width: 600px; margin-inline: auto; }
+
+  /* Section */
+  section { padding: 48px 0; }
+  section h2 {
+    font-size: 28px; font-weight: 600; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  section h2 .badge {
+    font-size: 12px; font-weight: 500; letter-spacing: .05em;
+    padding: 3px 10px; border-radius: 99px;
+    background: var(--accent); color: #000;
+  }
+  section h2 .badge.amber { background: var(--amber); }
+  section h2 .badge.green { background: var(--green); }
+
+  /* Repo Cards */
+  .repo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .repo-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: border-color .2s, transform .15s;
+  }
+  .repo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .repo-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .repo-card .role {
+    font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .repo-card p { font-size: 14px; color: var(--text-dim); }
+  .repo-card .info-line { font-size: 13px; color: var(--text-dim); margin-top: 12px; }
+  .repo-card .info-line span { color: var(--text); }
+
+  /* Stats row */
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;
+    margin-top: 32px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; text-align: center;
+  }
+  .stat .num { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .stat .label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; }
+
+  /* Chain */
+  .chain-flow {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; margin-bottom: 16px;
+  }
+  .chain-flow .node {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500;
+  }
+  .chain-flow .node .dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+  .chain-flow .arrow { color: var(--text-dim); font-size: 18px; }
+
+  /* Theorems */
+  .theorem-list { display: grid; gap: 12px; }
+  .theorem {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+  }
+  .theorem .status {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .theorem .status.pass { background: var(--green); }
+  .theorem .status.warn { background: var(--amber); }
+  .theorem .name { font-size: 15px; font-weight: 500; }
+  .theorem .detail { font-size: 13px; color: var(--text-dim); margin-left: auto; }
+
+  /* Papers */
+  .paper-link {
+    display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 8px; transition: border-color .15s;
+  }
+  .paper-link:hover { border-color: var(--accent); }
+  .paper-link h4 { font-size: 15px; font-weight: 500; }
+  .paper-link p { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
+    font-size: 14px; color: var(--text-dim);
+  }
+  footer .cage { margin-top: 12px; font-size: 13px; color: var(--text-dim); opacity: .5; font-style: italic; }
+
+  @media (max-width: 600px) {
+    header { padding: 48px 0 32px; }
+    header h1 { font-size: 28px; }
+    .repo-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="sigil">⟦Ω⟧</div>
+  <h1>SnapKitty</h1>
+  <p>Sovereign Compute Architecture — self-verifying multi-witness proof system with WORM-chain consensus, P/NP swarm solving, and deterministic memory layers.</p>
+</header>
+
+<div class="container">
+
+<!-- Ecosystem -->
+<section>
+  <h2>Ecosystem <span class="badge">3 repos</span></h2>
+  <div class="repo-grid">
+    <a class="repo-card" href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST">
+      <div class="role">Umbrella</div>
+      <h3>SNAPKITTYWEST</h3>
+      <p>The root repository. Submodules, omega-field seal, constitutional boot, paper, and cross-repo CI.</p>
+      <div class="info-line">Ω‑field · <span>orbital-pages</span> · submodule orchestration</div>
+    </a>
+    <a class="repo-card" href="https://github.com/SNAPKITTYWEST/snapkitty-agentos">
+      <div class="role">Runtime</div>
+      <h3>snapkitty-agentos</h3>
+      <p>Agent-native repository substrate. P/NP swarm solving engine, skill loading, GitBucket memory, and runtime environment.</p>
+      <div class="info-line">TypeScript/WASM · <span>AGENTS.md</span> · pnp-attack · prism-skills</div>
+    </a>
+    <a class="repo-card" href="https://github.com/SNAPKITTYWEST/snapkitty-gitbucket">
+      <div class="role">Memory Layer</div>
+      <h3>snapkitty-gitbucket</h3>
+      <p>Deterministic Rust crate for WORM-sealed memory buckets. Skills registry with 19 QWEN skill packets, WASM verifiers, and infrastructure plans.</p>
+      <div class="info-line">Rust · <span>skills/</span> · QWEN docs · surveys · plans</div>
+    </a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">99</div><div class="label">Total Repos</div></div>
+    <div class="stat"><div class="num">37</div><div class="label">Pages Live</div></div>
+    <div class="stat"><div class="num">19</div><div class="label">QWEN Packets</div></div>
+    <div class="stat"><div class="num">7</div><div class="label">Plans</div></div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section>
+  <h2>Architecture</h2>
+  <div class="chain-flow">
+    <span class="node"><span class="dot" style="background:var(--accent)"></span> Constitutional Boot</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--green)"></span> Multi-Witness Verify</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--amber)"></span> WORM Chain Seal</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--cyan)"></span> Ancient Sorry Closure</span>
+  </div>
+  <div class="chain-flow" style="margin-top:0">
+    <span class="node"><span class="dot" style="background:var(--accent2)"></span> Claim Problem</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--accent2)"></span> Solve (NP-hard)</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--accent2)"></span> Submit Witness</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--accent2)"></span> Verify (P-time)</span>
+    <span class="arrow">→</span>
+    <span class="node"><span class="dot" style="background:var(--accent2)"></span> Converge</span>
+  </div>
+</section>
+
+<!-- Verified Theorems -->
+<section>
+  <h2>Verified Theorems <span class="badge green">5 / 5</span></h2>
+  <div class="theorem-list">
+    <div class="theorem">
+      <span class="status pass"></span>
+      <span class="name">φ² = φ + 1</span>
+      <span class="detail">7 steps · 2 witnesses</span>
+    </div>
+    <div class="theorem">
+      <span class="status pass"></span>
+      <span class="name">φ⁻¹ = φ − 1</span>
+      <span class="detail">7 steps · 2 witnesses</span>
+    </div>
+    <div class="theorem">
+      <span class="status pass"></span>
+      <span class="name">Collatz Conjecture (n ≤ 10,000)</span>
+      <span class="detail">All converge · max seq 262</span>
+    </div>
+    <div class="theorem">
+      <span class="status pass"></span>
+      <span class="name">Ramsey R(3,3) = 6</span>
+      <span class="detail">32,768 colorings verified</span>
+    </div>
+    <div class="theorem">
+      <span class="status pass"></span>
+      <span class="name">Ancient Sorry Closure</span>
+      <span class="detail">Meta-verification · P(false) ≤ 2⁻²⁵⁶</span>
+    </div>
+  </div>
+</section>
+
+<!-- Key Resources -->
+<section>
+  <h2>Key Resources</h2>
+  <a class="paper-link" href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST/blob/main/AGENTS.md">
+    <h4>⟦Ω⟧ AGENTS.md</h4>
+    <p>Full P/NP swarm specification — how agents claim, solve, submit, and converge.</p>
+  </a>
+  <a class="paper-link" href="paper/paper.md">
+    <h4>SnapKitty: Self-Verifying Multi-Witness Proof Architecture</h4>
+    <p>Academic paper with Ancient Sorry Theorem, experimental results, and related work.</p>
+  </a>
+  <a class="paper-link" href="https://github.com/SNAPKITTYWEST/snapkitty-gitbucket/blob/main/skills/registry.json">
+    <h4>Skill Registry</h4>
+    <p>2 registered skills (ledger validation v3, borrow chain scheduler v1) with WASM verifiers.</p>
+  </a>
+  <a class="paper-link" href="https://zenodo.org/doi/10.5281/zenodo.21132094">
+    <h4>Zenodo Publication</h4>
+    <p>Archived DOI: 10.5281/zenodo.21132094 · ORCID: 0009-0006-1916-5245</p>
+  </a>
+</section>
+
+<!-- License -->
+<section>
+  <h2>License</h2>
+  <p style="color:var(--text-dim);font-size:15px">Sovereign Source License v1.0 — see <a href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST/blob/main/SOVEREIGN_SOURCE_LICENSE.md">SOVEREIGN_SOURCE_LICENSE.md</a>.</p>
+</section>
+
+</div>
+
+<footer>
+  <p><span style="color:var(--accent)">⟦Ω⟧</span> SnapKitty Sovereign Compute Architecture · 2026</p>
+  <p>The cage holds.</p>
+</footer>
+
+</body>
+</html>
