@@ -1,0 +1,18 @@
+# SNAPKITTYWEST Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies (no external packages required)
+# All scripts use Python standard library only
+
+# Optional dependencies for enhanced functionality
+# Uncomment if needed:
+
+# NATS messaging (for nats_bridge.py)
+# nats-py>=1.0.0
+
+# NumPy (for advanced matrix operations)
+# numpy>=1.24.0
+
+# Testing
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
