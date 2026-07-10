@@ -1,0 +1,59 @@
+\chapter{Supply-Chain Integrity and Reproducible Builds}
+\label{ch:supply}
+
+\section{Motivation}
+\label{sec:supply-mot}
+
+Verification is worthless if the artifact a user downloads was not the one
+that was verified. This chapter addresses the supply chain: how MATHLIB5
+makes its build reproducible and how the anchor (\cref{ch:anchors}) lets a
+third party confirm they received the verified artifact.
+
+\section{Reproducibility Properties}
+\label{sec:supply-repro}
+
+The build is designed to be bit-for-bit reproducible given the same
+inputs:
+\begin{itemize}
+  \item Source is pinned via the Git commit that the WORM receipt
+        references.
+  \item Toolchain versions are recorded in \texttt{package.json} and the
+        lockfile, so \texttt{npm ci} yields identical dependencies.
+  \item Deterministic ordering of proof search avoids nondeterministic
+        output in the receipts.
+\end{itemize}
+A rebuild on a different machine that produces a different artifact hash is
+therefore a signal of tampering or environment drift, not expected
+behavior.
+
+\section{The Anchor as a Trust Transfer}
+\label{sec:supply-anchor}
+
+Because the PDF and the repository both hash into the same anchor chain,
+trust in the public Bitcoin transaction transfers to the local artifact:
+\begin{enumerate}
+  \item The verifier fetches the Bitcoin \texttt{OP\_RETURN} and recovers
+        the expected SHA-256.
+  \item The verifier hashes the local artifact and compares.
+  \item Equality implies the local artifact is the one that was publicly
+        anchored, with no trusted intermediary required.
+\end{enumerate}
+
+\section{Dependency Attestation}
+\label{sec:supply-dep}
+
+Each external dependency used during the build is itself hashed and
+recorded in the receipt metadata, so a compromised dependency (a classic
+supply-chain vector) changes the overall artifact hash and is caught by
+the anchor comparison. This is the practical content of the
+AGENTS.md claim that the repo is the substrate: the repository's hash
+\emph{is} the unit of trust.
+
+\section{Limits}
+\label{sec:supply-limits}
+
+Reproducibility protects the \emph{software} artifact, not the
+\emph{hardware} it runs on; a malicious CPU can still misexecute verified
+C$--$. The anchor also assumes the Bitcoin ledger's integrity
+(\cref{ch:threat}). Within these standard assumptions, however, the chain
+gives end users a way to confirm they hold exactly the verified system.

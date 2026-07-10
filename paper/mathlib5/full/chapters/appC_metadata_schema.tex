@@ -1,0 +1,62 @@
+\chapter{Metadata Schema Reference}
+\label{app:metadata}
+
+Every \textsc{mathlib5} component carries a \texttt{metadata.json}. This
+appendix documents the schema as observed across the repository.
+
+\section{Top-Level Fields}
+\label{app:meta-top}
+
+\begin{table}[H]
+\centering
+\caption{Top-level metadata fields.}
+\label{tab:meta-top}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Field} & \textbf{Meaning} \\
+\midrule
+\texttt{id} & Unique identifier, e.g. \texttt{MATHLIB5-20260710-MATHLIB5-001} \\
+\texttt{weight} & Relative importance (1 in all observed cases) \\
+\texttt{review\_status} & \texttt{human\_review\_required} throughout \\
+\texttt{security\_audit} & Integrity/encryption/signature block (below) \\
+\texttt{family\_id} & Grouping id (1 for core, 8 sorrydb, 9 malice, \ensuremath{dots}) \\
+\texttt{split} & List of capability shards (audit, kernel, proofs, \ensuremath{dots}) \\
+\texttt{status} & Almost always \texttt{awaiting\_worm\_seal} \\
+\texttt{provenance} & chain\_link / source\_path / corpora\_path \\
+\texttt{source\_sha256} & \texttt{auto\_generated} until sealed \\
+\texttt{created\_by} & Author attribution string \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Security Audit Block}
+\label{app:meta-sec}
+
+\begin{verbatim}
+"security_audit": {
+    "metadata_integrity": "Yes",
+    "tamper_evidence":    "SHA-256 chain (append-only)",
+    "encryption":         "AES-256-GCM",
+    "plasma_gate":        "Ed25519_Enforced"
+}
+\end{verbatim}
+
+\section{Provenance Block}
+\label{app:meta-prov}
+
+\begin{verbatim}
+"provenance": {
+    "chain_link":  "Bifrost_WORM_Chain_20260710_01",
+    "source_path": "mathlib5/<component>/",
+    "corpora_path": "corpora/.../<component>/"
+}
+\end{verbatim}
+
+\section{Capability Shards (\texttt{split})}
+\label{app:meta-split}
+
+The observed shards are: \texttt{audit}, \texttt{kernel}, \texttt{proofs},
+\texttt{runtime}, \texttt{witnesses}, \texttt{refinements},
+\texttt{asp\_gate}, \texttt{fol\_engine}, \texttt{prism\_skills}. A component
+declares which shards it participates in, enabling fine-grained capability
+reasoning at the policy layer (\cref{ch:policy}).

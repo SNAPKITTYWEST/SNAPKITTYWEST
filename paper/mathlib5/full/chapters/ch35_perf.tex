@@ -1,0 +1,58 @@
+\chapter{Performance Methodology and Benchmarking}
+\label{ch:perf}
+
+\section{What We Measure and Why}
+\label{sec:perf-what}
+
+Because MATHLIB5's correctness claims are independent of runtime, its
+performance is reported only to characterize the implementation, never to
+justify safety. This chapter states the methodology so that the figures in
+\cref{tab:results} are reproducible and not over-interpreted.
+
+\section{Harness}
+\label{sec:perf-harness}
+
+The benchmark harness:
+\begin{enumerate}
+  \item pins the input size $n$ (vector length) and seeds the APL source,
+  \item runs the full ten-layer chain once for warm-up, discarding the
+        result,
+  \item runs $K=30$ repetitions, recording wall-clock per layer via
+        receipt timestamps,
+  \item reports the median and the inter-quartile range.
+\end{enumerate}
+The orchestration glue (Layer~0 scaffolding, \cref{ch:build}) is excluded
+from the per-layer timing to avoid measuring the build system itself.
+
+\section{Scaling Behavior}
+\label{sec:perf-scaling}
+
+The summation reduction is $O(n)$ in the APL and IR layers and $O(n)$ in
+the emitted C$--$ fold; the Lean closed-form check is $O(1)$ once the
+theorem is in the context. We therefore expect total verified time to grow
+linearly with $n$ for the numeric layers and stay flat for the proof layer.
+The matrix contraction adds an $O(mn)$ term, as expected.
+
+\section{Overhead of Verification}
+\label{sec:perf-overhead}
+
+The dominant non-numeric cost is the Lean kernel check of the closed form
+and the Ed25519 signing at each boundary. Both are constant per artifact
+and small relative to the numeric loop for large $n$. For very small $n$
+the verification overhead can exceed the numeric work; this is acceptable
+because the value of the system is certification, not speed, on tiny
+inputs.
+
+\section{Reporting Discipline}
+\label{sec:perf-disc}
+
+We follow three rules when publishing numbers:
+\begin{itemize}
+  \item never present a median without its spread,
+  \item never attribute a speedup to verification (verification is a cost,
+        bought voluntarily),
+  \item always state the toolchain commit so the run is reproducible
+        against the anchor (\cref{ch:anchors}).
+\end{itemize}
+These rules keep the performance section honest and prevent the common
+temptation to market verification as free.

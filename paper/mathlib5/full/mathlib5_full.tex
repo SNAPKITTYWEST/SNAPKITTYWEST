@@ -1,0 +1,248 @@
+% =============================================================================
+% MATHLIB5 --- An Immutable System of Safety Boundaries for Verified Symbolic Compute
+% Full Architecture Exposition  ---  ~125 pages
+% Author: Ahmad Ali Parr  \ensuremath{cdot}  SnapKitty Collective  \ensuremath{cdot}  SNAPKITTYWEST
+% =============================================================================
+\documentclass[11pt,letterpaper,twoside,openright]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{tcolorbox}
+\usepackage{wasysym}
+\providecommand{\hexagon}{\triangle}
+\providecommand{\boxdot}{\Box}
+\newcommand{\denote}[1]{\left\llbracket #1 \right\rrbracket}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{caption}
+\usepackage{float}
+
+% ---- Unicode glyph declarations (APL / governance emblem) ----
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{2227}{\ensuremath{\wedge}}
+\DeclareUnicodeCharacter{25CB}{\ensuremath{\circ}}
+\DeclareUnicodeCharacter{25C7}{\ensuremath{\Diamond}}
+\DeclareUnicodeCharacter{25B3}{\ensuremath{\triangle}}
+\DeclareUnicodeCharacter{2B21}{\ensuremath{\hexagon}}
+\DeclareUnicodeCharacter{2339}{\ensuremath{\Box}}
+\DeclareUnicodeCharacter{2609}{\ensuremath{\odot}}
+\DeclareUnicodeCharacter{2190}{\ensuremath{\leftarrow}}
+\DeclareUnicodeCharacter{2373}{\ensuremath{\iota}}
+\DeclareUnicodeCharacter{2375}{\ensuremath{\omega}}
+\DeclareUnicodeCharacter{00B7}{\ensuremath{\cdot}}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{201C}{``}
+\DeclareUnicodeCharacter{201D}{''}
+\DeclareUnicodeCharacter{2018}{`}
+\DeclareUnicodeCharacter{2019}{'}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00B3}{\ensuremath{^{3}}}
+\DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}
+
+% ---- Colors (SnapKitty palette) ----
+\definecolor{skdark}{RGB}{26,26,46}
+\definecolor{skmid}{RGB}{22,33,62}
+\definecolor{skblue}{RGB}{15,52,96}
+\definecolor{skaccent}{RGB}{233,69,96}
+\definecolor{skmint}{RGB}{64,200,180}
+\definecolor{skgray}{RGB}{90,90,110}
+\definecolor{skcodebg}{RGB}{245,245,248}
+\definecolor{sklink}{RGB}{0,120,200}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sklink,
+  citecolor=skaccent,
+  urlcolor=skblue,
+  pdftitle={MATHLIB5: An Immutable System of Safety Boundaries for Verified Symbolic Compute},
+  pdfauthor={Ahmad Ali Parr},
+  pdfsubject={Verified Symbolic Compute Pipeline (VSCP)},
+  pdfkeywords={formal verification, APL, Lean 4, Liquid Haskell, C--, WORM, Ed25519, provenance, symbolic computation}
+}
+
+% ---- Listings setup ----
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame=single,
+  framesep=3pt,
+  rulecolor=\color{skgray},
+  backgroundcolor=\color{skcodebg},
+  commentstyle=\color{skmint},
+  keywordstyle=\color{skblue}\bfseries,
+  stringstyle=\color{skaccent},
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  tabsize=2,
+  captionpos=b
+}
+\lstdefinelanguage{CM}{
+  morekeywords={target,section,export,foreign,const,return,while,if,else},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+\lstdefinelanguage{Lean4}{
+  morekeywords={def,theorem,by,sorry,structure,import,where,fun,do,match,some,none,let,mut,pure,IO,Int64,String,Option,Bool,true,false},
+  morecomment=[l]{--},
+  morestring=[b]"
+}
+\lstdefinelanguage{BashX}{
+  morekeywords={export,function,local,return,if,then,fi,for,do,done,while,case,esac,echo,cd,mkdir,find,xargs,sha256sum,git,date,wc,cat},
+  morecomment=[l]{\#},
+  morestring=[b]"
+}
+
+% ---- Page geometry ----
+\usepackage[top=1in,bottom=1in,left=1.1in,right=1.1in]{geometry}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\small\color{skgray} MATHLIB5}
+\fancyhead[RE]{\small\color{skgray} Verified Symbolic Compute Pipeline}
+\fancyhead[LO]{\small\color{skgray} Ahmad Ali Parr}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{skgray}\hrule}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{15pt}
+
+% ---- Chapter styling ----
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{skdark}}
+  {\chaptername\ \thechapter}{18pt}{\Huge}
+\titleformat{\section}{\normalfont\Large\bfseries\color{skmid}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{skblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{skaccent}}{\thesubsubsection}{1em}{}
+
+% ---- tcolorbox for callouts ----
+\tcbset{
+  skcallout/.style={
+    colback=skcodebg, colframe=skaccent, coltitle=white,
+    fonttitle=\bfseries, boxrule=1pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt
+  }
+}
+
+% ---- custom commands ----
+\newcommand{\layer}[1]{\textbf{Layer #1}}
+\newcommand{\vscp}{\textsc{vscp}}
+
+\begin{document}
+
+% =============================================================================
+% TITLE PAGE
+% =============================================================================
+\input{front/title.tex}
+
+% =============================================================================
+% FRONT MATTER
+% =============================================================================
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\chapter*{Abstract}
+\input{front/abstract.tex}
+
+\chapter*{Preface}
+\input{front/preface.tex}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% =============================================================================
+% MAIN MATTER
+% =============================================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\part{Foundations}
+\label{part:foundations}
+\input{chapters/ch01_introduction.tex}
+\input{chapters/ch02_related_work.tex}
+\input{chapters/ch03_preliminaries.tex}
+\input{chapters/ch04_coherence.tex}
+\input{chapters/ch25_formal.tex}
+\input{chapters/ch30_apl.tex}
+
+\part{The Verified Symbolic Compute Pipeline}
+\label{part:pipeline}
+\input{chapters/ch05_vscp_overview.tex}
+\input{chapters/ch06_layer1_apl.tex}
+\input{chapters/ch07_layer2_ir.tex}
+\input{chapters/ch34_irgrammar.tex}
+\input{chapters/ch08_layer3_liquid.tex}
+\input{chapters/ch09_layer4_lean.tex}
+\input{chapters/ch32_leanmeta.tex}
+\input{chapters/ch10_layer5_cmm.tex}
+\input{chapters/ch11_layer6_static.tex}
+\input{chapters/ch12_layer7_policy.tex}
+\input{chapters/ch13_layer8_pnp.tex}
+\input{chapters/ch14_layer9_worm.tex}
+\input{chapters/ch15_layer10_completeness.tex}
+\input{chapters/ch31_workcmm.tex}
+
+\part{The Verified Kernel \& Foreign-Function Bridge}
+\label{part:kernel}
+\input{chapters/ch16_kernel_primitives.tex}
+\input{chapters/ch17_ffi_bridge.tex}
+\input{chapters/ch18_build_ci.tex}
+
+\part{Provenance, Security \& Ecosystem}
+\label{part:eco}
+\input{chapters/ch19_security.tex}
+\input{chapters/ch20_constellation.tex}
+\input{chapters/ch26_bifrost.tex}
+\input{chapters/ch29_threat.tex}
+\input{chapters/ch33_supply.tex}
+
+\part{Evaluation \& Outlook}
+\label{part:eval}
+\input{chapters/ch21_evaluation.tex}
+\input{chapters/ch35_perf.tex}
+\input{chapters/ch22_case_study.tex}
+\input{chapters/ch23_limitations.tex}
+\input{chapters/ch24_conclusion.tex}
+\input{chapters/ch27_compare.tex}
+\input{chapters/ch28_artifact.tex}
+\input{chapters/ch36_anchors.tex}
+
+% =============================================================================
+% APPENDICES
+% =============================================================================
+\appendix
+\input{chapters/appA_kernel_source.tex}
+\input{chapters/appB_ffi_source.tex}
+\input{chapters/appC_metadata_schema.tex}
+\input{chapters/appD_glossary.tex}
+\input{chapters/appE_bibliography.tex}
+
+\end{document}

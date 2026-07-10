@@ -1,0 +1,74 @@
+\chapter{Layer 6: Logic Validation and Static Analysis}
+\label{ch:static}
+
+\section{Purpose and Contract}
+\label{sec:static-purpose}
+
+Layer~6 is the first \emph{defensive} boundary after computation: it checks
+that the logic is consistent and the code is safe. Its inbound contract is
+``a set of obligations, a kernel, and a codebase''; its outbound contract is
+``a consistency verdict and a static-analysis report.'' Two tools implement
+it: a first-order logic resolution checker and a CodeQL static-analysis
+pass.
+
+\section{FOL Resolution Checker}
+\label{sec:static-fol}
+
+The \texttt{layers/fol/} module is a classical-logic theorem prover. Its
+\texttt{README} states the contract plainly:
+\begin{quote}
+\textbf{Layer 6: FOL Resolution Checker} \\
+Purpose: Verified classical logic theorem prover. \\
+Status: 15/15 theorems verified.
+\end{quote}
+Resolution is the refutation-complete inference rule: from clauses
+$(A \lor l)$ and $(\neg l \lor B)$ infer $(A \lor B)$. A goal is proven by
+negating it, converting to clause form, and showing that resolution yields the
+empty clause. Because resolution is sound and refutation-complete for
+first-order logic, a verified implementation gives Layer~6 the same
+trustworthy status as the Lean obligations upstream --- independent confirmation
+from a different proof method.
+
+\section{Static Analysis with CodeQL}
+\label{sec:static-codeql}
+
+The \texttt{layers/codeql/} module applies static analysis to the
+implementation. Where Lean reasons about mathematics, CodeQL reasons about
+the program text: it queries the abstract syntax graph for dangerous patterns
+--- unchecked casts, missing bounds checks, tainted inputs reaching the kernel.
+The presence of a dedicated static-analysis layer means a class of
+implementation bugs is caught at the boundary rather than in production.
+
+\section{Why Both}
+\label{sec:static-why}
+
+The two tools answer different questions:
+\begin{itemize}
+  \item FOL: \emph{Is the logic internally consistent?} (mathematical)
+  \item CodeQL: \emph{Is the implementation free of known defect classes?}
+        (engineering)
+\end{itemize}
+Running both realizes defense in depth: a proof can be logically correct yet
+implemented unsafely, and vice versa. The layer fails unless \emph{both} pass.
+
+\section{Integration with the Pipeline}
+\label{sec:static-int}
+
+In the CI scaffold (\cref{ch:build}), Layer~6 corresponds to the
+``Logic validation and static analysis'' step. Its reports are sealed as
+receipts (Layer~9) and consulted by the policy layer (Layer~7) before any
+artifact is permitted to publish.
+
+\section{Invariant Inference}
+\label{sec:static-infer}
+
+The static pass does not require hand-written invariants; it infers them
+from the C$--$ control flow. For the loop in \cref{lst:work-cmm} the
+inferred invariant
+\[
+0 \le i0 \le 4 \;\wedge\; r0 = \sum_{k=0}^{i0-1} v_k
+\]
+is derived by a standard abstract interpretation over integer intervals,
+then strengthened by the FOL layer (\cref{sec:work-fol}) into a
+prover-ready clause. The same machinery scales to the matrix
+contraction, where the invariant tracks the contracted row index.

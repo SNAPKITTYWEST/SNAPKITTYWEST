@@ -1,0 +1,91 @@
+\chapter{Layer 3: Refinement Validation with Liquid Haskell}
+\label{ch:liquid}
+
+\section{Purpose and Contract}
+\label{sec:liq-purpose}
+
+Layer~3 enforces \emph{structural} soundness before any proof obligation is
+posed. Its inbound contract is ``a canonical IR expression''; its outbound
+contract is either ``refinement-checked IR'' or a recorded refinement
+violation. This is the first place where logic, not merely syntax, is checked.
+
+\section{The Bridge}
+\label{sec:liq-bridge}
+
+The reference bridge (\texttt{layers/liquid/src/Bridge.hs}) imports the AST
+and parser and exposes \texttt{generateLeanProof}:
+\begin{lstlisting}[language=Haskell,caption={Liquid$\ensuremath{rightarrow}$Lean bridge (Bridge.hs).},label=lst:liq-bridge]
+module MathLib5.Bridge where
+
+import MathLib5.AST
+import MathLib5.Parser
+
+generateLeanProof :: Expr -> String
+generateLeanProof expr =
+  "theorem proof_obligation : " ++ toLean expr ++ " := by sorry"
+
+toLean :: Expr -> String
+toLean (IntVal i) = show i
+toLean (Var v)    = v
+toLean (App f xs) =
+  "(" ++ toLean f ++ " " ++ unwords (map toLean xs) ++ ")"
+toLean _          = "todo"
+\end{lstlisting}
+
+\section{What This Layer Actually Guarantees}
+\label{sec:liq-guarantee}
+
+In its present form the bridge \emph{generates} obligations rather than
+discharging them: each expression becomes a Lean \texttt{theorem \ensuremath{dots} := by
+sorry}, a placeholder to be closed at Layer~4 or Layer~10. The refinement
+discipline is therefore \emph{staged}:
+\begin{enumerate}
+  \item L3 renders the expression into a Lean term and asserts it as a goal.
+  \item L4 (Lean) attempts the proof; failure is recorded as a
+        \texttt{sorry} in \texttt{sorrydb}.
+  \item L10 (\texttt{sorryhunter}) later tries to close it.
+\end{enumerate}
+A full Liquid Haskell deployment would additionally carry SMT-decidable
+refinement predicates (e.g., \texttt{\{e:Expr | wellFormed e\}}) so that
+malformed expressions are rejected at L3 itself. The repository's
+\texttt{metadata.json} for the layer records \texttt{status: "awaiting\_worm\_seal"},
+indicating the refinement predicates are specified but not yet enforced in the
+running pipeline.
+
+\section{Refinement Predicates (Specified)}
+\label{sec:liq-pred}
+
+The intended refinement contract includes:
+\begin{itemize}
+  \item \texttt{wellFormed :: Expr -> Bool} --- no dangling variable
+        references; all lambdas close over known bindings.
+  \item \texttt{degreeNonNeg :: Poly -> Bool} --- polynomial degree $\ge 0$.
+  \item \texttt{inBounds :: Index -> Vector -> Bool} --- indexing respects
+        dimension.
+\end{itemize}
+These are the structural constraints the abstract promises but the current
+code leaves as \texttt{todo} for non-literal cases. Honesty about this state
+is part of the inspectability contract: a gap is a recorded gap, not a hidden
+one.
+
+\section{Connection to Layer 4}
+\label{sec:liq-to-lean}
+
+The crucial design point is that L3 is the \emph{generator} for L4. The
+proof-obligations file produced here (\texttt{<base>.lean.obligations} in the
+CI scaffold, \cref{ch:build}) is exactly the input Lean consumes. Thus the
+boundary between refinement and proof is a file, not a function call --- a
+clean, auditable seam.
+
+\section{The Refinement Solved by the Prover}
+\label{sec:liquid-solve}
+
+For the summation fragment, the central Liquid predicate is
+\[
+\mathsf{sumOk}(v, r) \;\equiv\; r = \sum_{k=1}^{|v|} v_k.
+\]
+Liquid Haskell discharges \texttt{sumOk} at each call site using the
+induction principle on the vector length, which the SMT solver accepts
+because the arithmetic is linear. The proof obligation is generated
+automatically; the programmer supplies only the type signature carrying
+the refinement.

@@ -1,0 +1,76 @@
+\chapter{Layer 4: Lean~4 Proof Obligations}
+\label{ch:lean}
+
+\section{Purpose and Contract}
+\label{sec:lean-purpose}
+
+Layer~4 is where mathematical truth is established. Its inbound contract is
+``a set of proof obligations (Lean terms)''; its outbound contract is either
+``a closed proof'' or ``a recorded \texttt{sorry} with a stable identifier.''
+Lean~4 is chosen because of its programmable tactic language, its
+high-performance elaborator, and its foreign-function interface, which Layer~5
+and \cref{ch:ffi} exploit.
+
+\section{The Core Module}
+\label{sec:lean-core}
+
+The reference core (\texttt{layers/hol/lean/Mathlib5/Core.lean}) is a stub
+module that will host the formalized theorems. In the present repository it
+declares the namespace and imports; the substantive obligations are generated
+by the Liquid bridge (\cref{ch:liquid}) and by the FFI theorem calculator
+(\cref{ch:ffi}).
+
+\section{Obligation Shape}
+\label{sec:lean-obl}
+
+Each obligation has the canonical placeholder form:
+\begin{lstlisting}[language=Lean4,caption={Generated obligation shape.},label=lst:lean-obl]
+theorem proof_obligation : <expr> := by sorry
+\end{lstlisting}
+The \texttt{sorry} is not a cheat; it is an explicit, auditable admission of
+an open goal. The \texttt{sorrydb} (\cref{ch:completeness}) records it with a
+stable id so that progress is measurable: a repository's ``completeness
+score'' is the fraction of obligations not under \texttt{sorry}.
+
+\section{The Theorem Calculator}
+\label{sec:lean-calc}
+
+Beyond placeholders, the FFI bridge hosts a working theorem calculator
+(\texttt{mathlib5-ffi-bridge/Lean/TheoremCalc/Main.lean}) with a
+\texttt{patternRegistry} of closed forms:
+\begin{lstlisting}[language=Lean4,caption={Pattern registry (TheoremCalc/Main.lean).},label=lst:lean-reg]
+def patternRegistry : List Pattern :=
+  [ { id := 1, name := "SumSquares",
+      description := "Sum_{k=1}^n k^2 = n(n+1)(2n+1)/6",
+      closedForm := fun n => n * (n + 1) * (2 * n + 1) / 6 }
+  , { id := 2, name := "SumLinear",
+      description := "Sum_{k=1}^n k = n(n+1)/2",
+      closedForm := fun n => n * (n + 1) / 2 }
+  , { id := 3, name := "SumCubes",
+      description := "Sum_{k=1}^n k^3 = (n(n+1)/2)^2",
+      closedForm := fun n => let s := n*(n+1)/2; s*s }
+  ]
+\end{lstlisting}
+The calculator cross-validates the C{--} kernel against Lean: it computes a
+result via FFI (\texttt{computeFFI}) and independently via Lean
+(\texttt{computeLean}) and asserts equality (\texttt{verifyConsistency}). This
+is the heart of the system's trust model --- two independent paths must agree.
+
+\section{Why Lean and Not Only the Kernel}
+\label{sec:lean-why}
+
+The C{--} kernel (Layer~5) is fast but only \emph{checks} specific closed
+forms. Lean is slower but \emph{general}: it can prove statements the kernel
+cannot, and it can testify to properties (not merely compute values). The
+pipeline therefore uses Lean as the court of last resort: if Lean agrees with
+the kernel on every tested input, confidence in the kernel rises; if they
+disagree, the discrepancy is surfaced as a receipt, never silently ignored.
+
+\section{Maturity}
+\label{sec:lean-limits}
+
+Lean~4, the \texttt{lake} build, and the FFI round-trip are operational in the
+reference repository (the verification gate in \cref{ch:build} exercises
+them). The fully formalized proof library (\texttt{Core.lean} populated with
+closed \texttt{theorem}s rather than obligations) is the active frontier,
+tracked by \texttt{sorrydb} and the \texttt{sorryhunter} of Layer~10.

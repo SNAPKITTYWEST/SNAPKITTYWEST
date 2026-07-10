@@ -1,0 +1,32 @@
+This document is the technical monograph accompanying the \textsc{mathlib5}
+production repository. It is written for the engineer and the formal-methods
+practitioner alike: it assumes comfort with one or more of \textsc{apl},
+Haskell, Lean, C, and the command line, but it builds each concept from
+first principles before connecting it to the reference implementation.
+
+A note on provenance. This manuscript is itself a sealed artifact. Its
+SHA-256 fingerprint, an Ed25519 signing key, and a Bitcoin \texttt{OP\_RETURN}
+anchor are computed at build time and printed on the title page and in
+\cref{ch:security}. The reader is invited to verify the fingerprint against
+the source tree and to treat any divergence as evidence of tampering.
+
+A note on scope. \textsc{mathlib5} is an early but functioning system. Where
+the reference implementation contains scaffolding (marked \texttt{TODO} or
+stubbed), this text says so plainly. The architecture is presented as a
+coherent whole; the maturity of each layer is described honestly in its
+respective chapter.
+
+A note on voice. The work is produced inside the SnapKitty Collective's
+operating model: the machine is given authority to build, and the architect
+reverses its mind from the output. The result documented here is the product
+of that loop.
+
+\vspace{0.2in}
+\noindent\textbf{Acknowledgements.} To the agents of the War Room, the
+Bifrost WORM chain that recorded every step, and the constellation of
+sovereign repositories that together form the substrate.
+
+\vspace{0.1in}
+\noindent\textbf{License.} This manuscript and the reproduced sources are
+released under the Sovereign Source License v1.0 (SSL v1.0) and, where noted,
+Apache-2.0.

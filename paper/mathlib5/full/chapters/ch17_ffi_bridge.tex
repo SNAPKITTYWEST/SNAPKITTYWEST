@@ -1,0 +1,121 @@
+\chapter{The Foreign-Function Bridge}
+\label{ch:ffi}
+
+The C{--} kernel (Chapter~\ref{ch:kernel}) is fast but narrow; Lean~4
+(Chapter~\ref{ch:lean}) is general but must trust external code to use it. The
+FFI bridge reconciles them: it lets Lean call the kernel and, crucially,
+\emph{cross-validates} the two. This chapter details the bridge.
+
+\section{Architecture}
+\label{sec:ffi-arch}
+
+The bridge (\texttt{mathlib5-ffi-bridge/}) has three parts:
+\begin{enumerate}
+  \item \textbf{C side} (\texttt{C/src/bridge.c}, \texttt{C/include/bridge.h})
+        --- a pure compute context with a rewrite table.
+  \item \textbf{Lean side} (\texttt{Lean/Bridge.lean}, \texttt{Lean/TestBridge.lean})
+        --- the FFI declarations and round-trip tests.
+  \item \textbf{Theorem calculator} (\texttt{Lean/TheoremCalc/Main.lean})
+        --- the cross-validation driver.
+\end{enumerate}
+
+\section{The C Context}
+\label{sec:ffi-c}
+
+\texttt{bridge.c} defines a \texttt{BridgeContext} with a config, a PRNG
+state, a 256-entry rewrite table, and a 128-entry verification cache:
+\begin{lstlisting}[language=C,caption={Bridge context (bridge.c).},label=lst:ffi-c]
+struct BridgeContext {
+    uint64_t config;
+    int64_t  state;
+    int64_t  rewrite_table[256];  // Pattern -> closed-form mapping
+    int32_t  verify_cache[128];   // Theorem verification cache
+};
+\end{lstlisting}
+The rewrite table is pre-populated with magic cookies for the three summation
+patterns (SumSquares, SumLinear, SumCubes). \texttt{bridge\_rewrite} dispatches
+on the pattern id to the closed form:
+\begin{lstlisting}[language=C,caption={Closed-form dispatch (bridge.c).},label=lst:ffi-dispatch]
+case 1: { int64_t n = input;
+          return n * (n + 1) * (2 * n + 1) / 6; }   // SumSquares
+case 2: { int64_t n = input;
+          return n * (n + 1) / 2; }                  // SumLinear
+case 3: { int64_t n = input; int64_t s = n*(n+1)/2;
+          return s * s; }                            // SumCubes
+\end{lstlisting}
+The context is wiped on free (\texttt{bridge\_free}) --- sensitive state is
+zeroed before deallocation, a small but deliberate hygiene measure.
+
+\section{The Lean FFI Declarations}
+\label{sec:ffi-lean}
+
+\texttt{Bridge.lean} declares the foreign functions so Lean can call into the
+compiled C. The context type and the three core calls
+(\texttt{init}, \texttt{rewrite}, \texttt{free}) are surfaced as a
+\texttt{BridgeCtx} wrapper used by the calculator.
+
+\section{Cross-Validation: The Core Idea}
+\label{sec:ffi-cross}
+
+The theorem calculator computes each closed form two ways:
+\begin{enumerate}
+  \item \texttt{computeFFI} --- via the C kernel (fast path).
+  \item \texttt{computeLean} --- independently via Lean's
+        \texttt{patternRegistry} (slow but trusted path).
+\end{enumerate}
+It then asserts equality in \texttt{verifyConsistency}:
+\begin{lstlisting}[language=Lean4,caption={Consistency check (TheoremCalc/Main.lean).},label=lst:ffi-consistency]
+def verifyConsistency (ctx : BridgeCtx) (pid : Int64) (n : Int64) : IO Bool := do
+  let ffiResult <- computeFFI ctx pid n
+  let leanResult := computeLean pid n
+  match leanResult with
+  | some lr => pure (ffiResult == lr)
+  | none => pure false
+\end{lstlisting}
+
+\section{The Main Driver}
+\label{sec:ffi-main}
+
+\texttt{Main.lean} registers the patterns, verifies FFI$\leftrightarrow$Lean
+consistency at $n=10$, benchmarks \texttt{SumSquares} for $n=1..1000$, and
+prints sample results. The benchmark loop:
+\begin{lstlisting}[language=Lean4,caption={Benchmark loop (TheoremCalc/Main.lean).},label=lst:ffi-bench]
+let start <- IO.monoMsNow
+let mut result := (0 : Int64)
+for i in List.range 1000 do
+  let n := Int64.ofNat (i + 1)
+  result <- computeFFI ctx 1 n
+let elapsed <- IO.monoMsNow
+\end{lstlisting}
+A passing run ends with \texttt{=== All verifications passed ===}, which the
+CI gate (\cref{ch:build}) greps for.
+
+\section{Why Cross-Validation Matters}
+\label{sec:ffi-why}
+
+A single implementation can be wrong and confident. Two independent
+implementations that agree on every tested input are vastly more trustworthy.
+If they ever disagree, the discrepancy is a receipt, not a silent error. This
+is the same principle as the P/NP swarm (hard to find, easy to check)
+applied to arithmetic: Lean is the cheap, trustworthy checker; the kernel is
+the fast solver.
+
+\section{Build Orchestration}
+\label{sec:ffi-build}
+
+\texttt{scripts/nats\_build\_orchestrator.sh} drives the multi-language build
+(C $\ensuremath{rightarrow}$ shared object, Lean $\ensuremath{rightarrow}$ \texttt{lake build},
+orchestration). The \texttt{lean-toolchain} pins the Lean version so the FFI
+ABI is reproducible --- a receipt (\cref{ch:worm}) records exactly which
+toolchain produced a binary.
+
+\section{Foreign Call Contract}
+\label{sec:ffi-contract}
+
+The C$\leftrightarrow$Lean boundary obeys a strict calling convention:
+Lean passes a tagged value (integer or float) and receives a tagged result;
+the C side never observes Lean's heap. The bridge checks the tag on entry,
+so a value of the wrong type is rejected with a sealed error receipt rather
+than causing undefined behavior. This is the only place where the two
+memory models meet, and confining it to one audited module bounds the
+trusted surface of the heterogeneous stack.

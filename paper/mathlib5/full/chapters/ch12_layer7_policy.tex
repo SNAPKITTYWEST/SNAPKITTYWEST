@@ -1,0 +1,84 @@
+\chapter{Layer 7: Policy Reasoning (Answer-Set Programming)}
+\label{ch:policy}
+
+\section{Purpose and Contract}
+\label{sec:policy-purpose}
+
+Layer~7 answers the question \emph{Is this result permitted?} Its inbound
+contract is ``a set of facts and a policy''; its outbound contract is ``a
+stable model (yes/no + justification) or \texttt{inconsistent}.'' It is
+implemented with Answer-Set Programming (ASP) via Clingo.
+
+\section{Why Non-Monotonic Reasoning}
+\label{sec:policy-asp}
+
+Mathematical truth is monotonic: adding axioms never retracts theorems.
+\emph{Policy}, by contrast, is non-monotonic: adding a new fact (``this agent
+is revoked'') can retract a previously valid permission. ASP models exactly
+this: a program's answer sets are its stable models, and additional
+constraints can eliminate models. The \texttt{layers/asp/} module therefore
+hosts the governance decisions the coherence model of \cref{ch:coherence}
+sketches at the repository level.
+
+\section{The Module Contract}
+\label{sec:policy-module}
+
+The \texttt{README} for the layer states:
+\begin{quote}
+\textbf{Layer 7: ASP Stable Models} \\
+Purpose: Answer Set Programming (Clingo) for non-monotonic reasoning. \\
+Status: Stable.
+\end{quote}
+``Stable'' here means the solver converges to a consistent set of answer sets
+for the current policy corpus. A result that has passed L1--L6 is only
+released if at least one stable model permits it.
+
+\section{Example Policy Shape}
+\label{sec:policy-example}
+
+%\examplepolicy
+
+A representative policy fragment (illustrative) couples an artifact to its
+provenance and to an agent's clearance:
+\begin{verbatim}
+% Facts: artifact A was produced by agent X with receipt R
+produced(a1, agent_kitty, r1).
+cleared(agent_kitty, publish).
+
+% Rule: an artifact may publish iff its producer is cleared
+% and its receipt is sealed
+may_publish(A) :- produced(A, X, R),
+                 cleared(X, publish),
+                 sealed(R).
+
+% Constraint: never publish an unsealed artifact
+:- produced(A, X, R), not sealed(R), published(A).
+\end{verbatim}
+Clingo computes the stable models; if \texttt{may\_publish(a1)} holds in some
+model and no constraint is violated, the artifact advances. Otherwise it is
+held at the boundary.
+
+\section{Connection to Governance}
+\label{sec:policy-gov}
+
+Layer~7 is where the abstract governance kernel ($\ensuremath{Omega}\ensuremath{leftarrow}
+\bigodot\ensuremath{wedge}\boxdot\ensuremath{wedge}\ensuremath{dots}$) becomes executable. The entropy and
+intercoil predicates of \cref{ch:coherence} are, conceptually, ASP facts; the
+``no component advances unless coherent'' rule is an ASP constraint. The
+pipeline thus inherits the constellation's governance at the granularity of a
+single artifact.
+
+\section{Policy as Answer-Set Constraints}
+\label{sec:policy-asp}
+
+Concretely, a policy such as ``no unverified numeric claim may be
+published'' is rendered as the ASP rule set:
+\begin{verbatim}
+verified(X) :- proof(X, lean).
+published(X) :- claim(X).
+:- published(X), not verified(X).
+\end{verbatim}
+The solver reports UNSAT for any schedule that publishes an unverified
+claim, and SAT (with the published set) otherwise. This keeps policy
+enforcement inside the same P-time verifier family as the P/NP layer
+(\cref{ch:pnp}).

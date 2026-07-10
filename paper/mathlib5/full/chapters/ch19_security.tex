@@ -1,0 +1,104 @@
+\chapter{Cryptographic Provenance and the Security Model}
+\label{ch:security}
+
+This chapter makes explicit the cryptography that underlies every claim of
+immutability in this monograph. It also seals the manuscript itself.
+
+\section{The Three Anchors}
+\label{sec:sec-anchors}
+
+Three cryptographic primitives anchor the system (and this paper):
+\begin{enumerate}
+  \item \textbf{SHA-256 digital fingerprint} --- a content hash that
+        identifies an artifact uniquely.
+  \item \textbf{Ed25519 signature} --- an author-attributed, verifiable
+        attestation over the fingerprint.
+  \item \textbf{Bitcoin OP\_RETURN} --- an economic, adversarial-resistant
+        timestamp that anchors the fingerprint into the Bitcoin ledger.
+\end{enumerate}
+
+\section{Digital Fingerprint (SHA-256)}
+\label{sec:sec-sha}
+
+The fingerprint of this manuscript's source tree is computed over the
+concatenation of its chapter files and master document:
+\begin{center}
+\ttfamily\small \input{anchors/fingerprint.txt}
+\end{center}
+Any reader may recompute it:
+\begin{verbatim}
+cat mathlib5_full.tex chapters/*.tex | sha256sum
+\end{verbatim}
+If the value differs, the manuscript has been altered since sealing.
+
+\section{Ed25519 Attestation}
+\label{sec:sec-ed}
+
+The fingerprint is signed with an Ed25519 private key whose public component
+is:
+\begin{center}
+\ttfamily\small \input{anchors/pubkey.txt}
+\end{center}
+The signature is recorded in \texttt{anchors/signature.txt} and can be
+verified with any Ed25519 implementation:
+\begin{verbatim}
+python -c "import cryptography; ..."  # verify fingerprint against pubkey
+\end{verbatim}
+The signature answers the question \emph{who authored this?} The Plasma Gate
+of \cref{sec:coh-plasma} enforces exactly this check on every artifact.
+
+\section{Bitcoin OP\_RETURN Anchor}
+\label{sec:sec-btc}
+
+To make the fingerprint durable against even the compromise of the author's
+infrastructure, it is anchored into Bitcoin via an \texttt{OP\_RETURN}
+output. The anchor message is:
+\begin{center}
+\ttfamily\footnotesize \input{anchors/opreturn.txt}
+\end{center}
+An \texttt{OP\_RETURN} is a provably-unspendable output carrying up to 80
+bytes of arbitrary data. Once a transaction containing it is mined, the
+fingerprint is timestamped by the Bitcoin consensus at a known block height,
+with economic finality: reversing it would require re-organizing the chain,
+costing millions of dollars. The anchor thus provides \emph{external,
+trust-minimized} provenance that no single party controls.
+
+\section{How to Verify This Manuscript}
+\label{sec:sec-verify}
+
+\begin{enumerate}
+  \item Compute the SHA-256 of the source tree; compare to
+        \texttt{anchors/fingerprint.txt}.
+  \item Verify the Ed25519 signature over that fingerprint using
+        \texttt{anchors/pubkey.txt}.
+  \item Look up the Bitcoin transaction whose \texttt{OP\_RETURN} contains the
+        anchor message; confirm the block height and timestamp.
+\end{enumerate}
+All three must hold for the manuscript to be considered sealed. The scripts
+in \texttt{anchors/} automate steps 1--2.
+
+\section{The WORM + Signature + Encryption Stack}
+\label{sec:sec-stack}
+
+The full security posture of a \textsc{mathlib5} artifact is therefore a stack:
+\begin{enumerate}
+  \item \textbf{Integrity}: SHA-256 chain (append-only) --- tamper evidence.
+  \item \textbf{Confidentiality}: AES-256-GCM --- encryption at rest.
+  \item \textbf{Authenticity}: Ed25519 --- the Plasma Gate.
+  \item \textbf{Durability}: Bitcoin OP\_RETURN --- external timestamp.
+\end{enumerate}
+This is the realization of the title's promise: an \emph{immutable system of
+safety boundaries}. Each layer of the stack is independently verifiable and,
+together, they make undetected modification of a sealed artifact
+computationally and economically infeasible.
+
+\section{Key Management}
+\label{sec:sec-keys}
+
+The Ed25519 Plasma-Gate keypair is the root of all boundary signatures.
+Its public key is published (see \texttt{pubkey.txt}); the private key
+must live only in the signing environment and never in the repository. The
+build gate refuses to sign with a key that is not isolated, so a leaked
+key cannot silently re-sign artifacts. Rotation is supported by anchoring
+a new public key in the Bifrost genesis successor block; old signatures
+remain valid for the interval they covered.

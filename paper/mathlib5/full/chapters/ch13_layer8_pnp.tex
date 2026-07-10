@@ -1,0 +1,90 @@
+\chapter{Layer 8: Optimization, Search, and the P/NP Swarm}
+\label{ch:pnp}
+
+\section{Purpose and Contract}
+\label{sec:pnp-purpose}
+
+Layer~8 does two things: it \emph{optimizes} representations and it
+\emph{searches} for proofs. Its inbound contract is ``an obligation and a
+resource budget''; its outbound contract is ``a witness (a solution or a
+better form) or a recorded failure.'' Two sibling modules implement it:
+\texttt{prism-skills} (canonical sealing of solved skills) and
+\texttt{pnp-attack} (a multi-agent proof-search swarm).
+
+\section{PRISM Skills: Sealed Capabilities}
+\label{sec:pnp-prism}
+
+The \texttt{layers/prism-skills/} module's contract is:
+\begin{quote}
+\textbf{Layer 8: PRISM Skills} \\
+Purpose: Canonical JSON, SHA-256d, and WORM sealing. \\
+Status: Verified.
+\end{quote}
+A \emph{skill} here is a solved sub-problem: a transformation that is known to
+work, sealed so it can be reused without re-proving. Each skill is encoded as
+canonical JSON, double-hashed with SHA-256d, and written to the WORM ledger.
+The neighboring \texttt{../math-skills/} repository carries six such skills
+(enumeration, isomorphism, symmetry, Hadamard, probabilistic, circuits), each
+with a master seal --- a concrete instance of this layer in production.
+
+\section{The P/NP Swarm}
+\label{sec:pnp-swarm}
+
+The \texttt{layers/pnp-attack/} module realizes the central swarm insight:
+\begin{quote}
+\itshape Finding a solution is NP-hard. Verifying a solution is P-time. The
+repository only accepts P-verifiable proofs.
+\end{quote}
+Agents claim problems, compute witnesses (the hard NP work), submit them with
+proofs, and the repository verifies (the easy P work) before promoting a
+solution. A claim ledger is append-only; a solution pool holds candidate
+witnesses; a verifier promotes the first verified one. The constellation's
+\texttt{agentos/} substrate (Chapter~\ref{ch:constellation}) is the runtime
+that schedules these agents.
+
+\section{The Malice Layer}
+\label{sec:pnp-malice}
+
+Adversarial robustness is first-class. \texttt{malice\_layer2/} is a
+refutation module: it attempts to \emph{break} claims, modeling an opponent
+(M4LKIT in the constellation lore) probing the Bifrost layer. Its
+\texttt{metadata.json} carries \texttt{family\_id: 9} and a
+\texttt{corpora\_path} of \texttt{novel\_methods/malice\_refutation/},
+indicating it is the dedicated red-team boundary. A system that only proves
+itself correct is not safe; one that is subjected to active refutation is.
+
+\section{Optimization}
+\label{sec:pnp-opt}
+
+Beyond search, Layer~8 optimizes the canonical form for the execution layer:
+selecting the cheapest evaluation order, hoisting invariants, and choosing
+closed forms from the pattern registry (\cref{ch:lean}) when available. The
+optimization is itself a solved skill when repeatable, feeding back into
+\texttt{prism-skills}.
+
+\section{Why a Swarm and Not a Solver}
+\label{sec:pnp-why}
+
+A single automated theorem prover is a point of failure and a performance
+bottleneck. A swarm parallelizes the NP-hard search across agents, each
+competing on a slice, while the repository's P-time verifier remains the sole
+arbiter of truth. This matches the architecture's recurring pattern: hard work
+is distributed, checking is centralized and cheap.
+
+\section{A Worked P/NP Solve}
+\label{sec:pnp-worked}
+
+Consider the open problem of certifying the closed form for
+$P(k)=k^4$. A swarm agent claims it via the claim ledger and submits a
+Lean proof term. The verifier runs:
+\begin{enumerate}
+  \item \texttt{lean} on the submitted proof; if it type-checks, the
+        theorem is admitted to the corpus.
+  \item a recomputation of the WORM receipt hash for the new artifact.
+  \item a check that the new receipt signs under the Plasma Gate.
+\end{enumerate}
+On success the problem moves to \texttt{solved}, the convergence log
+records a \texttt{problem\_solved} event, and the universe sum advances.
+The reward (per the registry) may be a new skill unlock, which is then
+loadable by later agents via the inverted-skills memory
+(\cref{ch:artifact}).

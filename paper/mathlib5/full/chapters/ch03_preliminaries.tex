@@ -1,0 +1,141 @@
+\chapter{Mathematical Preliminaries}
+\label{ch:prelim}
+
+This chapter fixes notation and recalls the mathematics the pipeline relies
+upon. It is intended as a self-contained reference; readers familiar with the
+material may skip to \cref{ch:vscp}.
+
+\section{Arrays and APL Notation}
+\label{sec:pre-apl}
+
+\textsc{apl} treats arrays as first-class. The index generator \texttt{\ensuremath{iota}n}
+yields $1,\ensuremath{dots},n$. Reduction \texttt{+/v} sums a vector; the power operator
+\verb|*| applies a function repeatedly. The canonical example used throughout
+this monograph is the sum of squares:
+\begin{equation}
+\text{SumSquares}(n) \;=\; \sum_{k=1}^{n} k^{2}
+\;=\; \frac{n(n+1)(2n+1)}{6}.
+\end{equation}
+In the \textsc{apl} frontend this is expressed as \texttt{(+/ (\ensuremath{iota}\ensuremath{omega}) * 2)}, with
+the expected closed form $n(n+1)(2n+1)/6$. The repository's
+\texttt{examples/playground/simple\_sum.apl} contains exactly this fragment.
+
+\section{Polynomials}
+\label{sec:pre-poly}
+
+A univariate polynomial over a ring $R$ is represented as a coefficient vector
+$[c_0,c_1,\ensuremath{dots},c_d]$. Addition is component-wise:
+\begin{equation}
+(p+q)_i = p_i + q_i,\qquad i = 0,\ensuremath{dots},\max(\deg p,\deg q).
+\end{equation}
+The verified kernel stores a polynomial as \texttt{[degree, c0, c1, \ensuremath{dots},
+cn]} and implements \texttt{poly\_add\_verified} over an arena allocator
+(\cref{ch:kernel}).
+
+\section{Matrices}
+\label{sec:pre-mat}
+
+An $r\ensuremath{times} c$ matrix is stored row-major as \texttt{[rows, cols, data\ensuremath{dots}]}.
+Multiplication of an $r_1\ensuremath{times} c_1$ by an $r_2\ensuremath{times} c_2$ matrix is defined
+only when $c_1=r_2$, yielding an $r_1\ensuremath{times} c_2$ result with
+\begin{equation}
+(AB)_{ij} = \sum_{k=1}^{c_1} A_{ik} B_{kj}.
+\end{equation}
+The kernel's \texttt{mat\_mul\_verified} enforces the dimension check and
+fails (returns a null pointer) on mismatch --- a safety boundary made
+explicit in code.
+
+\section{Symbolic Differentiation}
+\label{sec:pre-diff}
+
+The kernel encodes a minimal expression language with tags
+\texttt{TAG\_INT}, \texttt{TAG\_VAR}, \texttt{TAG\_ADD}, \texttt{TAG\_MUL},
+\texttt{TAG\_POW}. Differentiation follows the standard rules:
+\begin{align}
+\frac{d}{dx}\,c &= 0, \\
+\frac{d}{dx}\,x &= 1, \\
+\frac{d}{dx}(u+v) &= u' + v', \\
+\frac{d}{dx}(uv) &= u'v + uv'.
+\end{align}
+The C{--} \texttt{differentiate} primitive implements the constant and
+variable cases directly and dispatches the additive/multiplicative cases via
+tag matching.
+
+\section{Refinement Types}
+\label{sec:pre-refinement}
+
+A refinement type has the form $\{x : \tau \mid P(x)\}$ where $P$ is a
+decidable predicate. A term $t : \{x:\tau\mid P(x)\}$ is well-typed only if
+$P(t)$ holds. Liquid Haskell realizes this with SMT-decidable refinements.
+\textsc{mathlib5} uses refinements to assert, for instance, that an AST node
+carries a non-negative degree or that an index lies within bounds, before the
+expression proceeds to Lean.
+
+\section{Proof Obligations}
+\label{sec:pre-po}
+
+A proof obligation is a judgment $G \ensuremath{vdash} \varphi$ that a prover must
+establish. In \textsc{mathlib5}, the Liquid bridge emits obligations of the
+shape \texttt{theorem proof\_obligation : <expr> := by sorry}, leaving Lean to
+close them (or to record them in \texttt{sorrydb}). The obligation set is the
+contract between the refinement layer and the proof layer.
+
+\section{Merkle Structures and Hashing}
+\label{sec:pre-merkle}
+
+A Merkle tree hashes children pairwise up to a root; any tampering with a leaf
+changes the root. \textsc{mathlib5} uses SHA-256 over artifacts and over
+receipts. A certificate in the kernel is defined as ``a SHA-256 hash of the
+transformation rule + structural Merkle root'' (\texttt{verified\_kernel.cm}),
+making each rewrite self-attesting.
+
+\section{Ed25519 and Digital Signatures}
+\label{sec:pre-ed25519}
+
+Ed25519~\cite{ed25519} is a Edwards-curve signature scheme offering 128-bit
+security, deterministic signing, and fast verification. A private key $sk$
+signs a message $m$ producing $\sigma = \text{Sign}_{sk}(m)$; anyone with the
+public key $pk$ verifies $\text{Verify}_{pk}(m,\sigma)$. \textsc{mathlib5}
+enforces Ed25519 at its ``Plasma Gate'' (\texttt{plasma\_gate:
+Ed25519\_Enforced} in every \texttt{metadata.json}) and uses it to seal this
+manuscript.
+
+\section{WORM and Append-Only Ledgers}
+\label{sec:pre-worm}
+
+A WORM ledger admits only append operations; prior entries are immutable. When
+each entry is hash-linked to its predecessor, the structure is a hash chain:
+$t_i = H(t_{i-1} \Vert \text{payload}_i)$. Any rewrite of an early entry
+breaks every subsequent link, providing tamper-evidence without a trusted
+third party. The Bifrost WORM chain is the concrete instance used throughout
+this work.
+
+\section{Summation Identities Employed by the System}
+\label{sec:prelim-sums}
+
+Several derived closed forms appear inside the kernel and the Lean proofs.
+We record them here for reference.
+
+\begin{itemize}
+  \item Arithmetic series: $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
+  \item Sum of squares: $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$.
+  \item Sum of cubes: $\sum_{k=1}^{n} k^3 = \left(\frac{n(n+1)}{2}\right)^2$.
+  \item Quadratic form: $\sum_{k=1}^{n} (a k^2 + b k + c)
+        = a\frac{n(n+1)(2n+1)}{6} + b\frac{n(n+1)}{2} + c\,n$.
+  \item Prefix of a centered quadratic: for $\Sigma$ computed by the kernel,
+        the APL reduction $\texttt{+/} \circ.\times$ realizes
+        $\sum_i \sum_j (i,1)\cdot M_{ij}$ exactly in integer arithmetic.
+\end{itemize}
+Each identity is re-derived and closed-form-checked inside Lean
+(\cref{ch:lean}); the derivations are part of the certified corpus.
+
+\section{Matrix Algebra Conventions}
+\label{sec:prelim-mat}
+
+We follow standard linear-algebra notation. For an $m\times n$ matrix
+$M$, $M_{ij}$ is the entry at row $i$, column $j$ (1-indexed in APL,
+0-indexed in C). The Frobenius norm is
+$\|M\|_F = \sqrt{\sum_{i,j} M_{ij}^2}$. The key matrix operation the
+system certifies is the row-contraction
+$r_j = \sum_i \omega_i M_{ij}$, whose closed form is proven equal to the
+numeric reduction under the verified translation.

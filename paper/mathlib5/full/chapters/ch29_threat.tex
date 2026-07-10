@@ -1,0 +1,81 @@
+\chapter{Threat Model and Adversarial Analysis}
+\label{ch:threat}
+
+\section{Scope of the Analysis}
+\label{sec:threat-scope}
+
+A verified toolchain is only as trustworthy as the assumptions it makes
+explicit. This chapter states the adversary model for MATHLIB5, the
+guarantees each boundary provides against that adversary, and the residuals
+the system deliberately leaves out of scope.
+
+\section{Adversary Capabilities}
+\label{sec:threat-adv}
+
+We assume an adversary that can:
+\begin{itemize}
+  \item Submit arbitrary APL source to the pipeline.
+  \item Tamper with intermediate artifacts \emph{on disk} between
+        boundaries, provided they can forge or delete receipts.
+  \item Observe the public Bitcoin ledger and Bifrost chain.
+\end{itemize}
+We assume the adversary \emph{cannot}:
+\begin{itemize}
+  \item Break Ed25519 (Plasma Gate) or SHA-256.
+  \item Rewrite sufficiently deep Bitcoin history (proof-of-work cost).
+  \item Execute arbitrary code inside the Lean kernel's trusted core.
+\end{itemize}
+
+\section{Boundary-by-Boundary Resistance}
+\label{sec:threat-bounds}
+
+\begin{table}[ht]
+\centering
+\caption{Adversarial resistance per boundary.}\label{tab:threat}
+\small
+\begin{tabular}{p{2.6cm} p{5.0cm} p{4.0cm}}
+\toprule
+\textbf{Boundary} & \textbf{Defends against} & \textbf{Residual} \\
+\midrule
+Layer 1 $\to$ 2 & malformed APL & none (fails loudly) \\
+Layer 3 (Liquid) & out-of-contract numeric values & SMT bound tightness \\
+Layer 4 (Lean) & incorrect closed form & trusted core size \\
+Layer 5 (C$--$) & unsound translation & compiler correctness \\
+Layer 9 (WORM) & silent artifact swap & hash + signature forge \\
+Layer 10 & incompleteness drift & human supply of proofs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{The Forge Game}
+\label{sec:threat-forge}
+
+The strongest attack is to forge a receipt that claims a boundary held when
+it did not. This requires either forging an Ed25519 signature (assumed
+hard) or rewriting the Bifrost block and its Bitcoin anchor (assumed
+economically infeasible beyond a small depth). Thus a verifier who checks
+the anchor (\cref{ch:anchors}) is protected against even a fully
+compromised build machine, provided the anchor transaction is confirmed.
+
+\section{Out-of-Scope Assumptions}
+\label{sec:threat-out}
+
+We do \emph{not} claim protection against:
+\begin{itemize}
+  \item Side channels in the host CPU during C$--$ execution.
+  \item Compromise of the Lean trusted core itself (a known,
+        unavoidable base).
+  \item A broken or colluding Bitcoin majority (the standard
+        ledger-security assumption).
+\end{itemize}
+These are standard limitations of any verified system that ultimately
+rests on a small trusted base and an external anchor.
+
+\section{Defense-in-Depth Summary}
+\label{sec:threat-summary}
+
+The layered design means an adversary must break \emph{every} relevant
+boundary to subvert a result undetectably; a single broken boundary is
+caught by the build gate (\cref{ch:build}) and recorded as a failed
+receipt rather than a silent pass. This is the practical realization of
+the formal model in \cref{ch:formal}.

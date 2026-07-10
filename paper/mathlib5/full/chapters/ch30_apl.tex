@@ -1,0 +1,108 @@
+\chapter{The APL Source Semantics: Iota, Omega, and Reduction}
+\label{ch:apl-sem}
+
+\section{Why APL Is the User Surface}
+\label{sec:apl-why}
+
+APL is the language the numerical user actually writes. Its array-first,
+symbol-dense notation is compact but its semantics are precise and
+well-suited to formal treatment. MATHLIB5 accepts a deliberately small
+fragment: rank-1 (vector) and rank-2 (matrix) arrays, plus the primitives
+$\iota$ (iota), $\omega$ (omega), reduction ($/$), and outer product
+($\circ.\times$). This chapter fixes their semantics before the IR
+translation of \cref{ch:ir}.
+
+\section{Arrays and Indexing}
+\label{sec:apl-array}
+
+An APL vector $v$ of length $n$ is indexed $v[1], v[2], \dots, v[n]$
+(1-based). A matrix $M$ of shape $m\times n$ has entries $M[i;j]$ with
+$1\le i\le m$, $1\le j\le n$. The translation to C$--$ (\cref{ch:cmm})
+shifts to 0-based indexing; the shift is itself verified by the Layer~2
+$\to$ IR contract so that no off-by-one can survive (\cref{ch:liquid}).
+
+\section{Iota}
+\label{sec:apl-iota}
+
+The monadic iota $\iota n$ yields the vector
+\[
+\iota n \;=\; (1, 2, \dots, n).
+\]
+The kernel computes it as the integer range; in Liquid Haskell the
+postcondition is
+\[
+\forall k\in\{1,\dots,n\}.\;\; (\iota n)_k = k,
+\]
+which the refinement solver discharges by induction.
+
+\section{Omega}
+\label{sec:apl-omega}
+
+$\omega$ is the right argument of a defined function; as a standalone
+glyph in our fragment it denotes the input vector to the summation. Formally,
+a summation expression $\Sigma\,\omega$ has denotation
+\[
+\denote{\Sigma\,\omega}(v) \;=\; \sum_{k=1}^{|v|} v_k.
+\]
+The closed form established in \cref{ch:lean} is the identity
+\[
+\sum_{k=1}^{n} v_k \;=\; \frac{n}{2}\,(v_1 + v_n)
+\quad\text{when } v_k \text{ is arithmetic}.
+\]
+
+\section{Reduction}
+\label{sec:apl-red}
+
+The reduction $f/$ over a vector applies the dyadic function $f$
+between consecutive elements:
+\[
++/\, v \;=\; v_1 + (v_2 + (\cdots + v_n)\cdots).
+\]
+Because $+$ is associative, the grouping is irrelevant to the value, which
+lets the C$--$ code choose an efficient left-to-right fold without
+changing the certified result. The Lean proof of associativity of integer
+addition underpins this freedom.
+
+\section{Outer Product}
+\label{sec:apl-outer}
+
+The outer product $f\circ.\times$ of two vectors $a$ (length $m$) and
+$b$ (length $n$) produces the $m\times n$ matrix
+\[
+(a\circ.\times\, b)_{ij} = a_i\; f\; b_j.
+\]
+For $f = \times$, this is the standard outer product. The kernel's
+$\Sigma$ computation uses it to build the weight matrix before
+contracting rows. The IR representation (\cref{ch:ir}) stores it as a
+two-dimensional array with explicit shape metadata so the later layers
+never lose the $m\times n$ structure.
+
+\section{Worked Trace}
+\label{sec:apl-trace}
+
+Consider the input vector $v = (1,2,3,4)$. The fragment
+\[
+\Sigma\,\omega \quad\text{on}\quad v
+\]
+reduces as follows in the kernel:
+\begin{align*}
++/\, v &= 1+2+3+4 = 10,\\
+\text{closed form} &: \frac{4}{2}(1+4) = 2\cdot 5 = 10.
+\end{align*}
+The two computations agree, and the Lean proof certifies that the closed
+form equals the reduction for every arithmetic $v$. The artifact
+propagates to the IR as the tuple $(v,\, 10,\,\text{proof-ref})$.
+
+\section{Translation Contract to the IR}
+\label{sec:apl-contract}
+
+Layer~1 $\to$ Layer~2 is summarized by the contract
+\[
+\forall e\in\text{APL}_{\text{frag}}.\;\;
+\denote{\text{IR}(e)} = \denote{e},
+\]
+where $\text{IR}(e)$ is the decorated intermediate representation. The
+decoration carries the shape, the element type (integer vs.\ float), and a
+reference to the closed-form certificate when one exists. This contract is
+the first boundary of the pipeline and the first receipt emitted
+(\cref{ch:worm}).

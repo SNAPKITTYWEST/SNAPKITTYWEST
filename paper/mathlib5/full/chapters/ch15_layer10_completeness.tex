@@ -1,0 +1,95 @@
+\chapter{Layer 10: Automated Proof Completeness}
+\label{ch:completeness}
+
+\section{Purpose and Contract}
+\label{sec:comp-purpose}
+
+Layer~10 closes the loop. Its inbound contract is ``a set of obligations, some
+still under \texttt{sorry}''; its outbound contract is ``an updated
+completeness report.'' It is the system's conscience: it refuses to let open
+goals be forgotten.
+
+\section{The Sorry Database}
+\label{sec:comp-sorrydb}
+
+\texttt{sorrydb/} is the ledger of open goals. Each entry records an
+obligation id, its source layer, and its status. Its \texttt{metadata.json}
+carries \texttt{family\_id: 8} and a \texttt{corpora\_path} of
+\texttt{formal\_research/snapkitty\_proofs/sorrydb/}, marking it as the
+curated store of proof gaps. A repository's completeness score is:
+\begin{equation}
+C = 1 - \frac{\#\text{obligations under \texttt{sorry}}}{\#\text{total obligations}}.
+\end{equation}
+
+\section{The Sorry Hunter}
+\label{sec:comp-hunter}
+
+\texttt{layers/sorryhunter/} is the active closer. Its \texttt{README}
+states:
+\begin{quote}
+\textbf{Layer 10: Automated Sorry Closing} \\
+Purpose: Symbolic kernel + tactics + FFI + malice + axiom to close Lean~4
+sorries. \\
+Status: Active.
+\end{quote}
+The hunter combines four strategies:
+\begin{enumerate}
+  \item \textbf{Symbolic kernel} --- apply the verified C{--} primitives to
+        compute a witness.
+  \item \textbf{Tactics} --- invoke Lean's tactic language to close routine
+        goals.
+  \item \textbf{FFI} --- cross-check the kernel result against Lean
+        (\cref{ch:ffi}) to certify the witness.
+  \item \textbf{Malice + axiom} --- use the adversarial layer
+        (\cref{sec:pnp-malice}) to stress-test and the axiom store to supply
+        lemmas.
+\end{enumerate}
+
+\section{The Theorem Corpus}
+\label{sec:comp-theorems}
+
+The verified theorems to date (\texttt{theorems/THEOREMS.md}) are the closed
+forms that anchor the calculator:
+\begin{align}
+\text{SumSquares} &: \sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6}, \\
+\text{SumCubes}   &: \sum_{k=1}^{n} k^{3} = \left(\frac{n(n+1)}{2}\right)^{2}, \\
+\text{SumLinear}  &: \sum_{k=1}^{n} k   = \frac{n(n+1)}{2}.
+\end{align}
+Each is both a Lean \texttt{theorem} and a C{--} closed-form entry, so the
+sorry hunter can validate one against the other.
+
+\section{Completeness as a First-Class Metric}
+\label{sec:comp-metric}
+
+By treating completeness as a measurable, reported quantity, \textsc{mathlib5}
+converts the usual invisible debt of unproven lemmas into a visible,
+monotonic-ish progress signal. The governance kernel's ``no component advances
+unless coherent'' rule (\cref{ch:coherence}) can be specialized: a release is
+permitted only if $C \ge C_{\min}$ for an agreed threshold. This binds the
+abstract coherence model to a concrete proof metric.
+
+\section{A Completeness Trace}
+\label{sec:comp-trace}
+
+We illustrate the completeness score $C$ on the current certified corpus.
+Suppose the target theorem set is
+\[
+\mathcal{T} = \{\, T_1, T_2, T_3, T_4, T_5 \,\},
+\]
+where $T_1,T_2,T_3$ are the three closed forms currently proven in Lean
+(\cref{ch:lean}) and $T_4,T_5$ are desired but still marked
+\texttt{sorry} in \texttt{sorrydb}. Then
+\[
+C = \frac{|\{T_1,T_2,T_3\}|}{|\mathcal{T}|} = \frac{3}{5} = 0.6.
+\]
+The build gate (\cref{ch:build}) treats the \texttt{sorry} entries as open
+items; the P/NP swarm (\cref{ch:pnp}) exposes $T_4,T_5$ as claimable
+problems. When an agent submits a verified witness, $C$ rises to $0.8$,
+then $1.0$. The metric is therefore a live dashboard of the system's
+verification health, not a static claim.
+
+\subsection{Interpretation}
+A $C < 1$ is not a defect; it is honest accounting. Traditional libraries
+often hide unproven lemmas behind unchecked imports. MATHLIB5 makes the
+gap explicit and machine-countable, so a reviewer can state precisely how
+much of the system rests on certified ground versus open proof debt.

@@ -1,0 +1,53 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,fit,backgrounds,decorations.pathreplacing}
+\definecolor{skdark}{RGB}{26,26,46}
+\definecolor{skmid}{RGB}{22,33,62}
+\definecolor{skblue}{RGB}{15,52,96}
+\definecolor{skaccent}{RGB}{233,69,96}
+\definecolor{skmint}{RGB}{64,200,180}
+\begin{document}
+\begin{tikzpicture}[
+    box/.style={rectangle, draw=skmid, fill=skblue!12, rounded corners=3pt,
+                minimum height=0.62cm, text width=7.2cm, align=left,
+                font=\small\bfseries\color{skdark}},
+    num/.style={circle, draw=skaccent, fill=white, text=skaccent,
+                font=\bfseries, minimum size=0.55cm},
+    arrow/.style={->, thick, color=skmid},
+    receipt/.style={->, dashed, thick, color=skaccent},
+    node distance=0.18cm and 1.2cm
+  ]
+
+  \node[num]  (n0) {0};
+  \node[box, right=of n0] (l0) {Source \textsc{apl} expression (user input)};
+
+  \foreach \i/\t in {
+    1/Layer 1 --- Symbolic APL frontend,
+    2/Layer 2 --- Canonical symbolic IR (S-expr),
+    3/Layer 3 --- Liquid Haskell refinement,
+    4/Layer 4 --- Lean~4 proof obligations,
+    5/Layer 5 --- Verified C{\textendash}{\textendash} kernel,
+    6/Layer 6 --- Logic validation \& static analysis,
+    7/Layer 7 --- Policy reasoning (ASP),
+    8/Layer 8 --- Optimization \& P/NP swarm,
+    9/Layer 9 --- WORM provenance receipts,
+    10/Layer 10 --- Automated proof completeness
+  } {
+    \pgfmathtruncatemacro{\prev}{\i-1}
+    \node[num, below=of n\prev] (n\i) {\i};
+    \node[box, right=of n\i] (l\i) {\t};
+    \draw[arrow] (l\prev.south) -- (l\i.north);
+  }
+
+  % WORM side channel
+  \node[draw=skaccent, fill=skaccent!8, rounded corners=3pt, text width=3.4cm,
+        align=center, font=\footnotesize\bfseries\color{skaccent},
+        right=1.4cm of l9] (worm) {Bifrost WORM ledger\\(hash-linked, Ed25519-signed)};
+  \foreach \i in {1,2,3,4,5,6,7,8,9,10} {
+    \draw[receipt] (l\i.east) -- (worm.west);
+  }
+
+  \node[below=0.15cm of l10, font=\footnotesize\itshape\color{skgray}] (note)
+    {Solid arrows = artifact flow. Dashed arrows = sealed receipts written at every boundary.};
+\end{tikzpicture}
+\end{document}

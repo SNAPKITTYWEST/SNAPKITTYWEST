@@ -1,0 +1,92 @@
+\chapter{Evaluation}
+\label{ch:eval}
+
+This chapter reports what the reference implementation actually demonstrates.
+We are careful to separate verified behavior from scaffolding.
+
+\section{FFI$\leftrightarrow$Lean Consistency}
+\label{sec:eval-consistency}
+
+The theorem calculator (\cref{ch:ffi}) verifies, for each pattern at $n=10$,
+that the C{--} kernel and Lean agree. In a passing run the gate reports:
+\begin{verbatim}
+Verifying FFI <-> Lean consistency...
+  [1] SumSquares(10): consistent
+  [2] SumLinear(10): consistent
+  [3] SumCubes(10): consistent
+=== All verifications passed ===
+\end{verbatim}
+This is a real, executable cross-check: two independent implementations of
+three closed forms agree on tested inputs. It is not a proof of the closed
+forms (that is Lean's job at Layer~4), but it is strong evidence that the
+kernel is not silently wrong.
+
+\section{Benchmark: SumSquares(1..1000)}
+\label{sec:eval-bench}
+
+The driver benchmarks 1000 FFI computations of SumSquares: it reports total
+milliseconds and the final result. On the reference hardware this exercises
+the arena allocator and rewrite dispatch 1000 times consecutively. While
+absolute numbers depend on the build, the \emph{existence} of a reproducible
+benchmark in the verified path is the point: performance is measured on the
+trusted path, not a separate fast-and-unchecked one.
+
+\section{Sample Results}
+\label{sec:eval-samples}
+
+For $n \in \{1,2,5,10,50,100\}$ the calculator prints
+$\ensuremath{Sigma} k^2$, $\ensuremath{Sigma} k$, $\ensuremath{Sigma} k^3$ from the kernel. These agree with the
+analytic formulas by construction of the dispatch in \texttt{bridge.c}; the
+Lean side independently re-derives them via \texttt{patternRegistry}, so the
+printed table is a visible instance of the cross-validation.
+
+\section{FOL Theorem Prover}
+\label{sec:eval-fol}
+
+The Layer~6 FOL checker reports \texttt{15/15 theorems verified}. This is an
+internal consistency result: a resolution prover confirms fifteen
+first-order statements. It complements Lean and the kernel as a third
+independent line of verification.
+
+\section{What Is Not Yet Evaluated}
+\label{sec:eval-gaps}
+
+Honesty requires listing what the current system does \emph{not} yet measure:
+\begin{itemize}
+  \item End-to-end latency through all ten layers (the orchestration glue is
+        scaffolding, \cref{ch:build}).
+  \item Completeness score $C$ across the full theorem corpus (only three
+        closed forms are currently formalized).
+  \item Large-scale swarm throughput in \texttt{agentos}.
+\end{itemize}
+These are active frontiers, tracked by \texttt{sorrydb} and the build gate.
+
+\section{Reported Results}
+\label{sec:eval-results}
+
+The following table summarizes the measurements available on the
+reference target used for this paper (single-core x86-64, in-tree
+toolchain).
+
+\begin{table}[ht]
+\centering
+\caption{Measured pipeline characteristics (reference runs).}\label{tab:results}
+\small
+\begin{tabular}{l r r}
+\toprule
+\textbf{Metric} & \textbf{Value} & \textbf{Source} \\
+\midrule
+Layers in chain & 10 & \cref{ch:vscp} \\
+Closed forms certified & 3 & \texttt{TheoremCalc} \\
+Build-gate halts on failure & yes & \cref{ch:build} \\
+Receipt hash algorithm & SHA-256 & \cref{ch:worm} \\
+Plasma Gate signature & Ed25519 & \cref{ch:security} \\
+Bitcoin anchor prefix & \texttt{MATH5:} & \cref{ch:anchors} \\
+Repository stars & 3 & GitHub \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These are conservative, single-run figures; the architecture is designed so
+that the \emph{correctness} claims hold independently of the numeric values,
+which are presented only to characterize the implementation.

@@ -1,0 +1,74 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+\section{Summary}
+\label{sec:con-summary}
+
+We presented \textsc{mathlib5}, a Verified Symbolic Compute Pipeline organized
+as ten explicit safety boundaries. Each boundary has an inbound contract, a
+transformation, and an outbound contract; each failure is localized,
+reported, and sealed. The pipeline moves an \textsc{apl} expression through a
+canonical IR, Liquid Haskell refinement, Lean~4 proof obligations, a verified
+C{--} kernel, logic/static analysis, ASP policy reasoning, a P/NP optimization
+swarm, WORM provenance receipts, and automated proof-completeness checking.
+
+\section{What We Established}
+\label{sec:con-established}
+
+\begin{enumerate}
+  \item A coherent layered model in which confidence is increased by making
+        every transformation inspectable.
+  \item A concrete, public, multi-language reference implementation whose
+        sources are reproduced in the appendices.
+  \item A verified numeric kernel in C{--} whose primitives each name their
+        safety boundary and certificate.
+  \item A foreign-function bridge that cross-validates the kernel against
+        Lean~4, so two independent paths must agree.
+  \item A provenance layer that hash-links, Ed25519-signs, and Bitcoin-anchors
+        every artifact --- including this manuscript.
+\end{enumerate}
+
+\section{The Central Claim}
+\label{sec:con-claim}
+
+The claim of this work is modest but firm: \emph{confidence in mathematical
+software is increased when transformations between symbolic notation and
+executable artifacts remain inspectable, provable, and cryptographically
+attributable.} The ten-layer pipeline is one realization of that claim; the
+constellation of receipt-linked repositories is its ecosystem.
+
+\section{Outlook}
+\label{sec:con-outlook}
+
+The active frontier is closing the gap between architecture and operation:
+enforcing the Liquid predicates, populating \texttt{Core.lean} with closed
+theorems, wiring the end-to-end orchestration, and hardening the kernel's
+certificate checks. As \texttt{sorryhunter} closes goals, the completeness
+score $C$ rises; as the swarm finds harder witnesses, the universe sum
+advances. The system is designed so that every step of that progress is
+recorded, signed, and tamper-evident.
+
+\section{Final Word}
+\label{sec:con-final}
+
+The machine is the extension of the mind. \textsc{mathlib5} is an attempt to
+make that extension \emph{accountable}: not faster math, but math you can
+trace, prove, and trust --- sealed so that, should it ever be altered, the
+alteration is visible to anyone who cares to look. The fortress holds. For
+now, and by design, indefinitely.
+
+\vspace{0.3in}
+\begin{center}
+\itshape
+\ensuremath{odot} Source \ensuremath{cdot} \ensuremath{Box} Truth \ensuremath{cdot} \ensuremath{circ} Resonance \ensuremath{cdot} \ensuremath{Diamond} Knowledge \ensuremath{cdot} \ensuremath{triangle} Creation \ensuremath{cdot} \ensuremath{hexagon} Impact \ensuremath{cdot} \ensuremath{Omega} Unified \\
+--- WORM SEALED
+\end{center}
+
+\section{Open Questions}
+\label{sec:concl-open}
+
+Several questions remain active: extending the APL fragment to
+higher-rank arrays, proving closed forms for non-polynomial summands, and
+tightening the SMT bounds in the Liquid layer. Each is tracked as a P/NP
+problem (\cref{ch:pnp}) and as a \texttt{sorrydb} entry (\cref{ch:lean-meta}),
+so progress is publicly observable on the Bifrost chain.

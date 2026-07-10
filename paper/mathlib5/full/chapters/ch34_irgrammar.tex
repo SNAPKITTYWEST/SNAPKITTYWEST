@@ -1,0 +1,79 @@
+\chapter{A Formal Grammar of the Intermediate Representation}
+\label{ch:ir-grammar}
+
+\section{Why a Grammar}
+\label{sec:irg-why}
+
+The IR (\cref{ch:ir}) is the contract surface between the APL frontend and
+the verification backends. Giving it a formal grammar makes the boundary
+contract checkable by a parser and makes the translation theorems
+(\cref{ch:liquid}) precisely stated. This chapter presents the grammar and
+illustrates it on the running example.
+
+\section{Abstract Syntax}
+\label{sec:irg-syntax}
+
+We write the IR abstract syntax as:
+\begin{align*}
+e &::= \texttt{const}(c) \mid \texttt{var}(x) \mid
+       \texttt{sum}(e) \mid \texttt{outer}(e_1, e_2) \mid
+       \texttt{reduce}(f, e) \\
+t &::= \texttt{int} \mid \texttt{float} \\
+\tau &::= \texttt{vec}(t, n) \mid \texttt{mat}(t, m, n) \\
+a &::= (\tau, e, \text{cert})
+\end{align*}
+An artifact $a$ pairs a typed shape $\tau$, an expression $e$, and a
+reference to the certificate (or \texttt{none} if unproven).
+
+\section{Well-Formedness}
+\label{sec:irg-wf}
+
+A judgment $\vdash a\;\text{wf}$ holds when:
+\begin{itemize}
+  \item the shape $\tau$ matches the free variables of $e$ (e.g., an
+        \texttt{outer} of a length-$m$ and length-$n$ vector yields
+        \texttt{mat}(t,m,n)),
+  \item every \texttt{sum}/\texttt{reduce} is over a vector, not a scalar,
+  \item if $\text{cert} \neq \text{none}$, the referenced Lean theorem
+        closes $e$.
+\end{itemize}
+The Layer~2 emitter guarantees $\vdash a\;\text{wf}$ for every artifact it
+produces; this is the inbound contract of Layer~3.
+
+\section{Example Derivation}
+\label{sec:irg-ex}
+
+For $v=(1,2,3,4)$, the APL $\Sigma\,\omega$ yields the IR artifact
+\[
+a = (\texttt{vec}(\texttt{int},4),\; \texttt{sum}(\texttt{var}(v)),\;
+      \text{cert}).
+\]
+Well-formedness checks: the shape is a length-4 integer vector, the
+\texttt{sum} is over a vector, and \texttt{cert} references the proven
+arithmetic-sum closed form. Hence $\vdash a\;\text{wf}$, and the artifact
+advances to Liquid Haskell.
+
+\section{Translation to C$--$}
+\label{sec:irg-cmm}
+
+The IR expression $e$ maps to C$--$ by the homomorphism:
+\begin{itemize}
+  \item $\texttt{const}(c) \mapsto$ the literal $c$,
+  \item $\texttt{var}(x) \mapsto$ the array reference $x[i]$ inside a loop,
+  \item $\texttt{sum}(e) \mapsto$ the fold loop of \cref{lst:work-cmm},
+  \item $\texttt{outer}(e_1,e_2) \mapsto$ the nested loop building the
+        matrix,
+  \item $\texttt{reduce}(f,e) \mapsto$ the left fold with dyadic $f$.
+\end{itemize}
+The homomorphism is the subject of the Layer~4 $\to$ 5 verification
+(\cref{ch:cmm}): it must preserve the denotation $\denote{e}$.
+
+\section{Why the Grammar Helps}
+\label{sec:irg-why2}
+
+With a fixed grammar, the P/NP swarm problems (\cref{ch:pnp}) can be stated
+over IR terms rather than raw source, so a witness is a certified IR
+transformation. The grammar also lets the static layer (\cref{ch:static})
+generate invariants parametrically in the expression shape, rather than
+per-source. This is what keeps the pipeline uniform as new primitives are
+added.

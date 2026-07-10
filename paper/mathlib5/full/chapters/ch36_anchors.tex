@@ -1,0 +1,79 @@
+\chapter{Bitcoin Anchoring and the \texttt{MATH5} OP\_RETURN}
+\label{ch:anchors}
+
+\section{Motivation}
+\label{sec:anc-mot}
+
+A verification chain is only as trustworthy as the root that attests it.
+Internal signatures prove the chain is self-consistent; they do not prove
+\emph{when} or \emph{publicly} a given state was accepted. By anchoring
+the Bifrost head (\cref{ch:bifrost}) to the Bitcoin ledger, MATHLIB5
+gains a timestamp and a public, censorship-resistant root that no single
+party controls.
+
+\section{The Fingerprint}
+\label{sec:anc-fp}
+
+The root artifact is the SHA-256 of the published document (this PDF) and,
+independently, the SHA-256 of the repository's verification receipt. Both
+fingerprints are recorded in \texttt{fingerprint.txt}. A reader recomputes
+the hash locally and compares; equality is necessary for authenticity.
+
+\section{The Ed25519 Plasma Gate}
+\label{sec:anc-ed}
+
+Over the fingerprint, the Plasma Gate produces an Ed25519 signature with
+the published public key (\texttt{pubkey.txt}). The signature witnesses
+that the fingerprint was endorsed by the key holder at some time before
+the anchor transaction. Verification (\texttt{verify\_anchors.py}) checks
+\[
+\text{Ed25519-Verify}\bigl(\text{pubkey}, \text{fingerprint},
+\text{signature}\bigr) = 1.
+\]
+
+\section{The OP\_RETURN Payload}
+\label{sec:anc-op}
+
+The anchor is published as a Bitcoin \texttt{OP\_RETURN} output whose
+payload is
+\[
+\texttt{MATH5:}\;\Vert\;\text{SHA-256}(\text{head}).
+\]
+The 6-byte \texttt{MATH5:} namespace distinguishes MATHLIB5 anchors from
+other \texttt{OP\_RETURN} users; the 32-byte hash is the Bifrost head hash
+(or, equivalently, the document fingerprint). The full payload is 38 bytes,
+well within the 80-byte standard \texttt{OP\_RETURN} limit, and costs only
+the dust transaction fee to embed.
+
+\section{End-to-End Verification}
+\label{sec:anc-e2e}
+
+A verifier performs, in order:
+\begin{enumerate}
+  \item Fetch the Bitcoin transaction carrying the \texttt{MATH5:}
+        \texttt{OP\_RETURN}.
+  \item Confirm the prefix and recover the expected hash $h$.
+  \item Hash the local document; require $\text{SHA-256}(doc) = h$.
+  \item Require the Ed25519 signature over $h$ to validate under the
+        published key.
+\end{enumerate}
+All four must hold for the document to be accepted as the anchored one.
+The script \texttt{verify\_anchors.py} automates steps 2--4 and reports
+\texttt{ALL CHECKS PASSED} on success.
+
+\section{Lifetime and Rotation}
+\label{sec:anc-life}
+
+Each release produces a new anchor transaction; the chain of transactions
+is itself a public timeline of the system's verification history. Key
+rotation is supported by anchoring a successor public key; old anchors
+remain valid for the intervals they covered, preserving the audit trail.
+
+\section{Why Bitcoin}
+\label{sec:anc-why}
+
+Bitcoin is chosen not for its currency but for its adversarial,
+proof-of-work timestamping: rewriting an anchor requires re-mining the
+blocks above it, an economically bounded cost. Any ledger with comparable
+finality would serve; Bitcoin is simply the most established such anchor
+available without trusting a new party.

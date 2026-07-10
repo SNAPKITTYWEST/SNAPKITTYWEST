@@ -1,0 +1,137 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+\section{Motivation}
+\label{sec:intro-motivation}
+
+Software that performs mathematics is trusted through a fragile stack: tests
+that sample a tiny region of the input space, code review that depends on
+human attention, and operational monitoring that only observes failures after
+they ship. For symbolic computation --- where the artifact is not merely a
+number but a transformation of meaning --- this fragility is acute. A single
+algebraic mis-step, invisible to unit tests, can propagate through an entire
+derivation.
+
+\textsc{mathlib5} takes a different stance. It treats \emph{verification} and
+\emph{provenance} as primary engineering outputs, produced alongside every
+executable artifact rather than bolted on after the fact. The guiding
+principle is stated plainly in the abstract of this work:
+
+\begin{quote}
+\itshape Confidence increases when transformations between symbolic notation
+and executable artifacts remain inspectable.
+\end{quote}
+
+Inspectability has three dimensions in this architecture:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Syntactic inspectability} --- every stage consumes and emits a
+        human-readable artifact (an \textsc{apl} expression, an S-expression,
+        a Lean goal, a C{--} term, a receipt).
+  \item \textbf{Logical inspectability} --- proof obligations are first-class;
+        a result is not emitted unless a prover has discharged its
+        obligations (or the gap is explicitly recorded as a \texttt{sorry}).
+  \item \textbf{Historical inspectability} --- each transformation writes a
+        cryptographically sealed receipt into an append-only WORM ledger, so
+        the full lineage of any result is reconstructable and tamper-evident.
+\end{enumerate}
+
+\section{The Verified Symbolic Compute Pipeline}
+\label{sec:intro-vscp}
+
+The architecture is a pipeline of ten \emph{safety boundaries}. A safety
+boundary is a point at which one representation is transformed into the next
+under an explicit, checkable contract. The contract may be a parser grammar,
+a refinement type, a proof obligation, or a signed receipt. Because each
+boundary is independently auditable, the failure of any one layer does not
+silently corrupt the rest; it is localized, reported, and sealed.
+
+\begin{table}[H]
+\centering
+\caption{The ten layers of the Verified Symbolic Compute Pipeline.}
+\label{tab:layers}
+\begin{tabularx}{\textwidth}{clX}
+\toprule
+\textbf{\#} & \textbf{Name} & \textbf{Contract / Output} \\
+\midrule
+1  & Symbolic APL frontend      & Parse \textsc{apl} $\ensuremath{rightarrow}$ typed AST \\
+2  & Canonical symbolic IR      & Normalize AST $\ensuremath{rightarrow}$ canonical S-expr \\
+3  & Liquid Haskell refinement  & Refinement types discharge structural constraints \\
+4  & Lean~4 proof obligations   & Theorems / \texttt{sorry} ledger \\
+5  & Verified C{--} execution   & Certified numeric kernel \\
+6  & Logic \& static analysis   & FOL resolution + CodeQL checks \\
+7  & Policy reasoning (ASP)     & Stable-model policy decisions \\
+8  & Optimization \& P/NP swarm & Witness search, sealed skills \\
+9  & WORM provenance receipts   & Hash-linked, signed lineage \\
+10 & Proof completeness         & Automated \texttt{sorry}-closing \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The repository \texttt{SNAPKITTYWEST/mathlib5} is the reference implementation
+of this pipeline. Its top-level layout mirrors the layer taxonomy:
+
+\begin{verbatim}
+mathlib5/
+  kernel/            Layer 5  verified_kernel.cm  (C--)
+  layers/apl/        Layer 1  Parser.hs
+  layers/sexpr/      Layer 2  AST.hs
+  layers/liquid/     Layer 3  Bridge.hs
+  layers/hol/lean/   Layer 4  Mathlib5/Core.lean
+  layers/fol/        Layer 6  resolution checker
+  layers/codeql/     Layer 6  static analysis
+  layers/asp/        Layer 7  stable models
+  layers/prism-skills/  Layer 8  canonical JSON + WORM
+  layers/pnp-attack/ Layer 8  P/NP swarm
+  mathlib5-ffi-bridge/   C<->Lean FFI + TheoremCalc
+  malice_layer2/    adversarial refutation
+  sorrydb/          sorry ledger
+  theorems/         closed-form theorems
+\end{verbatim}
+
+\section{Contributions}
+\label{sec:intro-contributions}
+
+This monograph makes the following contributions:
+\begin{enumerate}[label=(\arabic*)]
+  \item A coherent ten-layer \emph{safety-boundary} model for symbolic
+        computation, with each layer's contract made explicit.
+  \item A concrete realization of that model in a mixed-language system
+        (\textsc{apl}, Haskell, Lean~4, C{--}, Shell, Nix) that is
+        publicly available and reproducible.
+  \item A verified numeric kernel expressed in C{--} whose primitives
+        (polynomial addition, matrix multiplication, symbolic
+        differentiation, algebraic decision, normalization) carry proof
+        certificates.
+  \item A foreign-function bridge that \emph{cross-validates} the C{--}
+        kernel against Lean~4, so two independent paths must agree before a
+        result is accepted.
+  \item A provenance layer in which every artifact is hash-linked,
+        Ed25519-signed, and anchored to an immutable WORM ledger, with this
+        very manuscript sealed by the same mechanism.
+\end{enumerate}
+
+\section{Organization of this Monograph}
+\label{sec:intro-org}
+
+\Cref{part:foundations} (Chapters~\ref{ch:related}--\ref{ch:coherence})
+establishes motivation, related work, mathematical preliminaries, and the
+coherence/governance model. \Cref{part:pipeline} (Chapters~\ref{ch:vscp}--
+\ref{ch:completeness}) walks the ten layers in order, each grounded in the
+reference sources. \Cref{part:kernel} (Chapters~\ref{ch:kernel}--
+\ref{ch:build}) details the kernel, the FFI bridge, and the build/CI
+verification gates. \Cref{part:eco} (Chapters~\ref{ch:security}--
+\ref{ch:constellation}) covers the security model and the wider repository
+constellation. \Cref{part:eval} (Chapters~\ref{ch:eval}--\ref{ch:conclusion})
+presents evaluation, a case study, limitations, and conclusions. Five
+appendices reproduce the canonical sources, the metadata schema, a glossary,
+and the bibliography.
+
+\section{Reading Guidance}
+\label{sec:intro-reading}
+
+A practitioner who wants only the architecture may read
+Chapters~\ref{ch:vscp} and \ref{ch:kernel}. A formal-methods reader should
+attend to Chapters~\ref{ch:liquid}--\ref{ch:lean} and \ref{ch:completeness}.
+A security reader should focus on Chapters~\ref{ch:worm}, \ref{ch:security},
+and \ref{ch:constellation}. All readers are encouraged to clone the
+repository and follow along with the appendices.

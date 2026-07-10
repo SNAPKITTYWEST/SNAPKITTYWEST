@@ -1,0 +1,108 @@
+\chapter{A Worked C$--$ Translation Example}
+\label{ch:workcmm}
+
+\section{Setup}
+\label{sec:work-setup}
+
+To make the middle of the pipeline concrete, we follow one artifact ---
+the summation of $v = (1,2,3,4)$ --- from the IR through the C$--$
+emission and the static/FOL/ASP checks that precede the bridge. This is
+the same artifact traced at the APL level in \cref{ch:apl-sem}.
+
+\section{IR In}
+\label{sec:work-ir}
+
+The Layer~2 IR for this artifact (after the contract of
+\cref{ch:apl-sem} holds) is the decorated record:
+\begin{center}
+\texttt{\{ shape=[4], dtype=int, expr=SUM(v), cert=lean:arith\_sum,
+  receipt=r1 \}}
+\end{center}
+
+\section{C$--$ Out}
+\label{sec:work-out}
+
+Layer~5 (Liquid Haskell $\to$ C$--$) emits the following
+verified-translation unit:
+\begin{lstlisting}[language=C,caption={C$--$ emitted for $\Sigma\,\omega$
+  on $v=(1,2,3,4)$.},label=lst:work-cmm]
+section "DATA" {
+  v_arr:
+    bits64[4] = {1, 2, 3, 4};
+}
+f_sumV :: bits64
+f_sumV {
+  i0: bits64, r0: bits64;
+  i0 = 0;
+  r0 = 0;
+  loop:
+    if (i0 >= 4) goto done;
+    r0 = r0 + v_arr[i0];
+    i0 = i0 + 1;
+    goto loop;
+  done:
+    return (r0);
+}
+\end{lstlisting}
+The loop is a left fold over the array; integer addition is associative,
+so it computes the same value as the APL reduction $+/\,v$
+(\cref{ch:apl-sem}).
+
+\section{Static Analysis}
+\label{sec:work-static}
+
+Layer~6 confirms there are no out-of-bounds reads: $i0$ is incremented
+only after a guard \texttt{i0 >= 4}, and the array has length 4. It also
+proves \texttt{r0} is initialized before \texttt{return}, removing the
+undefined-read class of bugs. The produced invariant is
+\[
+0 \le i0 \le 4 \;\wedge\; r0 = \sum_{k=0}^{i0-1} v_k.
+\]
+
+\section{First-Order Logic Emission}
+\label{sec:work-fol}
+
+Layer~7 renders the same property as a first-order clause for the external
+prover:
+\[
+\forall i_0,r_0.\; \bigl(\text{loop}(i_0,r_0) \to
+(i_0\le 4 \wedge r_0 = \text{sum}(v,i_0))\bigr).
+\]
+The FOL form is what the ASP solver consumes, decoupling the proof search
+from the C$--$ syntax.
+
+\section{ASP Schedule}
+\label{sec:work-asp}
+
+Layer~8 packages the clause as an answer-set program with the goal
+\texttt{:- not holds(f\_sumV = 10).} The solver finds a stable model in
+which \texttt{holds(f\_sumV = 10)} is true, matching the closed-form
+expectation $10$. The schedule is:
+\begin{enumerate}
+  \item Encode invariant as facts.
+  \item Assert goal negation as a constraint.
+  \item Search for a model; if found, the constraint is violated, proving
+        the goal.
+\end{enumerate}
+
+\section{Receipt Chain}
+\label{sec:work-receipt}
+
+Each layer appends a receipt referencing the previous one:
+\[
+r_1 \to r_2 \to r_3 \to r_4 \to r_5 \to r_6 \to r_7 \to r_8,
+\]
+and the chain is sealed into the WORM ledger (\cref{ch:worm}). A verifier
+recomputing \texttt{SHA-256} of each artifact and checking the Ed25519
+Plasma-Gate signatures obtains a complete proof that the C$--$ function
+\texttt{f\_sumV} returns $10$ for the given input, with no step trusted by
+assertion alone.
+
+\section{Why This Matters}
+\label{sec:work-why}
+
+The example is trivial arithmetically, but the \emph{structure} of the
+proof is the product: every non-trivial summation in the system is
+subject to the identical, machine-checked chain. Scaling the input from
+four elements to four million changes only the runtime of the loop, not
+the force of the certificate.

@@ -1,0 +1,67 @@
+\chapter{Reproducibility and Artifact Evaluation}
+\label{ch:artifact}
+
+\section{Reproducing the Build}
+\label{sec:artifact-build}
+
+MATHLIB5 ships as a single cloneable repository with a deterministic
+startup sequence (cf.\ AGENTS.md). To reproduce the verified artifacts:
+
+\begin{lstlisting}[language=BashX,caption={Reproducing the MATHLIB5
+  verification chain.},label=lst:repro]
+git clone https://github.com/SNAPKITTYWEST/mathlib5 && cd mathlib5
+npm ci
+npm run verify:all        # plasma gate + P/NP proofs + skill seals
+npm run context:bootstrap # load latest memories into local index
+./scripts/receipt.sh      # emit the WORM-anchored verification receipt
+\end{lstlisting}
+
+A successful run produces a receipt whose SHA-256 is the artifact under
+discussion in \cref{ch:anchors}.
+
+\section{The Verification Gate}
+\label{sec:artifact-gate}
+
+The gate is \emph{total and fail-loud}: if any of the ten boundaries
+returns a non-certified result, the build aborts before any downstream
+artifact is emitted. This guarantees that a published artifact is
+accompanied by a complete certificate chain or does not exist at all.
+
+\section{The Anchors Published With This Paper}
+\label{sec:artifact-anchors}
+
+This monograph is itself anchored. The following artifacts were generated
+and are verifiable:
+
+\begin{itemize}
+  \item \texttt{fingerprint.txt} --- SHA-256 of the rendered PDF.
+  \item \texttt{pubkey.txt} --- the Ed25519 public key (Plasma Gate).
+  \item \texttt{signature.txt} --- Ed25519 signature over the fingerprint.
+  \item \texttt{opreturn.txt} --- the \texttt{MATH5:} Bitcoin
+        \texttt{OP\_RETURN} payload (see \cref{ch:anchors}).
+  \item \texttt{anchor\_meta.json} --- machine-readable anchor metadata.
+\end{itemize}
+
+Verification is performed by \texttt{verify\_anchors.py}, which checks
+(1) that the recomputed SHA-256 equals \texttt{fingerprint.txt}, (2) that
+the Ed25519 signature validates under \texttt{pubkey.txt}, and (3) that the
+\texttt{OP\_RETURN} payload's hash matches the fingerprint. All three must
+pass for the paper to be considered authentic.
+
+\section{Evaluator Checklist}
+\label{sec:artifact-checklist}
+
+For artifact evaluation we recommend the following acceptance criteria:
+
+\begin{enumerate}
+  \item The repository clones cleanly and \texttt{npm ci} succeeds on a
+        standard Linux environment.
+  \item \texttt{npm run verify:all} exits zero.
+  \item \texttt{./scripts/receipt.sh} emits a receipt whose hash matches
+        the published fingerprint.
+  \item \texttt{python verify\_anchors.py} reports \texttt{ALL CHECKS
+        PASSED}.
+\end{enumerate}
+
+These criteria make the contribution \emph{externally reproducible} without
+trusting the authors' hardware.

@@ -1,0 +1,84 @@
+\chapter{The Constellation and the Agent Substrate}
+\label{ch:constellation}
+
+\textsc{mathlib5} is one node in a much larger graph of repositories. This
+chapter situates it and describes the runtime substrate that executes its
+swarm layer.
+
+\section{Scale}
+\label{sec:con-scale}
+
+The SNAPKITTYWEST constellation reports 93 repositories (the operator states
+over 108 across orgs, some private). Of these, 82 were active within 30 days
+and 33 publish GitHub Pages sites. The Resonance Field (\cref{ch:coherence})
+tracks entropy across the set and declares the whole coherent at
+$E = 0.1183$.
+
+\section{Mathlib5's Siblings}
+\label{sec:con-siblings}
+
+Several sibling repositories are directly relevant to this monograph:
+\begin{itemize}
+  \item \texttt{math-skills} --- six sealed skills (enumeration, isomorphism,
+        symmetry, Hadamard, probabilistic, circuits) with master seals; the
+        production instance of Layer~8's PRISM skills.
+  \item \texttt{mathrosetta}, \texttt{resonance-math}, \texttt{math-engine}
+        --- complementary mathematics repositories.
+  \item \texttt{collatz-verifier}, \texttt{axiom-proof}, \texttt{qec-discovery}
+        --- verification and discovery efforts.
+  \item \texttt{agentos} --- the P/NP swarm substrate that schedules the
+        agents referenced in Layer~8.
+\end{itemize}
+
+\section{The Agent Substrate (AgentOS)}
+\label{sec:con-agentos}
+
+\texttt{agentos/} is a runtime for solver agents. Its design matches the
+swarm protocol of \cref{sec:pnp-swarm}:
+\begin{itemize}
+  \item A \textbf{problem registry} lists open problems with P-time
+        verifiers.
+  \item Agents \textbf{claim} a problem (append-only claim ledger).
+  \item Agents \textbf{solve} (NP-hard witness search) and \textbf{submit} to
+        a solution pool.
+  \item A verifier promotes the first verified solution; the
+        \textbf{universe sum} (a monotonic convergence metric) advances.
+\end{itemize}
+This is the execution engine behind \texttt{layers/pnp-attack/}. The
+``universe sum $\ensuremath{rightarrow} \ensuremath{infty}$'' goal is a poetic statement of the same
+completeness metric introduced for proofs in \cref{ch:completeness}.
+
+\section{The Governance Kernel, Again}
+\label{sec:con-gov}
+
+The constellation's governance kernel
+\begin{quote}
+\centering
+$\ensuremath{Omega} \ensuremath{leftarrow} \ensuremath{Box} \ensuremath{wedge} \ensuremath{circ} \ensuremath{wedge} \ensuremath{Diamond} \ensuremath{wedge} \ensuremath{triangle} \ensuremath{wedge} \ensuremath{hexagon}$
+\end{quote}
+is not merely decorative. It is the policy that the ASP layer
+(\cref{ch:policy}) compiles into executable constraints and that the
+Resonance Field enforces at the repository level. \textsc{mathlib5}
+participates in this governance by emitting receipts that the Bifrost WORM
+chain records; the chain link \texttt{Bifrost\_WORM\_Chain\_20260710\_01}
+appears in every component's \texttt{metadata.json}.
+
+\section{Implications}
+\label{sec:con-implications}
+
+The practical implication is that no single repository is the system; the
+system is the coherent, receipt-linked constellation. A verification in
+\textsc{mathlib5} can cite receipts from \texttt{math-skills}; a swarm agent
+in \texttt{agentos} can claim a problem defined in \textsc{mathlib5}. The
+safety boundaries described in this monograph are local instances of a
+global coherence discipline.
+
+\section{The Constellation as a Documentation Graph}
+\label{sec:const-docs}
+
+Beyond runtime, Layer~9's metadata feeds a documentation graph: each
+artifact links to its proofs, its receipts, and its downstream consumers.
+A reader browsing the repository thus sees not prose but a navigable
+constellation of certified facts, echoing the ``galaxy'' metaphor of the
+AGENTS.md. The graph is regenerated on every verified build, so it can
+never describe an artifact that was not actually proven.

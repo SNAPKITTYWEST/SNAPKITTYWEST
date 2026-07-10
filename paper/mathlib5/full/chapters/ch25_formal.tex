@@ -1,0 +1,111 @@
+\chapter{A Formal Model of Safety Boundaries}
+\label{ch:formal}
+
+\section{Motivation for a Formal Model}
+\label{sec:formal-mot}
+
+The phrase ``safety boundary'' has recurred throughout this monograph. To make
+the architecture auditable rather than merely described, we now give a
+precise, mathematical account of what a boundary is and what it means for one
+to hold.
+
+\section{Definition}
+\label{sec:formal-def}
+
+\begin{definition}
+A \emph{safety boundary} $B$ is a quadruple
+\[
+B = (I_B,\, T_B,\, O_B,\, \phi_B)
+\]
+where:
+\begin{itemize}
+  \item $I_B$ is the inbound contract --- a predicate on artifacts
+        $I_B : \mathcal{A} \to \{0,1\}$.
+  \item $T_B : \mathcal{A} \to \mathcal{A}$ is the transformation.
+  \item $O_B$ is the outbound contract --- a predicate
+        $O_B : \mathcal{A} \to \{0,1\}$.
+  \item $\phi_B$ is the \emph{consistency certificate}:
+        $\phi_B(a) \in \{0,1\}$ records whether the transformation was
+        verified.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Boundary $B$ \emph{holds} on artifact $a$ iff
+\[
+I_B(a) = 1 \;\Longrightarrow\; O_B(T_B(a)) = 1 \;\wedge\; \phi_B(a) = 1.
+\]
+\end{definition}
+
+In words: if the input satisfied the inbound contract, then the output must
+satisfy the outbound contract and the transformation must be certified. If
+$I_B(a) = 0$ the boundary \emph{fails loudly}: it must emit a sealed receipt
+recording the failure and must not emit a (false) success artifact.
+
+\section{Composing Boundaries}
+\label{sec:formal-compose}
+
+A pipeline is a sequence of boundaries $B_1,\dots,B_{10}$ with the
+compatibility condition
+\[
+O_{B_i} \subseteq I_{B_{i+1}} \quad\text{for all } i,
+\]
+so that the output contract of one layer is accepted by the next. This is the
+formal version of the ``artifact flow'' arrows in \cref{fig:vscp}.
+
+\begin{theorem}
+If every boundary $B_i$ holds on the artifact it receives, then the final
+artifact $a_{10} = T_{B_{10}}(\dots T_{B_1}(a_0)\dots)$ satisfies
+$O_{B_{10}}$ and carries a chain of certificates
+$\phi_{B_1},\dots,\phi_{B_{10}}$.
+\end{theorem}
+\begin{proof}
+By induction on $i$. Base: $B_1$ holds, so $O_{B_1}(a_1)=1$ and
+$\phi_{B_1}=1$. Inductive step: assume $O_{B_i}(a_i)=1$; by compatibility
+$I_{B_{i+1}}(a_i)=1$; since $B_{i+1}$ holds,
+$O_{B_{i+1}}(a_{i+1})=1$ and $\phi_{B_{i+1}}=1$. The chain of certificates
+is the concatenation of the individual $\phi$'s, each sealable into the WORM
+ledger (Layer~9).
+\end{proof}
+
+\section{The Receipt as a Proof Object}
+\label{sec:formal-receipt}
+
+Each certificate $\phi_{B_i}$ is, concretely, a receipt
+(\cref{ch:worm}) containing:
+\begin{itemize}
+  \item a SHA-256 of the input artifact $a_{i-1}$,
+  \item a SHA-256 of the output artifact $a_i$,
+  \item the boundary id $i$,
+  \item an Ed25519 signature over the above (the Plasma Gate).
+\end{itemize}
+Because the receipt is itself an artifact, it becomes the input contract
+evidence for the next boundary's verification, closing the loop between the
+logical model and the cryptographic one.
+
+\section{Failure Semantics}
+\label{sec:formal-fail}
+
+A key design choice is that a violated inbound contract is \emph{not} a
+silent pass. Formally, the boundary function is total but its ``success''
+projection is partial:
+\[
+\text{success}(B,a) =
+\begin{cases}
+1 & I_B(a)=1 \wedge O_B(T_B(a))=1 \wedge \phi_B(a)=1,\\
+0 & I_B(a)=0 \text{ (recorded as a failed receipt)},\\
+\bot & \text{the build gate halts}.
+\end{cases}
+\]
+The build gate (\cref{ch:build}) realizes the $\bot$ case: any single
+boundary returning $0$ aborts the build, so an unverified artifact can never
+propagate.
+
+\section{Relation to Established Theory}
+\label{sec:formal-rel}
+
+This model is a specialization of \emph{refinement} (Abrial's events /
+Hoare's contracts): $I_B$ is the precondition, $O_B$ the postcondition, and
+$\phi_B$ the verification witness. It is also an instance of a
+\emph{layered trusted computing base}. The novelty is the explicit,
+receipt-linked realization across a mixed-language symbolic-compute stack.

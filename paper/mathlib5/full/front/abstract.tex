@@ -1,0 +1,45 @@
+This monograph presents \textsc{mathlib5}, an architecture for verified
+symbolic computation organized as a \emph{Verified Symbolic Compute Pipeline}
+(VSCP). The central thesis is that confidence in mathematical software is
+increased when every transformation between symbolic notation and executable
+artifact remains inspectable, provable, and cryptographically attributable.
+
+Traditional software engineering relies on testing, code review, and
+operational monitoring to establish confidence. \textsc{mathlib5} explores a
+complementary direction: it treats formal verification and provenance as
+first-class engineering outputs rather than afterthoughts. The pipeline
+separates concerns into ten explicit \emph{safety boundaries}. Instead of a
+monolithic compiler, each stage verifies its assumptions before passing
+artifacts forward, reducing hidden state and producing a chain of
+independently auditable transformations.
+
+The ten layers are: (1) a symbolic \textsc{apl} frontend; (2) a canonical
+symbolic intermediate representation; (3) refinement validation with Liquid
+Haskell; (4) Lean~4 proof obligations; (5) a verified \textsc{c{--}}
+execution layer; (6) logic validation and static analysis; (7) answer-set
+programming for policy reasoning; (8) optimization, search, and a P/NP
+solver swarm; (9) write-once-read-many (WORM) provenance receipts; and (10)
+automated proof-completeness checking.
+
+We describe the mathematical model in which \textsc{apl} acts as a concise
+notation for array mathematics, a canonical IR normalizes expressions prior
+to proof, refinement types encode structural constraints, and theorem
+provers discharge proof obligations before execution artifacts are emitted.
+We detail the verified kernel primitives (polynomial arithmetic, matrix
+multiplication, symbolic differentiation, algebraic decision procedures,
+expression normalization) and the foreign-function bridge that cross-validates
+\textsc{c{--}} kernels against Lean~4 by FFI. Every transformation emits a
+receipt; hash-linked provenance records form an immutable audit history with
+Merkle structures and Ed25519 signatures that detect unauthorized
+modification.
+
+The exposition is grounded throughout in the open reference implementation
+published at \url{https://github.com/SNAPKITTYWEST/mathlib5}, whose sources
+are reproduced in the appendices. We close with an evaluation of
+FFI$\leftrightarrow$Lean consistency, benchmark results for closed-form
+summation theorems, and a discussion of the constellation of sovereign
+repositories in which \textsc{mathlib5} participates.
+
+\paragraph{Keywords.} formal verification; symbolic computation; \textsc{apl};
+Lean~4; Liquid Haskell; refinement types; \textsc{c{--}}; WORM ledger;
+Ed25519; cryptographic provenance; P/NP swarm; safety boundaries.

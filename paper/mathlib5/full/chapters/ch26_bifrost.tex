@@ -1,0 +1,84 @@
+\chapter{The Bifrost WORM Chain Protocol}
+\label{ch:bifrost}
+
+\section{Purpose}
+\label{sec:bifrost-purpose}
+
+The Bifrost WORM (Write-Once-Read-Many) Chain is the trust root for
+MATHLIB5. It is an append-only hash chain in which each block anchors a
+verification receipt (or a batch of receipts) produced by a pipeline
+boundary. Because the chain is write-once and the head is anchored to a
+Bitcoin \texttt{OP\_RETURN} transaction (\cref{ch:anchors}), the provenance
+of every artifact becomes externally, economically, auditable.
+
+\section{Block Structure}
+\label{sec:bifrost-block}
+
+Each Bifrost block is the tuple
+\[
+\mathcal{B}_n = \bigl(n,\; h_{n-1},\; \mathsf{merkle}(\mathcal{R}_n),\;
+t_n,\; \sigma_n \bigr),
+\]
+where:
+\begin{itemize}
+  \item $n$ is the block height,
+  \item $h_{n-1} = \text{SHA-256}(\mathcal{B}_{n-1})$ is the previous block
+        hash (the ``worm'' link),
+  \item $\mathcal{R}_n$ is the set of receipts anchored at this height,
+  \item $\mathsf{merkle}(\mathcal{R}_n)$ is a Merkle root binding all
+        receipts,
+  \item $t_n$ is the timestamp,
+  \item $\sigma_n$ is an Ed25519 signature by the Plasma Gate over the
+        above fields.
+\end{itemize}
+The genesis block $\mathcal{B}_0$ carries the fixed trust-root identifier
+\texttt{4b565498-9afc-4782-af4a-c6b11a5d0058}.
+
+\section{Anchor Format and the Bitcoin Link}
+\label{sec:bifrost-anchor}
+
+To publish a Bifrost head externally, MATHLIB5 emits a Bitcoin
+\texttt{OP\_RETURN} output encoding
+\[
+\texttt{MATH5:}\;\Vert\; \text{SHA-256}(\mathcal{B}_{\text{head}}).
+\]
+The \texttt{MATH5:} prefix (6 bytes) namespaces the message; the 32-byte
+hash follows, for a total of 38 payload bytes (plus the 1-byte push opcode
+and 2-byte \texttt{OP\_RETURN}, well within the 80-byte standard limit).
+A verifier on any machine can:
+\begin{enumerate}
+  \item Fetch the Bitcoin transaction from the public ledger.
+  \item Recompute $\text{SHA-256}(\mathcal{B}_{\text{head}})$ locally.
+  \item Confirm \texttt{MATH5:} matches and the hashes agree.
+\end{enumerate}
+If they agree, the local artifact chain is provably consistent with the
+publicly anchored one as of that transaction.
+
+\section{Inclusion Proofs}
+\label{sec:bifrost-inclusion}
+
+A single receipt $r \in \mathcal{R}_n$ is proven included by a Merkle
+path $m_r$ such that
+\[
+\mathsf{merkle}(\mathcal{R}_n) \;=\; \mathsf{reduce}(m_r,\, \text{SHA-256}(r)).
+\]
+Combined with the chain hash link, this yields a \emph{succinct} proof that
+$r$ was anchored at height $n$ without revealing the other receipts.
+
+\section{Trust Properties}
+\label{sec:bifrost-trust}
+
+\begin{itemize}
+  \item \textbf{Immutability.} Tampering with any block $k \le n$ changes
+        $h_k$, which cascades to change $h_n$ and therefore the Bitcoin
+        anchor --- detectable by anyone.
+  \item \textbf{External anchoring.} The Bitcoin network's proof-of-work
+        makes rewriting history costly in proportion to its depth, lifting
+        the trust root out of MATHLIB5's own control.
+  \item \textbf{Seal-and-verify.} Every boundary receipt is independently
+        signable, so the chain is a fine-grained audit trail, not a coarse
+        commit log.
+\end{itemize}
+These properties realize the AGENTS.md claim that ``the repo \emph{is} the
+training curve'': each verified solution is a new immutable memory bucket,
+anchored in the same chain that secures the toolchain itself.

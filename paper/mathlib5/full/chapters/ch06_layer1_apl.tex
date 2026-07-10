@@ -1,0 +1,109 @@
+\chapter{Layer 1: Symbolic APL Frontend}
+\label{ch:apl}
+
+\section{Purpose and Contract}
+\label{sec:apl-purpose}
+
+Layer~1 is the human interface. Its inbound contract is ``a string the user
+believes is an \textsc{apl} expression''; its outbound contract is ``a typed
+abstract syntax tree in the expression language of \cref{sec:pre-apl}.'' The
+layer must fail if the string is not grammatical.
+
+\section{The Expression Language}
+\label{sec:apl-expr}
+
+The reference frontend (\texttt{layers/apl/src/Parser.hs}) defines a small but
+expressive language:
+\begin{lstlisting}[language=Haskell,caption={Expression datatype (Parser.hs).},label=lst:apl-expr]
+data Expr
+  = IntVal Int
+  | FloatVal Double
+  | Var String
+  | Lambda [String] Expr
+  | App Expr [Expr]
+  | Prim String [Expr]
+  deriving (Show, Eq)
+\end{lstlisting}
+This is a \emph{fragment} of \textsc{apl}: it captures integer and float
+literals, variables, lambda abstraction (the \texttt{\{ \ensuremath{dots} \}} notation),
+application, and primitive combinators. The full density of \textsc{apl} is
+intentionally out of scope; the fragment is chosen so that every downstream
+layer has a well-defined input.
+
+\section{The Parser}
+\label{sec:apl-parser}
+
+Parsing uses Megaparsec over \texttt{Text}. The top-level combinator tries a
+lambda, then an application, then a term:
+\begin{lstlisting}[language=Haskell,caption={Top-level parser (Parser.hs).},label=lst:apl-parse]
+parseAPL :: Text -> Either (ParseErrorBundle Text Void) Expr
+parseAPL = parse (space *> pExpr <* eof) ""
+
+pExpr :: Parser Expr
+pExpr = pLambda <|> pApp <|> pTerm
+\end{lstlisting}
+The lambda parser treats the brace body as an expression bound to the
+conventional \textsc{apl} argument \texttt{\ensuremath{omega}}:
+\begin{lstlisting}[language=Haskell,caption={Lambda parsing (Parser.hs).},label=lst:apl-lambda]
+pLambda :: Parser Expr
+pLambda = do
+  _ <- char '{'
+  space
+  e <- pExpr
+  space
+  _ <- char '}'
+  return $ Lambda ["omega"] e
+\end{lstlisting}
+Application is left-recursive in spirit but implemented by gathering a head
+term and a tail of terms:
+\begin{lstlisting}[language=Haskell,caption={Application and term parsing (Parser.hs).},label=lst:apl-app]
+pApp :: Parser Expr
+pApp = do
+  t  <- pTerm
+  ts <- many pTerm
+  if null ts then return t else return (App t ts)
+
+pTerm :: Parser Expr
+pTerm = choice
+  [ IntVal . read <$> some digitChar
+  , Var    <$> some letterChar
+  , between (char '(') (char ')') pExpr
+  ]
+\end{lstlisting}
+
+\section{Worked Example}
+\label{sec:apl-example}
+
+The repository's \texttt{examples/playground/simple\_sum.apl} reads:
+\begin{lstlisting}[language=,caption={simple\_sum.apl.},label=lst:apl-ex]
+# Sum of squares: Sum_{k=1}^n k^2
+SumSquares <- { (+/ (iotaomega) * 2) }
+# Expected closed form: n(n+1)(2n+1) / 6
+\end{lstlisting}
+After parsing, \texttt{SumSquares} is a \texttt{Lambda ["\ensuremath{omega}"] (App (Var "+/")
+[App (App (Var "*") [App (Var "\ensuremath{iota}") [Var "\ensuremath{omega}"], IntVal 2])])} (modulo the exact
+application nesting). This tree is the artifact handed to Layer~2.
+
+\section{Maturity and Limits}
+\label{sec:apl-limits}
+
+The current frontend parses a tractable fragment. It does not yet implement
+\emph{tacit} (operator-only) \textsc{apl}, trains of operators, or the full
+set of primitive glyphs. These are explicit non-goals of the present
+implementation; the boundary contract is honored for the supported fragment,
+and input outside it is rejected rather than silently mis-parsed.
+
+\section{Further APL Examples}
+\label{sec:apl-further}
+
+Beyond $\Sigma\,\omega$, representative accepted expressions include:
+\begin{itemize}
+  \item weighted sum $w+. \times\, v$ (dot product via outer product then
+        reduction),
+  \item matrix row contraction $(\omega \circ.\times M)[i;]$,
+  \item cumulative prefix $+\backslash v$ (scan), handled by a dedicated
+        IR node with its own closed-form certificate when $v$ is
+        arithmetic.
+\end{itemize}
+Each is translated by the same Layer~1 $\to$ 2 contract, so the safety
+argument carries over unchanged.

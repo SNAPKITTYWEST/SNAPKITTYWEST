@@ -1,0 +1,100 @@
+\chapter{Related Work}
+\label{ch:related}
+
+The \textsc{mathlib5} design sits at the intersection of several mature
+research traditions. This chapter positions the work against each, noting
+where it adopts established practice and where it extends it.
+
+\section{Formal Verification and Proof Assistants}
+\label{sec:rw-provers}
+
+Interactive theorem provers --- Coq~\cite{coq}, Isabelle/HOL~\cite{isabelle},
+and Lean~\cite{lean4} --- provide foundational guarantees that a formalized
+statement holds. The \textsc{mathlib} project~\cite{mathlib} demonstrates the
+viability of large-scale formal mathematics in Lean. \textsc{mathlib5} builds
+directly on Lean~4 (Layer~4) and reuses its tactic language, but its
+contribution is \emph{not} a new library of theorems. Rather, it uses Lean as
+one boundary in a pipeline: obligations are generated upstream (Layers~1--3)
+and discharged (or logged) here, then handed to an execution layer.
+
+\section{Refinement Types}
+\label{sec:rw-refinement}
+
+Refinement types equip a base type with a logical predicate that values must
+satisfy. Liquid Haskell~\cite{liquidhaskell} infers and checks refinement
+types via SMT, allowing specifications such as ``this list is sorted'' or
+``this index is in bounds'' to be enforced statically. \textsc{mathlib5}
+adopts Liquid Haskell at Layer~3 to encode structural constraints on symbolic
+expressions (e.g., well-formedness of the AST, non-negativity of degrees). The
+bridge in \texttt{layers/liquid/src/Bridge.hs} translates an \textsc{apl}
+expression into a Lean proof obligation, making the refinement layer the
+generator for Layer~4.
+
+\section{Verified Low-Level Computation}
+\label{sec:rw-cmm}
+
+CompCert~\cite{compcert} proved that a C compiler could be verified end to
+end. C{--}~\cite{cmm} is a portable, typed assembly language used as a target
+for verified backends; it deliberately excludes unstructured control flow and
+exposes a clean memory model. \textsc{mathlib5} expresses its numeric kernel
+in C{--} (\texttt{kernel/verified\_kernel.cm}) so that the execution layer is
+a small, auditable surface. Where CompCert verifies the \emph{compiler},
+\textsc{mathlib5} verifies the \emph{kernel primitives} and pairs them with a
+separate prover via FFI.
+
+\section{Symbolic and Array Notation}
+\label{sec:rw-apl}
+
+\textsc{apl}~\cite{apl} and its descendants (J, K, BQN) compress array
+mathematics into dense, unambiguous notation. Iverson's thesis --- that
+notation is a tool of thought --- underpins Layer~1. The parser in
+\texttt{layers/apl/src/Parser.hs} is a Megaparsec grammar over a small
+expression language; it is not a full \textsc{apl} implementation but a
+deliberately tractable fragment sufficient to seed the pipeline.
+
+\section{Provenance and Tamper-Evidence}
+\label{sec:rw-provenance}
+
+Write-once-read-many (WORM) storage, certificate transparency
+logs~\cite{ct}, and git's content-addressed object model all establish
+tamper-evident histories. Bitcoin~\cite{bitcoin} extends this with
+economic finality: an \texttt{OP\_RETURN} output can anchor an arbitrary
+hash into the most adversarial ledger on earth. \textsc{mathlib5} adopts the
+WORM pattern for its internal receipt ledger (Layer~9) and, for the
+manuscript itself, anchors its fingerprint into Bitcoin (see
+\cref{ch:security}). This mirrors Sigstore's~\cite{sigstore} use of
+transparency logs for software supply-chain signing, substituting Ed25519 for
+Sigstore's Fulcio-issued certificates.
+
+\section{P/NP and Solver Swarms}
+\label{sec:rw-pnp}
+
+The observation that \emph{finding} a solution is hard while \emph{checking}
+one is easy is the foundation of the P/NP question. \textsc{mathlib5}
+operationalizes this at Layer~8: agents compete to produce witnesses
+(NP-hard search) while the repository only accepts P-time verifiable proofs.
+This is a practical instance of a proof-carrying / proof-search split, related
+to formalized contest mathematics and to distributed theorem proving.
+
+\section{Synthesis}
+\label{sec:rw-synthesis}
+
+No prior system, to our knowledge, composes \textsc{apl} notation, a canonical
+IR, Liquid Haskell refinement, Lean~4 obligations, a C{--} verified kernel,
+static analysis, answer-set policy reasoning, a P/NP swarm, WORM provenance,
+and automated completeness checking into a single inspectable pipeline sealed
+by Ed25519 and Bitcoin. That composition --- and the discipline of treating
+each boundary as independently auditable --- is the contribution of
+\textsc{mathlib5}.
+
+\section{Two Further Systems}
+\label{sec:rel-further}
+
+\paragraph{Isabelle/HOL.} Isabelle shares Lean's goal of a large certified
+library but uses higher-order logic and a different tactic language; it has
+no built-in numeric closed-form generator for the APL fragment we target.
+
+\paragraph{F* and KreMLin} F* verifies programs in a dependently typed
+ML and extracts them to C via KreMLin. Like CertiCoq it is a
+verified-extraction system but not a verified numeric-kernel with on-chain
+provenance, which is MATHLIB5's distinguishing combination.

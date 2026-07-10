@@ -1,0 +1,73 @@
+\chapter{Limitations and Threats to Validity}
+\label{ch:limitations}
+
+A monograph that claims an ``immutable system of safety boundaries'' must be
+honest about where the boundaries are not yet closed. This chapter enumerates
+the limitations.
+
+\section{Scaffolding vs. Implementation}
+\label{sec:lim-scaffold}
+
+Several layers are real but partial:
+\begin{itemize}
+  \item The orchestration glue in \texttt{ci/run\_e2e.sh} is commented;
+        the layers it would connect exist individually but are not yet wired
+        into a single command.
+  \item The Liquid refinement predicates are specified (\texttt{todo} for
+        non-literal cases) rather than enforced.
+  \item \texttt{Core.lean} is a stub; the theorem library is the active
+        frontier tracked by \texttt{sorrydb}.
+\end{itemize}
+
+\section{Certificate Stubs}
+\label{sec:lim-cert}
+
+In \texttt{verified\_kernel.cm}, the WORM-ledger validation inside
+\texttt{rewrite\_with\_cert} is a stub. The \emph{interface} (a certificate
+pointer threaded through every rewrite) is present, but the cryptographic
+check it implies is not yet enforced in the running kernel. The security model
+of \cref{ch:security} is therefore partly \emph{architectural} and not yet
+\emph{operational} at the kernel's innermost loop.
+
+\section{Equivalence, Not Proof}
+\label{sec:lim-equiv}
+
+The FFI cross-validation shows the C{--} kernel and Lean agree on tested
+inputs. It does not prove the closed forms; proving them is Lean's
+responsibility at Layer~4, which is currently placeholder for most goals. The
+system's strongest guarantee today is \emph{consistency across independent
+implementations}, not \emph{formal proof of every result}.
+
+\section{Scope of the Frontend}
+\label{sec:lim-apl}
+
+The \textsc{apl} frontend parses a tractable fragment. Tacit \textsc{apl},
+operator trains, and the full glyph set are out of scope. Inputs outside the
+fragment are rejected, which preserves safety, but limits expressiveness.
+
+\section{Threats to Validity}
+\label{sec:lim-threats}
+
+\begin{itemize}
+  \item \textbf{Internal validity}: the benchmark numbers are
+        hardware-dependent and not yet statistically characterized.
+  \item \textbf{External validity}: the three closed-form patterns are a small
+        sample; generalization to arbitrary symbolic mathematics is unproven.
+  \item \textbf{Construct validity}: ``coherence'' and ``completeness'' are
+        operationalized by simple metrics (entropy, sorry-ratio) that may not
+        capture all relevant safety properties.
+\end{itemize}
+
+\section{Mitigations}
+\label{sec:lim-mit}
+
+Each limitation is recorded as a gap, not hidden:
+\begin{itemize}
+  \item Open goals live in \texttt{sorrydb}; the completeness score $C$
+        makes progress visible.
+  \item \texttt{metadata.json} status fields (\texttt{awaiting\_worm\_seal})
+        mark unsealed artifacts.
+  \item The build gate fails loudly on any broken boundary.
+\end{itemize}
+The discipline of inspectability turns limitations into tracked work items
+rather than silent risks.

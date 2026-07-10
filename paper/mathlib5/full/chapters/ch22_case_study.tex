@@ -1,0 +1,86 @@
+\chapter{Case Study: Sum of Squares, End to End}
+\label{ch:case}
+
+We trace a single query through all ten layers to make the architecture
+concrete. The query is the sum of squares, $\sum_{k=1}^{n} k^2$.
+
+\section{Layer 1 -- APL}
+\label{sec:case-l1}
+
+The user writes, in \texttt{examples/playground/simple\_sum.apl}:
+\begin{lstlisting}[language=,caption={Input.},label=lst:case-in]
+SumSquares <- { (+/ (iotaomega) * 2) }
+\end{lstlisting}
+The Megaparsec parser (\cref{ch:apl}) yields an \texttt{Expr} tree: a lambda
+bound to \texttt{\ensuremath{omega}} whose body is an application of \texttt{+/} to
+\texttt{(\ensuremath{iota}\ensuremath{omega})*2}.
+
+\section{Layer 2 -- IR}
+\label{sec:case-l2}
+
+The tree is converted to canonical S-expression (\cref{ch:ir}):
+\texttt{(+/ (* (\ensuremath{iota} \ensuremath{omega}) 2))} in the uniform \texttt{SApp} form. Canonicalization
+ensures any equivalent spelling maps here.
+
+\section{Layer 3 -- Refinement}
+\label{sec:case-l3}
+
+The Liquid bridge (\cref{ch:liquid}) renders the expression to Lean and emits
+\texttt{theorem proof\_obligation : <expr> := by sorry}. The refinement
+predicate \texttt{wellFormed} (specified, not yet enforced) would here confirm
+no dangling variable beyond \texttt{\ensuremath{omega}}.
+
+\section{Layer 4 -- Lean}
+\label{sec:case-l4}
+
+Lean receives the obligation. In a fully formalized build it would prove the
+closed form; today it records a \texttt{sorry} in \texttt{sorrydb} and the
+pattern registry supplies the closed form $\frac{n(n+1)(2n+1)}{6}$.
+
+\section{Layer 5 -- C{\textendash}{\textendash}}
+\label{sec:case-l5}
+
+The kernel computes the closed form via \texttt{rewrite\_with\_cert} (or, for
+the benchmark, \texttt{bridge\_rewrite} at pattern id 1), returning
+$n(n+1)(2n+1)/6$ with a certificate slot filled.
+
+\section{Layer 6 -- Logic/Static}
+\label{sec:case-l6}
+
+The FOL checker confirms the associated first-order statement; CodeQL confirms
+the implementing code has no obvious defect class. Both pass.
+
+\section{Layer 7 -- Policy}
+\label{sec:case-l7}
+
+ASP consults the seal: the artifact was produced by an authorized agent with a
+valid receipt, so \texttt{may\_publish} holds in a stable model.
+
+\section{Layer 8 -- Optimization/Swarm}
+\label{sec:case-l8}
+
+The closed form is cached as a PRISM skill (canonical JSON + SHA-256d + WORM
+seal), so the next identical query reuses it without recomputation. No swarm
+search is needed for this solved case.
+
+\section{Layer 9 -- WORM}
+\label{sec:case-l9}
+
+Every artifact above --- the parsed AST, the IR, the Lean obligation, the
+kernel result, the FOL report, the policy decision --- is receipted with a
+SHA-256, hash-linked into the Bifrost chain, and Ed25519-signed.
+
+\section{Layer 10 -- Completeness}
+\label{sec:case-l10}
+
+The \texttt{sorryhunter} attempts to close the remaining Lean gap by
+cross-checking the kernel's closed form against Lean's independent
+computation; agreement promotes the obligation from \texttt{sorry} toward
+closed, raising the completeness score $C$.
+
+\section{Takeaway}
+\label{sec:case-take}
+
+A one-line \textsc{apl} expression becomes, by the time it is answered, a
+forest of receipts, each attributable and each checkable. That is the entire
+thesis of this monograph in miniature.

@@ -1,0 +1,75 @@
+\chapter{Layer 2: Canonical Symbolic IR}
+\label{ch:ir}
+
+\section{Purpose and Contract}
+\label{sec:ir-purpose}
+
+Layer~2 receives the parsed AST and emits a \emph{canonical} S-expression. The
+inbound contract is ``a typed \texttt{Expr}''; the outbound contract is ``a
+normalized representation such that semantically equal expressions have
+syntactically identical IR.'' Canonicalization is what makes later
+equality, proof, and caching meaningful.
+
+\section{The IR Datatype}
+\label{sec:ir-ast}
+
+The reference IR (\texttt{layers/sexpr/src/AST.hs}) is an S-expression
+datatype:
+\begin{lstlisting}[language=Haskell,caption={S-expression AST (AST.hs).},label=lst:ir-ast]
+data SExpr
+  = SInt Integer
+  | SVar String
+  | SApp String [SExpr]
+  deriving (Show, Eq)
+\end{lstlisting}
+This mirrors the Layer~1 \texttt{Expr} but collapses the distinction between
+lambdas and primitives into a uniform application node \texttt{SApp name
+args}. Uniformity is deliberate: it makes the IR a single recursive type that
+every downstream tool (Lean bridge, normalizer, FOL checker) can consume
+without case-splits on language-specific constructors.
+
+\section{Normalization}
+\label{sec:ir-norm}
+
+Canonicalization applies, at minimum:
+\begin{enumerate}
+  \item \textbf{Constant folding} of integer literals.
+  \item \textbf{Commutativity-aware ordering} of associative commutative
+        operators so that $a+b$ and $b+a$ share a form.
+  \item \textbf{Flattening} of nested same-tag nodes (e.g., $(a+b)+c
+        \mapsto a+b+c$).
+\end{enumerate}
+The C{--} kernel mirrors this at Layer~5 with \texttt{normalize\_with\_cert},
+which ``applies associativity/commutativity, expands polynomials, and
+generates a receipt seal'' (\texttt{verified\_kernel.cm}). The two
+normalizers operate at different layers but share the same contract: equal
+expressions in, equal expressions out.
+
+\section{From AST to IR}
+\label{sec:ir-conv}
+
+The conversion is a straightforward fold over \texttt{Expr}:
+\begin{itemize}
+  \item \texttt{IntVal i} $\mapsto$ \texttt{SInt i}
+  \item \texttt{Var v} $\mapsto$ \texttt{SVar v}
+  \item \texttt{App f xs} $\mapsto$ \texttt{SApp (render f) (map conv xs)}
+  \item \texttt{Lambda [..] e} $\mapsto$ \texttt{SApp "lambda" [conv e]}
+  \item \texttt{Prim p xs} $\mapsto$ \texttt{SApp p (map conv xs)}
+\end{itemize}
+where \texttt{render} prints the function expression into a stable string key.
+
+\section{Why a Canonical IR Matters}
+\label{sec:ir-why}
+
+Three downstream benefits justify the layer:
+\begin{enumerate}
+  \item \textbf{Proof stability.} Lean obligations generated from a canonical
+        form are stable across syntactic variation, so re-running the pipeline
+        on equivalent inputs yields comparable goals.
+  \item \textbf{Cache hits.} Two queries that are equal after normalization
+        can share a verified kernel result and a WORM receipt.
+  \item \textbf{Simpler analysis.} A single recursive type reduces the
+        surface area of the static-analysis and FOL layers.
+\end{enumerate}
+The IR is the spine of the entire pipeline: every later layer either consumes
+it or produces an artifact derived from it.

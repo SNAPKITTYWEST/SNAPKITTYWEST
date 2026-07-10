@@ -1,0 +1,81 @@
+\chapter{Layer 9: WORM Provenance Receipts}
+\label{ch:worm}
+
+\section{Purpose and Contract}
+\label{sec:worm-purpose}
+
+Layer~9 is the historical memory of the pipeline. Its inbound contract is
+``an artifact produced by any upstream layer''; its outbound contract is ``a
+signed, hash-linked receipt appended to an immutable ledger.'' Without this
+layer, every earlier guarantee would be untraceable: we could know a result
+is correct but not \emph{by whom, from what, and when}.
+
+\section{The Receipt}
+\label{sec:worm-receipt}
+
+The reference receipt generator (\texttt{mathlib5-ffi-bridge/scripts/receipt.sh})
+hashes every source file and the built binary, then writes a manifest and a
+seal:
+\begin{lstlisting}[language=BashX,caption={Receipt generation (receipt.sh).},label=lst:worm-receipt]
+find "$BRIDGE_DIR/C" "$BRIDGE_DIR/Lean" -type f \( \
+     -name '*.hs' -o -name '*.lean' -o -name '*.h' -o -name '*.c' \) | \
+  sort | xargs sha256sum > "$RECEIPT_DIR/source.sha256"
+
+cat > "$RECEIPT_DIR/manifest.json" << EOF
+{
+  "build_id": "receipt-$(date +%s)",
+  "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "git_sha": "$(git -C "$BRIDGE_DIR" rev-parse HEAD 2>/dev/null || echo unknown)",
+  "lean_toolchain": "$(cat "$BRIDGE_DIR/lean-toolchain" 2>/dev/null || echo unknown)",
+  "source_files": $(wc -l < "$RECEIPT_DIR/source.sha256"),
+  "status": "BUILT"
+}
+EOF
+sha256sum "$RECEIPT_DIR/manifest.json" | cut -d' ' -f1 > "$RECEIPT_DIR/seal.sha256"
+\end{lstlisting}
+Each receipt therefore binds: the exact source hashes, the build identity, the
+git commit, the toolchain, and a final seal. The seal is itself a SHA-256,
+making the receipt self-verifying.
+
+\section{The Metadata Schema}
+\label{sec:worm-meta}
+
+Every component carries a \texttt{metadata.json} (see \cref{app:metadata} for
+the full schema). Its security-audit block is uniform across the repository:
+\begin{lstlisting}[language=,caption={Uniform security-audit block (metadata.json).},label=lst:worm-meta]
+"security_audit": {
+    "metadata_integrity": "Yes",
+    "tamper_evidence":    "SHA-256 chain (append-only)",
+    "encryption":         "AES-256-GCM",
+    "plasma_gate":        "Ed25519_Enforced"
+}
+\end{lstlisting}
+The \texttt{status} field is almost always \texttt{awaiting\_worm\_seal},
+recording that the artifact is staged but not yet finally sealed into the
+Bifrost chain. The \texttt{provenance} block names the
+\texttt{chain\_link} (\texttt{Bifrost\_WORM\_Chain\_20260710\_01}), the
+\texttt{source\_path}, and a \texttt{corpora\_path} --- a three-way pointer
+that locates the artifact in source, in the ledger, and in the training
+corpus.
+
+\section{Hash-Chain Tamper Evidence}
+\label{sec:worm-chain}
+
+Receipts are appended to the Bifrost WORM chain. Let $t_i$ be receipt $i$.
+Then
+\begin{equation}
+t_i = H\bigl(t_{i-1} \;\Vert\; \text{payload}_i\bigr),
+\end{equation}
+so the ledger is a hash chain. An attacker who rewrites an early receipt must
+recompute every subsequent link; without the private key to re-sign (Plasma
+Gate, \cref{sec:coh-plasma}), the forgery is detectable. This is the
+``immutable system'' of the title made concrete.
+
+\section{Why Provenance Is a Layer, Not a Log}
+\label{sec:worm-why}
+
+Provenance is placed \emph{inside} the pipeline rather than bolted on as an
+external log because every other layer depends on it: policy (L7) consults
+receipts; the swarm (L8) submits sealed solutions; completeness (L10) records
+which proofs were closed by whom. Making provenance a first-class boundary
+means no artifact can bypass it.

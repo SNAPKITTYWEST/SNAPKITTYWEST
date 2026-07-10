@@ -1,0 +1,41 @@
+{
+  "title": "MATHLIB5: An Immutable System of Safety Boundaries for Verified Symbolic Compute",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "authors": [
+    {
+      "name": "Ahmad Ali Parr",
+      "orcid": "0009-0006-1916-5245",
+      "affiliation": "SnapKitty Collective"
+    }
+  ],
+  "description": "Technical paper describing MATHLIB5, a verified symbolic-compute substrate that evaluates summations and matrix contractions written in a small APL fragment and proves, at every stage of a ten-layer pipeline, that the emitted code matches its closed-form mathematics. Each layer is a safety boundary that stamps a signed receipt; receipts are appended to a write-once (WORM) chain anchored to the Bitcoin ledger via an OP_RETURN transaction. The record fixes the cryptographic seals for this release: a SHA-256 fingerprint, an Ed25519 signature (the Plasma Gate), and the MATH5:<sha256> Bitcoin anchor, by which any reader can independently confirm authenticity.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "formal verification",
+    "APL",
+    "Lean 4",
+    "Liquid Haskell",
+    "C--",
+    "WORM ledger",
+    "Ed25519",
+    "Bitcoin OP_RETURN",
+    "provenance",
+    "symbolic computation"
+  ],
+  "communities": [],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/SNAPKITTYWEST/mathlib5",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.21132094",
+      "relation": "references",
+      "resource_type": "publication"
+    }
+  ],
+  "notes": "Sealed under SHA-256 88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491; Bitcoin OP_RETURN MATH5:88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491."
+}

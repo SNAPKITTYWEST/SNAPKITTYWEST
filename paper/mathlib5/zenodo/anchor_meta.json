@@ -1,0 +1,11 @@
+{
+  "title": "MATHLIB5: An Immutable System of Safety Boundaries for Verified Symbolic Compute",
+  "author": "Ahmad Ali Parr",
+  "sealed_utc": "2026-07-10T22:49:25Z",
+  "fingerprint_sha256": "88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491",
+  "ed25519_public_key": "18d816694de0deae621e913177bdfa3547e5d4cc2f9d91dfdcc3a16d03d02141",
+  "ed25519_signature": "9ef32fea11cbe97ab3e33436d58175db2dff22bf096db90a10dc5d06c9af810a6694025b362d0504c6a839a566be8ccc6ead0dca585a7cdd2665d908a3995509",
+  "bitcoin_opreturn": "MATH5:88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491",
+  "opreturn_bytes": 70,
+  "source_files": 43
+}

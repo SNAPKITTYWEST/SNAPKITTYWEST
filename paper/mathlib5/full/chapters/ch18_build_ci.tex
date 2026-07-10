@@ -1,0 +1,85 @@
+\chapter{Build, Continuous Integration, and Verification Gates}
+\label{ch:build}
+
+A safety-boundary architecture is only as trustworthy as the gate that
+enforces it. This chapter describes the build system and the verification
+gates that run the pipeline end to end.
+
+\section{Build Targets}
+\label{sec:build-targets}
+
+The repository is multi-language and multi-toolchain:
+\begin{itemize}
+  \item \textbf{Rust/Cargo} (\texttt{Cargo.toml}) for the orchestration
+        surface.
+  \item \textbf{Bazel} (\texttt{WORKSPACE.bazel}) for the LLVM/C{--} backend.
+  \item \textbf{Nix} (\texttt{flake.nix}) for reproducible dev environments.
+  \item \textbf{Lean} (\texttt{lakefile.lean}, \texttt{lean-toolchain}) for
+        the proof layer.
+  \item \textbf{Shell/CI} for the gates.
+\end{itemize}
+
+\section{The End-to-End Scaffold}
+\label{sec:build-e2e}
+
+\texttt{ci/run\_e2e.sh} sketches the full pipeline as a linear script:
+\begin{lstlisting}[language=BashX,caption={End-to-end scaffold (run\_e2e.sh).},label=lst:build-e2e]
+# 1. Parse APL -> S-expression
+# 2. Normalize S-expression
+# 3. Liquid Haskell refinement + Lean obligation gen
+# 4. Lean proves obligations (or fails)
+# 5. Closed-form transformation
+# 6. TeX doc generation
+# 7. LLVM backend -> object file
+# 8. Link with verified FFI shim
+echo "Pipeline scaffold verified for $APL_FILE"
+\end{lstlisting}
+The steps are currently commented (the individual layer tools exist; the
+orchestration glue is scaffolding), but the ordering encodes the contract
+sequence of Chapters~\ref{ch:apl}--\ref{ch:completeness} exactly.
+
+\section{The Verification Gate}
+\label{sec:build-gate}
+
+\texttt{mathlib5-ffi-bridge/scripts/verify.sh} is the executable safety
+boundary. It runs five tests and fails the build if any do:
+\begin{enumerate}
+  \item C bridge compiles (\texttt{clang -shared -fPIC}).
+  \item Lean builds (\texttt{lake build}).
+  \item FFI round-trip passes (greps \texttt{All tests passed}).
+  \item Theorem calculator builds (\texttt{lake build theorem\_calc}).
+  \item Receipt is generated and sealed.
+\end{enumerate}
+The gate tallies \texttt{PASS} and \texttt{FAIL}; its final lines print
+\texttt{Status: VERIFIED} or \texttt{FAILED} and it exits with the failure
+count, so CI treats a non-zero exit as a broken boundary.
+
+\section{Receipts in CI}
+\label{sec:build-receipt}
+
+After the gate, \texttt{receipt.sh} (\cref{sec:worm-receipt}) hashes sources
+and binary, writes \texttt{manifest.json} and \texttt{seal.sha256}, and stamps
+the git SHA and Lean toolchain. The receipt is the artifact that Layer~9
+appends to the WORM ledger, closing the provenance loop for the build itself.
+
+\section{Reproducibility}
+\label{sec:build-repro}
+
+Three mechanisms protect reproducibility:
+\begin{itemize}
+  \item \textbf{Pinned toolchain} --- \texttt{lean-toolchain} fixes the Lean
+        version; the receipt records it.
+  \item \textbf{Nix flake} --- \texttt{flake.nix} locks the entire dependency
+        graph for dev and CI.
+  \item \textbf{Content-addressed inputs} --- every layer consumes hash-stable
+        artifacts, so re-running produces identical receipts.
+\end{itemize}
+
+\section{The Gate as a Boundary}
+\label{sec:build-asboundary}
+
+Crucially, the verification gate is itself a safety boundary with an inbound
+contract (``source tree'') and an outbound contract (``a sealed, verified
+receipt or a hard failure''). There is no ``mostly passing'' state: a single
+failed test fails the build. This is what makes the pipeline's guarantees
+operational rather than aspirational.

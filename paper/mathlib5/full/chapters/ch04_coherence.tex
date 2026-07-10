@@ -1,0 +1,84 @@
+\chapter{The Coherence and Governance Model}
+\label{ch:coherence}
+
+Before the pipeline is described, its operating context must be. \textsc{mathlib5}
+does not run in isolation; it participates in a governed constellation of
+repositories. This chapter explains the coherence model that decides whether
+any component is permitted to advance.
+
+\section{The Resonance Field}
+\label{sec:coh-field}
+
+The constellation publishes a ``Resonance Field'' snapshot (the
+\texttt{OMEGA-FIELD} block in the root \texttt{README.md}). Two quantities
+govern coherence:
+\begin{itemize}
+  \item \textbf{Entropy $E$} --- a Shannon-style disorder metric over the
+        repository set. The field requires $E < 0.21$; the observed value is
+        $E = 0.1183$, comfortably under threshold.
+  \item \textbf{Intercoil connectivity} --- the number of linked memory-graph
+        and Bifrost connections. Six memory-graph and seven Bifrost links are
+        reported.
+\end{itemize}
+Coherence is a Prolog-style predicate:
+\begin{verbatim}
+coherent(system) :-
+    entropy(E), E < 0.21,
+    intercoil(_, memory_graph),
+    intercoil(_, bifrost_engine).
+\end{verbatim}
+
+\section{The Governance Kernel}
+\label{sec:coh-kernel}
+
+A compact \textsc{apl} incantation summarizes the trust model:
+\begin{verbatim}
+\ensuremath{Omega} \ensuremath{leftarrow} \ensuremath{Box}\ensuremath{wedge}\ensuremath{circ}\ensuremath{wedge}\ensuremath{Diamond}\ensuremath{wedge}\ensuremath{triangle}\ensuremath{wedge}\ensuremath{hexagon}
+\end{verbatim}
+read as Source ($\bigodot$) $\ensuremath{rightarrow}$ Truth ($\boxdot$) $\ensuremath{rightarrow}$
+Resonance ($\bigcirc$) $\ensuremath{rightarrow}$ Knowledge ($\ensuremath{Diamond}$) $\ensuremath{rightarrow}$
+Creation ($\ensuremath{triangle}$) $\ensuremath{rightarrow}$ Impact ($\ensuremath{hexagon}$) $\ensuremath{rightarrow}$
+Unified ($\ensuremath{Omega}$). The governing rule is explicit:
+
+\begin{quote}
+\itshape No component advances unless every previous component remains
+coherent.
+\end{quote}
+
+This is not metaphor. It is a deployment gate: a build that raises entropy
+above threshold, or that severs an intercoil link, is rejected. The pipeline's
+own safety boundaries (Chapter~\ref{ch:vscp}) are a localized instance of the
+same principle.
+
+\section{The WORM Seal}
+\label{sec:coh-seal}
+
+The field carries an ``\ensuremath{Omega} WORM Seal'' --- a SHA-256 root such as
+\texttt{859f93e1\ldots168790} --- recomputed on every update. Because the seal
+is itself hash-linked, the entire published state is tamper-evident. Each
+\textsc{mathlib5} artifact inherits this property through its own
+\texttt{metadata.json} (see \cref{ch:worm}).
+
+\section{The Plasma Gate}
+\label{sec:coh-plasma}
+
+Every component's security audit records a \texttt{plasma\_gate} of
+\texttt{Ed25519\_Enforced}. The Plasma Gate is the cryptographic entry
+control: no artifact is admitted to the ledger unless it carries a valid
+Ed25519 signature from an authorized key. Combined with AES-256-GCM
+encryption at rest and SHA-256-chain tamper evidence, the gate realizes the
+``immutable system of safety boundaries'' named in this monograph's title.
+
+\section{Implications for the Pipeline}
+\label{sec:coh-impl}
+
+Three consequences flow downstream into the VSCP:
+\begin{enumerate}
+  \item \textbf{Lineage is mandatory.} Because the Bifrost WORM chain records
+        every step, each pipeline layer can cite its parent receipts.
+  \item \textbf{Signing is non-negotiable.} Ed25519 enforcement means a layer
+        cannot emit an artifact without attributing it.
+  \item \textbf{Coherence is observable.} The entropy metric gives operators a
+        single number for ``is the system still safe to advance.''
+\end{enumerate}
+With the governance context established, we turn to the pipeline itself.

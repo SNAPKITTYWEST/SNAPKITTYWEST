@@ -1,0 +1,26 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\definecolor{skdark}{RGB}{26,26,46}
+\definecolor{skmid}{RGB}{22,33,62}
+\definecolor{skblue}{RGB}{15,52,96}
+\definecolor{skaccent}{RGB}{233,69,96}
+\definecolor{skmint}{RGB}{64,200,180}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  % Governance kernel emblem: nested hexagons
+  \draw[thick, color=skmid, fill=skblue!8] (0,0) circle (2.4cm);
+  \foreach \a in {90,150,210,270,330,30} {
+    \draw[thick, color=skaccent] (\a:2.4) -- (\a+60:2.4);
+  }
+  \node[circle, draw=skdark, fill=white, minimum size=1.6cm,
+        font=\Huge\bfseries\color{skdark}] at (0,0) {$\Omega$};
+  \node[font=\small\bfseries\color{skblue}] at (0,1.55) {Source};
+  \node[font=\small\bfseries\color{skblue}] at (1.35,0.8) {Truth};
+  \node[font=\small\bfseries\color{skblue}] at (1.35,-0.8) {Resonance};
+  \node[font=\small\bfseries\color{skblue}] at (0,-1.55) {Knowledge};
+  \node[font=\small\bfseries\color{skblue}] at (-1.35,-0.8) {Creation};
+  \node[font=\small\bfseries\color{skblue}] at (-1.35,0.8) {Impact};
+  \node[font=\bfseries\color{skaccent}] at (0,3.0) {MATHLIB5};
+  \node[font=\footnotesize\color{skgray}] at (0,-3.0) {Verified Symbolic Compute Pipeline};
+\end{tikzpicture}
+\end{document}

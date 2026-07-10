@@ -1,0 +1,64 @@
+\chapter{Comparison with Established Systems}
+\label{ch:compare}
+
+\section{Scope of the Comparison}
+\label{sec:compare-scope}
+
+To situate MATHLIB5, we compare it along four axes against systems that
+share part of its mission: verified compilation (CompCert, CertiCoq),
+proof assistants with large libraries (Lean \texttt{mathlib}, Isabelle,
+Coq), and dependently-typed numeric kernels (Herbie, FPTaylor).
+
+\begin{table}[ht]
+\centering
+\caption{Comparison of MATHLIB5 against established verification and
+  numeric systems.}\label{tab:compare}
+\small
+\begin{tabular}{p{3.2cm} p{2.4cm} p{2.4cm} p{2.4cm} p{2.4cm}}
+\toprule
+\textbf{Dimension} & \textbf{CompCert} & \textbf{Lean mathlib} &
+\textbf{CertiCoq} & \textbf{MATHLIB5} \\
+\midrule
+Target language & C & Lean & Gallina/Coq & APL (user) $\to$ C$--$ \\
+Proof carrier & Coq & Lean & Coq & Lean4 + Liquid Haskell \\
+Numeric guarantees & none & library-level & none & closed-form + bounds \\
+Cross-language bridge & no & limited & Coq$\to$OCaml & yes (C/Lean) \\
+On-chain provenance & no & no & no & yes (Bifrost) \\
+Build-gate enforcement & no & no & no & yes (halts) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{What MATHLIB5 Adds}
+\label{sec:compare-add}
+
+\begin{itemize}
+  \item \textbf{An end-to-end pipeline}, not a single verified compiler.
+        CompCert verifies C$\to$asm; CertiCoq verifies Gallina$\to$C;
+        MATHLIB5 covers APL$\to$IR$\to$Liquid$\to$Lean$\to$C$--$, each
+        boundary independently certifiable.
+  \item \textbf{Closed-form + numeric correctness} as a first-class goal,
+        whereas CompCert and CertiCoq are silent on floating-point
+        semantics beyond IEEE-754 preservation.
+  \item \textbf{Public provenance}. Only MATHLIB5 ties receipts to a
+        Bitcoin anchor; the others rely on the integrity of their own
+        repositories.
+\end{itemize}
+
+\section{What MATHLIB5 Does Not Claim}
+\label{sec:compare-not}
+
+We do not claim to supersede \texttt{mathlib} as a general mathematical
+library, nor CompCert as a production C compiler. MATHLIB5 is a
+\emph{domain-specific} verified compute substrate for summation and
+matrix algebra, with a deliberately narrow but fully certified surface.
+
+\section{Related Work in Verified Numerics}
+\label{sec:compare-num}
+
+Herbie and FPTaylor attack floating-point accuracy via rewriting and
+interval/SMT analysis. MATHLIB5 complements them: where they optimize an
+existing expression's accuracy, MATHLIB5 certifies that a closed-form
+expression is the \emph{correct} one and that the C$--$ translation
+preserves its value semantics. A future integration could feed Herbie's
+rewrites through the same boundary chain.
