@@ -1,7 +1,9 @@
 # MATHLIB5 — On-Chain Anchor Broadcast Guide
 
 This document records the exact data needed to anchor MATHLIB5 to a public
-ledger, and the free alternatives already in place.
+ledger. The primary on-chain anchor is **SnapKitty Chain** (our own sovereign
+chain); Bitcoin OP_RETURN is the optional external anchor; the free GitHub/Gist
+mirrors are timestamped backups.
 
 ## Seals (fixed for this release)
 
@@ -11,7 +13,38 @@ ledger, and the free alternatives already in place.
 | Ed25519 public key (Plasma Gate) | `18d816694de0deae621e913177bdfa3547e5d4cc2f9d91dfdcc3a16d03d02141` |
 | Bitcoin OP_RETURN payload | `MATH5:88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491` |
 
-## 1. Bitcoin OP_RETURN (the on-chain anchor)
+## 1. SnapKitty Chain — native on-chain anchor (PRIMARY)
+
+MATHLIB5 is anchored into our own sovereign chain (`snapkitty-chain`). The
+`scripts/anchor_mathlib5.mjs` runner reads the seals, mines a block, and appends
+a WORM-sealed `UnifiedWitness` whose `worm_hash` is the MATHLIB5 fingerprint.
+
+**Anchor record** (`paper/mathlib5/full/anchors/mathlib5_chain_settlement.json`
+and `snapkitty-chain/mathlib5_anchor.json`):
+
+| Field | Value |
+|-------|-------|
+| witness id | `wit_mathlib5_2026` |
+| snapaddr | `snapaddr:<sha256(action,verdict,worm_hash,sealed_at)>` |
+| worm_hash | `88313c7cea5c462eec80069f12fc28d771465c3aebeec2a79f4661d502a03491` |
+| anchored at chain height | `1` |
+| block hash | `004826831900fe9750c584d6f95032148620d83dff279e942693792c858f491b` |
+| block seal | `c95803b4dc6309470ed9c1cb9bd4cc64be6d0960662471d2541907d83af8106f` |
+| WORM seal | `70b8880fd3bca5ddc9daf20905c8d29b181d9c8c9e050354a7c7f0f2ca731b2c` |
+| settlement seal | `1bf91d3617f21618b505d14992c86dc50be8c6a3f44aa02036744f65a0024692` |
+
+The WORM ledger lives at `snapkitty-chain/.chain/mathlib5/chain.json`
+(append-only; each entry links to the previous seal). To re-verify:
+
+```bash
+cd snapkitty-chain
+node -e "import('./src/chain.mjs').then(m=>{const c=new m.SnapKittyChain({dataDir:'.chain/mathlib5'});const w=c.getWitness('wit_mathlib5_2026');console.log('height',w.chainAnchor.height,'block',w.chainAnchor.block_hash,'worm',w.chainAnchor.worm_seal)})"
+```
+
+This is the canonical, sovereign anchor — no external wallet, fees, or third
+party required.
+
+## 2. Bitcoin OP_RETURN (optional external anchor)
 
 Payload is 70 bytes (6-byte `MATH5:` prefix + 32-byte hash), within the
 80-byte standard `OP_RETURN` limit.
