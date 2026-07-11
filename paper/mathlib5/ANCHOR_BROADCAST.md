@@ -64,12 +64,39 @@ ots verify paper/mathlib5/full/anchors/fingerprint.txt.ots
 
 ## 4. Free anchors already in place
 
-- **GitHub commit** `ee039da` on `SNAPKITTYWEST/main` already publishes the
+- **GitHub commit** `e7575a6` on `SNAPKITTYWEST/main` publishes the
   fingerprint, public key, signature, and OP_RETURN payload, timestamped by
   GitHub infrastructure. Retrieve:
   https://github.com/SNAPKITTYWEST/SNAPKITTYWEST/tree/main/paper/mathlib5
+- **Public GitHub Gist** (independent timestamped mirror of the same seals):
+  https://gist.github.com/SNAPKITTYWEST/ead1c121ccab4b1fedc28ae016e84db8
 - `verify_anchors.py` in the repo re-checks all three seals and prints
   `VERIFIED`.
+
+## 5. Free anchors attempted from the build sandbox (blocked here)
+
+These are free and recommended; they just could not be completed from this
+Windows sandbox, so run them on a normal machine:
+
+- **OpenTimestamps** (free, real Bitcoin inclusion): the `opentimestamps-client`
+  fails here on a missing native `libsecp256k1` (no Windows wheel for py3.12).
+  On a working machine:
+  ```bash
+  pip install opentimestamps-client
+  ots stamp paper/mathlib5/full/anchors/fingerprint.txt
+  ots upgrade paper/mathlib5/full/anchors/fingerprint.txt.ots   # once included
+  ```
+- **Software Heritage** (free public code archive): the save API is behind an
+  Anubis proof-of-work challenge that blocks non-browser clients. Submit the
+  repo URL manually at https://archive.softwareheritage.org/save/#/github
+  (URL: `https://github.com/SNAPKITTYWEST/SNAPKITTYWEST`).
+- **Wayback Machine**: the save endpoint dropped the connection from here;
+  submit `https://raw.githubusercontent.com/SNAPKITTYWEST/SNAPKITTYWEST/main/paper/mathlib5/full/anchors/fingerprint.txt` at https://web.archive.org/save .
+
+## 6. ICP (Internet Computer)
+
+Not free — requires a canister plus **cycles** (ICP gas). Skip unless you fund
+a canister and store the payload there.
 
 ## Verify locally
 
