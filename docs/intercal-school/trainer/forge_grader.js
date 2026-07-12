@@ -21,9 +21,10 @@ function grade(engineering, politeness, tripwire) {
   return { certified: true, reason: "all thresholds met; certification approved" };
 }
 
-if (require.main === module) {
-  const [, , e, p, t] = process.argv;
+const [, , e, p, t] = process.argv;
+if (e !== undefined) {
   const r = grade(Number(e), Number(p), String(t));
   console.log(JSON.stringify(r));
 }
-module.exports = { grade };
+
+export { grade };
