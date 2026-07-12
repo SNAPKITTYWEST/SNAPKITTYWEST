@@ -1,0 +1,193 @@
+{
+  "version": "1.0.0",
+  "registry": "snapkitty-kernel-registry",
+  "trust": "bel-esprit-d-accord-irrevocable-trust",
+  "kernels": [
+    {
+      "id": "dfa-engine",
+      "lang": "js",
+      "path": "cartographer-agent/runtime/dfa-engine.mjs",
+      "invoke": "import { scan, extract, toRexxCall } from './dfa-engine.mjs'",
+      "accepts": "raw text string",
+      "returns": "{ tokens, patterns, stats }",
+      "domain": ["legal", "financial", "trust", "ach", "fcra", "irs"],
+      "worm_emits": false,
+      "complexity": "O(n)"
+    },
+    {
+      "id": "route-dispatch",
+      "lang": "rexx",
+      "path": "cartographer-agent/kernels/route-dispatch.rexx",
+      "invoke": "rexx route-dispatch.rexx <input>",
+      "accepts": "natural language | agent:X task:Y | route CASE ACTION",
+      "returns": "ROUTE|ACTION|CASE stdout lines",
+      "domain": ["routing", "dispatch", "nlp"],
+      "worm_emits": true,
+      "complexity": "O(n)"
+    },
+    {
+      "id": "rexx-glue-kernel",
+      "lang": "rexx",
+      "path": "cartographer-agent/kernels/rexx-glue-kernel.rexx",
+      "invoke": "rexx rexx-glue-kernel.rexx <CASE> <ACTION> <TARGET>",
+      "accepts": "CASE_ID ACTION TARGET",
+      "returns": "REXX_KERNEL|ACTION|CASE stdout + WORM_SEAL",
+      "actions": ["ACH_DISPUTE","FCRA_DISPUTE","ZOMBIE_DEBT_SCAN","TRUST_SCAN","IRS_CATCODE","WORM_SEAL","FETCH_STATUTE","QUERY_LAWPEDIA","QUERY_NOLO","EMIT_SUMMON","ROUTE_NOTICE","ROUTE_LEDGER","BUILD_PACKET","DOCKET_MOVE","BATCH_NOTICE"],
+      "domain": ["legal", "ach", "fcra", "trust", "irs", "worm"],
+      "worm_emits": true,
+      "complexity": "O(1)"
+    },
+    {
+      "id": "carto-prolog",
+      "lang": "prolog",
+      "path": "cartographer-agent/prolog/carto.pl",
+      "invoke": "tau-prolog browser | swipl carto.pl",
+      "accepts": "Prolog facts + query",
+      "returns": "standing verdict: true/false + proof chain",
+      "domain": ["legal", "standing", "fcra", "ach", "trust"],
+      "worm_emits": false,
+      "complexity": "O(n) Horn clauses"
+    },
+    {
+      "id": "carto-gate",
+      "lang": "asp",
+      "path": "cartographer-agent/kernels/carto-gate.lp",
+      "invoke": "clingo carto-gate.lp",
+      "accepts": "ASP facts",
+      "returns": "SATISFIABLE | UNSATISFIABLE",
+      "domain": ["constitutional", "governance", "trust", "deed"],
+      "worm_emits": false,
+      "complexity": "O(2^n) worst case, O(n) typical"
+    },
+    {
+      "id": "cobol-law-kernel",
+      "lang": "cobol",
+      "path": "cartographer-agent/kernels/cobol-law-kernel.cob",
+      "invoke": "cobc -x cobol-law-kernel.cob && ./cobol-law-kernel",
+      "accepts": "CASE_ID TRANSACTION_CODE AMOUNT",
+      "returns": "COBOL formatted transaction law output",
+      "domain": ["financial", "ach", "transaction"],
+      "worm_emits": false,
+      "complexity": "O(1)"
+    },
+    {
+      "id": "corpus-store",
+      "lang": "ocaml",
+      "path": "cartographer-agent/runtime/corpus_store.ml",
+      "invoke": "ocaml corpus_store.ml | dune exec",
+      "accepts": "keyword string",
+      "returns": "{ chunks: string[], score: float }",
+      "domain": ["legal", "knowledge", "retrieval"],
+      "worm_emits": false,
+      "complexity": "O(k) keyword index"
+    },
+    {
+      "id": "math-dispatcher",
+      "lang": "rust",
+      "path": "mathrosetta/src/dispatcher.rs",
+      "invoke": "cargo run -p mathrosetta | wasm-pack build",
+      "accepts": "MathIR AST | natural language phrase",
+      "returns": "DispatchResult { solver, proof, equation_class, confidence }",
+      "solvers": ["SymPy","Z3","CVC5","CVODE","Julia","Singular","Lean4","CGAL","DeepONet"],
+      "domain": ["math", "proof", "symbolic", "ode", "pde", "logic"],
+      "worm_emits": true,
+      "complexity": "O(n)"
+    },
+    {
+      "id": "math-nlp",
+      "lang": "rust",
+      "path": "mathrosetta/src/nlp/mod.rs",
+      "invoke": "NaturalParser::parse(input)",
+      "accepts": "natural language math phrase",
+      "returns": "MathIR",
+      "phrases": ["topology preservation","reachability preservation","conduction soundness","exo execution condition","symmetry preservation","reflexivity","transitivity","commutativity","associativity","distributivity","pythagorean identity"],
+      "domain": ["math", "nlp", "ir"],
+      "worm_emits": false,
+      "complexity": "O(1) phrase map"
+    },
+    {
+      "id": "math-emitters",
+      "lang": "rust",
+      "path": "mathrosetta/src/emitters/",
+      "invoke": "emit_all(ir, targets)",
+      "accepts": "MathIR",
+      "returns": "{ lean4, coq, isabelle, latex, smtlib }",
+      "domain": ["math", "proof", "output"],
+      "worm_emits": false,
+      "complexity": "O(n)"
+    },
+    {
+      "id": "worm-chain",
+      "lang": "rust",
+      "path": "mathrosetta/src/worm/chain.rs",
+      "invoke": "WormChain::append(entry)",
+      "accepts": "WormEntry { payload, prev_hash }",
+      "returns": "WormReceipt { hash, seq, ts }",
+      "domain": ["worm", "audit", "chain"],
+      "worm_emits": true,
+      "complexity": "O(1) append"
+    },
+    {
+      "id": "snapkitty-chain",
+      "lang": "js",
+      "path": "snapkitty-chain/src/",
+      "invoke": "node chain.mjs | node consensus.mjs",
+      "accepts": "transaction | block | p2p message",
+      "returns": "block hash | consensus result | ZK proof",
+      "domain": ["chain", "p2p", "zk", "consensus"],
+      "worm_emits": true,
+      "complexity": "O(n) chain"
+    },
+    {
+      "id": "sovereign-daemon",
+      "lang": "go",
+      "path": "agentos/src/sovereign-daemon/main.go",
+      "invoke": "sovereign-daemon serve --socket /run/user/1000/snapkitty.sock",
+      "endpoints": {
+        "POST /v1/env/validate": "validate environment",
+        "POST /v1/pipeline/execute": "execute pipeline",
+        "POST /v1/artifact/sign": "sign artifact",
+        "GET /v1/daemon/status": "health check",
+        "GET /v1/ollama/models": "list local models",
+        "GET /v1/vllm/models": "list vllm models"
+      },
+      "domain": ["daemon", "orchestration", "signing"],
+      "worm_emits": false,
+      "complexity": "O(1) per endpoint"
+    },
+    {
+      "id": "trust-deed-generator",
+      "lang": "js",
+      "path": "cartographer-agent/runtime/trust-deed-generator.mjs",
+      "invoke": "import { forgeProlog, forgePlainEnglish } from './trust-deed-generator.mjs'",
+      "accepts": "{ ein, grantor, trustee, corpus, beneficiaries }",
+      "returns": "{ prolog: string, plainEnglish: string }",
+      "domain": ["trust", "deed", "legal"],
+      "worm_emits": false,
+      "complexity": "O(1)"
+    },
+    {
+      "id": "sovereign-alien-trust",
+      "lang": "prolog",
+      "path": "bobs-control-repo/DEVFLOW-FINANCE/trust-deed/sovereign-alien-trust.pl",
+      "invoke": "swipl sovereign-alien-trust.pl",
+      "accepts": "Prolog query",
+      "returns": "trust axioms + beneficiary clearance + adversarial detection",
+      "domain": ["trust", "deed", "governance"],
+      "worm_emits": false,
+      "complexity": "O(n) axioms"
+    }
+  ],
+  "routing_table": {
+    "ach":        ["dfa-engine", "route-dispatch", "rexx-glue-kernel", "carto-prolog"],
+    "fcra":       ["dfa-engine", "route-dispatch", "rexx-glue-kernel", "carto-prolog", "corpus-store"],
+    "trust":      ["dfa-engine", "route-dispatch", "rexx-glue-kernel", "carto-gate", "sovereign-alien-trust", "trust-deed-generator"],
+    "irs":        ["dfa-engine", "route-dispatch", "rexx-glue-kernel", "corpus-store"],
+    "zombie":     ["dfa-engine", "route-dispatch", "rexx-glue-kernel", "carto-prolog"],
+    "math":       ["math-nlp", "math-dispatcher", "math-emitters", "worm-chain"],
+    "proof":      ["math-dispatcher", "math-emitters", "worm-chain"],
+    "chain":      ["snapkitty-chain", "worm-chain"],
+    "governance": ["carto-gate", "sovereign-alien-trust", "rexx-glue-kernel"],
+    "default":    ["route-dispatch", "rexx-glue-kernel"]
+  }
+}

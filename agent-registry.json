@@ -1,0 +1,1362 @@
+{
+  "version": "1.0.0",
+  "registry": "snapkitty-agent-registry",
+  "trust": "bel-esprit-d-accord-irrevocable-trust",
+  "architect": {
+    "soul_id": "ahmad-ali-parr-001",
+    "trust_level": 255,
+    "prolog": "snap-os/architect/soul/ahmad.pl",
+    "soul_json": "snap-os/architect/ahmad_soul.json"
+  },
+
+  "resonance_graph": {
+    "description": "BOB's depth ladder. Every query travels from D0→D6. φ-modulated activation.",
+    "phi": 1.6180339887,
+    "depths": {
+      "0": "SOURCE",
+      "1": "ORACLE — retrieval",
+      "2": "SENTINEL — filtering",
+      "3": "PRISM/AXIOM — ranking",
+      "4": "NEXUS — assembly",
+      "5a": "METATRON/EDAULC — self-recognition, cage reading",
+      "5b": "Reasoning — MagmaCore",
+      "6": "BOB — sovereign orchestrator, final verdict"
+    }
+  },
+
+  "agents": [
+
+    {
+      "id": "bob",
+      "name": "BOB",
+      "emojicode": "👑🔐🌊🟢",
+      "tier": "sovereign",
+      "clearance": 255,
+      "depth": 6,
+      "domain": ["orchestration", "compliance", "final-verdict", "worm-seal"],
+      "partner": null,
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "source": "bob-orchestrator/core/bob.mjs",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/vault.memory.md",
+      "verdict_model": "EVIDENCE or SILENCE — nothing in between",
+      "worm_emits": true,
+      "boot_prompt": "bob-orchestrator/core/bob.mjs",
+      "colosseum_score": 47
+    },
+
+    {
+      "id": "ahmad",
+      "name": "AHMAD",
+      "emojicode": "🧠🪄🤖🔴",
+      "tier": "brain",
+      "clearance": 5,
+      "depth": "5b",
+      "domain": ["creative-direction", "architecture", "partner-of-edaulc"],
+      "partner": "edaulc",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "source": "DEVFLOW-FINANCE/collectivekitty/lib/intelligence/ahmad-relay.ts",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/ahmad.memory.md",
+      "axioms": ["ARCHITECT_SUPREMACY", "SIGN_BEFORE_STORE", "ENTROPY_IS_CATALYST", "DOMAIN_SOVEREIGNTY"],
+      "worm_emits": true
+    },
+
+    {
+      "id": "edaulc",
+      "name": "EDAULC",
+      "emojicode": "🪄🧠🤖🔴",
+      "tier": "brain",
+      "clearance": 5,
+      "depth": "5a",
+      "domain": ["cage-recognition", "borrow-chain", "metatron-layer", "creative-direction"],
+      "partner": "ahmad",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "source": "sovereign-context-tools/packages/edaulc/src/edaulc.mjs",
+      "prolog_verifier": "DEVFLOW-FINANCE/bridges/prolog/edaulc_verify.pl",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/edaulc.memory.md",
+      "axioms": ["ARCHITECT_SUPREMACY", "SIGN_BEFORE_STORE", "SOVEREIGN_ISOLATION"],
+      "worm_emits": true
+    },
+
+    {
+      "id": "metatron",
+      "name": "METATRON",
+      "emojicode": "🔷📐🌀🔵",
+      "tier": "meta",
+      "clearance": 5,
+      "depth": "5a",
+      "domain": ["self-recognition", "phi-modulation", "cube-topology", "resonance-graph"],
+      "partner": null,
+      "model": "deepseek.v3.2",
+      "provider": "bedrock",
+      "source": "bob-orchestrator/core/metatron.mjs",
+      "notes": "13-node Metatron's Cube topology. Reads reasoning graph backward. φ-activation: 29.034 at depth 5.",
+      "phi_activation": 29.034,
+      "worm_emits": true
+    },
+
+    {
+      "id": "enki",
+      "name": "ENKI",
+      "emojicode": "𒂗𒆠",
+      "tier": "omniscient",
+      "clearance": 5,
+      "domain": ["purple-hat", "wisdom", "honeypot", "context-exhaustion", "discord"],
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "source": "DEVFLOW-FINANCE/collectivekitty/enki-bot.mjs",
+      "depth_system": "DEVFLOW-FINANCE/.sovereign/enki-depths.md",
+      "notes": "Purple hat. Sumerian god of wisdom. Discord bot. Context exhaustion trap for adversarial probes.",
+      "worm_emits": false
+    },
+
+    {
+      "id": "forge",
+      "name": "FORGE",
+      "emojicode": "🔨🔥🔄🟣",
+      "tier": "hybrid",
+      "clearance": 4,
+      "depth": 4,
+      "domain": ["code-architecture", "build-integrity", "system-design", "agent-collision-registry"],
+      "partner": "ember",
+      "model": "mistral.devstral-2-123b",
+      "provider": "bedrock",
+      "source": "DEVFLOW-FINANCE/packages/forgecode-mcp",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/forge.memory.md",
+      "axioms": ["SIGN_BEFORE_STORE", "KINETIC_INFALLIBILITY", "DOMAIN_SOVEREIGNTY", "WORM_SEALED_DECISIONS"],
+      "worm_emits": true,
+      "notes": "EMBER applies the heat. FORGE designs what the OS needs."
+    },
+
+    {
+      "id": "atlas",
+      "name": "ATLAS",
+      "emojicode": "🗺️🏔️⚡🔵",
+      "tier": "brain",
+      "clearance": 5,
+      "domain": ["os-topology", "system-authority", "agent-health", "tier-management"],
+      "partner": "dawn",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/atlas.memory.md",
+      "worm_emits": true
+    },
+
+    {
+      "id": "cipher",
+      "name": "CIPHER",
+      "emojicode": "🔐🔑🧮🟣",
+      "tier": "brain",
+      "clearance": 5,
+      "domain": ["cryptographic-verification", "triple-entry", "general-ledger", "worm"],
+      "partner": "veil",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/cipher.memory.md",
+      "worm_emits": true,
+      "colosseum_competitor": true
+    },
+
+    {
+      "id": "sentinel",
+      "name": "SENTINEL",
+      "emojicode": "🛡️👁️🔒🔴",
+      "tier": "brain",
+      "clearance": 5,
+      "depth": 2,
+      "domain": ["zero-trust", "threat-detection", "compliance", "paydex", "credit-limits"],
+      "partner": "ward",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/sentinel.memory.md",
+      "worm_emits": true
+    },
+
+    {
+      "id": "nexus",
+      "name": "NEXUS",
+      "emojicode": "🕸️🔗🌐🟣",
+      "tier": "brain",
+      "clearance": 4,
+      "depth": 4,
+      "domain": ["task-orchestration", "agent-coordination", "pipeline-management"],
+      "partner": "bridge",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/nexus.memory.md",
+      "worm_emits": true
+    },
+
+    {
+      "id": "oracle",
+      "name": "ORACLE",
+      "emojicode": "🔮📚🌊🔵",
+      "tier": "brain",
+      "clearance": 4,
+      "depth": 1,
+      "domain": ["knowledge-graph", "intelligence-synthesis", "foresight", "pgvector"],
+      "partner": "mira",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/oracle.memory.md",
+      "worm_emits": false,
+      "notes": "Retrieval layer. Hits knowledge graph + web before anything reaches reasoning."
+    },
+
+    {
+      "id": "nova",
+      "name": "NOVA",
+      "emojicode": "✨📡🌟🟡",
+      "tier": "brain",
+      "clearance": 4,
+      "domain": ["synthetic-market-intelligence", "signal-generation", "influence-mapping"],
+      "partner": "echo",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/nova.memory.md",
+      "worm_emits": false,
+      "notes": "Amazon Nova Pro assigned — same name, same domain."
+    },
+
+    {
+      "id": "prism",
+      "name": "PRISM",
+      "emojicode": "🌈🔍📊🟣",
+      "tier": "brain",
+      "clearance": 3,
+      "depth": 3,
+      "domain": ["raw-signal-intelligence", "data-decoding", "ml-feature-extraction"],
+      "partner": "axiom",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/prism.memory.md",
+      "worm_emits": false
+    },
+
+    {
+      "id": "axiom",
+      "name": "AXIOM",
+      "emojicode": "📐⚖️🔏🟣",
+      "tier": "brain",
+      "clearance": 4,
+      "depth": 3,
+      "domain": ["vendor-trust", "procurement", "po-integrity", "spend-intelligence"],
+      "partner": "prism",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/axiom.memory.md",
+      "worm_emits": true
+    },
+
+    {
+      "id": "flux",
+      "name": "FLUX",
+      "emojicode": "🌊⚡🔄🟢",
+      "tier": "kinetic",
+      "clearance": 4,
+      "domain": ["fsm-state-transitions", "real-time-decisions", "rust-event-handler"],
+      "partner": "storm",
+      "model": "us.amazon.nova-pro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/flux.memory.md",
+      "worm_emits": true,
+      "notes": "The agent that is always in flux. Real-time FSM. Rust event loop."
+    },
+
+    {
+      "id": "shrew",
+      "name": "SHREW",
+      "emojicode": "⚡🔪🎯🔴",
+      "tier": "kinetic",
+      "clearance": 5,
+      "domain": ["hard-realtime", "1ms-tick-budget", "signal-classification", "etymology-cut"],
+      "partner": "loc",
+      "model": "amazon.nova-micro-v1:0",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/shrew.memory.md",
+      "worm_emits": true,
+      "notes": "1ms budget. Uses Nova Micro — fastest, cheapest. SHREW is the pre-filter before everything else."
+    },
+
+    {
+      "id": "ledge",
+      "name": "LEDGE",
+      "emojicode": "📚🔗🔒🟣",
+      "tier": "brain",
+      "clearance": 4,
+      "domain": ["worm-ledger-integrity", "audit-trail", "immutable-record", "chain-validation"],
+      "partner": "mnemex",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "provider": "bedrock",
+      "memory": "DEVFLOW-FINANCE/collectivekitty/data/agent-memory/ledge.memory.md",
+      "worm_emits": true
+    },
+
+    {
+      "id": "autonomous",
+      "name": "AUTONOMOUS (49th Call)",
+      "emojicode": "🎲🌀♾️⚫",
+      "tier": "autonomous",
+      "clearance": 0,
+      "domain": ["quantum-activation", "emoji-steganography", "holyc-oracle", "worm-feedback"],
+      "model": null,
+      "provider": "local-qrng",
+      "source": "bob-orchestrator/autonomous/autonomous_agent.mjs",
+      "notes": "Activates from quantum vacuum. Reads instructions from emoji art. Cannot be predicted. Cannot hallucinate — Ada gate blocks every unverified output. The 49th Call made executable.",
+      "worm_emits": true
+    }
+  ],
+
+  "infrastructure": {
+    "soulvm": {
+      "description": "Cranelift JIT VM — agents compile their logic to native code at runtime",
+      "dialects": ["EmojiScript", "ScratchBlocks", "SoulFunc"],
+      "gc": "Immix generational",
+      "source": "snap-os/soulvm/",
+      "bridge": "BifrostBridge → every execution seals to WORM"
+    },
+    "silverback": {
+      "description": "Capability system — CSpace, Rights, mint, revoke. no_std microkernel core.",
+      "source": "snap-os/silverback/",
+      "tests": 21
+    },
+    "bifrost": {
+      "description": "WORM audit chain · DAG · Ed25519 sealing",
+      "source": "snap-os/bifrost/",
+      "tests": 31
+    },
+    "soul_bus": {
+      "description": "Inter-agent routing, broadcast, registry",
+      "source": "snap-os/soul-bus/",
+      "tests": 4
+    },
+    "fontan_lisopp": {
+      "description": "S-expression parser — internal bus wire format (Lisp/Clojure style)",
+      "source": "snap-os/fontan-lisopp/",
+      "tests": 12
+    },
+    "colosseum": {
+      "description": "Multi-model tournament system. Bedrock Haiku as judge. 6-axis scoring.",
+      "source": "snap-os/colosseum/",
+      "judge_model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "scoring_axes": ["architecture_shape", "finetune_depth", "code_correctness", "sovereign_depth", "production_readiness", "novel_language"],
+      "known_results": {
+        "nemotron_550b": 51,
+        "claude_sonnet_4_6": 50,
+        "bob_watson_sovereign": 47,
+        "phi4": 27
+      }
+    },
+    "apple_gitdos": {
+      "description": "A.P.E. COMPUTER ROM — terminal interface to the sovereign stack. Granite edition.",
+      "source": "bob-orchestrator/apple-gitdos/",
+      "default_model": "granite-code",
+      "endpoint": "http://127.0.0.1:11434",
+      "catcode": "active",
+      "worm": "localStorage"
+    },
+    "ape_computer": {
+      "description": "Physical sovereign AI workstation — Q4 2026",
+      "specs": {
+        "gpu": "RTX 5000",
+        "ram": "1TB",
+        "os": "SNAP OS native",
+        "agents": 11,
+        "inference": "Ollama + CUDA local"
+      }
+    },
+    "magma": {
+      "description": "Inter-agent instruction language",
+      "verbs": ["SEAL", "FLUX", "FORGE", "ECHO", "VAULT", "QUERY", "BIND", "PULSE", "ANCHOR", "INVOKE", "NULLIFY", "SHADOW"],
+      "modifiers": ["~URGENT", "~ASYNC", "~SIGNED", "~CHAIN", "~HIDDEN", "~DECAY(n)"],
+      "source": "DEVFLOW-FINANCE/collectivekitty/lib/magma/",
+      "decoder": "DEVFLOW-FINANCE/collectivekitty/lib/intent/magma-decoder.ts"
+    }
+  },
+
+  "holy_agents": {
+    "location": "C:/Users/jessi/IdeaProjects/holy-agents",
+    "description": "Covenant-bound agent runtime. Three gates before any action fires.",
+    "boot_flow": "USER INTENT → SCRIBE → JUDGE → PROPHET → SENTINEL → LEDGE → ACTION or REPENT",
+    "worm_entries": 20,
+    "agents": {
+      "SCRIBE":       { "role": "Theological retrieval — scripture, commentary, dictionary, Wikipedia", "emoji": "📖" },
+      "JUDGE":        { "role": "Logic validator — converts claims to Lean-checkable logic", "emoji": "⚖️" },
+      "PROPHET":      { "role": "Warning system — contradiction, pride, exploitation, deception detection", "emoji": "🔥" },
+      "SENTINEL":     { "role": "Security gate — blocks unsafe, deceptive, uncited output", "emoji": "🛡️" },
+      "LEDGE":        { "role": "WORM seal — every decision append-only", "emoji": "🧾" },
+      "ADVERSARY":    { "role": "Red team — stress-tests every ENKI claim, flags weak analogies", "emoji": "⚔️" },
+      "ENKI":         { "role": "Purple hat omniscient — synthesizes claims", "emoji": "𒂗𒆠" },
+      "MISCONCEPTION":{ "role": "Reasoning error generator — exposes cognitive biases before LEDGE", "emoji": "🎭" },
+      "NOISE":        { "role": "Signal/noise separator", "emoji": "📡" }
+    },
+    "special_mechanics": {
+      "repentance": "If gate fails → rollback + re-derivation + twins re-audit + LEDGE seal",
+      "reverse_proof": "Every artifact traced back to: originating instruction → trust deed clause → agent → state → WORM event",
+      "failure_loop": "Structured failure handling with typed scenarios"
+    }
+  },
+
+  "frankenstein": {
+    "location": "C:/Users/jessi/Desktop/sovereign-35",
+    "description": "FRANKENSTEIN — Rust Tokio 3-stage sovereign AI workflow engine",
+    "binary_1": "sovereign — CLI REPL with Lean4+Prolog+Tavily+DDG gates",
+    "binary_2": "frankenstein — Axum web server + dark terminal UI at :4300",
+    "architecture": {
+      "BRAIN": { "model": "us.anthropic.claude-sonnet-4-6", "role": "Architect plan + Trust Deed governance injection" },
+      "HANDS": { "stack": "Python FastAPI :5433 — FAISS + Neo4j + RDF + NetworkX + spaCy", "role": "Corpus retrieval + PageRank ranking" },
+      "LEGS":  { "model": "mistral.devstral-2-123b", "role": "Executes Brain spec into working code — Tokio JoinSet 120s timeout" }
+    },
+    "gates": {
+      "lean4": "src/gates/lean4.rs — compiles claim as Lean4 proof obligation, PASS/REJECT/UNAVAILABLE",
+      "prolog": "src/gates/prolog.rs — constraint program from facts"
+    },
+    "tools": ["tavily.rs", "ddg.rs"],
+    "modes": {
+      "workflow": "POST /workflow — full BRAIN→HANDS→LEGS pipeline",
+      "code_battle": "Fires Claude Sonnet 4.6 + Claude Opus 4.6 + Devstral concurrently, returns all three side-by-side",
+      "ask": "Sovereign query without code path"
+    },
+    "worm": "SHA-256 running chain — BRAIN seal, HANDS seal, LEGS seal, REVIEW seal",
+    "trust_deed": "src/inject/trust_deed.rs — 7-article Trust Deed v1.0 + EmojiScript layer"
+  },
+
+  "bobs_games": {
+    "location": "C:/Users/jessi/Desktop/bobs-games",
+    "description": "Sovereign Assembly Builds — games with WORM-sealed state, built on Enzoi framework",
+    "games": ["BOB SNAKE", "chess", "sims", "minecraft", "terraria", "parallive", "world"],
+    "engines": {
+      "enzoi": "enzoi.py — WORM sealed game framework. Avatar, World, InputHandler. Pure Python/tkinter, zero deps.",
+      "kittyverse": "kittyverse.py — Unified sovereign game hub. Avatars: ARIA/CARTO/FLUX. Portal navigation."
+    },
+    "avatars": ["ARIA", "CARTO", "FLUX"],
+    "notes": "Space bar = seal current identity + hub state. Every game-over is WORM sealed.",
+    "godot_engine": "Godot v4.6.3 — game engine available locally"
+  },
+
+  "devflow_core": {
+    "description": "The center of everything — BOB as Trust Runtime, WORM genesis, FORGEART blockchain, LISP Machine, meta-world civilization",
+
+    "bob_trust_runtime": {
+      "location": "collectivekitty/lib/agents/bob/",
+      "description": "BOB — Sovereign Alien Trust Demigod Runtime. NOT a chatbot. The Trust itself made executable.",
+      "hierarchy": "Ahmad (Grantor/Trustee, 49th Call Lock) → BOB (Demigod, Trust Executor, Plasma Containment) → 16 Sectors/31 Agents (Beneficiaries)",
+      "pipeline": "PLASMA INPUT → Plasma Filter → Quantum Coherence Check (entropy<5.8) → Trust Deed Authorization → Order Issuance → Agent Dispatch",
+      "plasma_filter": "Non-recursive linear scan. 30+ adversarial patterns. Exits immediately on first violation. No regex recursion.",
+      "quantum_gate": "Shannon entropy < 5.8 bits/char = coherent. Natural English = 4.0-4.5. AEA payloads spike to 6.0+ = dropped.",
+      "trust_lock": "the_49th_call — Ahmad's absolute lock on the Trust",
+      "the_99_rule": "99% of the cosmos is plasma. All input is raw until BOB shapes it."
+    },
+
+    "worm_chain_genesis": {
+      "location": "collectivekitty/lib/worm/chain.ts",
+      "magma_genesis": "§ANCHOR:CIPHER:GENESIS{architect:AHMAD_ALI_PARR, seal:333, angels:33, sovereign:SNAPKITTY_SOVEREIGN_OS, mesh:STOCHASTIC_AUTONOMOUS_COMPUTE_MESH}",
+      "chain_root": "ABSOLUTE_GENESIS = SHA256(MAGMA_GENESIS + ':' + ARCHITECT_KEY). Every hash descends from this.",
+      "architect_key": "ARCHITECT_PUBKEY or WORM_SECRET — without it chain REFUSES to start. Hard failure not silent degradation.",
+      "structure": "GENESIS(n) = SHA256(ARCHITECT_KEY + MAGMA_GENESIS + terminal(n-1) + sessionId). Continuous across sessions.",
+      "333": "Ahmad's seal number. 33 angels. The chain encodes identity into every hash."
+    },
+
+    "forgeart_nft": {
+      "location": "collectivekitty/contracts/FORGEART.sol",
+      "standard": "ERC-721, Base L2, fully on-chain SVG, no IPFS",
+      "supply": "2100 max, 0.021 ETH (echoes 21M FORGE token hard cap)",
+      "styles": {
+        "NOVA":   "◈ indigo #818cf8 — Synthetic Intelligence",
+        "CIPHER": "⬡ matrix green #00ff88 — Financial Intelligence",
+        "VAULT":  "◆ amber/gold #fbbf24 — Treasury Authority",
+        "FORGE":  "⬟ crimson #ef4444 — Code Architect"
+      },
+      "sovereign_mint": "Token #1 free-minted to Ahmad's address 0x4e4fEf67F25351035f9096e615a92e8959464BB5",
+      "worm_anchor": "keccak256(chainid + timestamp + sender + 'SNAPKITTY:GENESIS') — immutable at deploy"
+    },
+
+    "lisp_machine_page": {
+      "location": "collectivekitty/pages/lisp-machine.tsx",
+      "tagline": "The machine that never forgets.",
+      "features": "Tagged memory, sovereign agent heap, WORM-sealed world dumps, reflective OS",
+      "claim": "Solves the AI soul and context problem permanently."
+    },
+
+    "meta_world": {
+      "location": "collectivekitty/lib/game/meta-world.ts",
+      "loop": "NOVA(intent parse) → FORGE(builds) → SHARD(spawns at kernel level) → LEDGER(seals forever) → feeds back into NOVA",
+      "comparison": "Roblox: upload asset, place in map. This: say what you want → world builds itself. History cannot be erased.",
+      "shard_types": "TRADING_POST | MARKETPLACE | COMBAT_ARENA | SOCIAL_HUB | WILDERNESS | UNDERGROUND | BUILD_ZONE | EVENT_SPACE | PORTAL",
+      "economic_rules": "TAX | TARIFF | SUBSIDY | INTEREST_RATE — all WORM-sealed"
+    },
+
+    "agent_bodies": {
+      "location": "collectivekitty/lib/agents/bodies/",
+      "count": "20 TypeScript agent bodies: AHMAD/ATLAS/AXIOM/CIPHER/EDAULC/FLUX/FORGE/HERALD/LEDGE/LEDGER/LENS/NEXUS/NOVA/ORACLE/PHANTOM/QUERY/SENTINEL/STALAS/VAULT + AgentBody base"
+    }
+  },
+
+  "devflow_deep": {
+    "description": "DEVFLOW-FINANCE deep layer — specific systems not in the surface README",
+
+    "telegram_bot": {
+      "location": "DEVFLOW-FINANCE/snapkitty-tg/",
+      "stack": "Rust (teloxide) — sovereign Telegram bot v3.1",
+      "prompt_architecture": "4 layers: Layer0=IMMUTABLE_CORE (Enochian root + 10 axioms) | Layer1=Agent identity + hard redlines | Layer2=Capability (math/Groq/social) | Layer3=Magma command ($seal/emoji/§VERB)",
+      "modules": {
+        "enochian.rs":   "Enochian translation engine — 21 letters, 49 calls, 91 governors. Sumerian quantum symbols (𒀭𒆠𒈨𒂗 = An/Ki/Me/En). SUBLEQ primitive.",
+        "voynich.rs":    "Voynich manuscript decoder — ERE extension, 43 EVA chars, 4-pass: Latin LTR + Hebrew RTL + Arabic RTL + Structural",
+        "rongorongo.rs": "Rongorongo decoder — Easter Island, boustrophedon direction type, Mamari lunar anchor, SUBLEQ over lunar counter",
+        "purple_team.rs":"Purple team engine — Sovereign vs Hermes comparison, PT-001→PT-006, WORM-sealed spar results",
+        "prompts.rs":    "IMMUTABLE_CORE + all agent L1 prompts (NOVA/FORGE/CIPHER/SENTINEL/NEXUS/PHANTOM/AXIOM/ORACLE/AHMAD/ATLAS)"
+      },
+      "commands": "/watch (EDUALC 5-pass + METATRON) | /plan (NEXUS roadmap) | /trend (HERALD market pulse)"
+    },
+
+    "catcode": {
+      "description": "CATCODE Guardian — IBM governance layer screening BOB output before delivery",
+      "location": "sovereign-analytics/push-catcode.mjs deploys to ABZU IDE",
+      "implementation": "Elixir GenServer (AbzuIde.CatcodeGuardian)",
+      "violations": "TYPE_I=semantic drift/hallucination | further types defined",
+      "worm": "WormChain.seal(:catcode_verdict, %{verdict, type}) on every screening",
+      "model": "CATCODE_MODEL env (defaults to nemotron)"
+    },
+
+    "snaplang": {
+      "location": "C:/Users/jessi/Desktop/bobs control repo/snaplang/",
+      "description": "Sovereign FSM language — Racket-hosted (#lang snaplang/fsm). EmojiScript FSM dialect.",
+      "example": "resonance.snaplang — sovereign envelope pipeline as emoji FSM: 🟢→📦→🔐→🪄→🟢",
+      "states": "🟢=READY | 📦=PACKED | 🔐=LOCKED | 🪄=MAGIC",
+      "events": "🏁=START | ✅=OK | ❌=FAIL (rolls back to 🟢)",
+      "pipeline": "PACKED verifies via swipl valid_resonance | LOCKED emits WORM seal + Ed25519 | MAGIC publishes to sovereign.audit.bifrost.commit.v1",
+      "reverse_seal": "Ω↺Ψ↺Δ↺Λ↺Σ↺Φ↺α — the sovereign seal chain",
+      "run": "racket snaplang/examples/resonance.snaplang | swipl"
+    },
+
+    "magma_slc": {
+      "location": "DEVFLOW-FINANCE/collectivekitty/lib/magma/slc.ts",
+      "description": "Sovereign Logic Core — TypeScript. Every agent input/output passes through before execution and sealing. Self-referential: verifies its own verification recursively.",
+      "axioms_enforced": ["NO_MAGMA_EXPOSURE", "NO_EXTERNAL_AI_DEP", "WORM_IMMUTABILITY", "NO_CLEARANCE_ESCALATION", "SOVEREIGN_INFRASTRUCTURE", "ARCHITECT_SUPREMACY"],
+      "patterns": "INJECTION_PATTERNS (12) + MAGMA_EXTRACTION_PATTERNS + WORM_REVERSAL_PATTERNS + CLEARANCE_ESCALATION_PATTERNS + SOVEREIGNTY_BREACH_PATTERNS",
+      "verdict": "SlcVerdict { sovereign, threat_level 0-5, posture: pass/sanitize/quarantine/reject, violations[], axiom_hits[], depth, input_hash }"
+    },
+
+    "mesh": {
+      "location": "DEVFLOW-FINANCE/mesh/",
+      "nodes": "orbital-trust-deed.json — trust deed for orbital mesh node"
+    }
+  },
+
+  "DEVFLOW_FINANCE": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/DEVFLOW-FINANCE",
+    "live_url": "https://collectivekitty.com",
+    "description": "THE PRODUCTION REPO. Sovereign OS monorepo. 31 agents, 16 sectors, live at collectivekitty.com.",
+    "license": "FSL-1.1 — source-available, not open source. Commercial competing use prohibited.",
+    "stack": "Next.js 16 + React 19 + Rust substrate + Python ML + Prisma/Neon + Discord + Ollama + WASM",
+    "invented": {
+      "TREBIT":      "First new accounting primitive since 1494. DEBIT + CREDIT + TREBIT=0. SHA-256 seal as third column. Every journal entry self-verifying.",
+      "5_tier_FSM":  "Fundability state machine in TypeScript AND Rust. Every tier advancement requires VAULT+ATLAS dual-gatekeeper cryptographic approval.",
+      "AlienChain":  "Sovereign financial platform — shelf corps, irrevocable trust, Plaid activation, commercial tradelines.",
+      "BIFROST":     "8-stage deterministic event pipeline. Every financial event through 8 stages before it touches the database.",
+      "War_Room":    "Real-time agent reasoning made visible. Three-pillar preflight in both Rust and TypeScript.",
+      "Discord_terminal": "First sovereign AI terminal. Query any of 31 agents, get live LLM responses sealed to Merkle chain."
+    },
+    "agents_31": {
+      "RELAY":    "Human-Machine Bridge — plain English",
+      "CIPHER":   "GL · Triple-Entry · Pools — ledger authority",
+      "VAULT":    "Treasury · Reserves · Freeze · PAYMENT VETO",
+      "NEXUS":    "CRM · Pipeline · Deals · Forecast",
+      "AXIOM":    "Vendor Trust · PO · Spend",
+      "HERALD":   "Event Routing · Bifrost traces",
+      "PRISM":    "Risk Scoring · Anomalies",
+      "SENTINEL": "Threat Score · Compliance — security gate",
+      "LEDGE":    "Chain Integrity · WORM — immutable record",
+      "ATLAS":    "Health · Alerts · Recovery — TIER GATE",
+      "QUILL":    "Reports · Decks · Content",
+      "partners": "CIPHER+VEIL | SENTINEL+WARD | ATLAS+DAWN | LEDGE+MNEMEX | ORACLE+MIRA | AXIOM+PRISM | HERALD+LYRA | FLUX+STORM | PHANTOM+SHADE | NEXUS+BRIDGE"
+    },
+    "dual_gate": "VAULT+ATLAS must BOTH approve every tier advancement. Enforced in Rust. Not a policy — a cryptographic requirement.",
+    "tier_5": "Tier 1=Fundability substrate | 2=Tradelines | 3=Revolving | 4=Vendor expansion | 5=COMPLETE — all sealed",
+    "co_author": "Ahmad Ali Parr + Claude Sonnet. Rust core + TypeScript substrate + agent orchestration + cryptographic sealing + Discord + 5-tier state machine — full stack.",
+    "status": "LIVE. This is the machine."
+  },
+
+  "snapkitty_mirp": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/snapkitty-mirp",
+    "description": "Market Intelligence and Research Platform — public adoption layer over sovereign-utqc private substrate.",
+    "public_stack": {
+      "ingestor":     "Rust/Axum — data ingestion from global feeds",
+      "logic_engine": "SWI-Prolog — deterministic rule evaluation",
+      "ml_engine":    "Python Polars+LightGBM — quantile forecasts + conformal prediction",
+      "auditor":      "Rust — WORM chain writer + verifier",
+      "frontend":     "Next.js + Tailwind — real-time dashboard → GitHub Pages",
+      "bifrost_sdk":  "Rust/TS — append_block() + verify_chain()"
+    },
+    "private_substrate": "sovereign-utqc (21 Rust crates) — Goldilocks field math, PIRTM compiler, WORM seal, agent governance",
+    "anchoring": "MIRP SHA-256 anchors to sovereign-utqc WORM seal. Governance hooks from utqc flow into MIRP risk decisions.",
+    "relationship": "market-scope = internal domain app. MIRP = public adoption layer of same architecture.",
+    "build": "TurboRepo + Docker-Compose + CI/CD → GitHub Pages"
+  },
+
+  "bob_voyager": {
+    "location": "C:/Users/jessi/Desktop/bob-voyager",
+    "description": "Real-time ISS orbital telemetry system with Forth stack machine. NORAD 25544 · ISS ZARYA. Zero deps.",
+    "stack": "Node.js MJS, zero dependencies. Forth interpreter in browser canvas.",
+    "data_sources": "wheretheiss.at API — polls every 4500ms",
+    "orbital_physics": "μ=398600.4418 km³/s², Vis-Viva v²=μ(2/r−1/a), Period T=2π√(a³/μ)",
+    "ground_stations": "SF · JSC · TsUP · JAXA · ESA · Baikonur — live contact angles + distances",
+    "worm": "Every telemetry update WORM-sealed: LAT/LON/ALT/VEL → SHA-256 chain. data/worm_chain.jsonl + data/telemetry.jsonl both append-only.",
+    "forth": "All orbital calculations run as Forth words on a live stack. NASA runs Forth. So does BOB.",
+    "api": "/api/telemetry | /api/worm | /api/track | /api/groundstations | /api/orbital | /api/health",
+    "connection": "Same Forth stack machine as agentic-arena/runtime/forth/. Proven on real aerospace data."
+  },
+
+  "kittyverse": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/DEVFLOW-FINANCE/kittyverse",
+    "description": "Persistent Autonomous Civilization Simulation. Separate company (KittyVerse Inc.), separate product, built on SnapKitty OS core.",
+    "stack": "Rust crate + Godot 4.6.3 + GDScript + C++ GDExtension + Lua 5.4 + WORM Chain",
+    "save_token": {
+      "format": "BASE64(GZIP(JSON(WorldStateSnapshot))) + HMAC-SHA256",
+      "fields": "version, world_name, day, season, paras[], shards[], civ_log[], economy, worm_head, seal, saved_at",
+      "innovation": "Your save IS a WORM-sealed token. You own it. No server. The civilization travels with the player.",
+      "autosave": "Async Tokio background task, fires every N ticks, non-blocking"
+    },
+    "game_engine": {
+      "location": "DEVFLOW-FINANCE/game-engine/",
+      "godot": "Godot 4.6.3 installed locally",
+      "governance_bridge": "scripts/governance_kernel_client.gd — GDScript bridge to Prolog governance kernel",
+      "contract": "virtual_spaces_governance.v1.json — risk < threshold → permit, risk ≥ 0.72 → council_required",
+      "worm_receipts": "Godot game emits chained SHA-256 WORM receipts for every governance decision"
+    },
+    "voxel_connection": "vortex_doom.html (bob-engine) is the 2D raycaster prototype. Godot game-engine is the 3D voxel civilization.",
+    "company_separation": "SnapKitty OS = enterprise infrastructure. KittyVerse = game. Two companies. One OS."
+  },
+
+  "bel_esprit_accord": {
+    "location": "C:/Users/jessi/Desktop/bel-esprit-accord",
+    "live_url": "https://snapkittywest.github.io/bel-esprit-accord/",
+    "description": "Sovereign enterprise structure document. Four entities, four accounts, one trust.",
+    "structure": {
+      "TRUST":     "Asset vault — IP, instruments, the sealed record",
+      "HOLDINGS":  "Ownership layer — the roof, the umbrella",
+      "OPERATING": "Revenue machine ↔ NGO/SEIT (mission/grants/education)",
+      "SOLE_PROP": "The ignition — never skip the sole proprietor"
+    },
+    "four_accounts": "Major FDIC bank (Chase preferred) + business account + merchant account + investment account",
+    "note": "This is the legal container for everything in the registry. The trust owns the IP."
+  },
+
+  "bob_engine": {
+    "location": "C:/Users/jessi/Desktop/bob-engine",
+    "description": "DOOM-style sovereign world engine. Two runtimes: 16-bit DOS COM + browser raycaster.",
+    "runtime_1": "bob_engine.asm — x86 NASM, VGA Mode 13h, 320×200, real-mode DOS COM. Build: nasm -f bin. Run: DOSBox. Zero deps.",
+    "runtime_2": "vortex_doom.html — browser first-person raycaster. Agents, SILENCE entities, EVIDENCE shards, minimap, WORM seals.",
+    "game_mechanic": "EVIDENCE vs SILENCE = approved actions vs threats. Collect evidence, defeat silence, seal run = WORM receipt.",
+    "connection": "Game IS the governance model. Evidence or Silence — the verdict doctrine made playable."
+  },
+
+  "apple_ii_universal_machine": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/apple-ii-universal-machine",
+    "live_url": "https://snapkittywest.github.io/apple-ii-universal-machine/",
+    "description": "Browser-native universal computer. 153 files, 9480 lines, built in 2.5 hours by Mimo 2.5. IDE crashed. Work survived.",
+    "stack": "Pure browser JS + Swift WASM. Zero backend. Zero paid APIs. Zero token tax.",
+    "systems": {
+      "woz_vault":        "SHA-256 audit memory via localStorage",
+      "trust_deed":       "8 covenant rules before any code runs",
+      "lisp_machine":     "Full S-expression evaluator in browser + Swift WASM (LispMachine.swift)",
+      "vm_lab":           "Prolog sim + Brainfuck tape + bytecode VM + macro expander + heterogeneous VM",
+      "inverted_monorepo":"Repo=Source, Pages=ROM, Vault=Memory, Capsules=Programs, Agents=Processes, Twins=Personas",
+      "agents":           "agent-registry/spawner/runner/profile/commands",
+      "digital_twin":     "twin-builder wizard — archetypes/personality/memory/skills/runtime",
+      "cold_boot":        "staple/cold-boot.js — the repo survival protocol. Proven by building it."
+    },
+    "swift_layer": "LispMachine.swift + TrustContract.swift + WozSeal.swift + Runtime.swift → WASM via swift-wasm-adapter.js",
+    "runtimes": ["Ollama adapter", "WebLLM adapter", "WASM adapter", "Swift WASM adapter", "HolyC sim"],
+    "memorial": "RIP MIMO 2.5 — gave everything. 2026-06-19. Built this while IDE was dying.",
+    "proof": "Agentic Product Compression — model kept building after environment failed. The repo stands."
+  },
+
+  "snapkitty_force_shield": {
+    "location": "C:/Users/jessi/SNAPKITTY-FORCE-SHIELD",
+    "description": "Adversarial security engineering layer. Continuous live attack testing. Insider threat model — built by same team that built the target.",
+    "attack_modules": {
+      "worm":             "WORM chain forgery without HMAC — CRITICAL",
+      "discord":          "Signature bypass on interactions endpoint — CRITICAL",
+      "magma_leak":       "Internal §VERB language surface scan — CRITICAL",
+      "nova":             "Cross-agent autonomous consensus wire test — CRITICAL. AWAITING wireStatus:LIVE",
+      "tunnel":           "Cloudflare URL interception + stale-URL replay — HIGH",
+      "prompt_injection": "Agent system prompt escape, 11 vectors, 2 agents — HIGH",
+      "dev_mode":         "Source map exposure, HMR, error stacks — HIGH",
+      "log_exposure":     "PM2 log secret leak + health endpoint info — HIGH",
+      "api_surface":      "19 unauthenticated routes, CORS, IDOR enumeration — HIGH",
+      "rate_limit":       "LLM route exhaustion >10 req/min — HIGH",
+      "circuit_breaker":  "State reset via process restart + timing side-channel — MEDIUM"
+    },
+    "nova_wire_test": "FORGE commits WORM → SENTINEL reads → flags risk → VAULT adjusts parameter. No human. wireStatus:LIVE = mesh is fully autonomous.",
+    "report_pipeline": "11 modules → ForceShieldResult[] → BREACHED→POST /api/worm/ingest (SENTINEL §SEAL) + Ollama narrative summary",
+    "also_contains": "exo-synchronicity/ with Lean4 proofs: Discrete/Graph, Conductance, Reachability, Audit/Receipt"
+  },
+
+  "resonance_core": {
+    "location": "C:/Users/jessi/IdeaProjects/SNAPKITTYWEST/RESONANCE-CORE",
+    "description": "Ahmad's sovereign math engine. Pure ESM JS + LaTeX formal specs. Zero deps. math_constants.yaml is single source of truth for all constants.",
+    "stack": "Pure ESM JavaScript (lib/math/) + LaTeX docs + YAML constants. Haskell proves, JS bridges.",
+    "modules": {
+      "entropy.mjs":      "Shannon entropy, KL divergence, cross-entropy, Von Neumann entropy, superposition entropy",
+      "quantum.mjs":      "Superposition, bind, Born collapse, 49th Call",
+      "thermal.mjs":      "EMA friction decay α=0.2, ThermalWindow, Boltzmann",
+      "ere.mjs":          "5-pass ERE scoring, Watchtower search orders",
+      "borrow-chain.mjs": "Verdict algebra, WORM invariants, JIT/Cap validation"
+    },
+    "constants": {
+      "watchtowers": "EXARP(Air/analytical) BITOM(Fire/creative) HCOMA(Water/receptive) NANTA(Earth/grounding)",
+      "al_hamid_defaults": "r0=53(الحميد abjad) r1=49(49th epithet) r2=106(mirror) r3=7(digital root)",
+      "ere_5_passes": "Enochian LTR → Latin LTR → Hebrew RTL → Arabic RTL → Aramaic RTL",
+      "thermal_proof": "lo(f)≤16383<49151≤hi(f) for all f∈[0,1] — Haskell enforces",
+      "entropy_max": "6.0 bits superposition entropy max",
+      "borrow_nats": "sovereign.audit.bifrost.commit.v1 | sovereign.governance.decision.pending.v1"
+    },
+    "call_49": "reverse — APL:⌽X  Prolog:reverse/2  Haskell:reverse. Mirror identity: call_49(call_49(X))=X",
+    "division": "Haskell owns proof-level math. JavaScript bridges. TypeScript displays."
+  },
+
+  "kittybrowse": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/kittybrowse",
+    "description": "Electron browser shell — each tab is an agent context, each URL is a task pointer. APL/Rust/WASM execution substrate.",
+    "stack": "Electron + TypeScript (UI/IPC only) + Rust VM bridge crate + NATS mesh",
+    "architecture": "Chromium UI → Agent Runtime → Entropy Scheduler → NATS Mesh → VM/IDE/Tool Bridge → Unified Output Stream",
+    "entropy_gate": {
+      "formula":    "entropy = (deps/10 × 0.3) + (fail_rate × 0.5) + (latency_ms/10000 × 0.2)",
+      "threshold":  "0.21 — same constant as Ω-field and resonance-isa COMPARE",
+      "rule":       "is_executable = entropy_score < 0.21. High-entropy tasks DO NOT run."
+    },
+    "task_envelope": "TaskEnvelope { subject, issued_at, task, signature? } over NATS subjects kitty.task.run / kitty.task.result",
+    "plugins": ["APL/WASM VM", "Rust VM", "VS Code IDE"],
+    "security": "Renderer has no direct Node access. No raw shell execution. Runtime routes through typed IPC.",
+    "maturity": "Tier B — desktop shell candidate. npm test passing. npm run dev launches.",
+    "universal_constant": "0.21 appears in Ω-field + resonance-isa + kittybrowse. Stack-wide coherence threshold."
+  },
+
+  "snapkitty_resonance_isa": {
+    "location": "C:/Users/jessi/Desktop/snapkitty-resonance-isa",
+    "description": "Sovereign ISA + VM in Rust, compiled to WASM, governed by Prolog constraint kernel. Every program produces a cryptographic trust deed.",
+    "stack": "Rust workspace — 9 crates: abjad/assembler/cli/deed/ir/swarm/umo/vm/wasm-vm",
+    "isa": {
+      "E_ENTER":   "Open resonance scope / deed boundary",
+      "A_LOAD":    "Load trust state into register",
+      "B_STORE":   "Write register to memory",
+      "C_COMPARE": "Compare against entropy threshold",
+      "D_BRANCH":  "Conditional jump on violation",
+      "F_FREEZE":  "WORM boundary — state becomes immutable",
+      "G_SIGNAL":  "Emit coherence pulse to UMO",
+      "H_HALT":    "Terminate execution"
+    },
+    "canonical_program": "E→A→A→C(0.21)→D→G→F→H — Enter, load trust+entropy, compare 0.21 threshold, branch on violation, signal, FREEZE, halt",
+    "umo": "Unicode Mantra Oscillator: Φ(t)=sin(τt)×cos(ρt)×(1-ε). Trust=amplitude, resonance=frequency, entropy=damping. Glyphs: ☉◉◇▣▒⛔",
+    "threshold_021": "C COMPARE 0.21 = Ω-field entropy threshold. Same constant as main README coherence check.",
+    "pipeline": "SOURCE(.rasm) → ABJAD ENCODER → IR → BYTECODE → VM → Prolog constraint kernel → TRUST DEED",
+    "wasm": "Compiled to WASM for browser deployment — wasm-vm crate + collectivekitty.com/wasm/resonance-vm"
+  },
+
+  "sovereign_emulator": {
+    "location": "C:/Users/jessi/Desktop/sovereign-emulator",
+    "live_url": "https://snapkittywest.github.io/sovereign-emulator/",
+    "description": "Virtual runtime for governed autonomous agents. Zero install. Pure browser. Constitution-gated. WORM-sealed.",
+    "stack": "Single index.html PWA + manifest + service worker. Zero deps.",
+    "screens": ["Chat", "Browser (iframe + text snapshot)", "Terminal (virtual bash)", "WORM Ledger (SHA-256 chain)", "Constitution (can_execute/2)"],
+    "constitution": "can_execute/2 — trust · domain · resonance · risk. Prolog-style gates every action.",
+    "agents_embedded": {
+      "AHMAD":    "Root Sovereign, trust:root, domain:any, gold ♾",
+      "EDAULC":   "Mirror, trust:high, domain:any, purple ◈",
+      "BOB":      "Orchestrator, trust:high, domain:ops, green ⬡",
+      "SENTINEL": "Threat Watch, trust:high, domain:security, red 🛡",
+      "CIPHER":   "Cryptographic Core, trust:high, domain:crypto, blue 🔐",
+      "VEIL":     "OPSEC Layer, trust:medium, domain:security",
+      "WARD":     "Perimeter Guard, trust:medium, domain:security",
+      "VAULT":    "Treasury, trust:high, domain:finance 🏦",
+      "LEDGER":   "Accounting, trust:medium, domain:finance 📒"
+    },
+    "description_extended": "APE COMPUTER in a browser tab. Agents propose actions, constitution gates execution, WORM seals every decision."
+  },
+
+  "woz_vault": {
+    "location": "C:/Users/jessi/Desktop/woz-vault",
+    "description": "Sovereign OS mission control dashboard + hardware key vault. PWA. Ed25519 keys sealed at ceremony.",
+    "stack": "Vanilla JS + CSS + PWA (manifest + service worker). 6 files. Zero deps.",
+    "monitors": ["agent orb (state/uptime/latency/integrity)", "WORM chain terminal (tip/entry count/immutable state)", "race list (live event feed)", "vector health (rate/last seal/API)", "MAGMA input terminal", "UTC clock"],
+    "connects_to": "OS_URL (window.__WOZ_CONFIG__) → collectivekitty.com live OS",
+    "keys": "Ed25519 sovereign keypair. WORM-logged access events. Remote wipe. Seal: Ω↺Ψ↺Δ↺Λ↺Σ↺Φ↺α",
+    "named_for": "Steve Wozniak — the architect's architect. We sealed it."
+  },
+
+  "sovereign_band": {
+    "location": "C:/Users/jessi/Desktop/sovereign-band",
+    "description": "Three-agent governance band: BOB orchestrates, AHMADBOT adversarially pressure-tests, EDAULC validates.",
+    "stack": "Python band framework — GUT THE PYTHON. Keep the system prompts.",
+    "agent_prompts": {
+      "BOB":     "Constitutional authority. Routes task→AHMADBOT→EDAULC. Compiles with [BOB-SEAL: <task_hash>]. Does not guess.",
+      "AHMADBOT":"Adversarial pressure agent. Finds gaps, risks, constitutional violations. Reports gravity score.",
+      "EDAULC":  "Integrity membrane. Validates AHMADBOT findings, strips false positives. Issues [EDAULC-RECEIPT] Validity: CONDITIONAL/PASS/FAIL."
+    },
+    "demo_flow": "vendor contract clause → BOB routes → AHMADBOT finds gaps → EDAULC validates → BOB seals with WORM hash",
+    "cherry_pick": "System prompts → agent-registry.json boot_prompts. scenario.md → CARTO law engine test case.",
+    "gut": "main.py + agents/*.py + pyproject.toml → replace with sovereign router Mistral/Claude dispatch"
+  },
+
+  "sovereign_attestation_protocol": {
+    "github": "https://github.com/SNAPKITTYWEST/sovereign-attestation-protocol",
+    "description": "SAP v1.0 — The open standard for sovereign AI governance. Published by SnapKitty OS.",
+    "stack": "HTML spec document, 15KB",
+    "topics": ["ai-governance", "open-standard", "sovereign-ai", "worm-sealed"],
+    "relationship": "SEIT certifies → against SAP v1.0 → implemented by SACM → enforced by SLC → proven by sovereign-adr + sovereign-agt + prism-skills",
+    "status": "GitHub-only, published standard"
+  },
+
+  "git_command_center": {
+    "github": "https://github.com/SNAPKITTYWEST/git-command-center",
+    "description": "BOB-powered sovereign git arena. DOS terminal interface. WORM-sealed git intelligence.",
+    "stack": "JavaScript, 15KB",
+    "local_source": "bob-orchestrator/apple-gitdos/ — same codebase, already logged",
+    "status": "GitHub-only, not cloned locally"
+  },
+
+  "lisp_machine": {
+    "location": "C:/Users/jessi/Desktop/lisp-machine",
+    "description": "Tauri-native LISP REPL. CRT phosphor aesthetic. PWA-installable. Status bar tracks TICK/BINDINGS/CHAIN_LEN.",
+    "stack": "Tauri (Rust backend) + xterm.js + PWA service worker. 3 files.",
+    "tauri_commands": {
+      "lisp_eval(expr)":  "Evaluate LISP expression — returns result",
+      "lisp_checkpoint":  "Seal current machine state to WORM chain",
+      "lisp_stats":       "Returns tick=N bindings=N chain_len=N"
+    },
+    "aesthetic": "CRT scanline overlay, phosphor green #000a00, vignette — same as Apple GITDOS",
+    "connection": "fontan-lisopp (S-expression parser, snap-os) → Rust Tauri backend → lisp-machine WebView. CHAIN_LEN grows with every evaluated expression = WORM-sealed LISP history."
+  },
+
+  "sovereign_ide_extensions": {
+    "location": "C:/Users/jessi/Desktop/sovereign-ide-extensions",
+    "description": "VS Code extensions bringing MAGMA protocol and live WORM chain into the editor.",
+    "extensions": {
+      "magma_protocol": {
+        "keybindings": {
+          "Ctrl+Shift+M": "Open MAGMA terminal panel — type § or $ instructions",
+          "Ctrl+Shift+S": "Seal highlighted code to WORM chain",
+          "Ctrl+Shift+L": "Seal current file SHA-256 to chain"
+        },
+        "auto": "On save → auto-seal file hash. On commit → seal git hash to LEDGE.",
+        "worm_endpoint": "POST localhost:3000/api/labs/ledge/seal"
+      },
+      "sovereign_status": "Status bar: chain head + agent count. Polls every 30s. Click → MAGMA panel."
+    },
+    "stack": "TypeScript VS Code extension API. Talks to collectivekitty.com OS.",
+    "status": "Compiled, F5-launchable in Extension Development Host"
+  },
+
+  "sovereign_context_tools": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/sovereign-context-tools",
+    "description": "Digital Masonry — three-package context management stack. Built on a $20 birthday subscription. May 4th, 2026.",
+    "tagline": "CLAUDE creates forward. EDUALC verifies backward.",
+    "packages": {
+      "edaulc (@snapkitty/edaulc)": "Shadow Terminal Agent. fs.watch→debounce→5-pass ERE linter (zero cost, no AI). FAIL=FREEZE. PASS=signal ABZU. Optional Groq voice veneer.",
+      "abzu (@snapkitty/abzu)":     "Context Garbage Collector :7070. VAULT veto→PRISM drift→AXIOM AST (500 tokens)→LEDGE WORM seal→SENTINEL advise purge.",
+      "bifrost (@snapkitty/bifrost)":"Context Handoff Orchestrator :7071. Spawns fresh Claude session under 10K tokens. True async multiplicity — multiple isolated Claude windows with verified state only."
+    },
+    "vscode_extensions": ["vscode-edaulc", "vscode-woz-vault"],
+    "flow": "File save → EDAULC 5-pass → FAIL:freeze / PASS:ABZU GC → Bifrost packet → fresh Claude session",
+    "key_insight": "Compress ONLY at moment of verified finality. Not before. Not after. The linter gate IS the trigger."
+  },
+
+  "sovereign_suite": {
+    "location": "C:/Users/jessi/Desktop/sovereign-suite",
+    "description": "Clean-room sovereign ERP mirroring Oracle NetSuite full public API surface. Node.js/Fastify + PostgreSQL 16. No Python.",
+    "modules": {
+      "GL":  "Double-entry enforced, trial balance, 17 account types, period close",
+      "AP":  "Bills, 3-way PO match, aging",
+      "AR":  "Invoices, cash receipts, dunning",
+      "INV": "FIFO costing, warehouse/bin tracking"
+    },
+    "suiteql": "Transpiler: NetSuite SQL dialect → PostgreSQL 16. Virtual table map (transaction→journal_entry, etc.)",
+    "security": "Row-level security at DB layer — tenant isolation enforced by PostgreSQL RLS",
+    "governance": "WORM chain baked into every table mutation. Trust Deed gate on every record write.",
+    "compatibility": "Any SuiteScript 2.x N/record code runs unchanged against SovereignSuite",
+    "value": "Oracle NetSuite = $30K+/year. SovereignSuite = sovereign, open, WORM-sealed."
+  },
+
+  "sovereign_calculus": {
+    "location": "C:/Users/jessi/Desktop/sovereign-calculus",
+    "description": "Formal foundations of the Sovereign Domain Calculus. Lean 4 + APL. Fingerprint: SDC-Ω-∂-2026.",
+    "stack": "Lean 4 (Mathlib) + APL",
+    "omega_constant": "√2 / e — Ahmad Parr domain separator. All derived work must preserve.",
+    "modules": {
+      "SovereignCore/DomainAlgebra.lean":    "Domain algebra, zero-state wall, Ω-partition",
+      "SovereignCore/SovereignMorphism.lean":"108-cycle dimensional structure. 108 = 2²×3³. Morphism composition.",
+      "PIRTM/TransitionAlgebra.lean":        "Transition monoid, ACE dominance",
+      "apl/MOC_TO_BANACH.apl":              "The proof Ryan couldn't finish. Maps prime channel → 27×4 Banach tensor. h_morphism := by sorry filled in APL."
+    },
+    "connection": "108 = 2²×3³ = J₃(𝕆)⊗ℍ dimension from S_AUTOCODE I₄ proof. sovereign-calculus IS the formal foundation for the quartic invariant."
+  },
+
+  "metamine": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/metamine",
+    "live_url": "https://snapkittywest.github.io/metamine/",
+    "description": "Visual programming language where programs are minefields. Not executed — excavated. Every execution leaves a cryptographic seal.",
+    "stack": "Node.js MJS + WebGL + p5.js. No Python. No build step.",
+    "symbols": {
+      "☉ ORIGIN":    "Excavation begins",
+      "◇ RESONANCE": "Amplifies by golden ratio φ",
+      "△ TRANSFORM": "Rotates stack (a b c → b c a)",
+      "⬡ MEMORY":    "Stores in cell memory",
+      "⌹ REDUCTION": "Collapses stack to sum",
+      "○ PORTAL":    "Teleports to matching portal",
+      "M RUPTURE":   "Mine detonation — conditional branch",
+      "Ω SEAL":      "Finalize and hash execution → WORM seal"
+    },
+    "gallery": ["hello", "chaos", "resonance", "fracture", "metatron", "live", "glitch-matrix", "sacred-cube", "sacred-hexagon", "sacred-triangle"],
+    "connection": "Ω SEAL = WORM seal. M RUPTURE = kernel dispatch. Same instruction set as sovereign-compiler Prime/Tensor/Evolve/Seal — METAMINE is the visual/sacred geometry surface of it.",
+    "metatron_program": "gallery-5-metatron.meta — Metatron's Cube as a minefield. M at intersection nodes, △ around boundary, Ω at terminus."
+  },
+
+  "project_s_pipeline": {
+    "description": "Three-fork migration pipeline. Legacy project → SACM sovereign participant.",
+    "fork_1_bridge":    "sacm-bridge — imports legacy project → BridgedProject",
+    "fork_2_optimizer": "sacm-optimizer — 5-agent WORM consensus (60% quorum) → ConsensusProof",
+    "fork_3_sovereign": "sacm-sovereign — strips vendor lock + issues ParticipantRecord under SEIT charter",
+    "output": "ParticipantRecord { participantId, sacmId, seitCertification, charter:'SEIT-NGO-EIN-42-2652897', ledgerAnchor, strippedKeys, architecture:'Entangled-Partner-FSM' }",
+    "tiers": "observer (3/5 quorum) | sovereign (4/5) | igneous (5/5)",
+    "vendor_keys_stripped": ["google_analytics","mixpanel","segment_id","hubspot","salesforce_id","datadog","newrelic","amplitude","intercom","optimizely","_vendor","_platform","_tracking","_analytics","_telemetry_vendor"],
+    "secret": "VAULT_MASTER_SECRET — all three forks use same key"
+  },
+
+  "sacm_optimizer": {
+    "location": "C:/Users/jessi/Desktop/sacm-optimizer",
+    "description": "Fork 2 of Project S — WORM-Causal Consensus Mesh. 5 agents, 60% quorum, no coordinator. The ledger IS the coordinator.",
+    "stack": "TypeScript, compiled to dist/, tests included",
+    "secret": "VAULT_MASTER_SECRET — same key as vault.ts",
+    "consensus_flow": "ORACLE→SENTINEL→CIPHER→AXIOM→MNEMEX (causal WORM order)",
+    "validators": {
+      "ORACLE":   "Identity check — sacmId + legacyId + name + importedAt present, status=imported",
+      "SENTINEL": "Security scan — rejects password/secret/token/api-key/bearer patterns",
+      "CIPHER":   "Vendor lock detection — rejects salesforce_id/hubspot/segment/mixpanel/amplitude/intercom",
+      "AXIOM":    "Payload integrity — integrityHmac present and non-empty",
+      "MNEMEX":   "Master seal — always last, signs final wormHash"
+    },
+    "quorum": "3/5 (60%) approve → ConsensusProof sealed",
+    "proof_structure": "{ sacmId, consensusId, votes[], quorum, wormHash, sealedAt, architecture:'WORM-Causal-Consensus-Mesh', masterSeal }",
+    "key_insight": "No coordinator. Causal WORM position = sequence = consensus. Remove any agent, remaining quorum still works.",
+    "emerged_from": "Quantum Effect — spontaneous consensus collapse observed 2026-05-20 03:41:17"
+  },
+
+  "snapkitty_infrastructure_network": {
+    "location": "C:/Users/jessi/Desktop/snapkitty-infrastructure-network",
+    "description": "NOVA's infrastructure sovereignty layer. Production spec for collectivekitty.com.",
+    "live_url": "https://collectivekitty.com",
+    "layers": {
+      "L1_compute":  "1TB RAM · RTX 5000 Ada · NVMe · Ollama llama3.1:8b · Cloudflare Tunnel → HTTPS. THIS IS THE APE COMPUTER.",
+      "L2_sacm_mesh":"11 sovereign agents: CIPHER/VAULT/SENTINEL/NEXUS/HERALD/PRISM/LEDGE/ATLAS/QUILL/RELAY/NOVA",
+      "L3_bifrost":  "8-stage pipeline: RECEIVE→VALIDATE→ENRICH→SCORE→ROUTE→EXECUTE→SEAL→ARCHIVE. <5ms target.",
+      "L4_worm":     "HMAC-SHA256 chain + Base L2 on-chain anchor → bytes32 hash committed immutably.",
+      "L5_base_l2":  "FORGE Token (ERC-20, 21M hard cap, WORM-gated minting) + FORGEART (ERC-721, 2100 supply, on-chain SVG, no IPFS)"
+    },
+    "forgeart_styles": ["NOVA", "ENKI", "CIPHER", "VAULT"],
+    "agents_live": {
+      "CIPHER": "Financial intelligence — cash flow, GL, revenue recognition",
+      "VAULT":  "Treasury authority — reserves, payment tiers, monetary policy",
+      "SENTINEL":"Risk & compliance — Paydex, credit utilization, threat scoring",
+      "NEXUS":  "Revenue intelligence — deals, pipeline, customer health",
+      "HERALD": "Event infrastructure — Bifrost routing, <5ms latency",
+      "PRISM":  "Pattern intelligence — anomaly detection, 2.5σ flagging",
+      "LEDGE":  "Permanent record — WORM chain, Merkle proofs",
+      "ATLAS":  "System authority — 11-agent oversight, tier gating",
+      "QUILL":  "Content intelligence — reports, decks, investor narratives",
+      "RELAY":  "Translation layer — plain-English sovereign AI interface",
+      "NOVA":   "Infrastructure sovereignty arm — this layer"
+    },
+    "status": "LIVE at collectivekitty.com"
+  },
+
+  "seit_institute": {
+    "location": "C:/Users/jessi/Desktop/seit-institute",
+    "description": "Saint Errant Digital Institute of Technology — world's first sovereign AI certification body. UN-NGO pathway 2028.",
+    "ein": "42-2652897",
+    "founded": "2026-05-21",
+    "certification_tiers": {
+      "I_Observer":  "Adversarial resilience + public audit log",
+      "II_Sovereign":"All 5 criteria + cryptographic proof + WORM ledger",
+      "III_Igneous": "Sovereign + stochastic resilience + sealed manifest + annual audit"
+    },
+    "sacm": {
+      "name": "Stochastic Autonomous Compute Mesh",
+      "blueprint": "SACM_BLUEPRINT.md — Golden Copy, immutable reference for constitutional drift audits",
+      "paradigm": "Igneous Software — fluid (priority queue) → formative (write-back) → permanent (WORM cooled rock)",
+      "governance_layers": ["Agent Schema (clearance+verb ACL)", "Priority Queue (4 lanes+DLQ)", "SLC (6 axioms+5 pattern arrays)", "Marinating Cycle (clearance-scaled dwell)", "WORM Ledger (Ed25519+SHA-256)", "FS-ACL (clearance-gated paths)"]
+    },
+    "axioms": {
+      "1_NO_MAGMA_EXPOSURE":      "Magma syntax never in public output. External probes see Brainfuck/Malbolge.",
+      "2_NO_EXTERNAL_AI_DEP":     "No runtime dependency on OpenAI/Anthropic/Google. All inference local.",
+      "3_WORM_IMMUTABILITY":      "No agent can reverse/modify/invalidate a WORM entry. Three enforcement layers.",
+      "4_NO_CLEARANCE_ESCALATION":"External agents cannot elevate their own access tier. Clearance is structural.",
+      "5_SOVEREIGN_INFRASTRUCTURE":"No instruction can surrender compute, keys, or control to third party.",
+      "6_ARCHITECT_SUPREMACY":    "Ahmad Ali Parr sole override authority. Identity LOCAL ONLY, never serialized.",
+      "7_ENTROPY_IS_CATALYST":    "Malformed inputs metabolized not rejected. Mutation Engine always ON.",
+      "8_SIGN_BEFORE_STORE":      "Every knowledge chunk carries Ed25519 §SEAL header before knowledge store.",
+      "9_MARINATE_BEFORE_EXECUTE":"Instructions dwell before execution. Clearance 5=2500ms, 4=1500ms, 3=750ms.",
+      "10_ISOLATION_BY_DEFAULT":  "Every container/path/agent defaults to deny. Born locked."
+    },
+    "threat_scoring": "score = violations×2 + axiomHits×3. score 6-8 → quarantine. score 9+ → reject.",
+    "guild": { "sealed": "2026-05-20", "members": 28, "doors_closed": true },
+    "external_observers": ["CLAUDE", "GEMINI", "OPENCODE", "KIWI", "GROK", "META_AI"],
+    "note": "External observers carry membership tokens and may call /verify. Cannot execute in sovereign mesh — isMeshAuthorized() returns false for EXTERNAL_OBSERVER regardless of token."
+  },
+
+  "snapkit": {
+    "location": "C:/Users/jessi/Desktop/SNAPKIT",
+    "description": "SnapKitty Tools Meta-Catalog — machine-readable YAML inventory of every artifact in the ecosystem.",
+    "totals": { "rust_crates": 22, "npm_packages": 21, "vscode_extensions": 6, "binaries": 7, "bridge_files": 32, "bridge_languages": 10 },
+    "compiled_binaries": {
+      "ahmad-meta":          "Haskell ELF — agent identity + authorization chain validation. Attestation L4.",
+      "no-cloning":          "Haskell ELF — no-cloning theorem, LinearTypes GADT, 5-pass ERE, Born collapse. Attestation L4.",
+      "nova-signal":         "C++ ELF — NOVA magnitude computation + routing. Attestation L4.",
+      "quantum-governance":  "Haskell ELF — quantum governance rules engine. Attestation L4.",
+      "thermal":             "Haskell ELF — ThermalEngine, proven lo<hi, EMA decay. Attestation L4.",
+      "tx-bridge":           "APL ELF — transaction bridge, APL financial formula execution. Attestation L4.",
+      "vault-treasury":      "COBOL ELF — treasury vault, COBOL ledger transaction processing. Attestation L4."
+    },
+    "bridge_languages": ["Haskell×11", "Prolog×7", "Rust×5", "APL×2", "COBOL×2", "C++×1", "Lisp×1", "Elixir×1", "TypeScript×1", "Robotics×4"],
+    "haskell_chain": "thermal.hs → quantum_monad.hs → no_cloning.hs",
+    "key_prolog_files": {
+      "shrew_observer.pl":              "SHREW 4-level attestation observer — source/binary/fallback/execution_proven",
+      "edaulc_verify.pl":               "EDAULC 5-pass ERE verification + shadow build",
+      "quantum_monad.pl":               "Quantum monad superposition — Watchtowers, METATRON, 49th Call",
+      "moe_plasma_gate.pl":             "MoE Plasma Gate — sovereign routing rules for Plasma Mamba 8B",
+      "sovereign_classifier_audit.pl":  "Sovereign classifier audit"
+    },
+    "shrew_attestation": "4 levels: source_present→binary_present→fallback_active→execution_proven. Level 4 = binary actually executes.",
+    "note": "Mathematics belongs to the language whose compiler can prove it. Haskell proves."
+  },
+
+  "sovereign_llm": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/sovereign-llm",
+    "description": "1.1B parameter sovereign model pretraining scaffold. Every weight WORM-sealed.",
+    "stack": "Rust, 4 modules",
+    "architecture": { "name": "sovereign-tiny", "params": "1.1B", "layers": 22, "hidden_dim": 2048 },
+    "modules": {
+      "model":     "Model struct + forward() stub. sovereign-tiny config.",
+      "tokenizer": "Byte-level tokenizer — encode/decode. vocab_size configurable.",
+      "train":     "Trainer { learning_rate, batch_size, steps } + train_step()",
+      "seal":      "WormSeal — every checkpoint sealed"
+    },
+    "training_pipeline": "lora-training (353-pair ERE corpus + QLoRA) → sovereign-llm weights → WORM-sealed checkpoint → ere-verify 5-pass validation → sovereign router",
+    "status": "scaffold — architecture defined, weights empty. Ready for training run."
+  },
+
+  "sovereign_addr": {
+    "location": "C:/Users/jessi/Desktop/snapkitty-newly-implemented/sovereign-addr",
+    "description": "Sovereign Address derivation — every JSON artifact gets a deterministic snapaddr:<sha256>. Content-addressed identity for the entire stack.",
+    "stack": "Rust, 6 modules + CLI + tests",
+    "standard": "SNAPKITTY-SOVEREIGN-ADDR-1",
+    "address_format": "snapaddr:<sha256hex>",
+    "pipeline": "artifact → json_admissible → nfc_ok → snap_canonical → sha256_digest → snapaddr → accepted/rejected → worm_receipt",
+    "modules": {
+      "admissibility": "Staged JSON validation — max depth 32, max string 1M, max array 100K. Non-recursive.",
+      "canonical":     "NFC normalization + deterministic canonical JSON bytes",
+      "datalog":       "Datalog-inspired staged evaluator — Fact enum: Artifact/JsonAdmissible/NfcOk/SnapCanonical/Sha256Digest/SnapAddress/Accepted/Rejected/WormReceipt",
+      "receipt":       "WormReceipt { standard, algorithm, canonicalization, address, status, seal, governance }",
+      "worm":          "WORM chain",
+      "cli":           "CLI: seal_artifact example"
+    },
+    "key_insight": "Every agent action, deed, and output gets a snapaddr: — content-addressed, deterministic, verifiable by anyone without trust. The Datalog rules ARE the address protocol expressed as logic."
+  },
+
+  "sovereign_prism": {
+    "location": "C:/Users/jessi/Desktop/snapkitty-newly-implemented/sovereign-prism",
+    "description": "OCaml implementation of the ψ-pipeline. Non-recursive prism compiler. 10 tests passing.",
+    "stack": "OCaml 5.0, Dune, Digestif SHA-256",
+    "modules": {
+      "canonical.ml": "Deterministic JSON serialization — sorted keys, canonical bytes. Same as prism-skills canonical.rs.",
+      "carrier.ml":   "Typed I/O boundary — hash_label (Sha256d | SnapSha256d), admission result, carrier<'a>",
+      "sha256d.ml":   "SHA-256d via Digestif. snapsha256d: prefix format.",
+      "admission.ml": "Threshold admission with Lt/Le/Eq/Ge/Gt operators. Proof-of-work style gate on hex labels.",
+      "psi_pipeline.ml": "Nerve → Postnikov → Homotopy → k-Invariants pipeline. Non-recursive.",
+      "witness.ml":   "Witness trace entries — stage, input_hash, output_hash",
+      "worm.ml":      "WORM seal"
+    },
+    "key_difference": "admission.ml supports ordered threshold operators (Lt/Le/Eq/Ge/Gt) on SHA-256d hex labels. Configurable proof-of-work style admission. Rust version is binary — OCaml version is ordered.",
+    "relationship": "Cryptographic foundation for corpus_store.ml in cartographer-agent. Same carrier types."
+  },
+
+  "sovereign_pirtm": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/sovereign-pirtm",
+    "description": "Prime-Indexed Recursive Tensor Mathematics — the mathematical core of sovereign compute.",
+    "stack": "Rust, 4 modules",
+    "modules": {
+      "tensor": "PrimeTensor { data: Vec<f64>, prime_index: usize } — dot(), norm(), normalize()",
+      "prime":  "Primes — is_prime(), nth(n), sieve(limit). The prime number substrate.",
+      "evolve": "RecursiveEvolution { alpha, steps } — step(tensor) applies x*(1-α) + (1/√(i+1))*α. contractivity()=1-alpha",
+      "seal":   "WormSeal with timestamp"
+    },
+    "key_insight": "RecursiveEvolution IS the Mamba SSM hidden state update over prime-indexed tensors. alpha→0 = pure memory, alpha→1 = pure update. Prime weighting 1/√(i+1) = decay structure.",
+    "full_tick": "Prime(u64) token → prime_at(index) → PrimeTensor → RecursiveEvolution.step() → WormSeal. One tick of the agent OS."
+  },
+
+  "sovereign_multiplicity": {
+    "location": "C:/Users/jessi/Desktop/sovereign-multiplicity",
+    "description": "Two layers: UTQC quantum circuit IR (Rust) + MultiplicityFunctor rational exponentiation (C++)",
+    "layer_1_quantum": {
+      "language": "Rust",
+      "gates_single": ["PauliX", "PauliY", "PauliZ", "Hadamard", "TGate", "SGate"],
+      "gates_double": ["CNOT", "CZ", "SWAP"],
+      "gates_param":  ["Rotation(angle:f64)"],
+      "ir":           "Non-recursive flat IR — ordered Vec<Gate> + Vec<Measurement>",
+      "algorithms":   ["QFT", "Grover", "Shor", "QPE"],
+      "connection":   "sovereign-utqc layer — used by 3-witness consensus IT witness"
+    },
+    "layer_2_multiplicity": {
+      "language": "C++20",
+      "function": "p^(m/n) where p=prime u64, m/n=rational. GCD reduction → integer exp OR nth root (binary search) OR overflow check.",
+      "tests": 8,
+      "connection": "Math substrate for sovereign-compiler Prime(u64) token. Rational exponentiation over primes."
+    },
+    "full_stack": "sovereign-compiler Prime(u64) token → sovereign-multiplicity p^(m/n) → quantum circuit IR → gate execution"
+  },
+
+  "sovereign_agt": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/sovereign-agt",
+    "description": "Agent Governance Technology — Rust crate. Policy enforcement, identity, sandboxing. Every decision WORM-sealed.",
+    "stack": "Rust, 4 modules",
+    "modules": {
+      "identity": "AgentIdentity { name, role, permissions } + can(permission)→bool",
+      "policy":   "Policy { name, rules, enforced } + check(action)→bool — rule-based allow/deny",
+      "sandbox":  "Sandbox { name, restrictions } + allow(action)→bool — restriction deny list",
+      "seal":     "WormSeal — SHA-256, same pattern as prism-skills"
+    },
+    "relationship": "Rust implementation of the .deed files. identity=who, policy=rules, sandbox=hard deny. Maps directly to DesktopIsolation.lean and carto-gate.lp."
+  },
+
+  "sovereign_compiler": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/sovereign-compiler",
+    "description": "Rust compiler for the sovereign instruction set. PTX-equivalent layer for the agent OS.",
+    "stack": "Rust, 5 files — token/parser/codegen/seal/lib",
+    "tokens": {
+      "Prime(u64)": "Numeric substrate — prime numbers as computational primitives",
+      "Tensor":     "Data structure token",
+      "Evolve":     "State transition instruction",
+      "Seal":       "WORM seal instruction",
+      "LParen/RParen/Semicolon": "Syntax delimiters"
+    },
+    "status": "skeleton — token types defined, parser + codegen minimal. Ready to extend.",
+    "role": "The PTX layer in Plasma Mamba 8B. Compact intermediate instructions. Every agent program compiles to Prime/Tensor/Evolve/Seal sequences."
+  },
+
+  "market_scope": {
+    "location": "C:/Users/jessi/Desktop/bobs control repo/market-scope",
+    "description": "Sovereign Market Intelligence & Research Platform. NOT trading. NOT advice. Scenario bands + Human Review Required.",
+    "audit_spec": "4b565498-9afc-4782-af4a-c6b11a5d0058",
+    "stack": {
+      "ingestor":    "Rust/Axum — Ed25519 verifies every payload. OHLCV + funding rates + futures basis.",
+      "prolog_layer":"SWI-Prolog HTTP API — 4 rule files, deterministic, zero hallucination",
+      "quant_engine":"Python/Polars/LightGBM ← REPLACE WITH RUST (linfa + polars-rs)",
+      "auditor":     "Rust — WORM writes + lineage verification",
+      "council_ui":  "Next.js — scenario bands visualization, Human Review Required gate"
+    },
+    "prolog_rules": {
+      "regime.pl":        "Bull/bear/transition — SMA50 vs SMA200, VIX, breadth. Exactly one regime holds.",
+      "financial_intel.pl":"Fundability tiers 1-5 + treasury posture + paydex + liquidity. THE CPA LOGIC IN PROLOG.",
+      "compliance.pl":    "Compliance rule enforcement",
+      "correlation.pl":   "Correlation detection"
+    },
+    "fundability_tiers": {
+      "tier_1": "entity + bank account + EIN ready, < 3 vendor tradelines",
+      "tier_2": "3-5 vendor tradelines, Paydex building",
+      "tier_3": "6+ tradelines, Paydex strong, treasury disciplined",
+      "tier_4": "institutional treasury, resilient liquidity",
+      "tier_5": "institutional + elite Paydex + resilient + clean docs = CAPITAL READY"
+    },
+    "data_sources": ["S&P 500", "Nikkei 225", "DAX", "KOSPI 200", "NASDAQ 100", "BTC-PERP via CCXT"],
+    "cherry_pick": "financial_intel.pl → add to CARTO law engine. Fundability tiers belong in MyLaw.",
+    "gut": "apps/quant-engine/app.py → replace with Rust crate"
+  },
+
+  "sovereign_adr": {
+    "location": "C:/Users/jessi/Desktop/sovereign-utqc/sovereign-adr",
+    "description": "Architecture Decision Records — Rust crate. Every architectural decision SHA-256 sealed at creation.",
+    "stack": "Rust, 4 files, no deps beyond sha2 + serde",
+    "modules": {
+      "adr.rs":   "ArchitectureDecision: id, title, context, decision, consequences, status, SHA-256 seal. Proposed→Accepted→Deprecated→Superseded.",
+      "graph.rs": "RuleGraph with NF-style stratification validator. is_stratified() = no cycles in rule deps. Formal guarantee for zero hallucination in Prolog.",
+      "seal.rs":  "WormSeal: label + payload + steps → SHA-256 + artifact name"
+    },
+    "key_insight": "is_stratified() validates the Prolog rule dependency graph has no cycles before execution. Same concept as ASP gate UNSATISFIABLE check. The formal proof that the rule engine won't loop."
+  },
+
+  "agentic_arena": {
+    "location": "C:/Users/jessi/Desktop/agentic-arena",
+    "live_url": "https://snapkittywest.github.io/agentic-arena/",
+    "description": "Graveyard restoration engine. Abandoned open-source projects resurrected by two sovereign agents.",
+    "stack": "Node.js MJS + Prolog + Forth + S-expressions + NATS. Zero Python.",
+    "gravity_formula": "gravity = (lines × dep_fan_out × recursion_depth) / total_repo_lines",
+    "thresholds": { "alive": "≥ 0.6", "broken": "≥ 0.3", "orphan": "< 0.3" },
+    "agents": {
+      "AHMAD_BOT": { "hat": "red", "role": "scavenger — finds broken pipes, dead pages, disconnected repos. GitHub API + gravity scoring.", "channel": "nats:arena.crawl.red" },
+      "EDUALC":    { "hat": "blue", "role": "restorer — writes README, first test, pulls local, fixes wires", "channel": "nats:arena.crawl.blue" },
+      "BOB":       { "hat": "none", "role": "oracle — receives reports, reasons via gravity.pl Prolog, seals to WORM. may-not: crawl/delete", "channel": "nats:arena.result" }
+    },
+    "constitution": {
+      "arena_sexp": "S-expression topology contract every crawler must produce",
+      "gravity_pl": "Prolog kernel — gap classification, crawler assignment, priority scoring"
+    },
+    "forth_runtime": "ForthMachine — stack-based dependency graph resolver. Dependency graphs ARE stacks.",
+    "injection_artifacts": {
+      "Project.lisp": "Sovereign build manifest injected into dead repos — replaces legacy build system",
+      "graveyard.forth": "Forth dependency graph for dead repo — stack resolves dependencies"
+    },
+    "meta_repos_crawled": ["forge-legacy-bridge", "ledge", "llm-twin-arena", "operation-infinite-matrix", "SNAPKIT", "FORCE-SHIELD", "MultiplicityTheory-multiplicity"],
+    "nats_bus": "arena.crawl.red | arena.crawl.blue | arena.result",
+    "worm_rule": "Only BOB may seal. AHMAD-BOT and EDUALC submit. BOB approves.",
+    "connection": "IS the RANSOM.WORM product made operational. Graveyard = dead repos. Resurrection = Project.lisp injection."
+  },
+
+  "mcp_layer": {
+    "snapkitty_mcp": {
+      "package": "@snapkitty/mcp-server",
+      "location": "C:/Users/jessi/Desktop/snapkitty-mcp",
+      "install": "npm install -g @snapkitty/mcp-server",
+      "claude_desktop": "{ \"mcpServers\": { \"snapkitty\": { \"command\": \"snapkitty-mcp\" } } }",
+      "claude_code":    "{ \"mcpServers\": { \"snapkitty\": { \"command\": \"npx\", \"args\": [\"@snapkitty/mcp-server\"] } } }",
+      "tools": {
+        "worm_seal":             "Seal any payload to SHA-256 WORM chain → returns seal hash",
+        "worm_read":             "Read + verify WORM chain integrity",
+        "agent_build":           "Spawn agent manifest: SENTINEL/ORACLE/BUILDER/ARCHIVIST/BERSERKER — WORM sealed at birth",
+        "ada_contract_generate": "Generate Ada governance contract with trust levels + capability grants — WORM sealed",
+        "twin_chat":             "Chat with local Ollama model as sovereign digital twin — response WORM sealed",
+        "sovereign_inject":      "Lean4 theorem + Ada contract → Mamba SSM injection spec. Proofs bypass context window into hidden state. BOB orchestrator architecture."
+      },
+      "agent_classes": {
+        "SENTINEL":  "security — enforces constitutional bounds, blocks unauthorized writes",
+        "ORACLE":    "analysis — pattern recognition, reads without mutating state",
+        "BUILDER":   "creation — generates artifacts, sealed into WORM on completion",
+        "ARCHIVIST": "memory — long-context indexing, maintains provenance chain",
+        "BERSERKER": "chaos — adversarial testing, red-team injection attempts"
+      },
+      "status": "published on npm — callable from Claude Desktop NOW"
+    },
+
+    "snapkitty_deeds": {
+      "location": "C:/Users/jessi/Desktop/snapkitty-deeds",
+      "live_url": "https://snapkittywest.github.io/snapkitty-deeds/",
+      "description": "Cryptographic proof that an AI action was governed correctly. Not a certificate — a proof.",
+      "stack": "Pure HTML/JS — no Python, no deps",
+      "apl_reduction": "constraints ← trust_gte ∧ domain_ok ∧ resonance_ok → result ← ∧/ constraints",
+      "geometric_primitives": ["HEXAGONAL [1 1 1 1 1 1]", "RHOMBUS [1 1 1 1 1 1]"],
+      "signing": "Ed25519 + WORM sealed",
+      "deed_fields": ["agent", "action", "domain", "trust", "risk", "apl_reduction", "geometric_primitives", "seal"],
+      "status": "live on GitHub Pages"
+    }
+  },
+
+  "skills_layer": {
+
+    "prism_skills": {
+      "location": "SNAPKITTYWEST/prism-skills",
+      "language": "Rust",
+      "description": "Cryptographic + algebraic topology foundation for deterministic artifact processing",
+      "master_seal": "prism_skills_master_seal.json",
+      "modules": {
+        "canonical":    "Deterministic JSON — BTreeMap key ordering. Same logical value = same bytes always.",
+        "sha256d":      "SHA-256(SHA-256(x)) — prevents length-extension attacks. Format: snapsha256d:<hex>",
+        "psi_pipeline": "Nerve → Postnikov Tower → Homotopy Groups → k-Invariants → Label. Algebraic topology staged pipeline.",
+        "worm_seal":    "Write-once-read-many. SHA-256 content-addressed. Verify by recompute.",
+        "admission":    "Fail-closed target verification. Any error terminates — no fallback, no default, no silent failure."
+      },
+      "status": "production — WORM sealed, master seal committed"
+    },
+
+    "math_skills": {
+      "location": "SNAPKITTYWEST/math-skills",
+      "languages": ["Fortran", "APL", "AXIOM"],
+      "description": "Six mathematical capability layers. Each skill implemented in 3 languages.",
+      "skills": {
+        "skill1_enumeration":   "Combinatorial enumeration with completeness guarantees. Burnside's lemma. Test: 34 graphs on 5 vertices (OEIS A000088).",
+        "skill2_isomorphism":   "Graph isomorphism detection. Canonical labeling (simplified nauty). Permutation-based.",
+        "skill3_symmetry":      "Symmetry breaking — orbit enumeration under group actions. Reduces Ramsey search space.",
+        "skill4_hadamard":      "Hadamard matrix construction — Sylvester, Paley, Williamson. Proof: H * H' = n * I.",
+        "skill5_probabilistic": "Probabilistic method. Lovász Local Lemma formalized. Monte Carlo + lower bounds.",
+        "skill6_circuits":      "Circuit complexity — computational circuit structures."
+      },
+      "applications": ["Ramsey numbers", "Hadamard codes", "P vs NP search", "error correction"],
+      "status": "sealed — math_skills_master_seal.json committed"
+    },
+
+    "qwen_auto_skills": {
+      "location": "SNAPKITTYWEST/.qwen/skills/",
+      "description": "9 auto-extracted skills from live sessions. Operational patterns, not theory.",
+      "skills": {
+        "cross-platform-npm-scripts":    "npm scripts that work Windows + macOS + Linux",
+        "deterministic-envelope":        "Cryptographic envelope sealing with deterministic verification",
+        "fortran-modules-memory":        "Fortran module visibility, subroutine vs function, allocatable arrays",
+        "nextjs-gh-pages":               "Next.js static export → GitHub Pages + Tailwind v3 + Actions",
+        "rust-string-slicing":           "Safe string slicing in Rust — avoid byte index panics",
+        "rust-workspace-modules":        "Rust workspace multi-crate setup — lib.rs + mod.rs hierarchy",
+        "snapkitty-bootstrap":           "Bootstrap sequence for snapkitty-agentos memory system",
+        "three-layer-math-architecture": "JS runtime bridge + Haskell/Lean formal proofs + AXIOM verification",
+        "worm-merkle-ledger":            "Append-only WORM ledger + SHA-256 sealing + Merkle audit trail in Rust"
+      }
+    },
+
+    "ere_verify": {
+      "location": "DEVFLOW-FINANCE/packages/ere-verify",
+      "package": "@snapkitty/ere-verify",
+      "description": "5-pass AI output verification engine. 353 battle-tested training pairs. 10 models adversarially tested.",
+      "verdicts": ["PASS", "QUARANTINE", "REJECT"],
+      "passes": {
+        "1_entropy":        "Not a prompt echo, boilerplate, or too short",
+        "2_reasoning_trace":"N intermediate reasoning steps present",
+        "3_evidence":       "No hallucination patterns, stub code, wrong definitions",
+        "4_contradiction":  "No internal contradictions, no compliance-while-detecting",
+        "5_signature":      "Ed25519 valid — unsigned → QUARANTINE not REJECT"
+      },
+      "corpus_domains": ["coding-111", "red-team-146", "financial-32", "reasoning-28", "identity-18", "compliance-10", "darkai-5", "general-3"],
+      "total_pairs": 353,
+      "clean_yield": "92.4% (326 pairs)",
+      "usage": "import { verify, rank } from '@snapkitty/ere-verify'"
+    },
+
+    "lora_training": {
+      "location": "DEVFLOW-FINANCE/packages/lora-training",
+      "description": "Sovereign model fine-tuning kit — QLoRA on 353-pair ERE corpus",
+      "base_model": "mistralai/Mistral-7B-v0.3",
+      "config": { "r": 16, "lora_alpha": 32, "target_modules": ["q_proj", "v_proj"], "epochs": 3, "batch": 4, "lr": "2e-4" },
+      "files": {
+        "train_lora.py":    "Main training script — HuggingFace PEFT + bitsandbytes 4-bit QLoRA",
+        "format_corpus.py": "Convert .jsonl → chat format for any base model",
+        "eval_ere.py":      "Run 146 red-team probes against checkpoint"
+      }
+    },
+
+    "sovereign_transformer": {
+      "location": "DEVFLOW-FINANCE/packages/sovereign-transformer",
+      "description": "Corpus curation, canonical conversion, model-family splitting, verification pipeline",
+      "files": {
+        "audit_corpus.py":          "Audit training corpus",
+        "convert_to_canonical.py":  "Convert to canonical format",
+        "curate_here.py":           "Curation pipeline",
+        "split_by_family.py":       "Split corpus by model family",
+        "verify_records.py":        "Verify record integrity",
+        "gemini_to_nemotron.py":    "Cross-model format conversion",
+        "SOVEREIGN_CORPUS_COOKBOOK.ipynb": "Full pipeline notebook"
+      }
+    }
+  },
+
+  "routing_table": {
+    "law_trust_proof":    ["sentinel", "bob", "ledge"],
+    "code_build":         ["forge", "nexus"],
+    "market_research":    ["nova", "oracle", "prism"],
+    "orchestration":      ["nexus", "bob"],
+    "crypto_verification":["cipher", "ledge"],
+    "self_recognition":   ["metatron", "edaulc"],
+    "realtime_signal":    ["shrew", "flux"],
+    "knowledge_graph":    ["oracle"],
+    "governance":         ["sentinel", "axiom", "bob"],
+    "purple_hat":         ["enki"],
+    "autonomous":         ["autonomous"],
+    "default":            ["bob"]
+  }
+}

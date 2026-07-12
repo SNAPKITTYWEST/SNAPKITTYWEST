@@ -1,0 +1,22 @@
+{
+  "name": "snapkittywest",
+  "version": "1.0.0",
+  "description": "SnapKitty Sovereign Compute — Claude API integration",
+  "type": "module",
+  "scripts": {
+    "claude": "npx tsx claude.ts",
+    "router": "npx tsx sovereign-router.ts",
+    "vault:seal": "npx tsx vault.ts seal",
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.54.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.1085.0",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
