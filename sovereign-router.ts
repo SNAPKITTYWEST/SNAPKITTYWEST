@@ -62,10 +62,12 @@ try {
 
 // ── CLIENTS ──────────────────────────────────────────────────────────────────
 
-// Claude via AWS Bedrock — uses AWS CLI profile, no keys needed
+// Claude/Nova/Opus via AWS Bedrock — us-east-1
 const bedrock = new BedrockRuntimeClient({
   region: process.env.AWS_REGION ?? "us-east-1",
 });
+// DeepSeek R1 — requires us-west-2
+const bedrockWest = new BedrockRuntimeClient({ region: "us-west-2" });
 
 // Clients initialized after vault loads
 let mistral: OpenAI;
@@ -74,12 +76,16 @@ let mistral: OpenAI;
 
 const CLAUDE_MODEL   = process.env.CLAUDE_MODEL   ?? "us.anthropic.claude-sonnet-4-6";
 const MISTRAL_MODEL  = process.env.MISTRAL_MODEL  ?? "codestral-latest";
-const NOVA_MODEL     = "us.amazon.nova-pro-v1:0";       // news, market, fast research
-const GEMMA_MODEL    = "google.gemma-3-27b-it";         // Gemini replacement
-const DEEPSEEK_MODEL = "deepseek.v3.2";                  // math, deep code review
-// DEVTRIAL: Nova Pro used as the writing engine (long-form papers, docs)
-// Pipeline: input → corpus cherry-pick → Nova Pro drafts → ERE verify → output
-const DEVTRIAL_MODEL = "us.amazon.nova-pro-v1:0";
+const NOVA_MODEL     = "us.amazon.nova-pro-v1:0";         // news, market, fast research
+const DEEPSEEK_MODEL = "us.deepseek.r1-v1:0";             // math proofs, R1 reasoning model
+const LLAMA4_MODEL   = "us.meta.llama4-maverick-17b-instruct-v1:0"; // coding alt, multilingual
+const OPUS_MODEL     = "us.anthropic.claude-opus-4-6-v1"; // heavy reasoning, architecture
+const MISTRAL_BEDROCK = "us.mistral.pixtral-large-2502-v1:0"; // Mistral via Bedrock (your trained weights path)
+// DEVTRIAL: Nova Premier for long-form papers (largest context, best synthesis)
+const DEVTRIAL_MODEL = "us.amazon.nova-premier-v1:0";
+// Local Nemotron/Mistral: routed via sovereign-daemon on :8080 (Ollama)
+const LOCAL_MODEL    = process.env.LOCAL_MODEL ?? "nemotron";
+const OLLAMA_URL     = process.env.OLLAMA_URL  ?? "http://localhost:11434";
 
 // ── SYSTEM PROMPTS ───────────────────────────────────────────────────────────
 
@@ -109,7 +115,7 @@ Always produce complete, runnable output. No placeholders. No "TODO: fill this i
 // Pattern match on input → decide which model handles it.
 // This is the IP. The models are interchangeable. The routing table is not.
 
-type Agent = "claude" | "mistral" | "nova" | "gemma" | "deepseek" | "devtrial";
+type Agent = "claude" | "mistral" | "nova" | "deepseek" | "devtrial" | "local" | "opus";
 
 interface RouteDecision {
   agent:  Agent;
@@ -131,11 +137,21 @@ function route(input: string): RouteDecision {
   if (/\b(DOWNLOAD CENTER|HTML|CSS|COMPONENT|TAURI|ELECTRON|WASM)\b/.test(up))
     return { agent: "mistral", reason: "frontend/build task" };
 
-  // DeepSeek — math, proofs, deep code analysis
-  if (/\b(THEOREM|PROOF|AXIOM|EQUATION|FORMULA|ALGEBRA|CALCULUS|MATRIX)\b/.test(up))
+  // DeepSeek R1 — math proofs, induction, formal reasoning (MUST come before word-count fallback)
+  if (/\b(THEOREM|PROOF|PROVE|INDUCTION|AXIOM|EQUATION|FORMULA|LEMMA|COROLLARY)\b/.test(up))
     return { agent: "deepseek", reason: "math/proof" };
-  if (/\b(COLLATZ|RAMSEY|FIBONACCI|INVARIANT|TOPOLOGY|HOMOLOGY)\b/.test(up))
+  if (/\b(ALGEBRA|CALCULUS|MATRIX|EIGENVALUE|TOPOLOGY|HOMOLOGY|MANIFOLD|INTEGRAL)\b/.test(up))
+    return { agent: "deepseek", reason: "math/analysis" };
+  if (/\b(COLLATZ|RAMSEY|FIBONACCI|INVARIANT|RIEMANN|GOLDILOCKS|CONTRACTION)\b/.test(up))
     return { agent: "deepseek", reason: "advanced math" };
+
+  // Local Nemotron / trained Mistral — available via Ollama on :11434
+  if (/\b(LOCAL|NEMOTRON|OLLAMA|ON.DEVICE|OFFLINE|OUR MODEL|OUR WEIGHTS)\b/.test(up))
+    return { agent: "local", reason: "local inference" };
+
+  // Opus — heavy architecture, complex multi-step reasoning
+  if (/\b(COMPLEX ARCHITECTURE|DEEP ANALYSIS|FULL SYSTEM|COMPREHENSIVE|ELABORATE)\b/.test(up))
+    return { agent: "opus", reason: "heavy reasoning" };
 
   // DEVTRIAL — long-form writing, research papers, technical docs (Nova Pro vLLM pipeline)
   if (/\b(PAPER|WRITE A PAPER|RESEARCH PAPER|TECHNICAL PAPER|WHITEPAPER|DOCUMENTATION|LONG.FORM|ACADEMIC|PUBLISH)\b/.test(up))
@@ -151,9 +167,9 @@ function route(input: string): RouteDecision {
   if (/\b(BLOCKCHAIN|DEFI|PROTOCOL|LIQUIDITY|YIELD|APY|TVL)\b/.test(up))
     return { agent: "nova", reason: "crypto/blockchain" };
 
-  // Gemma — Gemini replacement, multimodal-style, Google knowledge
+  // Nova — Google domain tasks too (Gemma not in active profiles)
   if (/\b(GOOGLE|GEMINI|YOUTUBE|MAPS|ANDROID|TENSORFLOW|KERAS)\b/.test(up))
-    return { agent: "gemma", reason: "Google domain" };
+    return { agent: "nova", reason: "Google domain via Nova" };
 
   // Claude — reasoning, law, trust, governance
   if (/\b(WHY|EXPLAIN|ANALYZE|REASON|VERIFY|HOW DOES)\b/.test(up))
@@ -241,10 +257,29 @@ function modelIdForAgent(agent: Agent): string {
   switch (agent) {
     case "claude":   return CLAUDE_MODEL;
     case "nova":     return NOVA_MODEL;
-    case "gemma":    return GEMMA_MODEL;
     case "deepseek": return DEEPSEEK_MODEL;
     case "devtrial": return DEVTRIAL_MODEL;
+    case "opus":     return OPUS_MODEL;
+    case "local":    return LOCAL_MODEL;   // handled separately via Ollama
     default:         return CLAUDE_MODEL;
+  }
+}
+
+// ── LOCAL OLLAMA CALL (Nemotron / trained Mistral) ────────────────────────────
+async function callLocal(input: string): Promise<string> {
+  process.stdout.write(`\n[LOCAL Ollama — ${LOCAL_MODEL}]\n`);
+  try {
+    const resp = await fetch(`${OLLAMA_URL}/api/generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ model: LOCAL_MODEL, prompt: input, stream: false }),
+    });
+    if (!resp.ok) return `[LOCAL] Ollama not running at ${OLLAMA_URL} — start with: ollama serve`;
+    const data = await resp.json() as { response: string };
+    process.stdout.write(data.response + "\n");
+    return data.response;
+  } catch {
+    return `[LOCAL] Ollama unavailable at ${OLLAMA_URL}. Start Ollama and run: ollama pull nemotron`;
   }
 }
 
@@ -284,15 +319,21 @@ async function callBedrock(input: string, agent: Agent): Promise<string> {
     messages: [{ role: "user", content: input }],
   });
 
-  // Nova / Gemma / DeepSeek use the Converse API (simpler, no anthropic_version)
+  // Nova / DeepSeek / Opus use the Converse API
   if (agent !== "claude") {
     const { ConverseStreamCommand } = await import("@aws-sdk/client-bedrock-runtime");
+    // DeepSeek R1 doesn't accept system prompts — prepend to user message
+    const userContent = agent === "deepseek"
+      ? `${system}\n\nUser: ${input}`
+      : input;
     const cmd = new ConverseStreamCommand({
       modelId,
-      messages: [{ role: "user", content: [{ text: input }] }],
-      system:   [{ text: system }],
+      messages: [{ role: "user", content: [{ text: userContent }] }],
+      ...(agent !== "deepseek" && { system: [{ text: system }] }),
     });
-    const resp = await bedrock.send(cmd);
+    // DeepSeek R1 is in us-west-2
+    const client = agent === "deepseek" ? bedrockWest : bedrock;
+    const resp = await client.send(cmd);
     let full = "";
     for await (const ev of resp.stream ?? []) {
       const delta = ev.contentBlockDelta?.delta?.text ?? "";
@@ -372,10 +413,15 @@ export async function routeAndCall(input: string): Promise<string> {
   const decision = route(input);
 
   console.log(`\n[SACM GATE] Input → ${decision.agent.toUpperCase()} (${decision.reason})`);
-  console.log(`[SACM GATE] Model  → ${decision.agent === "claude" ? CLAUDE_MODEL : MISTRAL_MODEL}\n`);
+  const displayModel = decision.agent === "mistral" ? MISTRAL_MODEL
+    : decision.agent === "local" ? `ollama:${LOCAL_MODEL}`
+    : modelIdForAgent(decision.agent);
+  console.log(`[SACM GATE] Model  → ${displayModel}\n`);
 
   const rawOutput = decision.agent === "mistral"
     ? await callMistral(input)
+    : decision.agent === "local"
+    ? await callLocal(input)
     : await callBedrock(input, decision.agent);
 
   // DFA leak scan — redact any accidental key leakage before output leaves
