@@ -45,9 +45,24 @@ abstract: |
    Julia structural analysis, terminating in a deterministic INTERCAL
    borrow-chain tripwire that compiles safe resource graphs and rejects
    each of seven violation classes with a unique, real INTERCAL artifact.
-   The full implementation spans four GitHub
-   accounts, 90+ repositories, and is published under the Sovereign
-   Source License.
+   This version additionally reports **Kill Switch 9999 (§17.12)**, an
+   initial router-failure experiment in which a `PLEASE`-saturated INTERCAL
+   artifact failed to route; we state the observation and the correlated
+   cause (structurally significant `PLEASE` tokens) and explicitly flag the
+   causal mechanism as not yet isolated. We publish the Sieve as the
+   **Sovereign WORM-Chain NFT Collection (§18.7)**: a 9-link append-only
+   SHA-256 chain with procedurally generated glitch art minted into the
+   `snapkitty-chain` repository, each link binding the prior hash, the seven
+   recurring invariants, and a glitch-art SVG. Throughout, claims are
+   segregated into proven (external-kernel discharged statements, hash-chain
+   properties under stated assumptions, exact identities), observed
+   experimentally (router behavior, agent code-generation failures,
+   INTERCAL ingestion outcomes), and hypothesized (broader invariant-centered
+   AI claims; the 2^{-256} WORM seal bound covers seal forgery/collision, not
+   correlated logical error of the witnesses). The full implementation spans
+   four GitHub accounts, 90+ repositories, and is published under the
+   Sovereign Source License. This deposit (DOI 10.5281/zenodo.21132094) is
+   the canonical academic record.
 ---
 
 # SnapKitty Sovereign Compute Architecture
