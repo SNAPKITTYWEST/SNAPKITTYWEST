@@ -1,0 +1,6373 @@
+{
+  "meta": {
+    "provenance": "github-code-search Coq+HOL+Metamath 2026-07-12",
+    "id": "SNAPKITTYWEST-MULTIPROVER-SORRY-ROSTER-V1",
+    "count": 707,
+    "note": "Coq Admitted + HOL Light new_axiom + HOL4 new_axiom + Metamath $a open targets scrapped from GitHub."
+  },
+  "targets": [
+    {
+      "id": "COQ-001",
+      "repo": "DeepSpec/dsss18",
+      "file": "Rel.v",
+      "path": "lf/Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-002",
+      "repo": "DeepSpec/dsss18",
+      "file": "Maps.v",
+      "path": "lf/Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-003",
+      "repo": "sfja/sfja",
+      "file": "Gen_J.v",
+      "path": "Gen_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Gen_J.v"
+    },
+    {
+      "id": "COQ-004",
+      "repo": "sfja/sfja",
+      "file": "Rel_J.v",
+      "path": "Rel_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel_J.v"
+    },
+    {
+      "id": "COQ-005",
+      "repo": "sfja/sfja",
+      "file": "SfLib_J.v",
+      "path": "SfLib_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib_J.v"
+    },
+    {
+      "id": "COQ-006",
+      "repo": "math-comp/mcb",
+      "file": "ch3.v",
+      "path": "coq/ch3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ch3.v"
+    },
+    {
+      "id": "COQ-007",
+      "repo": "DeepSpec/dsss18",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-008",
+      "repo": "snu-sf-class/pl201602",
+      "file": "Rel.v",
+      "path": "sf/Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-009",
+      "repo": "snu-sf-class/pl2016",
+      "file": "Rel.v",
+      "path": "sf/Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-010",
+      "repo": "snu-sf-class/sf201802",
+      "file": "Rel.v",
+      "path": "lf/Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-011",
+      "repo": "snu-sf-class/sf201802",
+      "file": "ADT.v",
+      "path": "vfa/ADT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ADT.v"
+    },
+    {
+      "id": "COQ-012",
+      "repo": "rocq-community/fav-ssr",
+      "file": "bst.v",
+      "path": "src/bst.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — bst.v"
+    },
+    {
+      "id": "COQ-013",
+      "repo": "sfja/sfja",
+      "file": "Poly_J.v",
+      "path": "Poly_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly_J.v"
+    },
+    {
+      "id": "COQ-014",
+      "repo": "sfja/sfja",
+      "file": "Types_J.v",
+      "path": "Types_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Types_J.v"
+    },
+    {
+      "id": "COQ-015",
+      "repo": "sfja/sfja",
+      "file": "Norm_J.v",
+      "path": "Norm_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm_J.v"
+    },
+    {
+      "id": "COQ-016",
+      "repo": "sfja/sfja",
+      "file": "Imp_J.v",
+      "path": "Imp_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp_J.v"
+    },
+    {
+      "id": "COQ-017",
+      "repo": "MarisaKirisame/Coq_code",
+      "file": "F.v",
+      "path": "F.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — F.v"
+    },
+    {
+      "id": "COQ-018",
+      "repo": "tlively/BrainCoqulus",
+      "file": "paren.v",
+      "path": "paren.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — paren.v"
+    },
+    {
+      "id": "COQ-019",
+      "repo": "wangpengmit/6887psets",
+      "file": "Lab11.v",
+      "path": "Lab11.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab11.v"
+    },
+    {
+      "id": "COQ-020",
+      "repo": "sfja/sfja",
+      "file": "Hoare_J.v",
+      "path": "Hoare_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare_J.v"
+    },
+    {
+      "id": "COQ-021",
+      "repo": "MudroadWhite/Neo-Principia",
+      "file": "lib.v",
+      "path": "pm/lib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lib.v"
+    },
+    {
+      "id": "COQ-022",
+      "repo": "MudroadWhite/Neo-Principia",
+      "file": "ch13.v",
+      "path": "pm/ch13.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ch13.v"
+    },
+    {
+      "id": "COQ-023",
+      "repo": "vladoovtcharov/Software-Foundations-Solutions",
+      "file": "Gen.v",
+      "path": "Gen.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Gen.v"
+    },
+    {
+      "id": "COQ-024",
+      "repo": "vladoovtcharov/Software-Foundations-Solutions",
+      "file": "Rel.v",
+      "path": "Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-025",
+      "repo": "geohot/coq-hardy",
+      "file": "top.v",
+      "path": "flt/top.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — top.v"
+    },
+    {
+      "id": "COQ-026",
+      "repo": "vladoovtcharov/Software-Foundations-Solutions",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-027",
+      "repo": "snu-sf-class/sf201802",
+      "file": "Poly.v",
+      "path": "lf/Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-028",
+      "repo": "MarisaKirisame/Coq_code",
+      "file": "MIU.v",
+      "path": "MIU.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MIU.v"
+    },
+    {
+      "id": "COQ-029",
+      "repo": "MarisaKirisame/Coq_code",
+      "file": "LL.v",
+      "path": "LL.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — LL.v"
+    },
+    {
+      "id": "COQ-030",
+      "repo": "snu-sf-class/pl201602",
+      "file": "Sub.v",
+      "path": "sf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-031",
+      "repo": "DmxLarchey/Introduction-to-Coq",
+      "file": "lab2.v",
+      "path": "lab2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lab2.v"
+    },
+    {
+      "id": "COQ-032",
+      "repo": "gares/math-comp-school-2022",
+      "file": "lesson6.v",
+      "path": "lesson6.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lesson6.v"
+    },
+    {
+      "id": "COQ-033",
+      "repo": "andrejbauer/lvr-coq",
+      "file": "tipi.v",
+      "path": "tipi.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — tipi.v"
+    },
+    {
+      "id": "COQ-034",
+      "repo": "snu-sf-class/sf201802",
+      "file": "final.v",
+      "path": "final.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — final.v"
+    },
+    {
+      "id": "COQ-035",
+      "repo": "snu-sf-class/pl201602",
+      "file": "Imp.v",
+      "path": "sf/Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-036",
+      "repo": "andrejbauer/lvr-coq",
+      "file": "merge.v",
+      "path": "merge.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — merge.v"
+    },
+    {
+      "id": "COQ-037",
+      "repo": "ku-sldg/copland-avm",
+      "file": "BS.v",
+      "path": "src/BS.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — BS.v"
+    },
+    {
+      "id": "COQ-038",
+      "repo": "neshkeev/Logical-Foundations",
+      "file": "Rel.v",
+      "path": "Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-039",
+      "repo": "neshkeev/Logical-Foundations",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-040",
+      "repo": "wllqwzx/seplogic",
+      "file": "util.v",
+      "path": "util.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — util.v"
+    },
+    {
+      "id": "COQ-041",
+      "repo": "jdoughertyii/hott-exercises",
+      "file": "Ch08.v",
+      "path": "Ch08.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Ch08.v"
+    },
+    {
+      "id": "COQ-042",
+      "repo": "snu-sf-class/pl201602",
+      "file": "mid.v",
+      "path": "mid.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — mid.v"
+    },
+    {
+      "id": "COQ-043",
+      "repo": "tchajed/goedel-t",
+      "file": "Reflect.v",
+      "path": "Reflect.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Reflect.v"
+    },
+    {
+      "id": "COQ-044",
+      "repo": "fabriceleal/Software-Foundations-Solutions",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-045",
+      "repo": "snu-sf-class/pl2016",
+      "file": "Sub.v",
+      "path": "sf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-046",
+      "repo": "xuanruiqi/commalg",
+      "file": "local.v",
+      "path": "local.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — local.v"
+    },
+    {
+      "id": "COQ-047",
+      "repo": "snu-sf-class/sf201802",
+      "file": "Imp.v",
+      "path": "lf/Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-048",
+      "repo": "tymmym/software-foundations",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-049",
+      "repo": "QuickChick/IFC",
+      "file": "Utils.v",
+      "path": "Utils.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Utils.v"
+    },
+    {
+      "id": "COQ-050",
+      "repo": "snu-sf-class/sf201802",
+      "file": "mid.v",
+      "path": "mid.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — mid.v"
+    },
+    {
+      "id": "COQ-051",
+      "repo": "QuickChick/IFC",
+      "file": "Memory.v",
+      "path": "Memory.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Memory.v"
+    },
+    {
+      "id": "COQ-052",
+      "repo": "meduzik/software-foundations-ru",
+      "file": "Maps.v",
+      "path": "lf/Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-053",
+      "repo": "nagaet/Garrigue-lecture-2018_AW",
+      "file": "coq2.v",
+      "path": "coq2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — coq2.v"
+    },
+    {
+      "id": "COQ-054",
+      "repo": "readablesystems/cs260r-17",
+      "file": "sep.v",
+      "path": "sep.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — sep.v"
+    },
+    {
+      "id": "COQ-055",
+      "repo": "readablesystems/cs260r-17",
+      "file": "l06.v",
+      "path": "l06.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — l06.v"
+    },
+    {
+      "id": "COQ-056",
+      "repo": "readablesystems/cs260r-17",
+      "file": "l14.v",
+      "path": "l14.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — l14.v"
+    },
+    {
+      "id": "COQ-057",
+      "repo": "arthur-adjedj/LF",
+      "file": "Rel.v",
+      "path": "Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-058",
+      "repo": "readablesystems/cs260r-17",
+      "file": "l05.v",
+      "path": "l05.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — l05.v"
+    },
+    {
+      "id": "COQ-059",
+      "repo": "Zdancewic/oplss2024",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-060",
+      "repo": "ela2342/pdfparser",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-061",
+      "repo": "armoredsoftware/formalModels",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-062",
+      "repo": "wangpengmit/6887psets",
+      "file": "Lab13.v",
+      "path": "Lab13.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab13.v"
+    },
+    {
+      "id": "COQ-063",
+      "repo": "DavidDeharbe/sf-pt_br",
+      "file": "Rel.v",
+      "path": "Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-064",
+      "repo": "gstew5/cage",
+      "file": "lp.v",
+      "path": "lp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lp.v"
+    },
+    {
+      "id": "COQ-065",
+      "repo": "mit-plv/Fiat_matrix",
+      "file": "Kalman.v",
+      "path": "Kalman.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Kalman.v"
+    },
+    {
+      "id": "COQ-066",
+      "repo": "ku-sldg/dependent-crypto",
+      "file": "Signing.v",
+      "path": "Signing.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Signing.v"
+    },
+    {
+      "id": "COQ-067",
+      "repo": "DavidDeharbe/sf-pt_br",
+      "file": "Cola.v",
+      "path": "Cola.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Cola.v"
+    },
+    {
+      "id": "COQ-068",
+      "repo": "tomprince/rippling",
+      "file": "demo.v",
+      "path": "demo.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — demo.v"
+    },
+    {
+      "id": "COQ-069",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q5.v",
+      "path": "coq/Q5.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q5.v"
+    },
+    {
+      "id": "COQ-070",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q4.v",
+      "path": "coq/Q4.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q4.v"
+    },
+    {
+      "id": "COQ-071",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q3.v",
+      "path": "coq/Q3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q3.v"
+    },
+    {
+      "id": "COQ-072",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q1.v",
+      "path": "coq/Q1.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q1.v"
+    },
+    {
+      "id": "COQ-073",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q2.v",
+      "path": "coq/Q2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q2.v"
+    },
+    {
+      "id": "COQ-074",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q9.v",
+      "path": "coq/Q9.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q9.v"
+    },
+    {
+      "id": "COQ-075",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q6.v",
+      "path": "coq/Q6.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q6.v"
+    },
+    {
+      "id": "COQ-076",
+      "repo": "arthur-adjedj/LF",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-077",
+      "repo": "takanuva/cps",
+      "file": "Sigma.v",
+      "path": "Sigma.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sigma.v"
+    },
+    {
+      "id": "COQ-078",
+      "repo": "wangpengmit/6887psets",
+      "file": "Lab3.v",
+      "path": "Lab3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab3.v"
+    },
+    {
+      "id": "COQ-079",
+      "repo": "wangpengmit/6887psets",
+      "file": "Lab8.v",
+      "path": "Lab8.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab8.v"
+    },
+    {
+      "id": "COQ-080",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q33.v",
+      "path": "coq/Q33.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q33.v"
+    },
+    {
+      "id": "COQ-081",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q98.v",
+      "path": "coq/Q98.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q98.v"
+    },
+    {
+      "id": "COQ-082",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q52.v",
+      "path": "coq/Q52.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q52.v"
+    },
+    {
+      "id": "COQ-083",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q11.v",
+      "path": "coq/Q11.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q11.v"
+    },
+    {
+      "id": "COQ-084",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q62.v",
+      "path": "coq/Q62.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q62.v"
+    },
+    {
+      "id": "COQ-085",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q19.v",
+      "path": "coq/Q19.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q19.v"
+    },
+    {
+      "id": "COQ-086",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q99.v",
+      "path": "coq/Q99.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q99.v"
+    },
+    {
+      "id": "COQ-087",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q23.v",
+      "path": "coq/Q23.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q23.v"
+    },
+    {
+      "id": "COQ-088",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q16.v",
+      "path": "coq/Q16.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q16.v"
+    },
+    {
+      "id": "COQ-089",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q66.v",
+      "path": "coq/Q66.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q66.v"
+    },
+    {
+      "id": "COQ-090",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q75.v",
+      "path": "coq/Q75.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q75.v"
+    },
+    {
+      "id": "COQ-091",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q44.v",
+      "path": "coq/Q44.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q44.v"
+    },
+    {
+      "id": "COQ-092",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q40.v",
+      "path": "coq/Q40.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q40.v"
+    },
+    {
+      "id": "COQ-093",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q27.v",
+      "path": "coq/Q27.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q27.v"
+    },
+    {
+      "id": "COQ-094",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q84.v",
+      "path": "coq/Q84.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q84.v"
+    },
+    {
+      "id": "COQ-095",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q45.v",
+      "path": "coq/Q45.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q45.v"
+    },
+    {
+      "id": "COQ-096",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q24.v",
+      "path": "coq/Q24.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q24.v"
+    },
+    {
+      "id": "COQ-097",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q38.v",
+      "path": "coq/Q38.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q38.v"
+    },
+    {
+      "id": "COQ-098",
+      "repo": "wangpengmit/6887psets",
+      "file": "Lab4.v",
+      "path": "Lab4.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab4.v"
+    },
+    {
+      "id": "COQ-099",
+      "repo": "tlively/BrainCoqulus",
+      "file": "bf.v",
+      "path": "bf.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — bf.v"
+    },
+    {
+      "id": "COQ-100",
+      "repo": "CoqHott/model-structures-Coq",
+      "file": "MyTacs.v",
+      "path": "MyTacs.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MyTacs.v"
+    },
+    {
+      "id": "COQ-101",
+      "repo": "kayhide/sfja",
+      "file": "Gen_J.v",
+      "path": "Gen_J.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Gen_J.v"
+    },
+    {
+      "id": "COQ-102",
+      "repo": "LenaAn/deGrey_proofs",
+      "file": "ADT.v",
+      "path": "vfa/ADT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ADT.v"
+    },
+    {
+      "id": "COQ-103",
+      "repo": "Miller-kk/software-foundations",
+      "file": "ADT.v",
+      "path": "vfa/ADT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ADT.v"
+    },
+    {
+      "id": "COQ-104",
+      "repo": "linusboyle/sf",
+      "file": "ADT.v",
+      "path": "vfa/ADT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ADT.v"
+    },
+    {
+      "id": "COQ-105",
+      "repo": "mit-frap/spring16",
+      "file": "Lab11.v",
+      "path": "Lab11.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lab11.v"
+    },
+    {
+      "id": "COQ-106",
+      "repo": "rabimba/coq",
+      "file": "Hoare.v",
+      "path": "Hoare.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare.v"
+    },
+    {
+      "id": "COQ-107",
+      "repo": "samwgoldman/sf",
+      "file": "Hoare.v",
+      "path": "Hoare.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare.v"
+    },
+    {
+      "id": "COQ-108",
+      "repo": "julmue/Software-Foundations",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-109",
+      "repo": "joshcough/software-foundations",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-110",
+      "repo": "vollmerm/sf-exercises",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-111",
+      "repo": "michaelsproul/sf-progress",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-112",
+      "repo": "altmattr/software_foundations",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-113",
+      "repo": "reixn/software-foundations",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-114",
+      "repo": "superestos/Software-Foundation",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-115",
+      "repo": "rebcabin/software-foundations",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-116",
+      "repo": "UCSC-CSE-210A-students/spr25-PLF",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-117",
+      "repo": "Miller-kk/software-foundations",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-118",
+      "repo": "anton-trunov/ssreflect-mathcomp-talk-moscow-2019",
+      "file": "demo.v",
+      "path": "demo.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — demo.v"
+    },
+    {
+      "id": "COQ-119",
+      "repo": "DavidDeharbe/sf-pt_br",
+      "file": "Logic.v",
+      "path": "Logic.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Logic.v"
+    },
+    {
+      "id": "COQ-120",
+      "repo": "OUPL/MLCert",
+      "file": "mdp.v",
+      "path": "mdp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — mdp.v"
+    },
+    {
+      "id": "COQ-121",
+      "repo": "dboulytchev/coq-supplementary",
+      "file": "Id.v",
+      "path": "src/Id.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Id.v"
+    },
+    {
+      "id": "COQ-122",
+      "repo": "tomprince/rippling",
+      "file": "tools.v",
+      "path": "tools.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — tools.v"
+    },
+    {
+      "id": "COQ-123",
+      "repo": "MudroadWhite/Neo-Principia",
+      "file": "ch11.v",
+      "path": "pm/ch11.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ch11.v"
+    },
+    {
+      "id": "COQ-124",
+      "repo": "jamshed/Formal-Verification-of-Bubble-Sort",
+      "file": "Sort.v",
+      "path": "Sort.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sort.v"
+    },
+    {
+      "id": "COQ-125",
+      "repo": "mark-koch/firstorder-proof-mode",
+      "file": "DemoZF.v",
+      "path": "DemoZF.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — DemoZF.v"
+    },
+    {
+      "id": "COQ-126",
+      "repo": "spgroup/theory-pl-refinement-coq",
+      "file": "maps.v",
+      "path": "maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — maps.v"
+    },
+    {
+      "id": "COQ-127",
+      "repo": "paulzfm/coq-tunight",
+      "file": "FP.v",
+      "path": "FP.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — FP.v"
+    },
+    {
+      "id": "COQ-128",
+      "repo": "paigenorth/mastermath-hott-2026",
+      "file": "hw_3.v",
+      "path": "hw_3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — hw_3.v"
+    },
+    {
+      "id": "COQ-129",
+      "repo": "ceez/coq-vfa",
+      "file": "Binom.v",
+      "path": "Binom.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Binom.v"
+    },
+    {
+      "id": "COQ-130",
+      "repo": "ps-tuebingen-courses/itp-2018-assignment-9",
+      "file": "GADTs.v",
+      "path": "GADTs.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — GADTs.v"
+    },
+    {
+      "id": "COQ-131",
+      "repo": "antferdom/logic",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-132",
+      "repo": "larpon/puzzle_vibes",
+      "file": "app.v",
+      "path": "app.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — app.v"
+    },
+    {
+      "id": "COQ-133",
+      "repo": "neshkeev/Logical-Foundations",
+      "file": "IndProp.v",
+      "path": "IndProp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — IndProp.v"
+    },
+    {
+      "id": "COQ-134",
+      "repo": "sdemos/type-inference",
+      "file": "stlc.v",
+      "path": "stlc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — stlc.v"
+    },
+    {
+      "id": "COQ-135",
+      "repo": "Redwane-stdy/CoqConwayKleeneAlgebra",
+      "file": "Class.v",
+      "path": "Class.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Class.v"
+    },
+    {
+      "id": "COQ-136",
+      "repo": "Joaquin58/logicaPractica11",
+      "file": "Intro.v",
+      "path": "Intro.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Intro.v"
+    },
+    {
+      "id": "COQ-137",
+      "repo": "arthuraa/cufp-2015-tutorial",
+      "file": "lists.v",
+      "path": "lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lists.v"
+    },
+    {
+      "id": "COQ-138",
+      "repo": "beta-ziliani/sf",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-139",
+      "repo": "MikeMKH/software-foundations-volume1-logic",
+      "file": "logic.v",
+      "path": "logic.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — logic.v"
+    },
+    {
+      "id": "COQ-140",
+      "repo": "kolya-vasiliev/logical-foundations-2018",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-141",
+      "repo": "mark-koch/firstorder-proof-mode",
+      "file": "DemoPA.v",
+      "path": "DemoPA.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — DemoPA.v"
+    },
+    {
+      "id": "COQ-142",
+      "repo": "kolya-vasiliev/verified-functional-algorithms-2019",
+      "file": "Color.v",
+      "path": "Color.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Color.v"
+    },
+    {
+      "id": "COQ-143",
+      "repo": "yijunc/FunctionalProgramming",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-144",
+      "repo": "GwenTinho/automata-formalization",
+      "file": "finSet.v",
+      "path": "finSet.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — finSet.v"
+    },
+    {
+      "id": "COQ-145",
+      "repo": "npe9/sf",
+      "file": "Lists.v",
+      "path": "Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-146",
+      "repo": "ChaseWhite3/linear-logic",
+      "file": "basic.v",
+      "path": "basic.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — basic.v"
+    },
+    {
+      "id": "COQ-147",
+      "repo": "PottierLoic/cocoricoq",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-148",
+      "repo": "artemmukhin/LambdaCalculusCoq",
+      "file": "AlphaEq.v",
+      "path": "AlphaEq.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — AlphaEq.v"
+    },
+    {
+      "id": "COQ-149",
+      "repo": "nandor/llir-semantics",
+      "file": "Block.v",
+      "path": "Block.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Block.v"
+    },
+    {
+      "id": "COQ-150",
+      "repo": "sunghwanl/software-foundations",
+      "file": "Lists.v",
+      "path": "Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-151",
+      "repo": "plum-umd/cmsc631-hws",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-152",
+      "repo": "leo-leesco/prfa",
+      "file": "tp3.v",
+      "path": "tp3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — tp3.v"
+    },
+    {
+      "id": "COQ-153",
+      "repo": "SugarSBN/Separation-Logic-Foundation",
+      "file": "Affine.v",
+      "path": "Affine.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Affine.v"
+    },
+    {
+      "id": "COQ-154",
+      "repo": "bcip/verif-chord",
+      "file": "Node.v",
+      "path": "Node.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Node.v"
+    },
+    {
+      "id": "COQ-155",
+      "repo": "BlastWind/annotated-logical-foundations",
+      "file": "Tactics.v",
+      "path": "Tactics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Tactics.v"
+    },
+    {
+      "id": "COQ-156",
+      "repo": "JeremyRozier/coq-paving",
+      "file": "TutoCoq.v",
+      "path": "TutoCoq.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — TutoCoq.v"
+    },
+    {
+      "id": "COQ-157",
+      "repo": "leo-leesco/prfa",
+      "file": "tp4.v",
+      "path": "tp4.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — tp4.v"
+    },
+    {
+      "id": "COQ-158",
+      "repo": "chrisswhitneyy/MAT320-Foundations-of-Mathamatics",
+      "file": "HW2.v",
+      "path": "HW2/HW2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — HW2.v"
+    },
+    {
+      "id": "COQ-159",
+      "repo": "zonghao426/softwarefoundations-excercises",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-160",
+      "repo": "Meowcolm024/plf",
+      "file": "Sub.v",
+      "path": "Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-161",
+      "repo": "ku-sldg/CTL",
+      "file": "Wf.v",
+      "path": "Glib/Wf.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Wf.v"
+    },
+    {
+      "id": "COQ-162",
+      "repo": "Meowcolm024/plf",
+      "file": "Equiv.v",
+      "path": "Equiv.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Equiv.v"
+    },
+    {
+      "id": "COQ-163",
+      "repo": "pBhandari05/ProgrammingProofs",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-164",
+      "repo": "folone/sf-building",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-165",
+      "repo": "gobaldia/logical-foundations",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-166",
+      "repo": "incipit0/coq-lf",
+      "file": "Imp.v",
+      "path": "Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-167",
+      "repo": "ChangyangZen/cse210A-PLF",
+      "file": "Hoare2.v",
+      "path": "Hoare2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare2.v"
+    },
+    {
+      "id": "COQ-168",
+      "repo": "khibino/sfja-code",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-169",
+      "repo": "mhmdjavad-cs/coq-homeworks2",
+      "file": "Norm.v",
+      "path": "Norm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm.v"
+    },
+    {
+      "id": "COQ-170",
+      "repo": "gjwj5505/Software-Foundations-Volume-2-Programming-Language-Foundations",
+      "file": "Norm.v",
+      "path": "Norm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm.v"
+    },
+    {
+      "id": "COQ-171",
+      "repo": "hanw/sf",
+      "file": "Norm.v",
+      "path": "Norm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm.v"
+    },
+    {
+      "id": "COQ-172",
+      "repo": "shengjiazhang/code",
+      "file": "Or.v",
+      "path": "OR/Or.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Or.v"
+    },
+    {
+      "id": "COQ-173",
+      "repo": "tushar-dadlani/theory",
+      "file": "GHS.v",
+      "path": "GHS.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — GHS.v"
+    },
+    {
+      "id": "COQ-174",
+      "repo": "panyuewh/lfcoq",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-175",
+      "repo": "yezhuoyang/SFWebsite",
+      "file": "Imp.v",
+      "path": "plf/Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-176",
+      "repo": "donghyunismyname/coq",
+      "file": "prime.v",
+      "path": "prime.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — prime.v"
+    },
+    {
+      "id": "COQ-177",
+      "repo": "pzzp/sf",
+      "file": "Equiv.v",
+      "path": "Equiv.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Equiv.v"
+    },
+    {
+      "id": "COQ-178",
+      "repo": "Blaisorblade/Software-Foundations",
+      "file": "Stlc.v",
+      "path": "Stlc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Stlc.v"
+    },
+    {
+      "id": "COQ-179",
+      "repo": "dewren99/CMPT489-PART2",
+      "file": "Stlc.v",
+      "path": "Stlc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Stlc.v"
+    },
+    {
+      "id": "COQ-180",
+      "repo": "YeongjinOh/Programming-language",
+      "file": "Lists.v",
+      "path": "05/Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-181",
+      "repo": "kolya-vasiliev/software-foundations",
+      "file": "Equiv.v",
+      "path": "Equiv.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Equiv.v"
+    },
+    {
+      "id": "COQ-182",
+      "repo": "amfloyd/CIS500",
+      "file": "Maps.v",
+      "path": "Maps.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Maps.v"
+    },
+    {
+      "id": "COQ-183",
+      "repo": "segevem/430-compiler-verification",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-184",
+      "repo": "isergeyam/programming-language-foundations",
+      "file": "Norm.v",
+      "path": "Norm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm.v"
+    },
+    {
+      "id": "COQ-185",
+      "repo": "kstats/SoftwareFoundations",
+      "file": "Stlc.v",
+      "path": "Stlc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Stlc.v"
+    },
+    {
+      "id": "COQ-186",
+      "repo": "vyorkin/logical_foundations",
+      "file": "IndProp.v",
+      "path": "IndProp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — IndProp.v"
+    },
+    {
+      "id": "COQ-187",
+      "repo": "ChangyangZen/cse210A-LF",
+      "file": "Lists.v",
+      "path": "Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-188",
+      "repo": "liqing-yang/software-foundations",
+      "file": "Imp.v",
+      "path": "PLF/Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-189",
+      "repo": "Kenilpatel057/Intro-to-Theory-of-computation",
+      "file": "hw1.v",
+      "path": "hw1.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — hw1.v"
+    },
+    {
+      "id": "COQ-190",
+      "repo": "karbyshev/solvers",
+      "file": "RLDEi.v",
+      "path": "RLDEi.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — RLDEi.v"
+    },
+    {
+      "id": "COQ-191",
+      "repo": "MountainSeal/coq_study",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-192",
+      "repo": "ricardomaps/logical-foundations",
+      "file": "Tactics.v",
+      "path": "Tactics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Tactics.v"
+    },
+    {
+      "id": "COQ-193",
+      "repo": "YiwenLiebesleid/Logic-in-Computer-Science",
+      "file": "Imp.v",
+      "path": "Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-194",
+      "repo": "roG0d/Logics",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-195",
+      "repo": "cerrarlosojos/secf",
+      "file": "Imp.v",
+      "path": "Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-196",
+      "repo": "Yan2u/parallel",
+      "file": "Proofs.v",
+      "path": "Proofs.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Proofs.v"
+    },
+    {
+      "id": "COQ-197",
+      "repo": "deeglaze/concrete-summaries",
+      "file": "joins.v",
+      "path": "joins.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — joins.v"
+    },
+    {
+      "id": "COQ-198",
+      "repo": "YeongjinOh/Programming-language",
+      "file": "Imp.v",
+      "path": "10/Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-199",
+      "repo": "ysyshtc/cis500",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-200",
+      "repo": "alberdingk-thijm/mrwolf-proofs",
+      "file": "Infer.v",
+      "path": "Infer.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Infer.v"
+    },
+    {
+      "id": "COQ-201",
+      "repo": "sean-bennett112/Software-Foundations",
+      "file": "Hoare.v",
+      "path": "Hoare.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare.v"
+    },
+    {
+      "id": "COQ-202",
+      "repo": "hkrsnd/coq",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-203",
+      "repo": "sean-bennett112/Software-Foundations",
+      "file": "Gen.v",
+      "path": "Gen.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Gen.v"
+    },
+    {
+      "id": "COQ-204",
+      "repo": "paniag/coq-sf-4.0",
+      "file": "Lists.v",
+      "path": "Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-205",
+      "repo": "ankitku/SoftwareFoundationsExercises",
+      "file": "Lists.v",
+      "path": "Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-206",
+      "repo": "ucsd-cse230-loris/homework-2",
+      "file": "Poly.v",
+      "path": "Poly.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Poly.v"
+    },
+    {
+      "id": "COQ-207",
+      "repo": "gotoki-no-joe/sfja31",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-208",
+      "repo": "UCSC-CSE-210A-students/spr25-PLF",
+      "file": "Hoare2.v",
+      "path": "Hoare2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Hoare2.v"
+    },
+    {
+      "id": "COQ-209",
+      "repo": "sunghwanl/software-foundations",
+      "file": "Norm.v",
+      "path": "Norm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Norm.v"
+    },
+    {
+      "id": "COQ-210",
+      "repo": "Rocq-zh/SF-zh",
+      "file": "Color.v",
+      "path": "next/vfa-current/Color.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Color.v"
+    },
+    {
+      "id": "COQ-211",
+      "repo": "verifast/verifast",
+      "file": "Values.v",
+      "path": "bin/rust/rocq/Values.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Values.v"
+    },
+    {
+      "id": "COQ-212",
+      "repo": "PrincetonUniversity/VST",
+      "file": "modular_queue.v",
+      "path": "progs/modular_queue.v",
+      "family": "systems",
+      "prover": "coq",
+      "note": "Verified Software Toolchain — modular_queue.v"
+    },
+    {
+      "id": "COQ-213",
+      "repo": "formal-land/rocq-of-rust",
+      "file": "bool.v",
+      "path": "RocqOfRust/core/bool.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — bool.v"
+    },
+    {
+      "id": "COQ-214",
+      "repo": "mit-pdos/perennial",
+      "file": "io.v",
+      "path": "new/proof/io.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — io.v"
+    },
+    {
+      "id": "COQ-215",
+      "repo": "HoTT/book",
+      "file": "Reading_HoTT_in_Coq.v",
+      "path": "coq_introduction/Reading_HoTT_in_Coq.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Reading_HoTT_in_Coq.v"
+    },
+    {
+      "id": "COQ-216",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1999_a6.v",
+      "path": "coq/src/putnam_1999_a6.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — putnam_1999_a6.v"
+    },
+    {
+      "id": "COQ-217",
+      "repo": "UniMath/UniMath",
+      "file": "STLC_actegorical.v",
+      "path": "UniMath/SubstitutionSystems/STLC_actegorical.v",
+      "family": "univalent_math",
+      "prover": "coq",
+      "note": "UniMath univalent foundations — STLC_actegorical.v"
+    },
+    {
+      "id": "COQ-218",
+      "repo": "rocq-community/fav-ssr",
+      "file": "priority.v",
+      "path": "src/priority.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — priority.v"
+    },
+    {
+      "id": "COQ-219",
+      "repo": "CertiGraph/CertiGraph",
+      "file": "comparable.v",
+      "path": "floyd_ext/comparable.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — comparable.v"
+    },
+    {
+      "id": "COQ-220",
+      "repo": "snu-sf-class/pl201602",
+      "file": "D.v",
+      "path": "assignments/09/D.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — D.v"
+    },
+    {
+      "id": "COQ-221",
+      "repo": "rocq-prover/coq.github.io",
+      "file": "exercises-3.v",
+      "path": "files/coq-itp-2015/exercises-3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — exercises-3.v"
+    },
+    {
+      "id": "COQ-222",
+      "repo": "aa755/ROSCoq",
+      "file": "AngleMS.v",
+      "path": "src/AngleMS.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — AngleMS.v"
+    },
+    {
+      "id": "COQ-223",
+      "repo": "jwiegley/notes",
+      "file": "prog.v",
+      "path": "rocq/prog.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — prog.v"
+    },
+    {
+      "id": "COQ-224",
+      "repo": "cx-home/cx",
+      "file": "const_parser.v",
+      "path": "vcx/cx/const_parser.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — const_parser.v"
+    },
+    {
+      "id": "COQ-225",
+      "repo": "Javran/Thinking-dumps",
+      "file": "MoreProp.v",
+      "path": "software-foundations/old/MoreProp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MoreProp.v"
+    },
+    {
+      "id": "COQ-226",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q250.v",
+      "path": "coq/Q250.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Q250.v"
+    },
+    {
+      "id": "COQ-227",
+      "repo": "peterthiemann/LJGS",
+      "file": "SfLib.v",
+      "path": "SfLib.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — SfLib.v"
+    },
+    {
+      "id": "COQ-228",
+      "repo": "wkolowski/Typonomikon",
+      "file": "TerminationChecking.v",
+      "path": "code/TerminationChecking.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — TerminationChecking.v"
+    },
+    {
+      "id": "COQ-229",
+      "repo": "vrahli/Velisarios",
+      "file": "PBFTsim.v",
+      "path": "runtime/PBFTsim.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — PBFTsim.v"
+    },
+    {
+      "id": "COQ-230",
+      "repo": "mietek/sf",
+      "file": "Binom.v",
+      "path": "src/vfa/Binom.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Binom.v"
+    },
+    {
+      "id": "COQ-231",
+      "repo": "verified-network-toolchain/petr4",
+      "file": "InterpreterSafe.v",
+      "path": "coq/lib/P4light/Semantics/InterpreterSafe.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — InterpreterSafe.v"
+    },
+    {
+      "id": "COQ-232",
+      "repo": "mit-frap/spring23",
+      "file": "Pset9.v",
+      "path": "pset09_HoareLogic/Pset9.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Pset9.v"
+    },
+    {
+      "id": "COQ-233",
+      "repo": "egolf-cs/Verbatim",
+      "file": "concrete_memo1.v",
+      "path": "Verbatim/memo/concrete_memo1.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — concrete_memo1.v"
+    },
+    {
+      "id": "COQ-234",
+      "repo": "DeepSpec/dsss17",
+      "file": "ADT.v",
+      "path": "SF/vfa/ADT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ADT.v"
+    },
+    {
+      "id": "COQ-235",
+      "repo": "fplaunchpad/cs6225_s25_iitm",
+      "file": "Pset05.v",
+      "path": "assignments/pset05_bst/Pset05.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Pset05.v"
+    },
+    {
+      "id": "COQ-236",
+      "repo": "QDelta/LLM-for-FSCQ",
+      "file": "Lock.v",
+      "path": "generated/gpt_4o/Lock.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lock.v"
+    },
+    {
+      "id": "COQ-237",
+      "repo": "courses-at-nju-by-hfwei/problem-solving-class-coq",
+      "file": "Lists.v",
+      "path": "2019-1-coq/Lists.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Lists.v"
+    },
+    {
+      "id": "COQ-238",
+      "repo": "vladoovtcharov/Software-Foundations-Solutions",
+      "file": "Basics.v",
+      "path": "Basics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Basics.v"
+    },
+    {
+      "id": "COQ-239",
+      "repo": "DeepSpec/sf",
+      "file": "StaticIFC.v",
+      "path": "secf-current/StaticIFC.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — StaticIFC.v"
+    },
+    {
+      "id": "COQ-240",
+      "repo": "kendroe/CoqRewriter",
+      "file": "tri.v",
+      "path": "examples/directives/tri.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — tri.v"
+    },
+    {
+      "id": "COQ-241",
+      "repo": "scidonia/rocq-piler",
+      "file": "indexed_ind.v",
+      "path": "benchmarks/incomplete/indexed_ind.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — indexed_ind.v"
+    },
+    {
+      "id": "COQ-242",
+      "repo": "QDelta/LLM-for-FSCQ",
+      "file": "DirTreePath.v",
+      "path": "generated/gpt_4o/DirTreePath.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — DirTreePath.v"
+    },
+    {
+      "id": "COQ-243",
+      "repo": "Veridise/Coda",
+      "file": "Repr.v",
+      "path": "BigInt/src/Repr.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Repr.v"
+    },
+    {
+      "id": "COQ-244",
+      "repo": "cogumbreiro/habanero-coq",
+      "file": "ReverseSemaphore.v",
+      "path": "src/ReverseSemaphore.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ReverseSemaphore.v"
+    },
+    {
+      "id": "COQ-245",
+      "repo": "fritzo/hstar",
+      "file": "Points.v",
+      "path": "sandbox/Points.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Points.v"
+    },
+    {
+      "id": "COQ-246",
+      "repo": "LLM4Rocq/miniF2F-rocq",
+      "file": "algebra_sqineq_2unitcircatblt1.v",
+      "path": "valid/algebra_sqineq_2unitcircatblt1.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — algebra_sqineq_2unitcircatblt1.v"
+    },
+    {
+      "id": "COQ-247",
+      "repo": "ConorReynolds/coq-institutions",
+      "file": "TermMonad.v",
+      "path": "theories/Experimental/TermMonad.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — TermMonad.v"
+    },
+    {
+      "id": "COQ-248",
+      "repo": "anton-trunov/coq-lecture-notes",
+      "file": "lecture11.v",
+      "path": "code/lecture11.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lecture11.v"
+    },
+    {
+      "id": "COQ-249",
+      "repo": "FreeProving/free-compiler",
+      "file": "Queue.v",
+      "path": "example/Queue/Queue.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Queue.v"
+    },
+    {
+      "id": "COQ-250",
+      "repo": "QinxiangCao/QualifiedCProgramming",
+      "file": "functional_queue_proof_auto.v",
+      "path": "SeparationLogic/examples/QCP_demos_LLM/functional_queue_proof_auto.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — functional_queue_proof_auto.v"
+    },
+    {
+      "id": "COQ-251",
+      "repo": "CohenCyril/lip-ssr-tuto",
+      "file": "exercise2_todo.v",
+      "path": "exercises/exercise2_todo.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — exercise2_todo.v"
+    },
+    {
+      "id": "COQ-252",
+      "repo": "Tuplanolla/dez",
+      "file": "Finite.v",
+      "path": "fowl/Is/Finite.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Finite.v"
+    },
+    {
+      "id": "COQ-253",
+      "repo": "DavidRichardson02/AquaFusion_Sonar_Vision_System_Phase_4",
+      "file": "sonar_filter.v",
+      "path": "AquaFusion_Sonar_Vision_System_Phase_4.srcs/sources_1/new/sonar_filter.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — sonar_filter.v"
+    },
+    {
+      "id": "COQ-254",
+      "repo": "cogumbreiro/cogumbreiro.github.io",
+      "file": "lecture05.v",
+      "path": "teaching/cs720/s22/lecture05.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — lecture05.v"
+    },
+    {
+      "id": "COQ-255",
+      "repo": "tyage/coq-practice",
+      "file": "Rel.v",
+      "path": "sf/Rel.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Rel.v"
+    },
+    {
+      "id": "COQ-256",
+      "repo": "qafny/qaskell",
+      "file": "MuQType.v",
+      "path": "coq/MuQType.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MuQType.v"
+    },
+    {
+      "id": "COQ-257",
+      "repo": "vrahli/NuprlInCoq",
+      "file": "per_props_pertype.v",
+      "path": "per/per_props_pertype.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — per_props_pertype.v"
+    },
+    {
+      "id": "COQ-258",
+      "repo": "logsem/iris-tutorial",
+      "file": "resource_algebra.v",
+      "path": "theories/resource_algebra.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — resource_algebra.v"
+    },
+    {
+      "id": "COQ-259",
+      "repo": "smtcoq/smtcoq",
+      "file": "DatabaseTrakt.v",
+      "path": "theories/tactics/preproc/DatabaseTrakt.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — DatabaseTrakt.v"
+    },
+    {
+      "id": "COQ-260",
+      "repo": "choukh/Baby-Set-Theory",
+      "file": "Ch1_5.v",
+      "path": "Example/Ch1_5.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Ch1_5.v"
+    },
+    {
+      "id": "COQ-261",
+      "repo": "marshall-lee/software_foundations",
+      "file": "Sub.v",
+      "path": "plf/Sub.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Sub.v"
+    },
+    {
+      "id": "COQ-262",
+      "repo": "discus-lang/iron",
+      "file": "Chargueraud.v",
+      "path": "done/Iron/Language/DelayedSimpleUS/Tactics/Chargueraud.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Chargueraud.v"
+    },
+    {
+      "id": "COQ-263",
+      "repo": "plclub/plclub-web",
+      "file": "CoqIntro.v",
+      "path": "old_site/oregon08/tutorial/CoqIntro.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — CoqIntro.v"
+    },
+    {
+      "id": "COQ-264",
+      "repo": "QDelta/LLM-for-FSCQ",
+      "file": "LogReplay.v",
+      "path": "generated/gpt_4o_mini_hint/LogReplay.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — LogReplay.v"
+    },
+    {
+      "id": "COQ-265",
+      "repo": "sethirus/The-Thiele-Machine",
+      "file": "VerilogSemantics.v",
+      "path": "coq/kami_hw/VerilogSemantics.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — VerilogSemantics.v"
+    },
+    {
+      "id": "COQ-266",
+      "repo": "QDelta/LLM-for-FSCQ",
+      "file": "MemLog.v",
+      "path": "generated/gemini_1.5_pro_128k/MemLog.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MemLog.v"
+    },
+    {
+      "id": "COQ-267",
+      "repo": "robbertkrebbers/corn",
+      "file": "Ranges.v",
+      "path": "broken/Ranges.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Ranges.v"
+    },
+    {
+      "id": "COQ-268",
+      "repo": "Arcadia-Y/CS2206-spring2025",
+      "file": "Assignment0221.v",
+      "path": "assignments/Assignment0221.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Assignment0221.v"
+    },
+    {
+      "id": "COQ-269",
+      "repo": "huskydoge/CS2612-Programming-Languages-and-Compilers",
+      "file": "InductiveType.v",
+      "path": "lecture10/code/pl/InductiveType.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — InductiveType.v"
+    },
+    {
+      "id": "COQ-270",
+      "repo": "LASER-UMASS/TacTok",
+      "file": "symexe_soundness.v",
+      "path": "coq_projects/VST/mc_reify/symexe_soundness.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — symexe_soundness.v"
+    },
+    {
+      "id": "COQ-271",
+      "repo": "QinxiangCao/QualifiedCProgramming",
+      "file": "OsDeleteNodeSortLink_proof_auto.v",
+      "path": "SeparationLogic/examples/Applications_human/LiteOS/OsDeleteNodeSortLink_proof_auto.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — OsDeleteNodeSortLink_proof_auto.v"
+    },
+    {
+      "id": "COQ-272",
+      "repo": "GavinMendelGleason/code",
+      "file": "Smallstep.v",
+      "path": "coq/BPierce/Smallstep.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Smallstep.v"
+    },
+    {
+      "id": "COQ-273",
+      "repo": "theorem-labs/lf-lean",
+      "file": "U_list__U_in__iso.v",
+      "path": "results/result-42/theories/Isomorphisms/U_list__U_in__iso.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — U_list__U_in__iso.v"
+    },
+    {
+      "id": "COQ-274",
+      "repo": "mstewartgallus/category-fun",
+      "file": "Spec.v",
+      "path": "theories/Functor/Spec.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Spec.v"
+    },
+    {
+      "id": "COQ-275",
+      "repo": "GaloisInc/heapster-formalization",
+      "file": "MemoryPerms.v",
+      "path": "src/MemoryPerms.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — MemoryPerms.v"
+    },
+    {
+      "id": "COQ-276",
+      "repo": "ClovisDyArx/verif_epita",
+      "file": "exam_blanc.v",
+      "path": "corrections/exam_blanc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — exam_blanc.v"
+    },
+    {
+      "id": "COQ-277",
+      "repo": "smrifaki/PutnamBench",
+      "file": "putnam_1996_a3.v",
+      "path": "coq/src/putnam_1996_a3.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — putnam_1996_a3.v"
+    },
+    {
+      "id": "COQ-278",
+      "repo": "gHashTag/t27",
+      "file": "Bounds_QuarkMasses.v",
+      "path": "proofs/trinity/Bounds_QuarkMasses.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Bounds_QuarkMasses.v"
+    },
+    {
+      "id": "COQ-279",
+      "repo": "CharlesCNorton/rime",
+      "file": "Omega.v",
+      "path": "experiments/kolmogorov-omega/Omega.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Omega.v"
+    },
+    {
+      "id": "COQ-280",
+      "repo": "xqyww123/NTP4VC",
+      "file": "wp2_TestSemantics_Ass42.v",
+      "path": "data/why3/pearl/WP_revisited/wp2_vcg/rocq/wp2_TestSemantics_Ass42.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — wp2_TestSemantics_Ass42.v"
+    },
+    {
+      "id": "COQ-281",
+      "repo": "Champitoad/cours-lfi-2026",
+      "file": "dm.v",
+      "path": "dm/dm.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — dm.v"
+    },
+    {
+      "id": "COQ-282",
+      "repo": "zhengpushi/FinMatrix",
+      "file": "RExtAtan2.v",
+      "path": "FinMatrix/CoqExt/RExt/RExtAtan2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — RExtAtan2.v"
+    },
+    {
+      "id": "COQ-283",
+      "repo": "tushar-dadlani/theory",
+      "file": "Evolution.v",
+      "path": "Evolution.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Evolution.v"
+    },
+    {
+      "id": "COQ-284",
+      "repo": "QinxiangCao/QualifiedCProgramming",
+      "file": "multiple_knapsack_proof_auto.v",
+      "path": "SeparationLogic/examples/LLM_bench/Algorithms/multiple_knapsack/multiple_knapsack_proof_auto.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — multiple_knapsack_proof_auto.v"
+    },
+    {
+      "id": "COQ-285",
+      "repo": "tlsomers/perennial",
+      "file": "replica_proof.v",
+      "path": "src/program_proof/single/replica_proof.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — replica_proof.v"
+    },
+    {
+      "id": "COQ-286",
+      "repo": "sanha/pl2015",
+      "file": "Stlc.v",
+      "path": "sf/Stlc.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Stlc.v"
+    },
+    {
+      "id": "COQ-287",
+      "repo": "mstewartgallus/category-fun",
+      "file": "Dis.v",
+      "path": "theories/Category/Dis.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Dis.v"
+    },
+    {
+      "id": "COQ-288",
+      "repo": "Meowcolm024/plf",
+      "file": "Imp.v",
+      "path": "Imp.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — Imp.v"
+    },
+    {
+      "id": "COQ-289",
+      "repo": "ensino-unb/PermEquiv",
+      "file": "PermEquiv.v",
+      "path": "PermEquiv.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — PermEquiv.v"
+    },
+    {
+      "id": "COQ-290",
+      "repo": "tlsomers/perennial",
+      "file": "store.v",
+      "path": "new/experiments/store.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — store.v"
+    },
+    {
+      "id": "COQ-291",
+      "repo": "thealgebraist/pipreplacement",
+      "file": "safety.v",
+      "path": "safety.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — safety.v"
+    },
+    {
+      "id": "COQ-292",
+      "repo": "LLM4Rocq/rocq-ml-toolbox",
+      "file": "putnam_1971_a2.v",
+      "path": "examples/putnam-agent/putnam/mathcomp/putnam_1971_a2.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — putnam_1971_a2.v"
+    },
+    {
+      "id": "COQ-293",
+      "repo": "LLM4Rocq/rocq-ml-toolbox",
+      "file": "putnam_2015_b5.v",
+      "path": "examples/putnam-agent/putnam/mathcomp/putnam_2015_b5.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — putnam_2015_b5.v"
+    },
+    {
+      "id": "COQ-294",
+      "repo": "Horsocrates/theory-of-systems-coq",
+      "file": "ProcessIVT.v",
+      "path": "src/process/ProcessIVT.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — ProcessIVT.v"
+    },
+    {
+      "id": "COQ-295",
+      "repo": "ana-brendel/dilemma-benchmarks",
+      "file": "goal7_by_plus_comm_4.v",
+      "path": "clam/atomic/goal7_by_plus_comm_4.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — goal7_by_plus_comm_4.v"
+    },
+    {
+      "id": "COQ-296",
+      "repo": "lean-dojo/ITPEval",
+      "file": "imo_1974_p5.v",
+      "path": "data/minif2f/proofs/rocq/valid/imo_1974_p5.v",
+      "family": "coq_misc",
+      "prover": "coq",
+      "note": "coq open proof — imo_1974_p5.v"
+    },
+    {
+      "id": "HOL-297",
+      "repo": "jrh13/hol-light",
+      "file": "thm.ml",
+      "path": "Proofrecording/diffs/thm.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — thm.ml"
+    },
+    {
+      "id": "HOL-298",
+      "repo": "jrh13/hol-light",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — fusion.ml"
+    },
+    {
+      "id": "HOL-299",
+      "repo": "flyspeck/flyspeck",
+      "file": "fusion.ml",
+      "path": "azure/hol-light-nat/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-300",
+      "repo": "gilith/hol-light",
+      "file": "thm.ml",
+      "path": "Proofrecording/diffs/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-301",
+      "repo": "vtu-dog/Proof-checker",
+      "file": "axioms.ml",
+      "path": "axioms.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — axioms.ml"
+    },
+    {
+      "id": "HOL-302",
+      "repo": "Deducteam/pog2why",
+      "file": "pogparser.ml",
+      "path": "pogparser.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — pogparser.ml"
+    },
+    {
+      "id": "HOL-303",
+      "repo": "gilith/hol-light",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-304",
+      "repo": "xrchz/hol-light",
+      "file": "thm.ml",
+      "path": "thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-305",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-306",
+      "repo": "xrchz/hol-light",
+      "file": "thm.ml",
+      "path": "Proofrecording/diffs/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-307",
+      "repo": "htzh/holnat",
+      "file": "fusion.ml",
+      "path": "hol/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-308",
+      "repo": "nyuichi/holzero",
+      "file": "wrap.ml",
+      "path": "src/wrap.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — wrap.ml"
+    },
+    {
+      "id": "HOL-309",
+      "repo": "xrchz/hol-light",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-310",
+      "repo": "sean-lamont/bait",
+      "file": "fusion.ml",
+      "path": "environments/HOList/hol-light/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-311",
+      "repo": "phlegmaticprogrammer/HipCam",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-312",
+      "repo": "aqjune/hol-light-web",
+      "file": "fusion.ml",
+      "path": "site/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-313",
+      "repo": "bord-o/heft",
+      "file": "kernel.ml",
+      "path": "lib/kernel.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — kernel.ml"
+    },
+    {
+      "id": "HOL-314",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "thm.ml",
+      "path": "benchmarks/hol-light/Proofrecording/diffs/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-315",
+      "repo": "phlegmaticprogrammer/HipCam",
+      "file": "fusion.ml",
+      "path": "hiproofs/mods/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-316",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "fusion.ml",
+      "path": "benchmarks/hol-light/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-317",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "mk_T.ml",
+      "path": "examples/hardware/hol88/mk_T.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_T.ml"
+    },
+    {
+      "id": "HOL-318",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "mk_cmos.ml",
+      "path": "examples/hardware/hol88/cmos/mk_cmos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_cmos.ml"
+    },
+    {
+      "id": "HOL-319",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "mos.ml",
+      "path": "examples/hardware/hol88/mos-count/mos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mos.ml"
+    },
+    {
+      "id": "HOL-320",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "values.ml",
+      "path": "examples/hardware/hol88/computer/values.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — values.ml"
+    },
+    {
+      "id": "HOL-321",
+      "repo": "aqjune/aqjune.github.io",
+      "file": "fusion.ml",
+      "path": "hol-light-web/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-322",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "thm.ml",
+      "path": "theorem-provers/candle/Proofrecording/diffs/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-323",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "fusion.ml",
+      "path": "theorem-provers/candle/fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-324",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "mk_nmos.ml",
+      "path": "examples/hardware/hol88/mk_nmos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_nmos.ml"
+    },
+    {
+      "id": "HOL-325",
+      "repo": "jrh13/hol-light",
+      "file": "class.ml",
+      "path": "class.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — class.ml"
+    },
+    {
+      "id": "HOL-326",
+      "repo": "jrh13/hol-light",
+      "file": "nums.ml",
+      "path": "nums.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — nums.ml"
+    },
+    {
+      "id": "HOL-327",
+      "repo": "jrh13/hol-light",
+      "file": "drule.ml",
+      "path": "drule.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — drule.ml"
+    },
+    {
+      "id": "HOL-328",
+      "repo": "jrh13/hol-light",
+      "file": "proofs.ml",
+      "path": "ProofTrace/proofs.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — proofs.ml"
+    },
+    {
+      "id": "HOL-329",
+      "repo": "jrh13/hol-light",
+      "file": "modelset.ml",
+      "path": "Model/modelset.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — modelset.ml"
+    },
+    {
+      "id": "HOL-330",
+      "repo": "jrh13/hol-light",
+      "file": "shells.ml",
+      "path": "Boyer_Moore/shells.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — shells.ml"
+    },
+    {
+      "id": "HOL-331",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "microcode.ml",
+      "path": "examples/hardware/hol88/computer/microcode.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — microcode.ml"
+    },
+    {
+      "id": "HOL-332",
+      "repo": "jrh13/hol-light",
+      "file": "tracer.ml",
+      "path": "TacticTrace/tracer.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — tracer.ml"
+    },
+    {
+      "id": "HOL-333",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "proof6.ml",
+      "path": "examples/hardware/hol88/computer/proof6.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proof6.ml"
+    },
+    {
+      "id": "HOL-334",
+      "repo": "jrh13/hol-light",
+      "file": "proofobjects_coq.ml",
+      "path": "Proofrecording/diffs/proofobjects_coq.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — proofobjects_coq.ml"
+    },
+    {
+      "id": "HOL-335",
+      "repo": "jrh13/hol-light",
+      "file": "readable.ml",
+      "path": "RichterHilbertAxiomGeometry/readable.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — readable.ml"
+    },
+    {
+      "id": "HOL-336",
+      "repo": "jrh13/hol-light",
+      "file": "HilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-337",
+      "repo": "jrh13/hol-light",
+      "file": "FontHilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-338",
+      "repo": "flyspeck/flyspeck",
+      "file": "class.ml",
+      "path": "azure/hol-light-nat/class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-339",
+      "repo": "flyspeck/flyspeck",
+      "file": "nums.ml",
+      "path": "azure/hol-light-nat/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-340",
+      "repo": "binghe/informatica-public",
+      "file": "counter.ml",
+      "path": "CCS2/CCS-Nesi/HML/counter.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — counter.ml"
+    },
+    {
+      "id": "HOL-341",
+      "repo": "flyspeck/flyspeck",
+      "file": "drule.ml",
+      "path": "azure/hol-light-nat/drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-342",
+      "repo": "Deducteam/Logipedia",
+      "file": "holstt.ml",
+      "path": "src/sttfa/holstt.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — holstt.ml"
+    },
+    {
+      "id": "HOL-343",
+      "repo": "hipsleek/hipsleek",
+      "file": "z3.ml",
+      "path": "common/z3.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — z3.ml"
+    },
+    {
+      "id": "HOL-344",
+      "repo": "Deducteam/hol2dk",
+      "file": "xnames.ml",
+      "path": "xnames.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — xnames.ml"
+    },
+    {
+      "id": "HOL-345",
+      "repo": "hipsleek/hipsleek",
+      "file": "z3.ml",
+      "path": "bef_indent/z3.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — z3.ml"
+    },
+    {
+      "id": "HOL-346",
+      "repo": "PFGimenez/poirot",
+      "file": "grammar.ml",
+      "path": "lib/grammar.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — grammar.ml"
+    },
+    {
+      "id": "HOL-347",
+      "repo": "hipsleek/hipsleek",
+      "file": "smtsolver.ml",
+      "path": "common/smtsolver.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — smtsolver.ml"
+    },
+    {
+      "id": "HOL-348",
+      "repo": "htzh/holnat",
+      "file": "accept.ml",
+      "path": "hol/accept.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — accept.ml"
+    },
+    {
+      "id": "HOL-349",
+      "repo": "Deducteam/hol2dk",
+      "file": "fusion.ml",
+      "path": "fusion.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — fusion.ml"
+    },
+    {
+      "id": "HOL-350",
+      "repo": "kohlhase/CambridgeLCF",
+      "file": "L-pplamb.ml",
+      "path": "Franz/L-pplamb.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — L-pplamb.ml"
+    },
+    {
+      "id": "HOL-351",
+      "repo": "hipsleek/hipsleek",
+      "file": "smtsolver.ml",
+      "path": "bef_indent/smtsolver.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — smtsolver.ml"
+    },
+    {
+      "id": "HOL-352",
+      "repo": "kohlhase/CambridgeLCF",
+      "file": "L-thyfns.ml",
+      "path": "Franz/L-thyfns.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — L-thyfns.ml"
+    },
+    {
+      "id": "HOL-353",
+      "repo": "gilith/hol-light",
+      "file": "ring.ml",
+      "path": "opentheory/theories/ring/ring.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring.ml"
+    },
+    {
+      "id": "HOL-354",
+      "repo": "gilith/hol-light",
+      "file": "ring-char.ml",
+      "path": "opentheory/theories/ring/ring-char.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-char.ml"
+    },
+    {
+      "id": "HOL-355",
+      "repo": "gilith/hol-light",
+      "file": "ring-mult.ml",
+      "path": "opentheory/theories/ring/ring-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-mult.ml"
+    },
+    {
+      "id": "HOL-356",
+      "repo": "gilith/hol-light",
+      "file": "group-thm.ml",
+      "path": "opentheory/theories/group/group-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-thm.ml"
+    },
+    {
+      "id": "HOL-357",
+      "repo": "gilith/hol-light",
+      "file": "group-sub.ml",
+      "path": "opentheory/theories/group/group-sub.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-sub.ml"
+    },
+    {
+      "id": "HOL-358",
+      "repo": "gilith/hol-light",
+      "file": "group-mult.ml",
+      "path": "opentheory/theories/group/group-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-mult.ml"
+    },
+    {
+      "id": "HOL-359",
+      "repo": "gilith/hol-light",
+      "file": "monoid-thm.ml",
+      "path": "opentheory/theories/monoid/monoid-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-thm.ml"
+    },
+    {
+      "id": "HOL-360",
+      "repo": "gilith/hol-light",
+      "file": "field-group.ml",
+      "path": "opentheory/theories/field/field-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field-group.ml"
+    },
+    {
+      "id": "HOL-361",
+      "repo": "gilith/hol-light",
+      "file": "group-crypt.ml",
+      "path": "opentheory/theories/group/group-crypt.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-crypt.ml"
+    },
+    {
+      "id": "HOL-362",
+      "repo": "gilith/hol-light",
+      "file": "group-monoid.ml",
+      "path": "opentheory/theories/group/group-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-monoid.ml"
+    },
+    {
+      "id": "HOL-363",
+      "repo": "gilith/hol-light",
+      "file": "monoid-mult.ml",
+      "path": "opentheory/theories/monoid/monoid-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-mult.ml"
+    },
+    {
+      "id": "HOL-364",
+      "repo": "gilith/hol-light",
+      "file": "ring-add-comm.ml",
+      "path": "opentheory/theories/ring/ring-add-comm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-add-comm.ml"
+    },
+    {
+      "id": "HOL-365",
+      "repo": "kohlhase/CambridgeLCF",
+      "file": "L-structaxm.ml",
+      "path": "Franz/L-structaxm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — L-structaxm.ml"
+    },
+    {
+      "id": "HOL-366",
+      "repo": "gilith/hol-light",
+      "file": "ring-add-group.ml",
+      "path": "opentheory/theories/ring/ring-add-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-add-group.ml"
+    },
+    {
+      "id": "HOL-367",
+      "repo": "vtu-dog/Proof-checker",
+      "file": "infer.ml",
+      "path": "infer.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — infer.ml"
+    },
+    {
+      "id": "HOL-368",
+      "repo": "gilith/hol-light",
+      "file": "ring-unit-group.ml",
+      "path": "opentheory/theories/ring/ring-unit-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-unit-group.ml"
+    },
+    {
+      "id": "HOL-369",
+      "repo": "vtu-dog/Proof-checker",
+      "file": "checker.ml",
+      "path": "checker.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — checker.ml"
+    },
+    {
+      "id": "HOL-370",
+      "repo": "vtu-dog/Proof-checker",
+      "file": "wrapper.ml",
+      "path": "wrapper.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — wrapper.ml"
+    },
+    {
+      "id": "HOL-371",
+      "repo": "gilith/hol-light",
+      "file": "field-star-group.ml",
+      "path": "opentheory/theories/field/field-star-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field-star-group.ml"
+    },
+    {
+      "id": "HOL-372",
+      "repo": "gilith/hol-light",
+      "file": "group-mult-monoid.ml",
+      "path": "opentheory/theories/group/group-mult-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-mult-monoid.ml"
+    },
+    {
+      "id": "HOL-373",
+      "repo": "gilith/hol-light",
+      "file": "field.ml",
+      "path": "opentheory/theories/field/field.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field.ml"
+    },
+    {
+      "id": "HOL-374",
+      "repo": "gilith/hol-light",
+      "file": "example-pos.ml",
+      "path": "opentheory/theories/example-pos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — example-pos.ml"
+    },
+    {
+      "id": "HOL-375",
+      "repo": "gilith/hol-light",
+      "file": "group-abelian-monoid.ml",
+      "path": "opentheory/theories/group/group-abelian-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-abelian-monoid.ml"
+    },
+    {
+      "id": "HOL-376",
+      "repo": "imdea-software/leap",
+      "file": "Core.ml",
+      "path": "src/Core.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — Core.ml"
+    },
+    {
+      "id": "HOL-377",
+      "repo": "gilith/hol-light",
+      "file": "monoid-comm-thm.ml",
+      "path": "opentheory/theories/monoid-comm/monoid-comm-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-comm-thm.ml"
+    },
+    {
+      "id": "HOL-378",
+      "repo": "gilith/hol-light",
+      "file": "class.ml",
+      "path": "class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-379",
+      "repo": "gilith/hol-light",
+      "file": "nums.ml",
+      "path": "nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-380",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "class.ml",
+      "path": "class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-381",
+      "repo": "theoremprover-museum/HOL88",
+      "file": "mk_ind.ml",
+      "path": "src/theories/mk_ind.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_ind.ml"
+    },
+    {
+      "id": "HOL-382",
+      "repo": "gilith/hol-light",
+      "file": "drule.ml",
+      "path": "drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-383",
+      "repo": "xrchz/hol-light",
+      "file": "byte-word.ml",
+      "path": "opentheory/examples/byte-word.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — byte-word.ml"
+    },
+    {
+      "id": "HOL-384",
+      "repo": "imdea-software/leap",
+      "file": "Axioms.ml",
+      "path": "src/axioms/Axioms.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — Axioms.ml"
+    },
+    {
+      "id": "HOL-385",
+      "repo": "xrchz/hol-light",
+      "file": "word10-word.ml",
+      "path": "opentheory/examples/word10-word.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — word10-word.ml"
+    },
+    {
+      "id": "HOL-386",
+      "repo": "xrchz/hol-light",
+      "file": "gfp-modular.ml",
+      "path": "opentheory/examples/gfp-modular.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — gfp-modular.ml"
+    },
+    {
+      "id": "HOL-387",
+      "repo": "xrchz/hol-light",
+      "file": "word16-word.ml",
+      "path": "opentheory/examples/word16-word.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — word16-word.ml"
+    },
+    {
+      "id": "HOL-388",
+      "repo": "xrchz/hol-light",
+      "file": "word12-word.ml",
+      "path": "opentheory/examples/word12-word.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — word12-word.ml"
+    },
+    {
+      "id": "HOL-389",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "nums.ml",
+      "path": "nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-390",
+      "repo": "theoremprover-museum/HOL88",
+      "file": "MULT.ml",
+      "path": "src/contrib/benchmark/MULT.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — MULT.ml"
+    },
+    {
+      "id": "HOL-391",
+      "repo": "xrchz/hol-light",
+      "file": "word-modular.ml",
+      "path": "opentheory/examples/word-modular.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — word-modular.ml"
+    },
+    {
+      "id": "HOL-392",
+      "repo": "theoremprover-museum/HOL88",
+      "file": "group.ml",
+      "path": "src/contrib/knuth-bendix/group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group.ml"
+    },
+    {
+      "id": "HOL-393",
+      "repo": "APTE/APTE",
+      "file": "secrecy_algorithm.ml",
+      "path": "Source/secrecy/secrecy_algorithm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — secrecy_algorithm.ml"
+    },
+    {
+      "id": "HOL-394",
+      "repo": "gilith/hol-light",
+      "file": "modelset.ml",
+      "path": "Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-395",
+      "repo": "xrchz/hol-light",
+      "file": "modular.ml",
+      "path": "opentheory/examples/modular.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modular.ml"
+    },
+    {
+      "id": "HOL-396",
+      "repo": "gilith/hol-light",
+      "file": "shells.ml",
+      "path": "Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-397",
+      "repo": "aqjune/hol-light-web",
+      "file": "nums.ml",
+      "path": "site/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-398",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring-unit-group.ml",
+      "path": "opentheory/theories/ring/ring-unit-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-unit-group.ml"
+    },
+    {
+      "id": "HOL-399",
+      "repo": "ejcatt/HOL",
+      "file": "proof6.ml",
+      "path": "examples/hardware/hol88/computer/proof6.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proof6.ml"
+    },
+    {
+      "id": "HOL-400",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "monoid-comm-thm.ml",
+      "path": "opentheory/theories/monoid-comm/monoid-comm-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-comm-thm.ml"
+    },
+    {
+      "id": "HOL-401",
+      "repo": "ejcatt/HOL",
+      "file": "mk_T.ml",
+      "path": "examples/hardware/hol88/mk_T.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_T.ml"
+    },
+    {
+      "id": "HOL-402",
+      "repo": "bord-o/heft",
+      "file": "derived.ml",
+      "path": "lib/derived.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — derived.ml"
+    },
+    {
+      "id": "HOL-403",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring-char.ml",
+      "path": "opentheory/theories/ring/ring-char.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-char.ml"
+    },
+    {
+      "id": "HOL-404",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "drule.ml",
+      "path": "benchmarks/hol-light/drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-405",
+      "repo": "xrchz/hol-light",
+      "file": "word.ml",
+      "path": "opentheory/examples/word.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — word.ml"
+    },
+    {
+      "id": "HOL-406",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "drule.ml",
+      "path": "theorem-provers/candle/drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-407",
+      "repo": "ejcatt/HOL",
+      "file": "mos.ml",
+      "path": "examples/hardware/hol88/mos-count/mos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mos.ml"
+    },
+    {
+      "id": "HOL-408",
+      "repo": "sean-lamont/bait",
+      "file": "readable.ml",
+      "path": "environments/HOList/hol-light/RichterHilbertAxiomGeometry/readable.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — readable.ml"
+    },
+    {
+      "id": "HOL-409",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "nums.ml",
+      "path": "theorem-provers/candle/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-410",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "FontHilbertAxiom.ml",
+      "path": "theorem-provers/candle/RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-411",
+      "repo": "benjamin-voisin/AKMA-squirrel",
+      "file": "systemModifiers.ml",
+      "path": "experimental-squirrel/squirrel-prover/src/core/systemModifiers.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — systemModifiers.ml"
+    },
+    {
+      "id": "HOL-412",
+      "repo": "sean-lamont/bait",
+      "file": "modelset.ml",
+      "path": "environments/HOList/hol-light/Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-413",
+      "repo": "APTE/APTE",
+      "file": "process.ml",
+      "path": "Source/standard_library/process.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — process.ml"
+    },
+    {
+      "id": "HOL-414",
+      "repo": "nyuichi/holzero",
+      "file": "corethry.ml",
+      "path": "src/corethry.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — corethry.ml"
+    },
+    {
+      "id": "HOL-415",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "FontHilbertAxiom.ml",
+      "path": "benchmarks/hol-light/RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-416",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "shells.ml",
+      "path": "benchmarks/hol-light/Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-417",
+      "repo": "lyonel2017/Frama-C-RPP",
+      "file": "rpp_predicate_visitor_axiom.ml",
+      "path": "rpp_predicate_visitor_axiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — rpp_predicate_visitor_axiom.ml"
+    },
+    {
+      "id": "HOL-418",
+      "repo": "aqjune/hol-light-web",
+      "file": "modelset.ml",
+      "path": "site/Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-419",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "modelset.ml",
+      "path": "benchmarks/hol-light/Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-420",
+      "repo": "xcthulhu/flyspeck",
+      "file": "collect_geom_spec.ml",
+      "path": "legacy/collect_geom_spec.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — collect_geom_spec.ml"
+    },
+    {
+      "id": "HOL-421",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-monoid.ml",
+      "path": "opentheory/theories/group/group-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-monoid.ml"
+    },
+    {
+      "id": "HOL-422",
+      "repo": "APTE/APTE",
+      "file": "length_algorithm.ml",
+      "path": "Source/length_equivalence/length_algorithm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — length_algorithm.ml"
+    },
+    {
+      "id": "HOL-423",
+      "repo": "bord-o/heft",
+      "file": "rewrite_test.ml",
+      "path": "test/tactic_tests/rewrite_test.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — rewrite_test.ml"
+    },
+    {
+      "id": "HOL-424",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring-add-group.ml",
+      "path": "opentheory/theories/ring/ring-add-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-add-group.ml"
+    },
+    {
+      "id": "HOL-425",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "monoid-thm.ml",
+      "path": "opentheory/theories/monoid/monoid-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-thm.ml"
+    },
+    {
+      "id": "HOL-426",
+      "repo": "xrchz/hol-light",
+      "file": "shells.ml",
+      "path": "Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-427",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "thm.ml",
+      "path": "Proofrecording/diffs/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-428",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "HilbertAxiom.ml",
+      "path": "theorem-provers/candle/RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-429",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "field-group.ml",
+      "path": "opentheory/theories/field/field-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field-group.ml"
+    },
+    {
+      "id": "HOL-430",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "example-pos.ml",
+      "path": "opentheory/theories/example-pos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — example-pos.ml"
+    },
+    {
+      "id": "HOL-431",
+      "repo": "lyonel2017/Frama-C-RPP",
+      "file": "rpp_core.ml",
+      "path": "rpp_core.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — rpp_core.ml"
+    },
+    {
+      "id": "HOL-432",
+      "repo": "gilith/hol-light",
+      "file": "FontHilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-433",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "FontHilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-434",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "nums.ml",
+      "path": "benchmarks/hol-light/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-435",
+      "repo": "bord-o/heft",
+      "file": "tactic_test.ml",
+      "path": "test/tactic_tests/tactic_test.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — tactic_test.ml"
+    },
+    {
+      "id": "HOL-436",
+      "repo": "sean-lamont/bait",
+      "file": "nums.ml",
+      "path": "environments/HOList/hol-light/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-437",
+      "repo": "aqjune/aqjune.github.io",
+      "file": "FontHilbertAxiom.ml",
+      "path": "hol-light-web/RichterHilbertAxiomGeometry/miz3/FontHilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — FontHilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-438",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "proofs.ml",
+      "path": "theorem-provers/candle/ProofTrace/proofs.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proofs.ml"
+    },
+    {
+      "id": "HOL-439",
+      "repo": "arpenaz-28/Codes-For-COOJA",
+      "file": "main.ml",
+      "path": "proverif2.05/src/main.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — main.ml"
+    },
+    {
+      "id": "HOL-440",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "proofobjects_coq.ml",
+      "path": "benchmarks/hol-light/Proofrecording/diffs/proofobjects_coq.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proofobjects_coq.ml"
+    },
+    {
+      "id": "HOL-441",
+      "repo": "gilith/hol-light",
+      "file": "proofs.ml",
+      "path": "ProofTrace/proofs.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proofs.ml"
+    },
+    {
+      "id": "HOL-442",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "proofs.ml",
+      "path": "ProofTrace/proofs.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proofs.ml"
+    },
+    {
+      "id": "HOL-443",
+      "repo": "aqjune/aqjune.github.io",
+      "file": "readable.ml",
+      "path": "hol-light-web/RichterHilbertAxiomGeometry/readable.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — readable.ml"
+    },
+    {
+      "id": "HOL-444",
+      "repo": "sean-lamont/bait",
+      "file": "shells.ml",
+      "path": "environments/HOList/hol-light/Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-445",
+      "repo": "xrchz/hol-light",
+      "file": "nums.ml",
+      "path": "nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-446",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "modelset.ml",
+      "path": "Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-447",
+      "repo": "xrchz/hol-light",
+      "file": "modelset.ml",
+      "path": "Model/modelset.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — modelset.ml"
+    },
+    {
+      "id": "HOL-448",
+      "repo": "theoremprover-museum/HOL88",
+      "file": "mk_finite_sets.ml",
+      "path": "src/Library/finite_sets/OLD/mk_finite_sets.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_finite_sets.ml"
+    },
+    {
+      "id": "HOL-449",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "shells.ml",
+      "path": "Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-450",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring.ml",
+      "path": "opentheory/theories/ring/ring.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring.ml"
+    },
+    {
+      "id": "HOL-451",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-thm.ml",
+      "path": "opentheory/theories/group/group-thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-thm.ml"
+    },
+    {
+      "id": "HOL-452",
+      "repo": "ejcatt/HOL",
+      "file": "mk_nmos.ml",
+      "path": "examples/hardware/hol88/mk_nmos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_nmos.ml"
+    },
+    {
+      "id": "HOL-453",
+      "repo": "aqjune/hol-light-web",
+      "file": "class.ml",
+      "path": "site/class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-454",
+      "repo": "miraitowa/BTDS",
+      "file": "main.ml",
+      "path": "BTDS-ProVerif2.05/src/main.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — main.ml"
+    },
+    {
+      "id": "HOL-455",
+      "repo": "wenhuizhang/ProVerif",
+      "file": "main.ml",
+      "path": "proverif2.04/src/main.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — main.ml"
+    },
+    {
+      "id": "HOL-456",
+      "repo": "sean-lamont/bait",
+      "file": "HilbertAxiom.ml",
+      "path": "environments/HOList/hol-light/RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-457",
+      "repo": "htzh/holnat",
+      "file": "class.ml",
+      "path": "hol/class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-458",
+      "repo": "jrh13/hol-light",
+      "file": "basic_tests.ml",
+      "path": "UnitTests/basic_tests.ml",
+      "family": "foundations",
+      "prover": "hol_light",
+      "note": "HOL Light core — John Harrison — basic_tests.ml"
+    },
+    {
+      "id": "HOL-459",
+      "repo": "ejcatt/HOL",
+      "file": "microcode.ml",
+      "path": "examples/hardware/hol88/computer/microcode.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — microcode.ml"
+    },
+    {
+      "id": "HOL-460",
+      "repo": "aqjune/hol-light-web",
+      "file": "shells.ml",
+      "path": "site/Boyer_Moore/shells.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — shells.ml"
+    },
+    {
+      "id": "HOL-461",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "HilbertAxiom.ml",
+      "path": "benchmarks/hol-light/RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-462",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "monoid-mult.ml",
+      "path": "opentheory/theories/monoid/monoid-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — monoid-mult.ml"
+    },
+    {
+      "id": "HOL-463",
+      "repo": "bord-o/heft",
+      "file": "derived_test.ml",
+      "path": "test/core_tests/derived_test.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — derived_test.ml"
+    },
+    {
+      "id": "HOL-464",
+      "repo": "aqjune/hol-light-web",
+      "file": "drule.ml",
+      "path": "site/drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-465",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "drule.ml",
+      "path": "drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-466",
+      "repo": "amarshah1/algarobatool",
+      "file": "Context.ml",
+      "path": "src/Context.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — Context.ml"
+    },
+    {
+      "id": "HOL-467",
+      "repo": "comeillfoo/proverif_2_05",
+      "file": "main.ml",
+      "path": "src/main.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — main.ml"
+    },
+    {
+      "id": "HOL-468",
+      "repo": "APTE/APTE",
+      "file": "constraint_system.ml",
+      "path": "Source/standard_library/constraint_system.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — constraint_system.ml"
+    },
+    {
+      "id": "HOL-469",
+      "repo": "sean-lamont/bait",
+      "file": "class.ml",
+      "path": "environments/HOList/hol-light/class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-470",
+      "repo": "nyuichi/holzero",
+      "file": "thm.ml",
+      "path": "src/thm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — thm.ml"
+    },
+    {
+      "id": "HOL-471",
+      "repo": "xrchz/hol-light",
+      "file": "class.ml",
+      "path": "class.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — class.ml"
+    },
+    {
+      "id": "HOL-472",
+      "repo": "xrchz/hol-light",
+      "file": "gfp.ml",
+      "path": "opentheory/examples/gfp.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — gfp.ml"
+    },
+    {
+      "id": "HOL-473",
+      "repo": "gilith/hol-light",
+      "file": "proofobjects_coq.ml",
+      "path": "Proofrecording/diffs/proofobjects_coq.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — proofobjects_coq.ml"
+    },
+    {
+      "id": "HOL-474",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "field-star-group.ml",
+      "path": "opentheory/theories/field/field-star-group.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field-star-group.ml"
+    },
+    {
+      "id": "HOL-475",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-mult.ml",
+      "path": "opentheory/theories/group/group-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-mult.ml"
+    },
+    {
+      "id": "HOL-476",
+      "repo": "nyuichi/holzero",
+      "file": "ind.ml",
+      "path": "src/ind.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ind.ml"
+    },
+    {
+      "id": "HOL-477",
+      "repo": "xrchz/hol-light",
+      "file": "example-pos.ml",
+      "path": "opentheory/examples/example-pos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — example-pos.ml"
+    },
+    {
+      "id": "HOL-478",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring-add-comm.ml",
+      "path": "opentheory/theories/ring/ring-add-comm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-add-comm.ml"
+    },
+    {
+      "id": "HOL-479",
+      "repo": "htzh/holnat",
+      "file": "drule.ml",
+      "path": "hol/drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-480",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-mult-monoid.ml",
+      "path": "opentheory/theories/group/group-mult-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-mult-monoid.ml"
+    },
+    {
+      "id": "HOL-481",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-abelian-monoid.ml",
+      "path": "opentheory/theories/group/group-abelian-monoid.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-abelian-monoid.ml"
+    },
+    {
+      "id": "HOL-482",
+      "repo": "bord-o/heft",
+      "file": "inductive.ml",
+      "path": "lib/inductive.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — inductive.ml"
+    },
+    {
+      "id": "HOL-483",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-crypt.ml",
+      "path": "opentheory/theories/group/group-crypt.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-crypt.ml"
+    },
+    {
+      "id": "HOL-484",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "ring-mult.ml",
+      "path": "opentheory/theories/ring/ring-mult.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — ring-mult.ml"
+    },
+    {
+      "id": "HOL-485",
+      "repo": "gilith/hol-light",
+      "file": "HilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-486",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "HilbertAxiom.ml",
+      "path": "RichterHilbertAxiomGeometry/miz3/HilbertAxiom.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — HilbertAxiom.ml"
+    },
+    {
+      "id": "HOL-487",
+      "repo": "APTE/APTE",
+      "file": "algorithm.ml",
+      "path": "Source/trace_equivalence/algorithm.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — algorithm.ml"
+    },
+    {
+      "id": "HOL-488",
+      "repo": "gilith/hol-light",
+      "file": "readable.ml",
+      "path": "RichterHilbertAxiomGeometry/readable.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — readable.ml"
+    },
+    {
+      "id": "HOL-489",
+      "repo": "ejcatt/HOL",
+      "file": "values.ml",
+      "path": "examples/hardware/hol88/computer/values.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — values.ml"
+    },
+    {
+      "id": "HOL-490",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "field.ml",
+      "path": "opentheory/theories/field/field.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — field.ml"
+    },
+    {
+      "id": "HOL-491",
+      "repo": "ejcatt/HOL",
+      "file": "mk_cmos.ml",
+      "path": "examples/hardware/hol88/cmos/mk_cmos.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — mk_cmos.ml"
+    },
+    {
+      "id": "HOL-492",
+      "repo": "Deducteam/HOLLightToDk",
+      "file": "group-sub.ml",
+      "path": "opentheory/theories/group/group-sub.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — group-sub.ml"
+    },
+    {
+      "id": "HOL-493",
+      "repo": "theoremprover-museum/HOL88",
+      "file": "hol-syn.ml",
+      "path": "src/ml/hol-syn.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — hol-syn.ml"
+    },
+    {
+      "id": "HOL-494",
+      "repo": "xrchz/hol-light",
+      "file": "drule.ml",
+      "path": "drule.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — drule.ml"
+    },
+    {
+      "id": "HOL-495",
+      "repo": "htzh/holnat",
+      "file": "nums.ml",
+      "path": "hol/nums.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — nums.ml"
+    },
+    {
+      "id": "HOL-496",
+      "repo": "binghe/HOL-CCS",
+      "file": "counter.ml",
+      "path": "CCS-Nesi/HML/counter.ml",
+      "family": "hol_misc",
+      "prover": "hol_light",
+      "note": "hol_light open proof — counter.ml"
+    },
+    {
+      "id": "HOL-497",
+      "repo": "CakeML/cakeml",
+      "file": "reader_initScript.sml",
+      "path": "examples/opentheory/reader_initScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — reader_initScript.sml"
+    },
+    {
+      "id": "HOL-498",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "selftest.sml",
+      "path": "src/marker/selftest.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — selftest.sml"
+    },
+    {
+      "id": "HOL-499",
+      "repo": "AeneasVerif/aeneas",
+      "file": "primitivesScript.sml",
+      "path": "backends/hol4/primitivesScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — primitivesScript.sml"
+    },
+    {
+      "id": "HOL-500",
+      "repo": "binghe/informatica-public",
+      "file": "CoarsestCongr2Script.sml",
+      "path": "CCS2/src/CoarsestCongr2Script.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — CoarsestCongr2Script.sml"
+    },
+    {
+      "id": "HOL-501",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "interleavingScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/plain/interleavingScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingScript.sml"
+    },
+    {
+      "id": "HOL-502",
+      "repo": "theoremprover-museum/HOL90",
+      "file": "const_spec.sml",
+      "path": "hol90.7/src/0/const_spec.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — const_spec.sml"
+    },
+    {
+      "id": "HOL-503",
+      "repo": "emberian/svenvs",
+      "file": "specNegScript.sml",
+      "path": "specneg/specNegScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — specNegScript.sml"
+    },
+    {
+      "id": "HOL-504",
+      "repo": "ejcatt/HOL",
+      "file": "zfset_axiomsScript.sml",
+      "path": "examples/set-theory/zfset/zfset_axiomsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — zfset_axiomsScript.sml"
+    },
+    {
+      "id": "HOL-505",
+      "repo": "vrthra/Ewoks",
+      "file": "refinedGrammarScript.sml",
+      "path": "mechanization/refinedGrammarScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — refinedGrammarScript.sml"
+    },
+    {
+      "id": "HOL-506",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "Theory.sml",
+      "path": "src/postkernel/Theory.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — Theory.sml"
+    },
+    {
+      "id": "HOL-507",
+      "repo": "CakeML/cakeml",
+      "file": "holKernelScript.sml",
+      "path": "candle/standard/monadic/holKernelScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holKernelScript.sml"
+    },
+    {
+      "id": "HOL-508",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "traceinclusionScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/concrete/traceinclusionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — traceinclusionScript.sml"
+    },
+    {
+      "id": "HOL-509",
+      "repo": "ejcatt/HOL",
+      "file": "vbgsetScript.sml",
+      "path": "examples/set-theory/vbg/vbgsetScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — vbgsetScript.sml"
+    },
+    {
+      "id": "HOL-510",
+      "repo": "CakeML/hol-reflection",
+      "file": "reflectionScript.sml",
+      "path": "reflectionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — reflectionScript.sml"
+    },
+    {
+      "id": "HOL-511",
+      "repo": "theoremprover-museum/HOL90",
+      "file": "compat.sml",
+      "path": "hol90.7/library/hol88/src/compat.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — compat.sml"
+    },
+    {
+      "id": "HOL-512",
+      "repo": "emberian/svenvs",
+      "file": "symBinaryImplementsScript.sml",
+      "path": "kernelImpl/symBinaryImplementsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — symBinaryImplementsScript.sml"
+    },
+    {
+      "id": "HOL-513",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "bnfAlgebraScript.sml",
+      "path": "examples/bnf-datatypes/bnfAlgebraScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — bnfAlgebraScript.sml"
+    },
+    {
+      "id": "HOL-514",
+      "repo": "CakeML/cakeml",
+      "file": "candle_kernel_funsScript.sml",
+      "path": "candle/prover/candle_kernel_funsScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — candle_kernel_funsScript.sml"
+    },
+    {
+      "id": "HOL-515",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "interleavingdeductionScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/deduction/interleavingdeductionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingdeductionScript.sml"
+    },
+    {
+      "id": "HOL-516",
+      "repo": "emberian/svenvs",
+      "file": "compilerOptScript.sml",
+      "path": "compilerOpt/compilerOptScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — compilerOptScript.sml"
+    },
+    {
+      "id": "HOL-517",
+      "repo": "theoremprover-museum/HOL90",
+      "file": "min.sml",
+      "path": "hol90.10/library/lite/src/min.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — min.sml"
+    },
+    {
+      "id": "HOL-518",
+      "repo": "ejcatt/HOL",
+      "file": "boolScript.sml",
+      "path": "src/bool/boolScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — boolScript.sml"
+    },
+    {
+      "id": "HOL-519",
+      "repo": "ejcatt/HOL",
+      "file": "basis_emitScript.sml",
+      "path": "src/emit/basis_emitScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — basis_emitScript.sml"
+    },
+    {
+      "id": "HOL-520",
+      "repo": "ejcatt/HOL",
+      "file": "ideaMultScript.sml",
+      "path": "examples/Crypto/IDEA/ideaMultScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — ideaMultScript.sml"
+    },
+    {
+      "id": "HOL-521",
+      "repo": "ejcatt/HOL",
+      "file": "MMUScript.sml",
+      "path": "examples/ARM_security_properties/MMUScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — MMUScript.sml"
+    },
+    {
+      "id": "HOL-522",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "basis_emitScript.sml",
+      "path": "src/emit/basis_emitScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — basis_emitScript.sml"
+    },
+    {
+      "id": "HOL-523",
+      "repo": "ejcatt/HOL",
+      "file": "MMU_SetupScript.sml",
+      "path": "examples/ARM_security_properties/MMU_SetupScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — MMU_SetupScript.sml"
+    },
+    {
+      "id": "HOL-524",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "coalgAxiomsScript.sml",
+      "path": "src/coalgebras/coalgAxiomsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — coalgAxiomsScript.sml"
+    },
+    {
+      "id": "HOL-525",
+      "repo": "theoremprover-museum/HOL90",
+      "file": "const_spec.sml",
+      "path": "hol90.10/src/0/const_spec.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — const_spec.sml"
+    },
+    {
+      "id": "HOL-526",
+      "repo": "ejcatt/HOL",
+      "file": "milawa_proofpScript.sml",
+      "path": "examples/theorem-prover/milawa-prover/milawa_proofpScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — milawa_proofpScript.sml"
+    },
+    {
+      "id": "HOL-527",
+      "repo": "ejcatt/HOL",
+      "file": "switching_lemmaScript.sml",
+      "path": "examples/ARM_security_properties/switching_lemmaScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — switching_lemmaScript.sml"
+    },
+    {
+      "id": "HOL-528",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "ideaMultScript.sml",
+      "path": "examples/Crypto/IDEA/ideaMultScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — ideaMultScript.sml"
+    },
+    {
+      "id": "HOL-529",
+      "repo": "ejcatt/HOL",
+      "file": "user_lemma_arm_nextScript.sml",
+      "path": "examples/ARM_security_properties/user_lemma_arm_nextScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — user_lemma_arm_nextScript.sml"
+    },
+    {
+      "id": "HOL-530",
+      "repo": "ejcatt/HOL",
+      "file": "priv_constraints_bisimScript.sml",
+      "path": "examples/ARM_security_properties/priv_constraints_bisimScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — priv_constraints_bisimScript.sml"
+    },
+    {
+      "id": "HOL-531",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "MMUScript.sml",
+      "path": "examples/arm/ARM_security_properties/MMUScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — MMUScript.sml"
+    },
+    {
+      "id": "HOL-532",
+      "repo": "ejcatt/HOL",
+      "file": "user_lemma_primitive_operationsScript.sml",
+      "path": "examples/ARM_security_properties/user_lemma_primitive_operationsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — user_lemma_primitive_operationsScript.sml"
+    },
+    {
+      "id": "HOL-533",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "MMU_SetupScript.sml",
+      "path": "examples/arm/ARM_security_properties/MMU_SetupScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — MMU_SetupScript.sml"
+    },
+    {
+      "id": "HOL-534",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "milawa_proofpScript.sml",
+      "path": "examples/theorem-prover/milawa-prover/milawa_proofpScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — milawa_proofpScript.sml"
+    },
+    {
+      "id": "HOL-535",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "switching_lemmaScript.sml",
+      "path": "examples/arm/ARM_security_properties/switching_lemmaScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — switching_lemmaScript.sml"
+    },
+    {
+      "id": "HOL-536",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "user_lemma_arm_nextScript.sml",
+      "path": "examples/arm/ARM_security_properties/user_lemma_arm_nextScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — user_lemma_arm_nextScript.sml"
+    },
+    {
+      "id": "HOL-537",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "priv_constraints_bisimScript.sml",
+      "path": "examples/arm/ARM_security_properties/priv_constraints_bisimScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — priv_constraints_bisimScript.sml"
+    },
+    {
+      "id": "HOL-538",
+      "repo": "ejcatt/HOL",
+      "file": "Theory.sml",
+      "path": "src/postkernel/Theory.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — Theory.sml"
+    },
+    {
+      "id": "HOL-539",
+      "repo": "ejcatt/HOL",
+      "file": "selftest.sml",
+      "path": "src/num/arith/src/selftest.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — selftest.sml"
+    },
+    {
+      "id": "HOL-540",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "user_lemma_primitive_operationsScript.sml",
+      "path": "examples/arm/ARM_security_properties/user_lemma_primitive_operationsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — user_lemma_primitive_operationsScript.sml"
+    },
+    {
+      "id": "HOL-541",
+      "repo": "CakeML/cakeml",
+      "file": "candle_kernel_valsScript.sml",
+      "path": "candle/prover/candle_kernel_valsScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — candle_kernel_valsScript.sml"
+    },
+    {
+      "id": "HOL-542",
+      "repo": "CakeML/cakeml",
+      "file": "candle_kernel_permsScript.sml",
+      "path": "candle/prover/candle_kernel_permsScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — candle_kernel_permsScript.sml"
+    },
+    {
+      "id": "HOL-543",
+      "repo": "CakeML/cakeml",
+      "file": "holSyntaxScript.sml",
+      "path": "candle/overloading/syntax/holSyntaxScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holSyntaxScript.sml"
+    },
+    {
+      "id": "HOL-544",
+      "repo": "CakeML/cakeml",
+      "file": "holKernelProofScript.sml",
+      "path": "candle/standard/monadic/holKernelProofScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holKernelProofScript.sml"
+    },
+    {
+      "id": "HOL-545",
+      "repo": "CakeML/cakeml",
+      "file": "holKernelProofScript.sml",
+      "path": "candle/overloading/monadic/holKernelProofScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holKernelProofScript.sml"
+    },
+    {
+      "id": "HOL-546",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "zfset_axiomsScript.sml",
+      "path": "examples/axiomatic-developments/set-theory/zfset/zfset_axiomsScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — zfset_axiomsScript.sml"
+    },
+    {
+      "id": "HOL-547",
+      "repo": "CakeML/cakeml",
+      "file": "ml_hol_kernel_funsProgScript.sml",
+      "path": "candle/standard/ml_kernel/ml_hol_kernel_funsProgScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — ml_hol_kernel_funsProgScript.sml"
+    },
+    {
+      "id": "HOL-548",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "selftest.sml",
+      "path": "src/num/arith/src/selftest.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — selftest.sml"
+    },
+    {
+      "id": "HOL-549",
+      "repo": "CakeML/cakeml",
+      "file": "ml_hol_kernel_funsProgScript.sml",
+      "path": "candle/overloading/ml_kernel/ml_hol_kernel_funsProgScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — ml_hol_kernel_funsProgScript.sml"
+    },
+    {
+      "id": "HOL-550",
+      "repo": "CakeML/cakeml",
+      "file": "littleTheoriesSyntaxScript.sml",
+      "path": "candle/standard/syntax/little_theories/littleTheoriesSyntaxScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — littleTheoriesSyntaxScript.sml"
+    },
+    {
+      "id": "HOL-551",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "interleavingcombineScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/combinededuction/interleavingcombineScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingcombineScript.sml"
+    },
+    {
+      "id": "HOL-552",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "boolScript.sml",
+      "path": "src/bool/boolScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — boolScript.sml"
+    },
+    {
+      "id": "HOL-553",
+      "repo": "emberian/svenvs",
+      "file": "evalUpgradeOpScript.sml",
+      "path": "selfUpgrade/evalUpgradeOpScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — evalUpgradeOpScript.sml"
+    },
+    {
+      "id": "HOL-554",
+      "repo": "emberian/svenvs",
+      "file": "fxpSoftmaxScript.sml",
+      "path": "inference/numeric/fxpSoftmaxScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — fxpSoftmaxScript.sml"
+    },
+    {
+      "id": "HOL-555",
+      "repo": "emberian/svenvs",
+      "file": "encoderBlockScript.sml",
+      "path": "inference/encoder/encoderBlockScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — encoderBlockScript.sml"
+    },
+    {
+      "id": "HOL-556",
+      "repo": "emberian/svenvs",
+      "file": "realEmbeddedAdmitScript.sml",
+      "path": "realembedded/realEmbeddedAdmitScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — realEmbeddedAdmitScript.sml"
+    },
+    {
+      "id": "HOL-557",
+      "repo": "emberian/svenvs",
+      "file": "selfUpgradeEndToEndScript.sml",
+      "path": "selfUpgrade/selfUpgradeEndToEndScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — selfUpgradeEndToEndScript.sml"
+    },
+    {
+      "id": "HOL-558",
+      "repo": "theoremprover-museum/HOL90",
+      "file": "compat.sml",
+      "path": "hol90.10/library/hol88/src/compat.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — compat.sml"
+    },
+    {
+      "id": "HOL-559",
+      "repo": "emberian/svenvs",
+      "file": "selfUpgradeMultiSwapScript.sml",
+      "path": "selfUpgrade/selfUpgradeMultiSwapScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — selfUpgradeMultiSwapScript.sml"
+    },
+    {
+      "id": "HOL-560",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "hilbertScript.sml",
+      "path": "examples/axiomatic-developments/geometry/hilbertScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — hilbertScript.sml"
+    },
+    {
+      "id": "HOL-561",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "sapicplusScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/sapic/sapicplusScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — sapicplusScript.sml"
+    },
+    {
+      "id": "HOL-562",
+      "repo": "CakeML/cakeml",
+      "file": "readerProofScript.sml",
+      "path": "examples/opentheory/readerProofScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — readerProofScript.sml"
+    },
+    {
+      "id": "HOL-563",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "vbgsetScript.sml",
+      "path": "examples/axiomatic-developments/set-theory/vbg/vbgsetScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — vbgsetScript.sml"
+    },
+    {
+      "id": "HOL-564",
+      "repo": "FaezehNasrabadi/CryptoBAP",
+      "file": "interleavingconcreteScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/concrete/interleavingconcreteScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingconcreteScript.sml"
+    },
+    {
+      "id": "HOL-565",
+      "repo": "emberian/svenvs",
+      "file": "pureVerifiedInhabitantScript.sml",
+      "path": "pureverified/pureVerifiedInhabitantScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — pureVerifiedInhabitantScript.sml"
+    },
+    {
+      "id": "HOL-566",
+      "repo": "emberian/svenvs",
+      "file": "loebReductionScript.sml",
+      "path": "kernel/loebReduction/loebReductionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — loebReductionScript.sml"
+    },
+    {
+      "id": "HOL-567",
+      "repo": "CakeML/cakeml",
+      "file": "holSyntaxScript.sml",
+      "path": "candle/standard/syntax/holSyntaxScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holSyntaxScript.sml"
+    },
+    {
+      "id": "HOL-568",
+      "repo": "CakeML/cakeml",
+      "file": "holKernelScript.sml",
+      "path": "candle/overloading/monadic/holKernelScript.sml",
+      "family": "compilers",
+      "prover": "hol4",
+      "note": "CakeML verified ML compiler — holKernelScript.sml"
+    },
+    {
+      "id": "HOL-569",
+      "repo": "lexicone42/polyml-rs",
+      "file": "list_append_axiomatized.sml",
+      "path": "crates/polyml-bin/tests/hol4_support/list_append_axiomatized.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — list_append_axiomatized.sml"
+    },
+    {
+      "id": "HOL-570",
+      "repo": "lexicone42/polyml-rs",
+      "file": "isabelle_euler_converse.sml",
+      "path": "crates/polyml-bin/tests/isabelle_support/isabelle_euler_converse.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — isabelle_euler_converse.sml"
+    },
+    {
+      "id": "HOL-571",
+      "repo": "lexicone42/polyml-rs",
+      "file": "isabelle_euler_converse_close.sml",
+      "path": "crates/polyml-bin/tests/isabelle_support/isabelle_euler_converse_close.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — isabelle_euler_converse_close.sml"
+    },
+    {
+      "id": "HOL-572",
+      "repo": "lexicone42/polyml-rs",
+      "file": "isabelle_euler_converse_sigma_mult.sml",
+      "path": "crates/polyml-bin/tests/isabelle_support/isabelle_euler_converse_sigma_mult.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — isabelle_euler_converse_sigma_mult.sml"
+    },
+    {
+      "id": "HOL-573",
+      "repo": "AeneasVerif/aeneas",
+      "file": "hashmap_PropertiesScript.sml",
+      "path": "tests/hol4/hashmap/hashmap_PropertiesScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — hashmap_PropertiesScript.sml"
+    },
+    {
+      "id": "HOL-574",
+      "repo": "ejcatt/HOL",
+      "file": "ndatatype_ind0Script.sml",
+      "path": "src/datatype/theory_tests/ndatatype_ind0Script.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — ndatatype_ind0Script.sml"
+    },
+    {
+      "id": "HOL-575",
+      "repo": "HOL-Theorem-Prover/HOL",
+      "file": "ndatatype_ind0Script.sml",
+      "path": "src/datatype/theory_tests/ndatatype_ind0Script.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — ndatatype_ind0Script.sml"
+    },
+    {
+      "id": "HOL-576",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "interleavingScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/plain/interleavingScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingScript.sml"
+    },
+    {
+      "id": "HOL-577",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "traceinclusionScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/concrete/traceinclusionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — traceinclusionScript.sml"
+    },
+    {
+      "id": "HOL-578",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "interleavingdeductionScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/deduction/interleavingdeductionScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingdeductionScript.sml"
+    },
+    {
+      "id": "HOL-579",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "interleavingcombineScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/combinededuction/interleavingcombineScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingcombineScript.sml"
+    },
+    {
+      "id": "HOL-580",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "sapicplusScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/sapic/sapicplusScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — sapicplusScript.sml"
+    },
+    {
+      "id": "HOL-581",
+      "repo": "Winona-dev/sca-protocol",
+      "file": "interleavingconcreteScript.sml",
+      "path": "HolBA/src/tools/parallelcomposition/concrete/interleavingconcreteScript.sml",
+      "family": "hol_misc",
+      "prover": "hol4",
+      "note": "hol4 open proof — interleavingconcreteScript.sml"
+    },
+    {
+      "id": "MET-582",
+      "repo": "metamath/set.mm",
+      "file": "miu.mm",
+      "path": "miu.mm",
+      "family": "set_theory",
+      "prover": "metamath",
+      "note": "set.mm ZFC — largest Metamath library — miu.mm"
+    },
+    {
+      "id": "MET-583",
+      "repo": "metamath/set.mm",
+      "file": "demo0.mm",
+      "path": "demo0.mm",
+      "family": "set_theory",
+      "prover": "metamath",
+      "note": "set.mm ZFC — largest Metamath library — demo0.mm"
+    },
+    {
+      "id": "MET-584",
+      "repo": "metamath/set.mm",
+      "file": "peano.mm",
+      "path": "peano.mm",
+      "family": "set_theory",
+      "prover": "metamath",
+      "note": "set.mm ZFC — largest Metamath library — peano.mm"
+    },
+    {
+      "id": "MET-585",
+      "repo": "hwayne/lets-prove-leftpad",
+      "file": "leftpad.mm",
+      "path": "metamath/leftpad.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — leftpad.mm"
+    },
+    {
+      "id": "MET-586",
+      "repo": "metamath/set.mm",
+      "file": "hol.mm",
+      "path": "hol.mm",
+      "family": "set_theory",
+      "prover": "metamath",
+      "note": "set.mm ZFC — largest Metamath library — hol.mm"
+    },
+    {
+      "id": "MET-587",
+      "repo": "metamath/set.mm",
+      "file": "big-unifier.mm",
+      "path": "big-unifier.mm",
+      "family": "set_theory",
+      "prover": "metamath",
+      "note": "set.mm ZFC — largest Metamath library — big-unifier.mm"
+    },
+    {
+      "id": "MET-588",
+      "repo": "digama0/mmj2",
+      "file": "UT3.mm",
+      "path": "data/mm/UT3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UT3.mm"
+    },
+    {
+      "id": "MET-589",
+      "repo": "digama0/mmj2",
+      "file": "big.mm",
+      "path": "data/mm/big.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big.mm"
+    },
+    {
+      "id": "MET-590",
+      "repo": "geohot/twitchcoq",
+      "file": "miu2.mm",
+      "path": "metamath/miu2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — miu2.mm"
+    },
+    {
+      "id": "MET-591",
+      "repo": "digama0/mmj2",
+      "file": "UT9003.mm",
+      "path": "data/mm/UT9003.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UT9003.mm"
+    },
+    {
+      "id": "MET-592",
+      "repo": "digama0/mmj2",
+      "file": "UT9001.mm",
+      "path": "data/mm/UT9001.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UT9001.mm"
+    },
+    {
+      "id": "MET-593",
+      "repo": "digama0/mmj2",
+      "file": "expmiu.mm",
+      "path": "data/mm/expmiu.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — expmiu.mm"
+    },
+    {
+      "id": "MET-594",
+      "repo": "digama0/mmj2",
+      "file": "UT9002.mm",
+      "path": "data/mm/UT9002.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UT9002.mm"
+    },
+    {
+      "id": "MET-595",
+      "repo": "digama0/mmj2",
+      "file": "monkey2.mm",
+      "path": "data/mm/monkey2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — monkey2.mm"
+    },
+    {
+      "id": "MET-596",
+      "repo": "digama0/mmj2",
+      "file": "monkey4.mm",
+      "path": "data/mm/monkey4.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — monkey4.mm"
+    },
+    {
+      "id": "MET-597",
+      "repo": "digama0/mmj2",
+      "file": "Example.mm",
+      "path": "data/mm/Example.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — Example.mm"
+    },
+    {
+      "id": "MET-598",
+      "repo": "digama0/mmj2",
+      "file": "monkey1.mm",
+      "path": "data/mm/monkey1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — monkey1.mm"
+    },
+    {
+      "id": "MET-599",
+      "repo": "digama0/mmj2",
+      "file": "monkey3.mm",
+      "path": "data/mm/monkey3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — monkey3.mm"
+    },
+    {
+      "id": "MET-600",
+      "repo": "geohot/twitchcoq",
+      "file": "simple.mm",
+      "path": "metamath/simple.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — simple.mm"
+    },
+    {
+      "id": "MET-601",
+      "repo": "digama0/mmj2",
+      "file": "expdemo0.mm",
+      "path": "data/mm/expdemo0.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — expdemo0.mm"
+    },
+    {
+      "id": "MET-602",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c02.mm",
+      "path": "data/mm/UTGR1c02.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c02.mm"
+    },
+    {
+      "id": "MET-603",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c06.mm",
+      "path": "data/mm/UTGR1c06.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c06.mm"
+    },
+    {
+      "id": "MET-604",
+      "repo": "digama0/mmj2",
+      "file": "UTIO1c02.mm",
+      "path": "data/mm/UTIO1c02.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTIO1c02.mm"
+    },
+    {
+      "id": "MET-605",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c03.mm",
+      "path": "data/mm/UTGR1c03.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c03.mm"
+    },
+    {
+      "id": "MET-606",
+      "repo": "digama0/mmj2",
+      "file": "TypConv3.mm",
+      "path": "data/mm/TypConv3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — TypConv3.mm"
+    },
+    {
+      "id": "MET-607",
+      "repo": "digama0/mmj2",
+      "file": "UTIO1c05.mm",
+      "path": "data/mm/UTIO1c05.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTIO1c05.mm"
+    },
+    {
+      "id": "MET-608",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c05.mm",
+      "path": "data/mm/UTGR1c05.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c05.mm"
+    },
+    {
+      "id": "MET-609",
+      "repo": "digama0/mmj2",
+      "file": "UTPR1c01.mm",
+      "path": "data/mm/UTPR1c01.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTPR1c01.mm"
+    },
+    {
+      "id": "MET-610",
+      "repo": "digama0/mmj2",
+      "file": "UTLA1c02.mm",
+      "path": "data/mm/UTLA1c02.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTLA1c02.mm"
+    },
+    {
+      "id": "MET-611",
+      "repo": "digama0/mmj2",
+      "file": "TypConv1.mm",
+      "path": "data/mm/TypConv1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — TypConv1.mm"
+    },
+    {
+      "id": "MET-612",
+      "repo": "digama0/mmj2",
+      "file": "TypConv2.mm",
+      "path": "data/mm/TypConv2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — TypConv2.mm"
+    },
+    {
+      "id": "MET-613",
+      "repo": "digama0/mmj2",
+      "file": "UTIO1c03.mm",
+      "path": "data/mm/UTIO1c03.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTIO1c03.mm"
+    },
+    {
+      "id": "MET-614",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c01.mm",
+      "path": "data/mm/UTGR1c01.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c01.mm"
+    },
+    {
+      "id": "MET-615",
+      "repo": "digama0/mmj2",
+      "file": "UTGR1c04.mm",
+      "path": "data/mm/UTGR1c04.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — UTGR1c04.mm"
+    },
+    {
+      "id": "MET-616",
+      "repo": "geohot/twitchcoq",
+      "file": "simple2.mm",
+      "path": "metamath/simple2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — simple2.mm"
+    },
+    {
+      "id": "MET-617",
+      "repo": "digama0/mmj2",
+      "file": "dvtest1ax3.mm",
+      "path": "data/mm/dvtest1ax3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dvtest1ax3.mm"
+    },
+    {
+      "id": "MET-618",
+      "repo": "digama0/mmj2",
+      "file": "dvtest1HDR.mm",
+      "path": "data/mm/dvtest1HDR.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dvtest1HDR.mm"
+    },
+    {
+      "id": "MET-619",
+      "repo": "digama0/mmj2",
+      "file": "dvtest1ax2.mm",
+      "path": "data/mm/dvtest1ax2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dvtest1ax2.mm"
+    },
+    {
+      "id": "MET-620",
+      "repo": "digama0/mmj2",
+      "file": "dvtest1ax1.mm",
+      "path": "data/mm/dvtest1ax1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dvtest1ax1.mm"
+    },
+    {
+      "id": "MET-621",
+      "repo": "digama0/mmj2",
+      "file": "PTAPGc7s1p146.mm",
+      "path": "data/mm/PTAPGc7s1p146.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — PTAPGc7s1p146.mm"
+    },
+    {
+      "id": "MET-622",
+      "repo": "digama0/mmj2",
+      "file": "PTAPGc7s2p160.mm",
+      "path": "data/mm/PTAPGc7s2p160.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — PTAPGc7s2p160.mm"
+    },
+    {
+      "id": "MET-623",
+      "repo": "digama0/mmj2",
+      "file": "PTAPGc7s1p148.mm",
+      "path": "data/mm/PTAPGc7s1p148.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — PTAPGc7s1p148.mm"
+    },
+    {
+      "id": "MET-624",
+      "repo": "digama0/mmj2",
+      "file": "exppeano.mm",
+      "path": "data/mm/exppeano.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — exppeano.mm"
+    },
+    {
+      "id": "MET-625",
+      "repo": "digama0/mmj2",
+      "file": "EarleyParserExample.mm",
+      "path": "data/mm/EarleyParserExample.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — EarleyParserExample.mm"
+    },
+    {
+      "id": "MET-626",
+      "repo": "digama0/mmj2",
+      "file": "ParsingBook7dot1Pg146.mm",
+      "path": "data/mm/ParsingBook7dot1Pg146.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — ParsingBook7dot1Pg146.mm"
+    },
+    {
+      "id": "MET-627",
+      "repo": "geohot/twitchcoq",
+      "file": "peano.mm",
+      "path": "metamath/lib/peano.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peano.mm"
+    },
+    {
+      "id": "MET-628",
+      "repo": "digama0/mmj2",
+      "file": "peanoInfix.mm",
+      "path": "mmj2jar/peanoInfix.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peanoInfix.mm"
+    },
+    {
+      "id": "MET-629",
+      "repo": "kframework/matching-logic-prover",
+      "file": "checker.mm",
+      "path": "checker/metamath/checker.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — checker.mm"
+    },
+    {
+      "id": "MET-630",
+      "repo": "Hellseher/mms",
+      "file": "php.mm",
+      "path": "maps/php.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — php.mm"
+    },
+    {
+      "id": "MET-631",
+      "repo": "sorear/smm",
+      "file": "evil.mm",
+      "path": "misc/evil.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — evil.mm"
+    },
+    {
+      "id": "MET-632",
+      "repo": "digama0/mmj2",
+      "file": "big-unifier.mm",
+      "path": "data/mm/big-unifier.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big-unifier.mm"
+    },
+    {
+      "id": "MET-633",
+      "repo": "tihmstar/doubleH3lix",
+      "file": "jailbreak.mm",
+      "path": "doubleH3lix/jailbreak.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — jailbreak.mm"
+    },
+    {
+      "id": "MET-634",
+      "repo": "digama0/mmj2",
+      "file": "setFirst100.mm",
+      "path": "data/mm/setFirst100.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — setFirst100.mm"
+    },
+    {
+      "id": "MET-635",
+      "repo": "digama0/mmj2",
+      "file": "setFirst100.mm",
+      "path": "mmj2jar/setFirst100.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — setFirst100.mm"
+    },
+    {
+      "id": "MET-636",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "miu.mm",
+      "path": "miu.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — miu.mm"
+    },
+    {
+      "id": "MET-637",
+      "repo": "geohot/twitchcoq",
+      "file": "peano2.mm",
+      "path": "metamath/lib/peano2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peano2.mm"
+    },
+    {
+      "id": "MET-638",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "hol_wov.mm",
+      "path": "mm-files/hol_wov.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — hol_wov.mm"
+    },
+    {
+      "id": "MET-639",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "demo0.mm",
+      "path": "demo0.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo0.mm"
+    },
+    {
+      "id": "MET-640",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "hol_ax13.mm",
+      "path": "mm-files/hol_ax13.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — hol_ax13.mm"
+    },
+    {
+      "id": "MET-641",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "hol_cbvf.mm",
+      "path": "mm-files/hol_cbvf.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — hol_cbvf.mm"
+    },
+    {
+      "id": "MET-642",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "anatomy.mm",
+      "path": "anatomy.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — anatomy.mm"
+    },
+    {
+      "id": "MET-643",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "demo0-bad1.mm",
+      "path": "demo0-bad1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo0-bad1.mm"
+    },
+    {
+      "id": "MET-644",
+      "repo": "harp-project/AML-Formalization",
+      "file": "matching-logic.mm",
+      "path": "prover/mm/matching-logic.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — matching-logic.mm"
+    },
+    {
+      "id": "MET-645",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "anatomy-bad3.mm",
+      "path": "anatomy-bad3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — anatomy-bad3.mm"
+    },
+    {
+      "id": "MET-646",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "anatomy-bad2.mm",
+      "path": "anatomy-bad2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — anatomy-bad2.mm"
+    },
+    {
+      "id": "MET-647",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "anatomy-bad1.mm",
+      "path": "anatomy-bad1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — anatomy-bad1.mm"
+    },
+    {
+      "id": "MET-648",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "demo0-includee.mm",
+      "path": "demo0-includee.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo0-includee.mm"
+    },
+    {
+      "id": "MET-649",
+      "repo": "barrycarter/bcapps",
+      "file": "playground.mm",
+      "path": "PROVER9/playground.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — playground.mm"
+    },
+    {
+      "id": "MET-650",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "big-unifier-bad2.mm",
+      "path": "big-unifier-bad2.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big-unifier-bad2.mm"
+    },
+    {
+      "id": "MET-651",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "big-unifier-bad3.mm",
+      "path": "big-unifier-bad3.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big-unifier-bad3.mm"
+    },
+    {
+      "id": "MET-652",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "big-unifier-bad1.mm",
+      "path": "big-unifier-bad1.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big-unifier-bad1.mm"
+    },
+    {
+      "id": "MET-653",
+      "repo": "dmitry-vlasov/russell",
+      "file": "miu.mm",
+      "path": "metamath/miu.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — miu.mm"
+    },
+    {
+      "id": "MET-654",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "anatomy.mm",
+      "path": "checkers/mm/runtest/anatomy/anatomy.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — anatomy.mm"
+    },
+    {
+      "id": "MET-655",
+      "repo": "getzdan/Metamath.jl",
+      "file": "miu.mm",
+      "path": "data/miu.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — miu.mm"
+    },
+    {
+      "id": "MET-656",
+      "repo": "david-a-wheeler/metamath-test",
+      "file": "peano-fixed.mm",
+      "path": "peano-fixed.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peano-fixed.mm"
+    },
+    {
+      "id": "MET-657",
+      "repo": "dmitry-vlasov/russell",
+      "file": "demo0.mm",
+      "path": "metamath/demo0.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo0.mm"
+    },
+    {
+      "id": "MET-658",
+      "repo": "getzdan/Metamath.jl",
+      "file": "demo.mm",
+      "path": "data/demo.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo.mm"
+    },
+    {
+      "id": "MET-659",
+      "repo": "cmacro/simple",
+      "file": "logic.mm",
+      "path": "growingpains/halmos-master/mm/logic.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — logic.mm"
+    },
+    {
+      "id": "MET-660",
+      "repo": "modernish/modernish",
+      "file": "assign.mm",
+      "path": "lib/modernish/mdl/var/assign.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — assign.mm"
+    },
+    {
+      "id": "MET-661",
+      "repo": "space-tudelft/cacd",
+      "file": "inter.mm",
+      "path": "doc/manuals/spacesubman/inter.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — inter.mm"
+    },
+    {
+      "id": "MET-662",
+      "repo": "GarageGames/Torque2D",
+      "file": "iOSGL.mm",
+      "path": "engine/source/platformiOS/iOSGL.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — iOSGL.mm"
+    },
+    {
+      "id": "MET-663",
+      "repo": "modernish/modernish",
+      "file": "for.mm",
+      "path": "lib/modernish/mdl/var/loop/for.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — for.mm"
+    },
+    {
+      "id": "MET-664",
+      "repo": "GarageGames/Torque2D",
+      "file": "osxGL.mm",
+      "path": "engine/source/platformOSX/osxGL.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — osxGL.mm"
+    },
+    {
+      "id": "MET-665",
+      "repo": "modernish/modernish",
+      "file": "repeat.mm",
+      "path": "lib/modernish/mdl/var/loop/repeat.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — repeat.mm"
+    },
+    {
+      "id": "MET-666",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "svm5.mm",
+      "path": "checkers/mm/common/metamath-files/theory/svm5.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — svm5.mm"
+    },
+    {
+      "id": "MET-667",
+      "repo": "modernish/modernish",
+      "file": "touplow.mm",
+      "path": "lib/modernish/mdl/var/string/touplow.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — touplow.mm"
+    },
+    {
+      "id": "MET-668",
+      "repo": "fltk/fltk",
+      "file": "Fl_cocoa.mm",
+      "path": "src/Fl_cocoa.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — Fl_cocoa.mm"
+    },
+    {
+      "id": "MET-669",
+      "repo": "steventroughtonsmith/sts-8",
+      "file": "DRTAssembler.mm",
+      "path": "DRTAssembler.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — DRTAssembler.mm"
+    },
+    {
+      "id": "MET-670",
+      "repo": "bor0/misc",
+      "file": "logic.mm",
+      "path": "2017/logic.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — logic.mm"
+    },
+    {
+      "id": "MET-671",
+      "repo": "bor0/misc",
+      "file": "pairs.mm",
+      "path": "2017/pairs.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — pairs.mm"
+    },
+    {
+      "id": "MET-672",
+      "repo": "bor0/misc",
+      "file": "peano.mm",
+      "path": "2017/peano.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peano.mm"
+    },
+    {
+      "id": "MET-673",
+      "repo": "modernish/modernish",
+      "file": "putr.mm",
+      "path": "lib/modernish/mdl/sys/term/putr.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — putr.mm"
+    },
+    {
+      "id": "MET-674",
+      "repo": "modernish/modernish",
+      "file": "replacein.mm",
+      "path": "lib/modernish/mdl/var/string/replacein.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — replacein.mm"
+    },
+    {
+      "id": "MET-675",
+      "repo": "tirix/q0.mm",
+      "file": "q0.mm",
+      "path": "q0.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — q0.mm"
+    },
+    {
+      "id": "MET-676",
+      "repo": "dmitry-vlasov/russell",
+      "file": "peano.mm",
+      "path": "metamath/peano.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — peano.mm"
+    },
+    {
+      "id": "MET-677",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "impreflex.mm",
+      "path": "checkers/mm/common/metamath-files/theory/impreflex.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — impreflex.mm"
+    },
+    {
+      "id": "MET-678",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "perceptron.mm",
+      "path": "checkers/mm/common/metamath-files/theory/perceptron.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — perceptron.mm"
+    },
+    {
+      "id": "MET-679",
+      "repo": "cmacro/simple",
+      "file": "propositional_logic.mm",
+      "path": "growingpains/halmos-master/mm/propositional_logic.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — propositional_logic.mm"
+    },
+    {
+      "id": "MET-680",
+      "repo": "athenusdev/ap0110",
+      "file": "jailbreak.mm",
+      "path": "Athenus/jailbreak.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — jailbreak.mm"
+    },
+    {
+      "id": "MET-681",
+      "repo": "fastxyz/zk-benchmark",
+      "file": "transfer5000.mm",
+      "path": "checkers/mm/common/metamath-files/theory/transfer5000.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — transfer5000.mm"
+    },
+    {
+      "id": "MET-682",
+      "repo": "JuliaPackageMirrors/Metamath.jl",
+      "file": "demo.mm",
+      "path": "data/demo.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — demo.mm"
+    },
+    {
+      "id": "MET-683",
+      "repo": "TorqueGameEngines/Torque2D",
+      "file": "iOSGL.mm",
+      "path": "engine/source/platformiOS/iOSGL.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — iOSGL.mm"
+    },
+    {
+      "id": "MET-684",
+      "repo": "whilke/FlappyTwitch",
+      "file": "iOSGL.mm",
+      "path": "engine/source/platformiOS/iOSGL.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — iOSGL.mm"
+    },
+    {
+      "id": "MET-685",
+      "repo": "jrmuizel/mozilla-cvs-history",
+      "file": "firefox.mm",
+      "path": "browser/installer/windows/msi/firefox.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — firefox.mm"
+    },
+    {
+      "id": "MET-686",
+      "repo": "roytam1/fx3",
+      "file": "firefox.mm",
+      "path": "browser/installer/windows/msi/firefox.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — firefox.mm"
+    },
+    {
+      "id": "MET-687",
+      "repo": "roytam1/mozilla-cvs-history-subtree",
+      "file": "firefox.mm",
+      "path": "browser/installer/windows/msi/firefox.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — firefox.mm"
+    },
+    {
+      "id": "MET-688",
+      "repo": "emtee40/RetroZilla",
+      "file": "firefox.mm",
+      "path": "browser/installer/windows/msi/firefox.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — firefox.mm"
+    },
+    {
+      "id": "MET-689",
+      "repo": "pldi22-paper-2/pldi22-paper-2",
+      "file": "matching-logic-240-loc.mm",
+      "path": "theory/matching-logic-240-loc.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — matching-logic-240-loc.mm"
+    },
+    {
+      "id": "MET-690",
+      "repo": "AstralStorm/hcfr",
+      "file": "HCFRControlView.mm",
+      "path": "macSources/views/HCFRControlView.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRControlView.mm"
+    },
+    {
+      "id": "MET-691",
+      "repo": "Portisch/hcfr-code",
+      "file": "HCFRControlView.mm",
+      "path": "macSources/views/HCFRControlView.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRControlView.mm"
+    },
+    {
+      "id": "MET-692",
+      "repo": "AstralStorm/hcfr",
+      "file": "HCFRPlugin.mm",
+      "path": "macSources/Plugins/Framework/HCFRPlugin.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRPlugin.mm"
+    },
+    {
+      "id": "MET-693",
+      "repo": "Portisch/hcfr-code",
+      "file": "HCFRPlugin.mm",
+      "path": "macSources/Plugins/Framework/HCFRPlugin.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRPlugin.mm"
+    },
+    {
+      "id": "MET-694",
+      "repo": "CircleTek/OsiriX-KANAGAWA",
+      "file": "dimget.mm",
+      "path": "Binaries/dcmtk-source/dcmnet/dimget.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dimget.mm"
+    },
+    {
+      "id": "MET-695",
+      "repo": "AaronNGray/metamath",
+      "file": "big-unifier.mm",
+      "path": "big-unifier.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — big-unifier.mm"
+    },
+    {
+      "id": "MET-696",
+      "repo": "CircleTek/OsiriX-KANAGAWA",
+      "file": "dcmqrcbg.mm",
+      "path": "Binaries/dcmtk-source/dcmqrdb/dcmqrcbg.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dcmqrcbg.mm"
+    },
+    {
+      "id": "MET-697",
+      "repo": "CircleTek/OsiriX-KANAGAWA",
+      "file": "dcmqrcnf.mm",
+      "path": "Binaries/dcmtk-source/dcmqrdb/dcmqrcnf.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dcmqrcnf.mm"
+    },
+    {
+      "id": "MET-698",
+      "repo": "CircleTek/OsiriX-KANAGAWA",
+      "file": "dcmqrcbm.mm",
+      "path": "Binaries/dcmtk-source/dcmqrdb/dcmqrcbm.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dcmqrcbm.mm"
+    },
+    {
+      "id": "MET-699",
+      "repo": "CircleTek/OsiriX-KANAGAWA",
+      "file": "dcmqrsrv.mm",
+      "path": "Binaries/dcmtk-source/dcmqrdb/dcmqrsrv.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — dcmqrsrv.mm"
+    },
+    {
+      "id": "MET-700",
+      "repo": "AstralStorm/hcfr",
+      "file": "HCFRAbstractEngine.mm",
+      "path": "macSources/Engines/HCFRAbstractEngine.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRAbstractEngine.mm"
+    },
+    {
+      "id": "MET-701",
+      "repo": "Portisch/hcfr-code",
+      "file": "HCFRAbstractEngine.mm",
+      "path": "macSources/Engines/HCFRAbstractEngine.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRAbstractEngine.mm"
+    },
+    {
+      "id": "MET-702",
+      "repo": "hechengjin/ExMail",
+      "file": "thunderbird.mm",
+      "path": "mail/installer/windows/msi/thunderbird.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — thunderbird.mm"
+    },
+    {
+      "id": "MET-703",
+      "repo": "roytam1/boc-uxp",
+      "file": "thunderbird.mm",
+      "path": "mail/installer/windows/msi/thunderbird.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — thunderbird.mm"
+    },
+    {
+      "id": "MET-704",
+      "repo": "bryanchance/binoc-central",
+      "file": "thunderbird.mm",
+      "path": "mail/installer/windows/msi/thunderbird.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — thunderbird.mm"
+    },
+    {
+      "id": "MET-705",
+      "repo": "CanaimaKueka/guacharo",
+      "file": "thunderbird.mm",
+      "path": "mail/installer/windows/msi/thunderbird.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — thunderbird.mm"
+    },
+    {
+      "id": "MET-706",
+      "repo": "AstralStorm/hcfr",
+      "file": "HCFRVirtualSensorPlugin.mm",
+      "path": "macSources/Plugins/HCFRVirtualSensorPlugin/HCFRVirtualSensorPlugin.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRVirtualSensorPlugin.mm"
+    },
+    {
+      "id": "MET-707",
+      "repo": "Portisch/hcfr-code",
+      "file": "HCFRVirtualSensorPlugin.mm",
+      "path": "macSources/Plugins/HCFRVirtualSensorPlugin/HCFRVirtualSensorPlugin.mm",
+      "family": "metamath_misc",
+      "prover": "metamath",
+      "note": "metamath open proof — HCFRVirtualSensorPlugin.mm"
+    }
+  ]
+}
