@@ -181,21 +181,29 @@ def s56Scale (r : Float) (s : State56) : State56 :=
     octScale r s.Q.o12, octScale r s.Q.o23, octScale r s.Q.o31⟩⟩
 
 /-- Cayley-Freudenthal quartic I4 on the 56-dim E7 rep.
-    Degree 4: each term is a product of exactly 4 linear factors in (α,β,P,Q).
-    Formula: I4 = (αβ - Tr(P∘Q))² - 4[αN(Q) + βN(P) - Tr(P#Q)²/... ]
-    Simplified to the four-term GKN form:
-      I4 = (αβ)² - 4α·N(Q) - 4β·N(P) + 4·Tr(P#P#Q#Q)... -/
+
+   Degree analysis (each input scales as r¹):
+     t1: (αβ - Tr(P∘Q))²      → r⁴  ✓  (r²)² = r⁴
+     t2: α·N(Q)                → r⁴  ✓  r·r³ = r⁴
+     t3: β·N(P)                → r⁴  ✓  r·r³ = r⁴
+     t4: Tr(P# ∘ Q#)           → r⁴  ✓  freudenthalDual is quadratic, so r²·r² = r⁴
+
+   Note: freudenthalForm(P,Q)² would be degree 6 — wrong. Must use Tr(P# ∘ Q#).
+
+   I4 = (αβ - Tr(P∘Q))² - 4α·N(Q) - 4β·N(P) + 4·Tr(P# ∘ Q#)
+
+   Verified: ratio I4(2Ψ)/I4(Ψ) = 16 on sparse, diagonal, and off-diagonal states. -/
 def I4_56 (s : State56) : Float :=
-  let ab  := HMul.hMul s.alpha s.beta
-  -- (αβ)²
-  let t1  := HMul.hMul ab ab
-  -- α²·N(Q) term: scales as r² · r² = r⁴  ✓
-  let t2  := HMul.hMul (HMul.hMul s.alpha s.alpha) (cubicNorm s.Q)
-  -- β²·N(P) term
-  let t3  := HMul.hMul (HMul.hMul s.beta s.beta) (cubicNorm s.P)
-  -- Tr(P,Q)² via Freudenthal: degree 2+2 = 4  ✓
-  let tPQ := freudenthalForm s.P s.Q
-  let t4  := HMul.hMul tPQ tPQ
+  let trPQ := jTrace (jordanProduct s.P s.Q)
+  let ab   := HMul.hMul s.alpha s.beta
+  -- (αβ - Tr(P∘Q))²: degree 4
+  let t1   := HMul.hMul (HSub.hSub ab trPQ) (HSub.hSub ab trPQ)
+  -- α·N(Q): degree 1 + 3 = 4
+  let t2   := HMul.hMul s.alpha (cubicNorm s.Q)
+  -- β·N(P): degree 1 + 3 = 4
+  let t3   := HMul.hMul s.beta (cubicNorm s.P)
+  -- Tr(P# ∘ Q#): freudenthalDual is quadratic in its arg → 2+2 = 4
+  let t4   := jTrace (jordanProduct (freudenthalDual s.P) (freudenthalDual s.Q))
   -- I4 = t1 - 4·t2 - 4·t3 + 4·t4
   HSub.hSub (HAdd.hAdd t1 (HMul.hMul 4.0 t4))
             (HAdd.hAdd (HMul.hMul 4.0 t2) (HMul.hMul 4.0 t3))
