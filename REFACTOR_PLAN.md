@@ -47,4 +47,24 @@ Build from overview/ → real product catalog
 kittybrowse as the desktop shell hinge
 sovereign-daemon as the sidecar
 
-## Immediate next: Phase 1 archive list confirmed, then Phase 3 wiring
+## Unified Workflow Model (the real vision)
+
+Every agent and model serves a PURPOSE in the workflow:
+
+| Engine | Role | Use case |
+|---|---|---|
+| Claude Sonnet 4.6 (Bedrock) | Reasoning · Law · Trust · IP | CARTO analysis, legal strategy, proofs, architecture |
+| Mistral Codestral (free) | Code · Terminal · Git | Fast builds, scaffolding, file ops |
+| Nova Pro (Bedrock) | Research · Market · News | Fast synthesis, crypto, financial data |
+| DEVTRIAL (Nova Pro pipeline) | Long-form writing | Research papers, whitepapers, technical docs |
+| DeepSeek V3 (Bedrock) | Math · Proof · Deep code | Formal verification, theorem closing |
+| Gemma 3 27B (Bedrock) | Google domain · Docs | Structured extraction, multimodal |
+| BOB pipeline | Governance · Final verdict | All outputs through EVIDENCE or SILENCE gate |
+| ERE Verify | Quality gate | 5-pass verification on every output |
+| DFA/REXX kernels | Domain logic | Law, trust, ACH, FCRA — deterministic |
+
+The router IS the product. Every task flows through it.
+Code → Mistral. Law → Claude. Papers → DEVTRIAL. Math → DeepSeek. Market → Nova.
+Output → ERE verify. Final → BOB seal.
+
+## Immediate next: Phase 3 wiring — connect router to BOB pipeline

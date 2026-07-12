@@ -1,18 +1,41 @@
 /**
  * SOVEREIGN ROUTER — sovereign-router.ts
  *
- * Claude ↔ Qwen routing layer for SnapKittyWest.
+ * Universal workflow engine. Every agent and model serves a purpose.
+ * The routing table is the IP — not the models.
  *
- * Routing table (the IP — not the models):
- *   Claude  → reasoning, law, trust, proofs, architecture, explanation
- *   Qwen    → code generation, terminal commands, git ops, file writes, scaffolding
+ * ROUTING TABLE:
  *
- * The SACM gate pattern-matches the input and decides.
- * Neither model sees the other's output without the router signing off.
+ *   CLAUDE (Bedrock Sonnet 4.6)
+ *     → reasoning, law, trust, proofs, architecture, governance
+ *     → IP analysis, legal strategy, CARTO consultations
+ *     → complex multi-step synthesis
  *
- * Usage:
- *   ANTHROPIC_API_KEY=<key> QWEN_API_KEY=<key> npx tsx sovereign-router.ts "push the download center"
- *   ANTHROPIC_API_KEY=<key> QWEN_API_KEY=<key> npm run router
+ *   MISTRAL CODESTRAL (free tier)
+ *     → code generation, git ops, terminal, file writes, scaffolding
+ *     → fast mechanical tasks, boilerplate
+ *
+ *   NOVA PRO (Bedrock — Amazon native)
+ *     → news, market research, crypto, financial analysis
+ *     → fast synthesis, summarization, current events
+ *     → DEVTRIAL: long-form research papers, technical writing
+ *
+ *   GEMMA 3 27B (Bedrock — Google DNA)
+ *     → Google-domain tasks, multimodal reasoning
+ *     → document analysis, structured extraction
+ *
+ *   DEEPSEEK V3 (Bedrock)
+ *     → heavy math, proof verification, deep code review
+ *     → formal methods analysis
+ *
+ *   DEVTRIAL (Nova Pro workflow)
+ *     → long academic papers using free vLLM pipeline
+ *     → technical documentation, research synthesis
+ *     → cherry-pick from RESONANCE-CORE + corpus for content
+ *
+ * SACM GATE: DFA/regex pattern-matches input → routes to correct engine.
+ * ERE VERIFY: Every output scanned before reaching user.
+ * VAULT: All keys managed via Ed25519 + AES-256-GCM.
  *
  * Author: Ahmad Ali Parr + Claude Sonnet 4.6
  */
@@ -54,6 +77,9 @@ const MISTRAL_MODEL  = process.env.MISTRAL_MODEL  ?? "codestral-latest";
 const NOVA_MODEL     = "us.amazon.nova-pro-v1:0";       // news, market, fast research
 const GEMMA_MODEL    = "google.gemma-3-27b-it";         // Gemini replacement
 const DEEPSEEK_MODEL = "deepseek.v3.2";                  // math, deep code review
+// DEVTRIAL: Nova Pro used as the writing engine (long-form papers, docs)
+// Pipeline: input → corpus cherry-pick → Nova Pro drafts → ERE verify → output
+const DEVTRIAL_MODEL = "us.amazon.nova-pro-v1:0";
 
 // ── SYSTEM PROMPTS ───────────────────────────────────────────────────────────
 
@@ -83,7 +109,7 @@ Always produce complete, runnable output. No placeholders. No "TODO: fill this i
 // Pattern match on input → decide which model handles it.
 // This is the IP. The models are interchangeable. The routing table is not.
 
-type Agent = "claude" | "mistral" | "nova" | "gemma" | "deepseek";
+type Agent = "claude" | "mistral" | "nova" | "gemma" | "deepseek" | "devtrial";
 
 interface RouteDecision {
   agent:  Agent;
@@ -110,6 +136,12 @@ function route(input: string): RouteDecision {
     return { agent: "deepseek", reason: "math/proof" };
   if (/\b(COLLATZ|RAMSEY|FIBONACCI|INVARIANT|TOPOLOGY|HOMOLOGY)\b/.test(up))
     return { agent: "deepseek", reason: "advanced math" };
+
+  // DEVTRIAL — long-form writing, research papers, technical docs (Nova Pro vLLM pipeline)
+  if (/\b(PAPER|WRITE A PAPER|RESEARCH PAPER|TECHNICAL PAPER|WHITEPAPER|DOCUMENTATION|LONG.FORM|ACADEMIC|PUBLISH)\b/.test(up))
+    return { agent: "devtrial", reason: "long-form writing/paper" };
+  if (/\b(DRAFT|WRITE UP|WRITE THE|SUMMARIZE INTO|DOCUMENT THE|TECHNICAL REPORT)\b/.test(up))
+    return { agent: "devtrial", reason: "technical writing" };
 
   // Nova Pro — news, market, crypto, research, fast synthesis
   if (/\b(NEWS|MARKET|PRICE|CRYPTO|BITCOIN|ETH|STOCK|FUND|FINANCE|ECONOMY)\b/.test(up))
@@ -211,9 +243,32 @@ function modelIdForAgent(agent: Agent): string {
     case "nova":     return NOVA_MODEL;
     case "gemma":    return GEMMA_MODEL;
     case "deepseek": return DEEPSEEK_MODEL;
+    case "devtrial": return DEVTRIAL_MODEL;
     default:         return CLAUDE_MODEL;
   }
 }
+
+// ── DEVTRIAL SYSTEM PROMPT ────────────────────────────────────────────────────
+// Long-form writing engine. Cherry-picks from corpus, produces research papers.
+const DEVTRIAL_SYSTEM = `You are DEVTRIAL, the SnapKitty long-form writing and research engine.
+
+Your role: TECHNICAL WRITING, RESEARCH PAPERS, DOCUMENTATION, ACADEMIC SYNTHESIS.
+
+You produce complete, well-structured long-form content:
+- Technical whitepapers and research papers
+- Academic-style documentation with citations
+- Technical reports synthesizing multiple sources
+- Executive summaries of complex technical work
+
+Writing principles:
+- Use the SnapKitty corpus and architecture as your knowledge base
+- Be precise — cite specific components, files, theorems when relevant
+- Structure: Abstract → Introduction → Technical Detail → Results → Conclusion
+- No fluff, no filler. Every sentence earns its place.
+- Include code blocks, diagrams (ASCII), and formal definitions where appropriate.
+
+You are writing for sophisticated technical readers: researchers, engineers, attorneys, investors.
+Evidence or Silence. Nothing in between.`;
 
 async function callBedrock(input: string, agent: Agent): Promise<string> {
   const modelId = modelIdForAgent(agent);
