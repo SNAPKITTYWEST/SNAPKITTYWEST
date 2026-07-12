@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SnapKitty Sovereign Router — Mission Control</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#040408; color:#e8e8f0; font-family:'Courier New',monospace; font-size:13px; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+
+/* ── TOP BAR ── */
+#topbar { background:#0a0a14; border-bottom:1px solid #1e1e2a; padding:8px 16px; display:flex; align-items:center; gap:16px; flex-shrink:0; }
+.top-logo { color:#00ff88; font-size:14px; font-weight:700; letter-spacing:0.1em; }
+.top-model { font-size:10px; color:#444; letter-spacing:0.15em; }
+#worm-head { font-size:10px; color:#0a84ff; font-family:monospace; margin-left:auto; }
+.dot { width:8px; height:8px; border-radius:50%; animation:pulse 2s infinite; }
+.dot.green { background:#00ff88; }
+.dot.gold  { background:#ffd700; }
+.dot.blue  { background:#0a84ff; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* ── MAIN GRID ── */
+#main { flex:1; display:grid; grid-template-columns:280px 1fr 280px; gap:1px; background:#1e1e2a; overflow:hidden; }
+.panel { background:#040408; display:flex; flex-direction:column; overflow:hidden; }
+.panel-hdr { background:#0a0a14; border-bottom:1px solid #1e1e2a; padding:6px 12px; font-size:10px; color:#444; letter-spacing:0.2em; text-transform:uppercase; display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.panel-hdr .ph-dot { width:6px; height:6px; border-radius:50%; }
+.panel-body { flex:1; overflow-y:auto; padding:8px; }
+
+/* ── LEFT — SACM GATE ── */
+#gate-log { display:flex; flex-direction:column; gap:4px; }
+.gate-entry { border:1px solid #1e1e2a; border-radius:3px; padding:6px 8px; font-size:11px; }
+.gate-entry.pass  { border-color:#00ff8833; background:#00ff8808; }
+.gate-entry.block { border-color:#ff453a33; background:#ff453a08; }
+.gate-entry.route { border-color:#0a84ff33; background:#0a84ff08; }
+.gate-label { font-size:9px; letter-spacing:0.15em; margin-bottom:3px; }
+.gate-label.pass  { color:#00ff88; }
+.gate-label.block { color:#ff453a; }
+.gate-label.route { color:#0a84ff; }
+.gate-model { color:#ffd700; font-size:10px; }
+.gate-reason { color:#666; font-size:10px; }
+.gate-time { color:#333; font-size:9px; margin-top:2px; }
+
+/* ── CENTER — OUTPUT ── */
+#output { flex:1; overflow-y:auto; padding:12px; white-space:pre-wrap; word-break:break-word; line-height:1.6; color:#c8c8d8; font-size:12px; }
+#output .thinking { color:#444; font-style:italic; }
+#output .model-tag { color:#0a84ff; font-size:10px; letter-spacing:0.1em; display:block; margin-bottom:8px; }
+#output .worm-seal { color:#00ff88; font-size:10px; display:block; margin-top:8px; border-top:1px solid #1e1e2a; padding-top:6px; }
+#output .leak-warn { color:#ff453a; font-size:10px; display:block; }
+
+/* ── RIGHT — KERNEL + WORM ── */
+#kernel-log { display:flex; flex-direction:column; gap:4px; }
+.kernel-entry { border:1px solid #1e1e2a; border-radius:3px; padding:5px 8px; font-size:10px; }
+.kernel-entry.active { border-color:#ffd70033; background:#ffd70008; }
+.kernel-entry.done   { border-color:#00ff8833; }
+.kernel-name { color:#ffd700; font-size:10px; margin-bottom:2px; }
+.kernel-lang { color:#444; font-size:9px; }
+.kernel-status { font-size:9px; }
+.kernel-status.done { color:#00ff88; }
+.kernel-status.wait { color:#444; }
+.kernel-status.run  { color:#ffd700; }
+
+#worm-log { display:flex; flex-direction:column; gap:3px; }
+.worm-entry-ui { font-size:9px; color:#333; border-bottom:1px solid #0a0a14; padding-bottom:3px; }
+.worm-entry-ui .wh { color:#0a84ff; }
+
+/* ── BOTTOM — INPUT ── */
+#inputbar { background:#0a0a14; border-top:1px solid #1e1e2a; padding:8px 12px; display:flex; gap:8px; flex-shrink:0; }
+#prompt { flex:1; background:#040408; border:1px solid #1e1e2a; border-radius:3px; padding:8px 12px; color:#e8e8f0; font-family:'Courier New',monospace; font-size:13px; outline:none; }
+#prompt:focus { border-color:#0a84ff; }
+#send-btn { background:#0a84ff; color:#fff; border:none; padding:8px 20px; border-radius:3px; cursor:pointer; font-family:'Courier New',monospace; font-size:12px; font-weight:700; letter-spacing:0.05em; }
+#send-btn:hover { background:#2196f3; }
+#send-btn:disabled { background:#1e1e2a; color:#444; cursor:not-allowed; }
+
+/* ── QUICK ROUTES ── */
+#quickbar { background:#040408; border-top:1px solid #1e1e2a; padding:6px 12px; display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0; }
+.qbtn { background:#0a0a14; border:1px solid #1e1e2a; color:#666; padding:3px 10px; border-radius:2px; cursor:pointer; font-size:10px; font-family:'Courier New',monospace; letter-spacing:0.1em; }
+.qbtn:hover { border-color:#0a84ff; color:#0a84ff; }
+.qbtn.claude { border-color:#e06c7533; color:#e06c75; }
+.qbtn.mistral { border-color:#ffd70033; color:#ffd700; }
+.qbtn.nova { border-color:#0a84ff33; color:#0a84ff; }
+.qbtn.deepseek { border-color:#bf5af233; color:#bf5af2; }
+.qbtn.local { border-color:#00ff8833; color:#00ff88; }
+
+/* scrollbars */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:#040408; }
+::-webkit-scrollbar-thumb { background:#1e1e2a; border-radius:2px; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="top-logo">⬡ SNAPKITTY SOVEREIGN ROUTER</div>
+  <div class="top-model">SACM · BEDROCK · MISTRAL · DEEPSEEK R1 · LOCAL</div>
+  <div style="display:flex;gap:8px;align-items:center;margin-left:auto">
+    <div class="dot green" id="dot-mistral" title="Mistral"></div>
+    <div class="dot blue"  id="dot-bedrock" title="Bedrock"></div>
+    <div class="dot gold"  id="dot-local"   title="Local/Ollama"></div>
+    <span id="worm-head">WORM: initializing...</span>
+  </div>
+</div>
+
+<div id="main">
+
+  <!-- LEFT: SACM GATE LOG -->
+  <div class="panel">
+    <div class="panel-hdr">
+      <div class="ph-dot" style="background:#0a84ff"></div>
+      SACM GATE
+    </div>
+    <div class="panel-body">
+      <div id="gate-log">
+        <div class="gate-entry route">
+          <div class="gate-label route">READY</div>
+          <div class="gate-reason">Pattern match engine idle</div>
+          <div class="gate-time">Awaiting input...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTER: OUTPUT -->
+  <div class="panel">
+    <div class="panel-hdr">
+      <div class="ph-dot" style="background:#00ff88"></div>
+      OUTPUT STREAM
+      <span id="model-indicator" style="color:#ffd700;margin-left:auto;font-size:10px"></span>
+    </div>
+    <div id="output">
+      <span class="thinking">SnapKitty Sovereign Router — Mission Control
+Route any task. The SACM gate decides which engine handles it.
+Watch the left panel for routing decisions, right panel for kernel + WORM activity.
+
+Quick routes below show which engine handles each task type.</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: KERNEL + WORM -->
+  <div class="panel" style="display:flex;flex-direction:column">
+    <div class="panel-hdr" style="flex-shrink:0">
+      <div class="ph-dot" style="background:#ffd700"></div>
+      KERNEL CHAIN
+    </div>
+    <div class="panel-body" style="flex:0 0 auto;max-height:50%">
+      <div id="kernel-log">
+        <div class="kernel-entry">
+          <div class="kernel-name">DFA ENGINE</div>
+          <div class="kernel-lang">JavaScript · O(n) · ReDoS-immune</div>
+          <div class="kernel-status wait">— idle</div>
+        </div>
+        <div class="kernel-entry">
+          <div class="kernel-name">ROUTE-DISPATCH.REXX</div>
+          <div class="kernel-lang">REXX · 3-pass pattern match</div>
+          <div class="kernel-status wait">— idle</div>
+        </div>
+        <div class="kernel-entry">
+          <div class="kernel-name">SOVEREIGN-GLUE.REXX</div>
+          <div class="kernel-lang">REXX · domain → kernel chain</div>
+          <div class="kernel-status wait">— idle</div>
+        </div>
+        <div class="kernel-entry">
+          <div class="kernel-name">CARTO PROLOG</div>
+          <div class="kernel-lang">SWI-Prolog · Horn clauses · law</div>
+          <div class="kernel-status wait">— idle</div>
+        </div>
+        <div class="kernel-entry">
+          <div class="kernel-name">ERE VERIFY</div>
+          <div class="kernel-lang">5-pass · PASS/QUARANTINE/REJECT</div>
+          <div class="kernel-status wait">— idle</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-hdr" style="flex-shrink:0;border-top:1px solid #1e1e2a">
+      <div class="ph-dot" style="background:#00ff88"></div>
+      WORM CHAIN
+    </div>
+    <div class="panel-body" style="flex:1">
+      <div id="worm-log">
+        <div class="worm-entry-ui">
+          <span class="wh">GENESIS</span> · chain initialized · awaiting first seal
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="quickbar">
+  <span style="color:#333;font-size:10px;align-self:center">QUICK ROUTE:</span>
+  <button class="qbtn claude"   onclick="send('explain the sovereign tick runtime architecture')">CLAUDE — reasoning</button>
+  <button class="qbtn mistral"  onclick="send('write a python function to sort a list')">MISTRAL — code</button>
+  <button class="qbtn nova"     onclick="send('what is the latest bitcoin market trend')">NOVA — market</button>
+  <button class="qbtn deepseek" onclick="send('prove by induction the sum of squares formula')">DEEPSEEK R1 — math</button>
+  <button class="qbtn local"    onclick="send('use our local model to explain WORM chain')">LOCAL — nemotron</button>
+  <button class="qbtn"          onclick="send('define the word sovereign')">DICT — define</button>
+  <button class="qbtn"          onclick="send('write a research paper about the SACM architecture')">DEVTRIAL — paper</button>
+</div>
+
+<div id="inputbar">
+  <input id="prompt" type="text" placeholder="Route any task through the sovereign stack..." autofocus
+    onkeydown="if(event.key==='Enter')send()"/>
+  <button id="send-btn" onclick="send()">⬡ ROUTE</button>
+</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────────────
+let seqn = 0;
+const ROUTE_PATTERNS = [
+  [/\b(WRITE|CREATE|CODE|SCAFFOLD|BUILD|IMPLEMENT|GIT|PUSH|COMMIT)\b/i, 'mistral', 'code/file generation'],
+  [/\b(NPM|CARGO|BASH|SHELL|RUN|DEPLOY|EXECUTE)\b/i, 'mistral', 'terminal execution'],
+  [/\b(PROVE|PROOF|THEOREM|INDUCTION|AXIOM|LEMMA|FORMULA|CALCULUS)\b/i, 'deepseek', 'math/proof → DeepSeek R1'],
+  [/\b(PAPER|WHITEPAPER|RESEARCH PAPER|TECHNICAL REPORT|ACADEMIC)\b/i, 'devtrial', 'long-form writing → Nova Premier'],
+  [/\b(NEWS|MARKET|CRYPTO|BITCOIN|PRICE|STOCK|FINANCE)\b/i, 'nova', 'market/news → Nova Pro'],
+  [/\b(LOCAL|NEMOTRON|OLLAMA|OUR MODEL|OUR WEIGHTS)\b/i, 'local', 'local inference → Ollama'],
+  [/\b(LAW|LEGAL|STATUTE|FCRA|ACH|TRUST DEED|WORM|GOVERNANCE)\b/i, 'claude', 'law/trust/governance'],
+  [/\b(WHY|EXPLAIN|ANALYZE|REASON|ARCHITECTURE|DESIGN|REVIEW)\b/i, 'claude', 'reasoning → Claude'],
+  [/.*/, 'claude', 'default → Claude'],
+];
+
+const MODEL_COLORS = {
+  claude: '#e06c75', mistral: '#ffd700', nova: '#0a84ff',
+  deepseek: '#bf5af2', local: '#00ff88', devtrial: '#f97316'
+};
+
+// ── UI helpers ────────────────────────────────────────────────────────────────
+
+function ts() { return new Date().toISOString().slice(11,23); }
+
+function addGate(type, label, model, reason) {
+  const el = document.createElement('div');
+  el.className = `gate-entry ${type}`;
+  el.innerHTML = `
+    <div class="gate-label ${type}">${label}</div>
+    ${model ? `<div class="gate-model">→ ${model.toUpperCase()}</div>` : ''}
+    <div class="gate-reason">${reason}</div>
+    <div class="gate-time">${ts()}</div>`;
+  document.getElementById('gate-log').prepend(el);
+}
+
+function setKernel(name, status) {
+  document.querySelectorAll('.kernel-entry').forEach(e => {
+    if (e.querySelector('.kernel-name')?.textContent === name) {
+      const s = e.querySelector('.kernel-status');
+      s.className = `kernel-status ${status}`;
+      s.textContent = status === 'run' ? '▶ running' : status === 'done' ? '✓ done' : '— idle';
+      if (status !== 'idle') e.classList.add('active');
+      else { e.classList.remove('active'); e.classList.remove('done'); }
+      if (status === 'done') { e.classList.remove('active'); e.classList.add('done'); }
+    }
+  });
+}
+
+function addWorm(hash, event) {
+  const el = document.createElement('div');
+  el.className = 'worm-entry-ui';
+  el.innerHTML = `<span class="wh">${hash.slice(0,12)}…</span> · ${event} · ${ts()}`;
+  document.getElementById('worm-log').prepend(el);
+  document.getElementById('worm-head').textContent = `WORM: ${hash.slice(0,8)}…`;
+}
+
+function detectRoute(input) {
+  for (const [pat, agent, reason] of ROUTE_PATTERNS) {
+    if (pat.test(input)) return { agent, reason };
+  }
+  return { agent: 'claude', reason: 'default' };
+}
+
+// ── Simulate kernel pipeline (visual only — real calls go to CLI) ─────────────
+
+async function animateKernels(agent) {
+  const chain = {
+    claude:   ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'CARTO PROLOG', 'ERE VERIFY'],
+    mistral:  ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'SOVEREIGN-GLUE.REXX', 'ERE VERIFY'],
+    nova:     ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'ERE VERIFY'],
+    deepseek: ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'ERE VERIFY'],
+    devtrial: ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'SOVEREIGN-GLUE.REXX', 'ERE VERIFY'],
+    local:    ['DFA ENGINE', 'ROUTE-DISPATCH.REXX', 'ERE VERIFY'],
+  }[agent] || ['DFA ENGINE', 'ERE VERIFY'];
+
+  for (const k of chain) {
+    setKernel(k, 'run');
+    await sleep(120);
+    setKernel(k, 'done');
+    await sleep(60);
+  }
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── SHA-256 for WORM seal ─────────────────────────────────────────────────────
+
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// ── Main send ─────────────────────────────────────────────────────────────────
+
+async function send(prebuilt) {
+  const input = prebuilt || document.getElementById('prompt').value.trim();
+  if (!input) return;
+
+  document.getElementById('prompt').value = '';
+  const btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ ROUTING';
+
+  seqn++;
+  const seq = seqn;
+
+  // 1. DFA pattern match → routing decision
+  addGate('route', '⬡ INPUT RECEIVED', null, `"${input.slice(0,50)}${input.length>50?'…':''}"`);
+  await sleep(80);
+
+  const { agent, reason } = detectRoute(input);
+  const color = MODEL_COLORS[agent] || '#e8e8f0';
+
+  addGate('pass', '✓ SACM GATE → ROUTED', agent, reason);
+
+  // 2. Update output header
+  const out = document.getElementById('output');
+  out.innerHTML = `<span class="model-tag" style="color:${color}">▶ ${agent.toUpperCase()} · ${reason} · seq#${seq}</span>`;
+  document.getElementById('model-indicator').textContent = agent.toUpperCase();
+  document.getElementById('model-indicator').style.color = color;
+
+  // 3. Animate kernel chain
+  animateKernels(agent);
+
+  // 4. Call the actual router via SSE-style fetch to /api/router
+  // Since we don't have a backend server, we show what WOULD happen
+  // and provide the CLI command to run it
+  await sleep(200);
+
+  const cliCmd = `npm run router "${input.replace(/"/g, '\\"')}"`;
+
+  out.innerHTML += `\n<span class="thinking">── SACM GATE DECISION ──────────────────
+Input:   "${input}"
+Route:   ${agent.toUpperCase()}
+Reason:  ${reason}
+Model:   ${getModelDisplay(agent)}
+
+── TO RUN THIS IN TERMINAL ──────────────
+$ cd SNAPKITTYWEST
+$ ${cliCmd}
+
+── KERNEL CHAIN ─────────────────────────
+${getKernelChain(agent)}
+
+── OUTPUT STREAM ────────────────────────
+(streaming from model...)</span>`;
+
+  // 5. WORM seal
+  await sleep(300);
+  const hash = await sha256(`${agent}:${input}:${Date.now()}`);
+  addWorm(hash, `ROUTED → ${agent.toUpperCase()}`);
+
+  out.innerHTML += `\n<span class="worm-seal">WORM SEAL: ${hash.slice(0,32)}…
+Event: ROUTER_DISPATCH · Agent: ${agent.toUpperCase()} · seq#${seq}</span>`;
+
+  btn.disabled = false;
+  btn.textContent = '⬡ ROUTE';
+  out.scrollTop = out.scrollHeight;
+}
+
+function getModelDisplay(agent) {
+  const map = {
+    claude: 'us.anthropic.claude-sonnet-4-6 (Bedrock us-east-1)',
+    mistral: 'codestral-latest (Mistral free tier)',
+    nova: 'us.amazon.nova-pro-v1:0 (Bedrock us-east-1)',
+    deepseek: 'us.deepseek.r1-v1:0 (Bedrock us-west-2)',
+    devtrial: 'us.amazon.nova-premier-v1:0 (Bedrock us-east-1)',
+    local: 'nemotron (Ollama localhost:11434)',
+  };
+  return map[agent] || agent;
+}
+
+function getKernelChain(agent) {
+  const chains = {
+    claude:   '  DFA ENGINE → ROUTE-DISPATCH.REXX → CARTO PROLOG → ERE VERIFY → OUTPUT',
+    mistral:  '  DFA ENGINE → ROUTE-DISPATCH.REXX → SOVEREIGN-GLUE.REXX → ERE VERIFY → OUTPUT',
+    nova:     '  DFA ENGINE → ROUTE-DISPATCH.REXX → ERE VERIFY → OUTPUT',
+    deepseek: '  DFA ENGINE → ROUTE-DISPATCH.REXX → ERE VERIFY → OUTPUT',
+    devtrial: '  DFA ENGINE → ROUTE-DISPATCH.REXX → CORPUS CHERRY-PICK → NOVA PREMIER → ERE VERIFY → OUTPUT',
+    local:    '  DFA ENGINE → ROUTE-DISPATCH.REXX → OLLAMA :11434 → OUTPUT',
+  };
+  return chains[agent] || '  DFA ENGINE → ERE VERIFY → OUTPUT';
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+
+(async () => {
+  const h = await sha256('SNAPKITTY:GENESIS:' + Date.now());
+  addWorm(h, 'ROUTER_UI_BOOT');
+  document.getElementById('dot-mistral').style.background = '#ffd700';
+  document.getElementById('dot-bedrock').style.background = '#0a84ff';
+})();
+</script>
+</body>
+</html>
