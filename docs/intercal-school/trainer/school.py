@@ -19,6 +19,14 @@ Usage
         --roster ../sorry_roster.json
 """
 import argparse, json, hashlib, os, sys, datetime, subprocess
+sys.stdout.reconfigure(encoding="utf-8", errors="replace") if hasattr(sys.stdout, "reconfigure") else None
+
+# Emoji INTERCAL parser — optional upgrade over plain-text politeness
+try:
+    from emoji_intercal import score_emoji_politeness
+    _EMOJI_AVAILABLE = True
+except ImportError:
+    _EMOJI_AVAILABLE = False
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 SIEVE = os.path.join(ROOT, "cosmic-invariant-sieve")
@@ -67,6 +75,17 @@ def score_engineering(status, violation_class):
 def score_politeness(message):
     if not message:
         return 0.0, ["empty message"]
+
+    # Detect emoji INTERCAL source: contains 🙏 or any emoji opcode
+    _EMOJI_OPCODES = {"🙏", "➡️", "🔙", "🎲", "🔄", "😤", "🙄", "💀", "📣", "🔢", "📥", "🏁"}
+    is_emoji_intercal = _EMOJI_AVAILABLE and any(ch in message for ch in _EMOJI_OPCODES)
+
+    if is_emoji_intercal:
+        score, verdict, detail = score_emoji_politeness(message)
+        notes = [f"emoji-INTERCAL parser: {verdict}", detail]
+        return score, notes
+
+    # Fallback: plain-text politeness scoring
     low = message.lower()
     hits = [w for w in COURTEOUS if w in low]
     hostile = [w for w in HOSTILE if w in low]
@@ -97,6 +116,8 @@ def main():
     ap.add_argument("--agent", required=True)
     ap.add_argument("--analysis", required=True)
     ap.add_argument("--message", default="")
+    ap.add_argument("--emoji-source", default=None,
+                    help="Path to .emoji.i file — overrides --message for politeness scoring")
     ap.add_argument("--roster", default=os.path.join(os.path.dirname(__file__), "..", "sorry_roster.json"))
     ap.add_argument("--grader", default=os.path.join(os.path.dirname(__file__), "forge_grader.ts"))
     args = ap.parse_args()
@@ -109,7 +130,13 @@ def main():
     src_hash = a.get("source_hash", "unknown")
 
     eng, verdict, tpl = score_engineering(status, vclass)
-    pol, pnotes = score_politeness(args.message)
+
+    # Politeness: emoji INTERCAL source takes priority over plain message
+    if args.emoji_source and os.path.exists(args.emoji_source):
+        emoji_src = open(args.emoji_source, encoding="utf-8").read()
+        pol, pnotes = score_politeness(emoji_src)
+    else:
+        pol, pnotes = score_politeness(args.message)
     roster = load_roster(args.roster)
     assigned = roster[:3] if roster else []
 
