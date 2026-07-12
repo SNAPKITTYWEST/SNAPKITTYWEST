@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SnapKitty Sovereign Router</title>
+<meta name="description" content="Universal AI workflow engine. Every task routes to the right model. Evidence or Silence."/>
+<style>
+:root {
+  --bg:#040408;--panel:#0a0a14;--border:#1e1e2a;
+  --text:#e8e8f0;--muted:#666;--dim:#333;
+  --green:#00ff88;--gold:#ffd700;--blue:#0a84ff;
+  --purple:#bf5af2;--orange:#f97316;--red:#ff453a;
+  --mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px;min-height:100vh;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.hero{max-width:900px;margin:0 auto;padding:48px 24px 0;}
+.hero-badge{font-size:10px;color:var(--green);letter-spacing:.2em;margin-bottom:12px;}
+.ascii{color:var(--green);font-size:11px;line-height:1.4;margin-bottom:20px;white-space:pre;overflow-x:auto;}
+h1{font-size:clamp(20px,4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px;}
+h1 span{color:var(--green);}
+.sub{color:var(--muted);font-size:12px;line-height:1.7;max-width:540px;margin-bottom:28px;}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:40px;}
+.badge{background:var(--panel);border:1px solid var(--border);padding:3px 10px;border-radius:2px;font-size:9px;letter-spacing:.1em;}
+.badge.g{border-color:#00ff8833;color:var(--green);}
+.badge.gold{border-color:#ffd70033;color:var(--gold);}
+.badge.b{border-color:#0a84ff33;color:var(--blue);}
+.badge.p{border-color:#bf5af233;color:var(--purple);}
+
+.section{max-width:900px;margin:0 auto;padding:0 24px 40px;}
+.shdr{font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:7px;}
+
+.route-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);margin-bottom:2px;}
+.rc{background:var(--bg);padding:14px;}
+.rc-trig{font-size:9px;color:var(--muted);letter-spacing:.1em;margin-bottom:5px;}
+.rc-eng{font-size:13px;font-weight:700;margin-bottom:3px;}
+.rc-mod{font-size:9px;color:var(--dim);margin-bottom:6px;}
+.rc-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+.rc-ex{margin-top:7px;background:var(--panel);border:1px solid var(--border);padding:5px 9px;font-size:9px;color:var(--dim);border-radius:2px;}
+.rc-ex span{color:var(--text);}
+
+.demo-wrap{background:var(--panel);border:1px solid var(--border);border-radius:3px;overflow:hidden;}
+.demo-top{background:#040408;border-bottom:1px solid var(--border);padding:7px 12px;display:flex;align-items:center;gap:7px;}
+.dd{width:8px;height:8px;border-radius:50%;}
+.demo-ttl{font-size:9px;color:var(--muted);letter-spacing:.15em;flex:1;text-align:center;}
+.demo-body{display:grid;grid-template-columns:180px 1fr;min-height:280px;}
+.demo-side{border-right:1px solid var(--border);padding:10px;display:flex;flex-direction:column;gap:5px;}
+.dshr{font-size:8px;color:var(--dim);letter-spacing:.2em;margin-bottom:3px;}
+.gi{padding:5px 7px;border:1px solid var(--border);border-radius:2px;font-size:9px;}
+.gi.on{border-color:#00ff8833;background:#00ff8808;}
+.gl{font-size:8px;color:var(--green);margin-bottom:2px;}
+.ga{color:var(--gold);}
+.gt{color:var(--dim);font-size:8px;}
+.demo-out{padding:12px;display:flex;flex-direction:column;}
+#otag{font-size:9px;margin-bottom:7px;}
+#otext{flex:1;color:#c8c8d8;font-size:11px;line-height:1.7;white-space:pre-wrap;overflow-y:auto;max-height:220px;}
+#oseal{font-size:8px;color:var(--green);border-top:1px solid var(--border);padding-top:7px;margin-top:7px;display:none;}
+.qpills{padding:7px 12px;border-top:1px solid var(--border);display:flex;gap:5px;flex-wrap:wrap;}
+.pill{background:var(--bg);border:1px solid var(--border);padding:3px 9px;border-radius:2px;font-size:9px;color:var(--muted);cursor:pointer;}
+.pill:hover{border-color:var(--muted);color:var(--text);}
+.pill.c{border-color:#e06c7533;color:#e06c75;}
+.pill.m{border-color:#ffd70033;color:var(--gold);}
+.pill.n{border-color:#0a84ff33;color:var(--blue);}
+.pill.d{border-color:#bf5af233;color:var(--purple);}
+.pill.l{border-color:#00ff8833;color:var(--green);}
+.inp-row{border-top:1px solid var(--border);padding:7px 12px;display:flex;gap:7px;}
+.inp{flex:1;background:var(--bg);border:1px solid var(--border);padding:6px 11px;color:var(--text);font-family:var(--mono);font-size:12px;border-radius:2px;outline:none;}
+.inp:focus{border-color:var(--blue);}
+.rbtn{background:var(--green);color:#040408;border:none;padding:6px 14px;font-family:var(--mono);font-size:11px;font-weight:700;border-radius:2px;cursor:pointer;}
+.rbtn:hover{background:#00d470;}
+.rbtn:disabled{background:var(--border);color:var(--dim);cursor:not-allowed;}
+
+.steps{display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;gap:14px;}
+.snum{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green);flex-shrink:0;}
+.stitle{font-size:12px;margin-bottom:5px;}
+.scode{background:var(--panel);border:1px solid var(--border);padding:9px 13px;font-size:11px;color:#c8c8d8;border-radius:2px;line-height:1.8;overflow-x:auto;white-space:pre;}
+.scode .c{color:var(--green);}
+.scode .cm{color:var(--dim);}
+
+footer{max-width:900px;margin:0 auto;padding:20px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.fl{font-size:9px;color:var(--dim);line-height:1.8;}
+.fr{display:flex;gap:10px;}
+.fr a{font-size:9px;color:var(--dim);}
+.fr a:hover{color:var(--text);}
+@media(max-width:560px){.demo-body{grid-template-columns:1fr;}.demo-side{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">⬡ SNAPKITTY COLLECTIVE · SOVEREIGN COMPUTE · 2026</div>
+  <pre class="ascii">╔═══════════════════════════════════════════════════════╗
+║   ⬡  S O V E R E I G N   R O U T E R               ║
+║   Every task routes to the right engine.            ║
+║   The routing table is the IP. Not the models.      ║
+╚═══════════════════════════════════════════════════════╝</pre>
+  <h1>One command.<br/><span>Every task routes itself.</span></h1>
+  <p class="sub">Universal AI workflow engine. Type anything. The SACM gate pattern-matches your input and routes to the right model — Claude for reasoning, DeepSeek R1 for math proofs, Mistral for code, Nova for research. Every output verified and WORM-sealed.</p>
+  <div class="badges">
+    <span class="badge g">⬡ SACM GATE</span>
+    <span class="badge gold">MISTRAL FREE</span>
+    <span class="badge b">AWS BEDROCK</span>
+    <span class="badge p">DEEPSEEK R1</span>
+    <span class="badge g">WORM SEALED</span>
+    <span class="badge">LOCAL OLLAMA</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="shdr">Routing Table</div>
+  <div class="route-grid">
+    <div class="rc">
+      <div class="rc-trig">PROVE · THEOREM · INDUCTION · AXIOM</div>
+      <div class="rc-eng" style="color:#bf5af2">DeepSeek R1</div>
+      <div class="rc-mod">us.deepseek.r1-v1:0 · us-west-2</div>
+      <div class="rc-desc">Formal math proofs, induction, symbolic reasoning</div>
+      <div class="rc-ex">$ npm run router "<span>prove sum of squares by induction</span>"</div>
+    </div>
+    <div class="rc">
+      <div class="rc-trig">WRITE · CODE · GIT · BUILD · SCAFFOLD</div>
+      <div class="rc-eng" style="color:#ffd700">Mistral Codestral</div>
+      <div class="rc-mod">codestral-latest · free tier</div>
+      <div class="rc-desc">Code generation, git ops, terminal commands</div>
+      <div class="rc-ex">$ npm run router "<span>write a rust fibonacci function</span>"</div>
+    </div>
+    <div class="rc">
+      <div class="rc-trig">WHY · EXPLAIN · LAW · TRUST · WORM</div>
+      <div class="rc-eng" style="color:#e06c75">Claude Sonnet 4.6</div>
+      <div class="rc-mod">us.anthropic.claude-sonnet-4-6 · us-east-1</div>
+      <div class="rc-desc">Reasoning, law, trust, architecture, governance</div>
+      <div class="rc-ex">$ npm run router "<span>explain why WORM beats a database</span>"</div>
+    </div>
+    <div class="rc">
+      <div class="rc-trig">PAPER · WHITEPAPER · ACADEMIC</div>
+      <div class="rc-eng" style="color:#f97316">DEVTRIAL (Nova Premier)</div>
+      <div class="rc-mod">us.amazon.nova-premier-v1:0 · us-east-1</div>
+      <div class="rc-desc">Long-form papers, whitepapers, technical docs</div>
+      <div class="rc-ex">$ npm run router "<span>write a paper on SACM architecture</span>"</div>
+    </div>
+    <div class="rc">
+      <div class="rc-trig">MARKET · CRYPTO · NEWS · FINANCE</div>
+      <div class="rc-eng" style="color:#0a84ff">Nova Pro</div>
+      <div class="rc-mod">us.amazon.nova-pro-v1:0 · us-east-1</div>
+      <div class="rc-desc">Market research, news synthesis, financial analysis</div>
+      <div class="rc-ex">$ npm run router "<span>what is the bitcoin market trend</span>"</div>
+    </div>
+    <div class="rc">
+      <div class="rc-trig">LOCAL · NEMOTRON · OLLAMA · OUR MODEL</div>
+      <div class="rc-eng" style="color:#00ff88">Local / Nemotron</div>
+      <div class="rc-mod">ollama:nemotron · localhost:11434</div>
+      <div class="rc-desc">Offline inference, your trained weights, no cloud</div>
+      <div class="rc-ex">$ npm run router "<span>use our local model to explain WORM</span>"</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="shdr">Live Routing Demo — See Which Engine Gets Your Task</div>
+  <div class="demo-wrap">
+    <div class="demo-top">
+      <div class="dd" style="background:#ff453a"></div>
+      <div class="dd" style="background:#ffd700"></div>
+      <div class="dd" style="background:#00ff88"></div>
+      <div class="demo-ttl">SACM GATE — SOVEREIGN ROUTER</div>
+      <span id="wd" style="font-size:8px;color:#333">WORM: init...</span>
+    </div>
+    <div class="demo-body">
+      <div class="demo-side">
+        <div class="dshr">GATE LOG</div>
+        <div id="gl">
+          <div class="gi"><div class="gl">READY</div><div style="color:#333;font-size:9px">Awaiting input...</div></div>
+        </div>
+      </div>
+      <div class="demo-out">
+        <div id="otag" style="color:#333;font-size:9px">▶ route a task to see the engine selection</div>
+        <div id="otext" style="color:#333">The SACM gate pattern-matches your input
+and routes to the right engine automatically.
+
+Try the quick routes below ↓</div>
+        <div id="oseal"></div>
+      </div>
+    </div>
+    <div class="qpills">
+      <span style="font-size:8px;color:#333;align-self:center">QUICK:</span>
+      <span class="pill c" onclick="go('explain the sovereign tick runtime')">CLAUDE</span>
+      <span class="pill m" onclick="go('write a python hello world')">MISTRAL</span>
+      <span class="pill n" onclick="go('what is the bitcoin market trend')">NOVA</span>
+      <span class="pill d" onclick="go('prove by induction sum of first n integers')">DEEPSEEK R1</span>
+      <span class="pill l" onclick="go('use our local model to explain WORM')">LOCAL</span>
+      <span class="pill"   onclick="go('write a research paper about SACM')">DEVTRIAL</span>
+    </div>
+    <div class="inp-row">
+      <input id="dp" class="inp" type="text" placeholder="Type any task — watch it route automatically..."
+        onkeydown="if(event.key==='Enter')go()"/>
+      <button id="rb" class="rbtn" onclick="go()">⬡ ROUTE</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="shdr">Boot Sequence</div>
+  <div class="steps">
+    <div class="step"><div class="snum">1</div><div>
+      <div class="stitle">Clone + Install</div>
+      <div class="scode"><span class="c">git clone</span> https://github.com/SNAPKITTYWEST/SNAPKITTYWEST.git
+<span class="c">cd</span> SNAPKITTYWEST && <span class="c">npm install</span></div>
+    </div></div>
+    <div class="step"><div class="snum">2</div><div>
+      <div class="stitle">Configure AWS Bedrock</div>
+      <div class="scode"><span class="c">aws configure</span>   <span class="cm"># region: us-east-1</span></div>
+    </div></div>
+    <div class="step"><div class="snum">3</div><div>
+      <div class="stitle">Set .env</div>
+      <div class="scode">VAULT_MASTER_SECRET=<span style="color:#ffd700">your_secret</span>
+MISTRAL_API_KEY=<span style="color:#ffd700">your_key</span>   <span class="cm"># free at console.mistral.ai</span></div>
+    </div></div>
+    <div class="step"><div class="snum">4</div><div>
+      <div class="stitle">Seal keys into vault</div>
+      <div class="scode">VAULT_MASTER_SECRET=your_secret <span class="c">npm run vault:seal</span> "MISTRAL_API_KEY=your_key"</div>
+    </div></div>
+    <div class="step"><div class="snum">5</div><div>
+      <div class="stitle">Route your first task</div>
+      <div class="scode"><span class="c">npm run router</span> "prove by induction sum of squares"  <span class="cm"># → DeepSeek R1</span>
+<span class="c">npm run router</span> "write a rust WORM chain"            <span class="cm"># → Mistral</span>
+<span class="c">start</span> router-ui.html                              <span class="cm"># visual UI</span></div>
+    </div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">SnapKitty Collective LLC · EIN 41-5105572<br/>Bel Esprit D'Accord Trust · EIN 41-6630640<br/>Sovereign Source License v3.0 · 2026</div>
+  <div class="fr">
+    <a href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST">GitHub</a>
+    <a href="https://github.com/SNAPKITTYWEST/mathlib5">mathlib5</a>
+    <a href="https://collectivekitty.com">collectivekitty.com</a>
+  </div>
+</footer>
+
+<script>
+const RT=[
+  [/\b(PROVE|PROOF|THEOREM|INDUCTION|AXIOM|LEMMA|FORMULA|CALCULUS)\b/i,'deepseek','math/proof → DeepSeek R1','#bf5af2'],
+  [/\b(WRITE|CODE|GIT|SCAFFOLD|BUILD|IMPLEMENT|NPM|CARGO|BASH|PYTHON|RUST)\b/i,'mistral','code/terminal → Mistral Codestral','#ffd700'],
+  [/\b(PAPER|WHITEPAPER|RESEARCH PAPER|ACADEMIC|DOCUMENT)\b/i,'devtrial','long-form → Nova Premier','#f97316'],
+  [/\b(MARKET|CRYPTO|BITCOIN|NEWS|PRICE|FINANCE|STOCK)\b/i,'nova','market/news → Nova Pro','#0a84ff'],
+  [/\b(LOCAL|NEMOTRON|OLLAMA|OUR MODEL|OUR WEIGHTS)\b/i,'local','local → Ollama nemotron','#00ff88'],
+  [/\b(WHY|EXPLAIN|LAW|TRUST|WORM|GOVERN|REASON|ARCHITECT)\b/i,'claude','reasoning/law → Claude Sonnet 4.6','#e06c75'],
+  [/./,'claude','default → Claude Sonnet 4.6','#e06c75'],
+];
+const RS={
+  deepseek:i=>`DeepSeek R1 — mathematical reasoning (us-west-2)\n\nRoute: ${i}\nModel: us.deepseek.r1-v1:0\n\nDeepSeek R1 handles formal proofs, induction,\nalgebra, calculus, and symbolic math.\n\nRun: npm run router "${i}"`,
+  mistral:i=>`Mistral Codestral — code engine (free tier)\n\nRoute: ${i}\nModel: codestral-latest\n\nMistral handles code generation, git operations,\nterminal commands, and file writes.\n\nRun: npm run router "${i}"`,
+  claude:i=>`Claude Sonnet 4.6 — reasoning engine (us-east-1)\n\nRoute: ${i}\nModel: us.anthropic.claude-sonnet-4-6\n\nClaude handles reasoning, law, governance,\narchitecture, and trust analysis.\n\nRun: npm run router "${i}"`,
+  nova:i=>`Nova Pro — research synthesis (us-east-1)\n\nRoute: ${i}\nModel: us.amazon.nova-pro-v1:0\n\nNova Pro handles market data, news synthesis,\nfinancial analysis, and research queries.\n\nRun: npm run router "${i}"`,
+  devtrial:i=>`DEVTRIAL — long-form writing (us-east-1)\n\nRoute: ${i}\nModel: us.amazon.nova-premier-v1:0\nPipeline: corpus cherry-pick → Nova Premier → ERE verify\n\nDEVTRIAL produces complete technical papers.\n\nRun: npm run router "${i}"`,
+  local:i=>`Local / Nemotron — offline (localhost:11434)\n\nRoute: ${i}\nModel: ollama:nemotron\n\nYour trained weights. No cloud dependency.\nStart: ollama serve && ollama pull nemotron\n\nRun: npm run router "${i}"`,
+};
+let seq=0;
+async function sha256(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+function ts(){return new Date().toTimeString().slice(0,8);}
+async function go(pre){
+  const inp=document.getElementById('dp');
+  const input=pre||inp.value.trim();
+  if(!input)return;
+  inp.value='';
+  const btn=document.getElementById('rb');
+  btn.disabled=true;btn.textContent='⏳';
+  seq++;
+  let agent='claude',reason='default',color='#e06c75';
+  for(const[p,a,r,c]of RT){if(p.test(input)){agent=a;reason=r;color=c;break;}}
+  const gl=document.getElementById('gl');
+  const e=document.createElement('div');
+  e.className='gi on';
+  e.innerHTML=`<div class="gl">✓ ROUTED</div><div class="ga" style="color:${color}">${agent.toUpperCase()}</div><div style="color:#444;font-size:8px">${reason}</div><div class="gt">${ts()}</div>`;
+  gl.prepend(e);
+  if(gl.children.length>6)gl.lastChild.remove();
+  document.getElementById('otag').innerHTML=`<span style="color:${color}">▶ ${agent.toUpperCase()}</span> <span style="color:#333">— ${reason}</span>`;
+  document.getElementById('otext').style.color='#c8c8d8';
+  document.getElementById('otext').textContent=RS[agent]?.(input)||'';
+  const h=await sha256(`${agent}:${input}:${Date.now()}`);
+  const os=document.getElementById('oseal');
+  os.style.display='block';
+  os.textContent=`WORM: ${h.slice(0,32)}… · seq#${seq}`;
+  document.getElementById('wd').textContent=`WORM: ${h.slice(0,8)}…`;
+  btn.disabled=false;btn.textContent='⬡ ROUTE';
+}
+(async()=>{const h=await sha256('GENESIS:'+Date.now());document.getElementById('wd').textContent=`WORM: ${h.slice(0,8)}…`;})();
+</script>
+</body>
+</html>
