@@ -52,6 +52,20 @@
   tabsize=2
 }
 
+\lstdefinelanguage{lean}{
+  keywords={theorem,lemma,example,def,noncomputable,structure,namespace,end,by,
+    intro,intros,exact,have,show,assume,assumption,open,import,inductive,
+    class,instance,abbrev,section,variable,variables,let,fun,if,then,else,
+    match,calc,conv},
+  morekeywords={[2]Type,Prop,Real,NNReal,ENNReal,Nat,Int,Rat,Bool,Fin,Set,Finset,
+    List,Option,String},
+  sensitive=true,
+  morecomment=[l]{--},
+  morecomment=[s]{-/-}{-/},
+  morestring=[b]",
+  literate={`}{$\lambda$}1
+}
+
 % --- Theorem environments ----------------------------------------------------
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -146,8 +160,8 @@ constraint $\sum_i P(w_i\mid \mathrm{context}) = 1$ at the heart of every
 autoregressive language model. We show this constraint is not produced by the
 vocabulary, the network, or softmax: it is \emph{the defining equation of the
 probability simplex $\simplex{n}$} and therefore holds independently of any
-token. The ``$1$'' was always there --- the structural invariant, the Haar
-volume form, the fiber of the sum map at $1$.
+token. The ``$1$'' was always there --- the structural invariant, the affine
+mass-one level set, the fiber of the sum map at $1$.
 
 Working in Lean\,4 (mathlib) we prove, with no \texttt{sorry}, that softmax
 always lands on $\simplex{n}$ ($n\ge 1$); that $n=0$ is degenerate (empty sum
@@ -253,8 +267,8 @@ shape of the space the model lives in.
 simplex}, with vocabulary demoted to a coordinate chart $V : \mathrm{Fin}(n)\to
 \mathrm{String}$.
 \item A machine-checked Lean~4 proof (Section~\ref{sec:lean}) that
-$\softmax$ maps $\RR^n$ onto $\simplex{n}$ for every $n\ge 1$ (no
-\texttt{sorry}).
+$\softmax$ maps $\RR^n$ into the relative interior of $\simplex{n}$ for every
+$n\ge 1$ (no \texttt{sorry}).
 \item A precise treatment of the degenerate cases: the empty vocabulary
 ($n=0$, Section~\ref{sec:empty}) and the single-token vocabulary ($n=1$,
 Section~\ref{sec:n1}).
@@ -301,10 +315,13 @@ convention $\simplex{n}\subset\RR^n$) is
 \end{definition}
 
 \begin{remark}
-The dimension of $\simplex{n}$ as a real manifold is $n-1$: the single linear
-constraint $\sum_i p_i = 1$ removes one degree of freedom from $\RR^n$. The
-non-negativity constraints $p_i\ge 0$ cut out the \emph{interior and boundary}
-of a convex polytope (the standard $(n-1)$-simplex).
+We index outcomes by $\mathrm{Fin}(n)$ so that the parameter $n$ counts the
+\emph{number of outcomes}; the geometric simplex then has dimension $n-1$.  This
+is the standard convention: the standard $(n-1)$-simplex is the convex hull of
+$n$ vertices, and its points are probability vectors in $\RR^n$.  The single
+linear constraint $\sum_i p_i = 1$ removes one degree of freedom from $\RR^n$.
+The non-negativity constraints $p_i\ge 0$ cut out the \emph{interior and
+boundary} of this convex polytope.
 \end{remark}
 
 \subsection{The softmax retraction}
@@ -315,10 +332,10 @@ vector is the softmax:
 \[
 \softmax(\ell)_i \;=\; \frac{e^{\ell_i}}{\sum_j e^{\ell_j}}.
 \]
-We view $\softmax : \RR^n \to \simplex{n}$ as a \emph{retraction} of
-$\RR^n$ onto the simplex along the all-ones direction. It is invariant under
-uniform shifts $\ell_i \mapsto \ell_i + c$ (Lemma~\ref{lem:shift}), because the
-shift is absorbed entirely into the denominator.
+We view $\softmax : \RR^n \to \simplex{n}$ as a map into the relative interior
+of the simplex, collapsing $\RR^n$ along the all-ones direction. It is invariant
+under uniform shifts $\ell_i \mapsto \ell_i + c$ (Lemma~\ref{lem:shift}), because
+the shift is absorbed entirely into the denominator.
 
 \subsection{The structural invariant}
 \label{sec:structural}
@@ -363,9 +380,12 @@ tokens should remove the constraint. It does not.
 \begin{itemize}
 \item The \emph{empty sum} $\sum_{i:\mathrm{Fin}(0)} p_i$ is, by the
 definitions of summation over an empty index set, exactly $0$.
-\item The \emph{structural invariant} --- the defining equation of
-$\simplex{0}$ --- is still $\sum_i p_i = 1$. The $0$-simplex $\simplex{0}$
-is a singleton $\{*\}$, and its unique point carries total mass $1$.
+\item The \emph{structural invariant} --- the defining equation of the simplex
+$\sum_i p_i = 1$ --- therefore \emph{cannot be satisfied} by any point over an
+empty vocabulary.  The type $\simplex{0}$ (points with $\sum_{i:\mathrm{Fin}(0)}
+p_i = 1$) is \emph{empty}: the only possible sum is $0 \neq 1$.  The ``$1$''
+survives not as an attainable mass but as the \emph{axiom} that must hold --- the
+requirement with no coordinate to carry it.
 \end{itemize}
 
 The \emph{gap} between the empty sum ($0$) and the structural invariant ($1$)
@@ -382,9 +402,9 @@ In Lean (Section~\ref{sec:lean}) we state this as:
 theorem empty_vocabulary_normalization :
     (Finset.sum (Finset.univ : Finset (Fin 0)) fun i => (0 : RR)) = 0 := by simp
 \end{lstlisting}
-The empty sum is $0$; the simplex $\simplex{0}$ is a singleton whose unique
-point has mass $1$. The ``$1$ that was always there'' is the axiom, not the
-sum.
+The empty sum is $0$; consequently there is \emph{no} point of $\simplex{0}$
+(the constraint $\sum_i p_i = 1$ would read $0 = 1$, which is unsatisfiable).
+The ``$1$ that was always there'' is the axiom, not a sum that can be attained.
 
 % ============================================================================
 \section{The Single-Token Vocabulary: the Case $n=1$}
@@ -574,6 +594,18 @@ Thus the meta-inverted sum decomposes into a logit contribution $c$ and a
 vocabulary-size contribution $\ln n$ --- exactly the Lagrange multiplier
 structure.
 
+More generally, for \emph{any} predicted distribution $p=\softmax(\ell)$ the
+identity is \emph{exact}, not approximate:
+\[
+\Lambda(\ell) \;=\; \log Z(\ell)
+\;=\; \sum_i p_i\,\ell_i \;+\; H(p)
+\;=\; \mathbb{E}_{p}[\ell] + H(p),
+\]
+where $H(p)=-\sum_i p_i\ln p_i$.  (Proof: $p_i=e^{\ell_i-\Lambda}$, so
+$\ell_i=\Lambda+\ln p_i$ and $\mathbb{E}_p[\ell]=\sum_i p_i(\Lambda+\ln p_i)
+=\Lambda - H(p)$.)  For the uniform case $p_i=1/n$ this reduces to
+$\Lambda = c + \ln n$, since $\mathbb{E}_p[\ell]=c$ and $H(p)=\ln n$.
+
 % ============================================================================
 \section{The Three Limits}
 \label{sec:limits}
@@ -697,9 +729,8 @@ theorem softmax_normalization (n : Nat) (x : Fin n -> RR) (hn : 0 < n) :
     ∑ i : Fin n, softmax n x i = 1 := by
   have hZ : ∑ j : Fin n, exp (x j) ≠ 0 := (sum_exp_pos n hn x).ne'
   simp only [softmax]
-  rw [Finset.sum_div]
-  field_simp [hZ]
-  rfl
+  rw [←Finset.sum_div]
+  exact div_self hZ
 \end{lstlisting}
 
 The full file is reproduced in Appendix~\ref{app:lean}.
@@ -1088,14 +1119,16 @@ as primal--dual on the probability simplex.
 \subsection{The meta-inverted sum as the divergence function}
 \label{sec:infogeo-div}
 
-The negative free energy $F=-\Lambda$ is the convex potential whose
-Bregman divergence generates the geometry. The KL divergence between two points
-$P$ and $Q$ on the simplex is the Bregman divergence of $F$:
+The log-partition $\Lambda=\log Z$ is the \emph{convex} potential (in the
+natural parameters $\ell$); its negation $F=-\Lambda$ is the corresponding
+\emph{concave} free energy.  The Bregman divergence of the convex potential
+$\Lambda$ generates the geometry. The KL divergence between two points $P$ and
+$Q$ on the simplex is the Bregman divergence of $\Lambda$:
 \[
-D_{\mathrm{KL}}(P\|Q) = B_F(\ell_P, \ell_Q)
-= F(\ell_Q) - F(\ell_P) - \langle \nabla F(\ell_P), \ell_Q-\ell_P\rangle.
+D_{\mathrm{KL}}(P\|Q) = B_\Lambda(\ell_Q, \ell_P)
+= \Lambda(\ell_Q) - \Lambda(\ell_P) - \langle \nabla\Lambda(\ell_P), \ell_Q-\ell_P\rangle.
 \]
-Since $\nabla F = -P$, this recovers the standard expression. The
+Since $\nabla\Lambda = P$, this recovers the standard expression. The
 meta-inverted sum is thus the potential from which the entire information
 geometry of next-token prediction is derived.
 
@@ -1129,7 +1162,8 @@ cross-entropy & KL distance on the simplex \\
 We have demonstrated that the normalization constraint is a \emph{structural
 property of the probability simplex}, not an emergent property of tokens or of
 the softmax nonlinearity. The ``$1$'' exists before any word is emitted; it is
-the defining fiber of the sum map at $1$, the Haar volume form on the simplex.
+the defining fiber of the sum map at $1$, the affine mass-one level set of the
+simplex.
 The meta-inverted sum --- the log-partition function $\log Z$ --- is its dual,
 the Lagrange multiplier of the maximum-entropy principle, and the free energy of
 the prediction.
@@ -1411,7 +1445,8 @@ proven, rather than assumed.
 
 The log-partition $Z=\sum_i e^{\ell_i}$ is the canonical partition function of a
 system with energies $-\ell_i$ at inverse temperature $1$. The free energy
-$F=-\ln Z$ and its convexity are textbook. Our reframing maps ``next-token
+$F=-\ln Z$ (hence \emph{concave}, since $\ln Z$ is convex in the logits) is
+textbook. Our reframing maps ``next-token
 prediction'' onto ``sampling from a Boltzmann distribution over token
 energies,'' with temperature (Section~\ref{sec:temperature}) recovering
 annealing between ordered and disordered phases.
@@ -2047,7 +2082,7 @@ The verbatim output of the reproduction script (file
 \section*{Colophon}
 \addcontentsline{toc}{section}{Colophon}
 
-\paragraph{Document.} This paper was typeset with \XeLaTeX\ using the Cambria,
+\paragraph{Document.} This paper was typeset with \text{XeLaTeX} using the Cambria,
 Calibri, and Consolas system fonts. The body is written in \TeX\ markup; all
 code listings are embedded verbatim from their source files so that the printed
 page and the repository are guaranteed to agree.
