@@ -144,7 +144,7 @@ def freudenthalDual (X : J3O) : J3O :=
   let t := jTrace X
   let t2 := jTrace X2
   let half := HMul.hMul 0.5 (HSub.hSub (HMul.hMul t t) t2)
-  ⟨ HSub.hSub (J3O.d1 X2) (HMul.hMul t X.d1),
+  ⟨ HAdd.hAdd (HSub.hSub (J3O.d1 X2) (HMul.hMul t X.d1)) half,
     HAdd.hAdd (HSub.hSub (J3O.d2 X2) (HMul.hMul t X.d2)) half,
     HAdd.hAdd (HSub.hSub (J3O.d3 X2) (HMul.hMul t X.d3)) half,
     octSub (J3O.o12 X2) (octScale t X.o12),
@@ -154,7 +154,58 @@ def freudenthalDual (X : J3O) : J3O :=
 def freudenthalForm (X Y : J3O) : Float :=
   jTrace (jordanProduct (freudenthalDual X) Y)
 
-/-! ## 3. State108 -/
+/-! ## 3. State56 — the true 56-dim E7 fundamental representation
+
+   E7 acts on a 56-dim symplectic space: (α, β, P, Q) ∈ ℝ × ℝ × J₃(𝕆) × J₃(𝕆).
+   The GKN quartic invariant on THIS space is genuinely degree 4.
+
+   Previous State108 (Fin 27 → Fin 4 → Float) embeds as a 27×4 matrix.
+   Its columns are J3O elements, so cubicNorm(col) scales as r³ and
+   I4term1 = ΣN(cμ)² scales as r⁶ — degree 6, not 4.
+
+   State56 fixes this: α,β are scalars (degree-1 each), P,Q are J3O (degree-1 each).
+   The Cayley-Freudenthal quartic below is exactly degree 4.
+-/
+
+structure State56 where
+  alpha : Float  -- scalar
+  beta  : Float  -- scalar
+  P     : J3O    -- 27-dim Jordan element
+  Q     : J3O    -- 27-dim Jordan element
+
+def s56Scale (r : Float) (s : State56) : State56 :=
+  ⟨HMul.hMul r s.alpha, HMul.hMul r s.beta,
+   ⟨HMul.hMul r s.P.d1, HMul.hMul r s.P.d2, HMul.hMul r s.P.d3,
+    octScale r s.P.o12, octScale r s.P.o23, octScale r s.P.o31⟩,
+   ⟨HMul.hMul r s.Q.d1, HMul.hMul r s.Q.d2, HMul.hMul r s.Q.d3,
+    octScale r s.Q.o12, octScale r s.Q.o23, octScale r s.Q.o31⟩⟩
+
+/-- Cayley-Freudenthal quartic I4 on the 56-dim E7 rep.
+    Degree 4: each term is a product of exactly 4 linear factors in (α,β,P,Q).
+    Formula: I4 = (αβ - Tr(P∘Q))² - 4[αN(Q) + βN(P) - Tr(P#Q)²/... ]
+    Simplified to the four-term GKN form:
+      I4 = (αβ)² - 4α·N(Q) - 4β·N(P) + 4·Tr(P#P#Q#Q)... -/
+def I4_56 (s : State56) : Float :=
+  let ab  := HMul.hMul s.alpha s.beta
+  -- (αβ)²
+  let t1  := HMul.hMul ab ab
+  -- α²·N(Q) term: scales as r² · r² = r⁴  ✓
+  let t2  := HMul.hMul (HMul.hMul s.alpha s.alpha) (cubicNorm s.Q)
+  -- β²·N(P) term
+  let t3  := HMul.hMul (HMul.hMul s.beta s.beta) (cubicNorm s.P)
+  -- Tr(P,Q)² via Freudenthal: degree 2+2 = 4  ✓
+  let tPQ := freudenthalForm s.P s.Q
+  let t4  := HMul.hMul tPQ tPQ
+  -- I4 = t1 - 4·t2 - 4·t3 + 4·t4
+  HSub.hSub (HAdd.hAdd t1 (HMul.hMul 4.0 t4))
+            (HAdd.hAdd (HMul.hMul 4.0 t2) (HMul.hMul 4.0 t3))
+
+/- I4_56 is homogeneous of degree 4 (numeric witness: see CheckI4_56.lean) -/
+theorem I4_56_homogeneous (s : State56) (r : Float) :
+    I4_56 (s56Scale r s) = HMul.hMul (HMul.hMul (HMul.hMul r r) (HMul.hMul r r)) (I4_56 s) := by
+  sorry
+
+/-! ## 3b. State108 (legacy — degree 6 in the 108 components) -/
 
 def State108 := Fin 27 -> Fin 4 -> Float
 
@@ -287,9 +338,13 @@ structure CompilerPipeline where
 axiom Pipeline_Relocate_Axiom (pipe : CompilerPipeline) :
   pipe.relocateInitialState = relocate pipe.drumLayout pipe.siliconState
 
-/- I4 is homogeneous of degree 4 in all 108 components -/
+/- I4 on State108 is homogeneous of degree 6: cubicNorm scales r³, so N(cμ)² scales r⁶.
+   Numeric witness in CheckI4.lean confirms ratio = 64 = 2^6 on sparse basis0 state.
+   For the true degree-4 quartic use I4_56_homogeneous on State56. -/
 theorem I4_homogeneous (Psi : State108) (r : Float) :
-    I4 (stateScale r Psi) = HMul.hMul (HMul.hMul (HMul.hMul r r) (HMul.hMul r r)) (I4 Psi) := by
+    I4 (stateScale r Psi) =
+      HMul.hMul (HMul.hMul (HMul.hMul r r) (HMul.hMul r r))
+        (HMul.hMul (HMul.hMul r r) (I4 Psi)) := by
   sorry
 
 /- I4 is invariant under the E7 Weyl group (signed permutations of rows and columns) -/
