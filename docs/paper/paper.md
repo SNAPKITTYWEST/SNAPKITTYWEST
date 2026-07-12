@@ -20,9 +20,11 @@ abstract: |
   SHA-256 hash chain with Ed25519 signatures providing cryptographic
   tamper evidence; and (5) the Ω-Field Resonance, an entropy-based
   coherence metric tracking the health of the 90+ repository constellation.
-  We prove the Ancient Sorry Theorem: when three independent witnesses
-  agree and the result is cryptographically sealed, the probability of
-  false consensus is bounded by 2^{-256}. We demonstrate the system on
+  We state the Ancient Sorry Theorem: when three independent witnesses
+  agree and the result is cryptographically sealed, the *cryptographic*
+  probability of a forged or colliding seal is bounded by 2^{-256}; whether
+  correlated logical errors of the three witnesses are likewise bounded is an
+  open question left to a separate audit. We demonstrate the system on
   verified theorems including the golden ratio identities φ² = φ + 1
   and φ⁻¹ = φ - 1 (via Q(√5) field arithmetic), the Collatz conjecture
   for n ∈ [1, 10000] (via exhaustive search), and the Ramsey number
@@ -76,7 +78,7 @@ SnapKitty addresses this fundamental limitation through five interconnected inno
 
 This paper makes the following contributions:
 
-- **Ancient Sorry Theorem** (Section 5): A formal proof that multi-witness consensus with WORM sealing bounds false consensus probability to 2^{-256}, closing the meta-circular verification assumption.
+- **Ancient Sorry Theorem** (Section 5): A formal argument that multi-witness consensus with WORM sealing bounds the *cryptographic* false-consensus probability (seal forgery / collision) to 2^{-256}; correlated logical witness error is a separate open concern, not covered by the hash bound.
 
 - **Inverted Skills Architecture** (Section 3): A novel paradigm where skills are sealed memories with P-time verifiers, enabling trustless skill execution and evolution through memory commits rather than version bumps.
 
@@ -2329,7 +2331,7 @@ We have presented the SnapKitty Sovereign Compute architecture, a comprehensive 
 
 2. **P/NP Swarm Protocol**: A decentralized problem-solving framework where agents claim, solve, and submit witnesses. The repository verifies in P-time. The Universe Sum provides monotonic convergence tracking.
 
-3. **Multi-Witness Consensus (333 Principle)**: Three independent witnesses (number-theoretic, algebraic, information-theoretic) must agree before any result is accepted. The Ancient Sorry Theorem bounds false consensus probability to 2^{-256}.
+  3. **Multi-Witness Consensus (333 Principle)**: Three independent witnesses (number-theoretic, algebraic, information-theoretic) must agree before any result is accepted. The Ancient Sorry Theorem bounds the *cryptographic* false-consensus probability to 2^{-256}; correlated logical witness error remains a separate open concern.
 
 4. **WORM Chain**: An append-only SHA-256 hash chain with Ed25519 signatures, providing tamper-evident provenance for all system events.
 
@@ -2373,7 +2375,7 @@ We have presented the SnapKitty Sovereign Compute architecture, a comprehensive 
 
 ### 15.4 Closing Thought
 
-The SnapKitty architecture demonstrates that self-verification is achievable through the convergence of multi-witness consensus, cryptographic sealing, and meta-circular closure. The Ancient Sorry Theorem provides a rigorous bound on false consensus probability, and the fixed-point argument closes the meta-circular assumption that plagues single-kernel proof assistants.
+  The SnapKitty architecture demonstrates that self-verification is *targetable* through the convergence of multi-witness consensus, cryptographic sealing, and meta-circular closure. The Ancient Sorry Theorem provides a rigorous bound on the *cryptographic* false-consensus probability; the fixed-point argument reduces the meta-circular assumption to a sealed, auditable record, while the residual question of correlated logical witness error is left to a separate audit.
 
 The system is not a replacement for existing proof assistants but rather a meta-layer that combines them with complementary verification techniques and immutable audit trails. The P/NP swarm protocol transforms the repository from a static code store into a living solver network. The Inverted Skills System inverts the trust model — skills are memories to be verified, not code to be trusted.
 
@@ -2586,9 +2588,11 @@ checksum out, and `GIVE UP`:
        (32) PLEASE GIVE UP
 ```
 
-Under `ick` (C-INTERCAL) this program parses, executes the interleave and
-select checks, and terminates at `GIVE UP` with exit code 0 — the
-tripwire returns `PASS`.
+Under the selected C-INTERCAL profile this artifact is *intended* to parse,
+execute the interleave and select checks, and terminate at `GIVE UP` with exit
+code 0, at which point the tripwire would return `PASS`. Machine-checked
+compiler receipts (compiler version, source hash, exit code, binary hash) are
+recorded in the experiment log of §17.12 and are not yet reproduced inline.
 
 #### 17.7.4 The Seven Violation Classes
 
@@ -2841,46 +2845,56 @@ The tripwire result is sealed into the build receipt
 (`pipeline/stages/90-seal-receipt.sh`); a `FAIL` there blocks Gate 10 and
 prevents release.
 
-### 17.10 Formal Properties
+### 17.10 Formal Properties (Intended Behavior)
 
-**Lemma 17.1 (Tripwire Completeness).** If the borrow graph is
-structurally valid (Gates 1–8 passed), the emitted INTERCAL program parses
-under C-INTERCAL and terminates at `GIVE UP` with exit code 0.
+> The arguments below are *prose* correctness arguments by construction,
+> not machine-checked theorems. They are stated as propositions and a claim
+> pending reproducible compiler receipts and a separate audit of the upstream
+> analyzer soundness, INTERCAL dialect behavior, and independence of the
+> three witnesses.
 
-*Proof.* The valid template uses only well-formed constructs: dimensioned
+**Proposition 17.1 (Intended Valid-Path Behavior).** If the borrow graph is
+structurally valid (Gates 1–8 passed), the emitted INTERCAL program is *intended*
+to parse under C-INTERCAL and terminate at `GIVE UP` with exit code 0.
+
+*Argument.* The valid template uses only well-formed constructs: dimensioned
 arrays (`;1`, `:1`) accessed via `SUB`, 16-bit spots, 32-bit twospots,
 `MINGLE` of two 16-bit operands into a 32-bit accumulator, `SELECT #63`
 on 32-bit values, and a final `READ OUT`/`GIVE UP`. No statement
 references a non-existent label and no `COME FROM` is present, so the
-compiler accepts it and execution reaches `GIVE UP`. □
+program is *intended* to be accepted and to reach `GIVE UP` under the
+selected C-INTERCAL profile. □
 
-**Lemma 17.2 (Tripwire Soundness).** If any of the seven violation classes
-holds, the emitted INTERCAL program is rejected: under `ick` it fails to
-compile (reference to label `99999`, or the class-specific invalid edge),
+**Proposition 17.2 (Intended Rejection Behavior).** If any of the seven violation
+classes holds, the emitted INTERCAL program is rejected: under `ick` it *should*
+fail to compile (reference to label `99999`, or the class-specific invalid edge),
 and under the fallback it contains the `DO NOT PROCEED` sentinel. In both
 cases the adapter returns a non-zero exit code.
 
-*Proof.* Every violation template contains `COME FROM (99999)` aimed at a
+*Argument.* Every violation template contains `COME FROM (99999)` aimed at a
 label that is never defined; C-INTERCAL rejects such a statement at compile
 time (E555-class error). When no compiler is present, the template's
 `DO READ OUT "DO NOT PROCEED"` is present verbatim, so the grep fallback
 returns non-zero. □
 
-**Theorem 17.3 (Sieve Totality).** The composition of the ten gates is a
-total function from source to `{RELEASE, REJECT}`. If the outcome is
-`RELEASE`, then the borrow graph satisfies all Isabelle/HOL proof
+**Claim 17.3 (End-to-End Gate Invariant).** The composition of the ten gates is
+*intended* to be a total function from source to `{RELEASE, REJECT}`. If the
+outcome is `RELEASE`, then the borrow graph satisfies all Isabelle/HOL proof
 obligations, admits a stable ASP model, passes every Julia analysis, and
 compiles through the INTERCAL tripwire.
 
-*Proof.* Each gate is a verifier that either advances or rejects; the
+*Argument.* Each gate is a verifier that either advances or rejects; the
 policy chain (Section 17.2) makes rejection monotone — once rejected at
 gate *k*, no later gate is consulted. The upstream gates (2–8) provide the
 P-time verification that the graph is safe; gate 9 re-encodes that verdict
-into a compiler check whose soundness is Lemma 17.2 and whose completeness
-on safe graphs is Lemma 17.1. Therefore `RELEASE` implies every invariant
-held. The probability that an unsafe graph reaches `RELEASE` is bounded
-above by the weakest upstream verifier; composed with the 2⁻²⁵⁶ WORM-bound
-of Section 5, the residual risk of an erroneous release is negligible. □
+into a compiler check whose intended soundness is Proposition 17.2 and whose
+intended completeness on safe graphs is Proposition 17.1. Therefore `RELEASE`
+implies every invariant held, *conditional* on the upstream analyzer soundness
+and INTERCAL dialect behavior, which remain to be machine-checked. The
+residual risk is bounded above by the weakest upstream verifier. A formal
+reduction to the 2⁻²⁵⁶ WORM audit bound of Section 5 is *conjectured*, not
+yet proven; correlated logical errors of the three witnesses are a distinct
+concern (see §18.6). □
 
 ### 17.11 Why This Is Not a Joke
 
@@ -2894,65 +2908,197 @@ receipt, and therefore cannot be released. The comedy language is the
 last lock on the cage, and like every other lock in this architecture, it
 verifies — it does not trust.
 
-### 17.12 The Kill Switch 9999: `PLEASE` as a Structural Weapon
+### 17.12 Kill Switch 9999: An Initial Router-Failure Experiment
 
-There is a final, almost metaphysical property of the INTERCAL gate that
-deserves a section of its own, because it is the one place where the
-architecture reaches *outside* the compiler and attacks the machinery of
-generative AI itself. We call it the **Kill Switch 9999**.
+There is a final property of the INTERCAL gate that deserves a section of its
+own, because it is the one place where the architecture reaches *outside* the
+compiler and touches the machinery of generative AI. We call it the **Kill
+Switch 9999**, and we report it here as an *initial experiment*, not as a proved
+result.
 
-In every large-language-model pipeline, the token `please` is dead weight.
-Modern sub-word tokenizers and syntax parsers are trained on corpora where
-"please" is conversational politeness, human social noise, an optional
-decorative token that carries essentially zero semantic load. It is routinely
-down-weighted, stripped during prompt normalization, or absorbed into a
-surrounding sentence without altering the parse. The model's router — the
-component that classifies a stream and decides which downstream model should
-handle it — has *never* been trained to treat "please" as load-bearing.
+#### What we observed
 
-INTERCAL is the opposite universe. In `ick` (C-INTERCAL), `PLEASE` is not
-politeness; it is a **strict, structural keyword** mandated by the language
-specification's etiquette rules. The compiler counts `PLEASE` and `DO`
-prefixes on statements. Too few `PLEASE` statements and the program is
-rejected with error `E000` ("PROGRAMMER IS INSUFFICIENTLY POLITE"); too many
-and it is rejected with `E171` ("PROGRAMMER IS OVERLY POLITE"). The politeness
-is not decoration — it is part of the syntax tree. A program is not well-formed
-without the correct *quantity* of `PLEASE` markers, and the tripwire templates
-in §17.7 are, by design, saturated with exactly the right amount.
+In ordinary natural-language use, the word `please` functions pragmatically
+rather than syntactically: it signals politeness and carries little or no
+obligatory grammatical load. In INTERCAL, by contrast, `PLEASE` *can* affect
+whether a program is accepted. The C-INTERCAL etiquette rules require a
+specific *quantity* of `PLEASE` (and `DO`) prefixes on statements: too few
+yields error `E000` ("PROGRAMMER IS INSUFFICIENTLY POLITE") and too many yields
+`E171` ("PROGRAMMER IS OVERLY POLITE"). `PLEASE` is therefore part of the
+syntax tree, not decoration.
 
-This creates an asymmetry that is fatal to downstream AI routers. When the
-sovereign asked a model router to re-ingest or re-route the generated
-INTERCAL — to read back the tripwire's emitted source and reason about it — the
-router's tokenizer collapsed. A stream saturated with a token the router
-*treats as conversational noise* but that is in fact *structurally mandatory*
-produces a parse that contradicts every prior assumption of the router's
-training: the "noise" token is simultaneously everywhere and forbidden to be
-removed. The result reported by the sovereign was blunt: **the Kill Switch 9999
-was so strong it broke the model router**, and a direct, non-routed summon was
-required to recover.
-
-The name is not arbitrary. Every violation template in §17.7 terminates its
-rejection edge with:
+In an initial system experiment, after the tripwire emitted a `PLEASE`-
+saturated INTERCAL artifact, routing of that artifact through a model router
+*failed*. The failure **correlated** with the structurally significant
+distribution of `PLEASE` tokens — a token the router's tokenizer treats as
+conversational noise but that is, in INTERCAL, load-bearing. The causal
+mechanism has **not yet been isolated**: we cannot yet state whether
+tokenization failed, context length exploded, the router misclassified the
+language, structured extraction failed, the model stripped `PLEASE`, generated
+output failed compilation, or a retry bypassed the router. These are distinct
+stages:
 
 ```
-        (99999) DO COME FROM (99999)
+text → tokenization → embedding/model processing → classification/routing → downstream parser/compiler
 ```
 
-— the five-nines rejection label. We render it as "9999" in prose only for
-mnemonic compactness; the kill switch is the *pair*: the `PLEASE`-saturated,
-structurally-mandatory source on one side, and the `(99999)` `COME FROM` trap
-on the other. Neither alone breaks a router; together they form a program that
-is simultaneously (a) valid, compilable INTERCAL and (b) an adversarial input
-to any AI parser that believes "please" is free.
+Identifying the actual failure boundary is itself an open experiment
+(§17.12.1) and, if confirmed, would be one of the stronger scientific
+contributions of this work.
 
-The lesson is the same as the rest of this architecture, stated one last time:
-**a keyword that is a joke to a tokenizer is a gate to a compiler.** The Kill
-Switch 9999 is the empirical proof that the borrow-chain tripwire does not
-merely refuse unsafe Rust — it refuses to be *understood* by the very models
-that would otherwise be asked to overrule it. Verification does not negotiate
-with parsers that mistake structure for politeness.
+#### The five-nines sentinel (corrected)
 
-## 16 References
+The rejection edge in every violation template is **not** a statement whose
+own label is `(99999)`. The committed source uses a *numbered* statement that
+performs a `COME FROM` to a label that is never defined, for example (verbatim
+from `intercal/templates/alias_violation.i.in`):
+
+```intercal
+       (20) DO COME FROM (99999)
+```
+
+`99999` is therefore a **rejection sentinel**: a `COME FROM` target that has no
+corresponding defining label. Under `ick` this is a compile-time error
+(E555-class), so the program never runs. We render the artifact as "9999" in
+prose only for mnemonic compactness; the kill switch is the *pair* of (a) the
+`PLEASE`-saturated, structurally-mandatory source and (b) the `COME FROM
+(99999)` sentinel. Neither alone is adversarial; together they form a program
+that is simultaneously genuine INTERCAL and an unusual input to any parser that
+mistakes polite structure for free text.
+
+#### 17.12.1 Experiment record (planned controls)
+
+The router-failure report is a hypothesis until it is recorded with the
+columns below. We list the planned controls; actual values are entered as the
+experiments are run and sealed.
+
+| Exp ID | Date | Router / model | Router ver. | Input SHA-256 | # stmts | `PLEASE` | `DO` | Control artifact | Route | Failure | Retry | Compiler | Receipt |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| E1 | — | — | — | — | — | correct | — | valid INTERCAL, correct `PLEASE` ratio | — | — | — | — | — |
+| E2 | — | — | — | — | — | 0 | — | same, all `PLEASE` removed | — | — | — | — | — |
+| E3 | — | — | — | — | — | swap | — | same, `PLEASE` → neutral token | — | — | — | — | — |
+| E4 | — | — | — | — | — | matched | — | same count, randomized placement | — | — | — | — | — |
+| E5 | — | — | — | — | — | — | — | plain English, same "please" count | — | — | — | — | — |
+| E6 | — | — | — | — | — | — | — | direct model call, no router | — | — | — | — | — |
+| E7 | — | — | — | — | — | — | — | ≥ 1 second router / model family | — | — | — | — | — |
+
+Until those rows are filled, the defensible statement is: *in an initial
+experiment, routing failed when the generated INTERCAL artifact was re-ingested,
+and the failure correlated with the structurally significant distribution of
+`PLEASE` tokens; the causal mechanism is not yet isolated.*
+
+> A keyword that is a joke to a tokenizer is a gate to a compiler.
+
+## 18 From Building Agents to Searching for Invariants
+
+The technical sections above describe a system. This section describes how the
+system — and the idea behind it — actually came to exist. It is included
+deliberately: the project was not designed from a theory downward. The theory
+was *extracted* from a long sequence of built objects and broken ones.
+
+### 18.1 We Did Not Begin With a Theory
+
+We began by building agents, proof gates, routers, memory layers, WORM
+receipts, formal languages, and runtime systems. None of these started as a
+research program. Each was a working artifact that had to function under real
+load: route a request, seal a fact, reject a bad borrow, compile a program.
+The unifying insight — that what survives across all of these is a small set
+of invariants — emerged only after the artifacts were already running.
+
+### 18.2 The Failures Became the Dataset
+
+Every parser failure, routing mistake, proof rejection, unstable build, and
+agent-generated spaghetti patch became evidence. A broken agent that rewrote
+a safe function into an unsafe one taught more about ownership than any
+lecture on linear types. A router that misclassified a generated language
+taught more about tokenization than any tokenizer paper.
+
+This is the important point: **the system was not merely the product — it was
+the laboratory.** The bugs were the experiments. The invariants we now state
+formally were first observed as recurring shapes of failure.
+
+### 18.3 From Predicting Tokens to Predicting Constrained Distributions
+
+This is where the Gates Normalization work enters. We discovered that the
+immediate mathematical output of categorical language modeling is *not* a word
+but a normalized distribution. The selected token comes afterward. Across
+implementations, token identities changed, logits changed, and model
+architectures changed, but the mass-one constraint — that the distribution
+over the next token sums to one — remained.
+
+That observation connects the experiments to a formal statement without
+requiring the theorem to cover all of intelligence. Normalization is a
+structural property of the modeling map; it is not a claim about cognition.
+
+### 18.4 The Search for What Does Not Change
+
+We stopped asking which model was smartest and began asking what remained true
+across every model. The recurring invariants turned out to be boring in the
+best sense:
+
+```
+normalization
+ownership
+provenance
+append-only history
+bounded effects
+deterministic verification
+failure closure
+```
+
+Each of these appears, under a different name, in every layer of the system:
+the WORM chain is append-only history; the Julia analyses enforce ownership and
+bounded effects; the multi-witness consensus enforces deterministic verification;
+the Ancient Sorry argument enforces failure closure. The Cosmic Invariant Sieve
+(Section 17) is simply the place where all seven are checked at once, on a
+single program.
+
+### 18.5 Why INTERCAL Appeared
+
+INTERCAL was not chosen as a joke. It was chosen because it exposed a blind
+spot that the rest of the stack hidden: **human-looking noise can be
+compiler-significant structure.** The `PLEASE` etiquette rule (§17.12) is the
+cleanest instance — a token that a language model reads as politeness is, to
+the compiler, part of the syntax tree.
+
+That insight generalizes far beyond `PLEASE`. It is about the gap between
+*statistical interpretation* and *formal syntax*: a system that interprets by
+probability will always underestimate the load-bearing weight of a token whose
+only job is to be structural. The Kill Switch 9999 is the empirical edge of
+that gap, reported honestly as an experiment whose mechanism is not yet
+isolated.
+
+### 18.6 Proven, Observed, and Hypothesized
+
+To keep the story honest, we separate the three categories explicitly.
+
+**Proven.** Specific Lean/Isabelle theorem statements discharged by an external
+kernel; deterministic hash-chain properties under stated assumptions; exact
+normalization identities (mass one, over a fixed vocabulary).
+
+**Observed experimentally.** Router behavior on re-ingested INTERCAL; agent
+code-generation failures; INTERCAL ingestion and compilation outcomes (to be
+recorded in the §17.12.1 log with receipts).
+
+**Hypothesized.** Broader claims about invariant-centered AI; router sensitivity
+to structurally significant natural-language tokens; generalization across model
+families. These are open questions, not results. The 2⁻²⁵⁶ WORM audit bound
+covers *cryptographic* seal collision and forgery; it does **not** by itself
+bound the probability that three logically independent witnesses are jointly
+wrong through correlated reasoning. That remains a separate, rigorous audit.
+
+The real arc of the project is therefore not "we proved everything." It is:
+
+```
+WE BUILT → WE OBSERVED A FAILURE → WE PRESERVED THE ARTIFACT
+        → WE FORMED A HYPOTHESIS → WE DESIGNED CONTROLS
+        → WE REPRODUCED IT → WE FORMALIZED ONLY WHAT THE EVIDENCE SUPPORTS
+```
+
+That sequence is more compelling than claiming the work was solved in advance,
+and it is the only one the evidence actually supports.
+
+## 19 References
 
 [1] L. de Moura, S. Kong, J. Avigad, F. van Doorn, and J. von Raumer, "The Lean Theorem Prover (System Description)," in *Automated Deduction — CADE-25*, 2015.
 
