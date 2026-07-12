@@ -36,6 +36,30 @@ SNAPKITTYWEST.github.io/
 *.tmp
 *.log
 
+# API keys — NEVER commit these
+.env
+.env.local
+.env.*
+*.secret
+
+# ── REFACTOR: Archive tier — kept local, not tracked ──────────────────────────
+# Research complete, not production-load-bearing
+legacy-apl/
+pnp-attack/
+qec-discovery/
+resonance-math/
+collatz-verifier/
+
+# ── REFACTOR: Production repos — tracked via submodule or standalone ──────────
+# These stay local during refactor, will be wired in Phase 3
+agentos/
+axiom-proof/
+math-engine/
+math-skills/
+mathlib5/
+prism-skills/
+snapkitty-chain/
+
 # snapkitty-agentos is now a proper submodule — see .gitmodules
 
 # Sovereign sub-projects (standalone repos, not part of this repo)
