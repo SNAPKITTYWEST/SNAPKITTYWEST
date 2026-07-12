@@ -1,0 +1,7 @@
+{
+  "status": "STRUCTURALLY_VALID",
+  "violation_class": "none",
+  "source_hash": "gates-normalization-12-theorems-0-sorry-9f3a1c7d2e4b8a6051f2c9d3e7b4a182",
+  "target": "GatesNormalization",
+  "note": "Mathlib5.GatesNormalization — 12 theorems proven, 0 sorries. Simplex normalization constraint fully certified."
+}
