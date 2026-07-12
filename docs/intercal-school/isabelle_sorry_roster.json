@@ -1,0 +1,3250 @@
+{
+  "meta": {
+    "provenance": "github-code-search:sorry+oops+language:isabelle 2026-07-12",
+    "id": "SNAPKITTYWEST-ISABELLE-SORRY-ROSTER-V1",
+    "count": 360,
+    "note": "Isabelle sorry+oops targets. High-value: seL4, Elle, Marlowe, CBC Casper, EVM, CRDT, TLA+, Putnam."
+  },
+  "targets": [
+    {
+      "id": "ISA-001",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2007_a5.thy",
+      "path": "isabelle/putnam_2007_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2007_a5.thy"
+    },
+    {
+      "id": "ISA-002",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2007_a3.thy",
+      "path": "isabelle/putnam_2007_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2007_a3.thy"
+    },
+    {
+      "id": "ISA-003",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2005_a1.thy",
+      "path": "isabelle/putnam_2005_a1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2005_a1.thy"
+    },
+    {
+      "id": "ISA-004",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2016_b2.thy",
+      "path": "isabelle/putnam_2016_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2016_b2.thy"
+    },
+    {
+      "id": "ISA-005",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1989_b6.thy",
+      "path": "isabelle/putnam_1989_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1989_b6.thy"
+    },
+    {
+      "id": "ISA-006",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2011_a4.thy",
+      "path": "isabelle/putnam_2011_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2011_a4.thy"
+    },
+    {
+      "id": "ISA-007",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1988_b3.thy",
+      "path": "isabelle/putnam_1988_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1988_b3.thy"
+    },
+    {
+      "id": "ISA-008",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1978_b6.thy",
+      "path": "isabelle/putnam_1978_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1978_b6.thy"
+    },
+    {
+      "id": "ISA-009",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2003_a4.thy",
+      "path": "isabelle/putnam_2003_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2003_a4.thy"
+    },
+    {
+      "id": "ISA-010",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2009_a3.thy",
+      "path": "isabelle/putnam_2009_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2009_a3.thy"
+    },
+    {
+      "id": "ISA-011",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1991_b5.thy",
+      "path": "isabelle/putnam_1991_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1991_b5.thy"
+    },
+    {
+      "id": "ISA-012",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1990_a4.thy",
+      "path": "isabelle/putnam_1990_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1990_a4.thy"
+    },
+    {
+      "id": "ISA-013",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2012_a6.thy",
+      "path": "isabelle/putnam_2012_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2012_a6.thy"
+    },
+    {
+      "id": "ISA-014",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2016_b6.thy",
+      "path": "isabelle/putnam_2016_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2016_b6.thy"
+    },
+    {
+      "id": "ISA-015",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1982_a6.thy",
+      "path": "isabelle/putnam_1982_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1982_a6.thy"
+    },
+    {
+      "id": "ISA-016",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1999_b2.thy",
+      "path": "isabelle/putnam_1999_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1999_b2.thy"
+    },
+    {
+      "id": "ISA-017",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1989_a1.thy",
+      "path": "isabelle/putnam_1989_a1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1989_a1.thy"
+    },
+    {
+      "id": "ISA-018",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2006_a4.thy",
+      "path": "isabelle/putnam_2006_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2006_a4.thy"
+    },
+    {
+      "id": "ISA-019",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1987_a1.thy",
+      "path": "isabelle/putnam_1987_a1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1987_a1.thy"
+    },
+    {
+      "id": "ISA-020",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1973_a6.thy",
+      "path": "isabelle/putnam_1973_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1973_a6.thy"
+    },
+    {
+      "id": "ISA-021",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1989_b2.thy",
+      "path": "isabelle/putnam_1989_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1989_b2.thy"
+    },
+    {
+      "id": "ISA-022",
+      "repo": "seL4/l4v",
+      "file": "Kernel_C.thy",
+      "path": "spec/cspec/X64/Kernel_C.thy",
+      "family": "systems",
+      "prover": "isabelle",
+      "note": "seL4 verified kernel — Kernel_C.thy"
+    },
+    {
+      "id": "ISA-023",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2008_a3.thy",
+      "path": "isabelle/putnam_2008_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2008_a3.thy"
+    },
+    {
+      "id": "ISA-024",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2022_b4.thy",
+      "path": "isabelle/putnam_2022_b4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2022_b4.thy"
+    },
+    {
+      "id": "ISA-025",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2012_b5.thy",
+      "path": "isabelle/putnam_2012_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2012_b5.thy"
+    },
+    {
+      "id": "ISA-026",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2007_b2.thy",
+      "path": "isabelle/putnam_2007_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2007_b2.thy"
+    },
+    {
+      "id": "ISA-027",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1971_b1.thy",
+      "path": "isabelle/putnam_1971_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1971_b1.thy"
+    },
+    {
+      "id": "ISA-028",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2014_b3.thy",
+      "path": "isabelle/putnam_2014_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2014_b3.thy"
+    },
+    {
+      "id": "ISA-029",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2012_b4.thy",
+      "path": "isabelle/putnam_2012_b4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2012_b4.thy"
+    },
+    {
+      "id": "ISA-030",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1990_a2.thy",
+      "path": "isabelle/putnam_1990_a2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1990_a2.thy"
+    },
+    {
+      "id": "ISA-031",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1967_a5.thy",
+      "path": "isabelle/putnam_1967_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1967_a5.thy"
+    },
+    {
+      "id": "ISA-032",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1976_b6.thy",
+      "path": "isabelle/putnam_1976_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1976_b6.thy"
+    },
+    {
+      "id": "ISA-033",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1977_a3.thy",
+      "path": "isabelle/putnam_1977_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1977_a3.thy"
+    },
+    {
+      "id": "ISA-034",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2000_b3.thy",
+      "path": "isabelle/putnam_2000_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2000_b3.thy"
+    },
+    {
+      "id": "ISA-035",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2021_a6.thy",
+      "path": "isabelle/putnam_2021_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2021_a6.thy"
+    },
+    {
+      "id": "ISA-036",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1976_a6.thy",
+      "path": "isabelle/putnam_1976_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1976_a6.thy"
+    },
+    {
+      "id": "ISA-037",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1993_b3.thy",
+      "path": "isabelle/putnam_1993_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1993_b3.thy"
+    },
+    {
+      "id": "ISA-038",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1966_b3.thy",
+      "path": "isabelle/putnam_1966_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1966_b3.thy"
+    },
+    {
+      "id": "ISA-039",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1972_a6.thy",
+      "path": "isabelle/putnam_1972_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1972_a6.thy"
+    },
+    {
+      "id": "ISA-040",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2023_a1.thy",
+      "path": "isabelle/putnam_2023_a1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2023_a1.thy"
+    },
+    {
+      "id": "ISA-041",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1978_a3.thy",
+      "path": "isabelle/putnam_1978_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1978_a3.thy"
+    },
+    {
+      "id": "ISA-042",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1966_b4.thy",
+      "path": "isabelle/putnam_1966_b4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1966_b4.thy"
+    },
+    {
+      "id": "ISA-043",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2003_b5.thy",
+      "path": "isabelle/putnam_2003_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2003_b5.thy"
+    },
+    {
+      "id": "ISA-044",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2015_a6.thy",
+      "path": "isabelle/putnam_2015_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2015_a6.thy"
+    },
+    {
+      "id": "ISA-045",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1978_a5.thy",
+      "path": "isabelle/putnam_1978_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1978_a5.thy"
+    },
+    {
+      "id": "ISA-046",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1969_b3.thy",
+      "path": "isabelle/putnam_1969_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1969_b3.thy"
+    },
+    {
+      "id": "ISA-047",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1988_b5.thy",
+      "path": "isabelle/putnam_1988_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1988_b5.thy"
+    },
+    {
+      "id": "ISA-048",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2015_b3.thy",
+      "path": "isabelle/putnam_2015_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2015_b3.thy"
+    },
+    {
+      "id": "ISA-049",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2011_b6.thy",
+      "path": "isabelle/putnam_2011_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2011_b6.thy"
+    },
+    {
+      "id": "ISA-050",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1989_b4.thy",
+      "path": "isabelle/putnam_1989_b4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1989_b4.thy"
+    },
+    {
+      "id": "ISA-051",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1987_a4.thy",
+      "path": "isabelle/putnam_1987_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1987_a4.thy"
+    },
+    {
+      "id": "ISA-052",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1970_b1.thy",
+      "path": "isabelle/putnam_1970_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1970_b1.thy"
+    },
+    {
+      "id": "ISA-053",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1965_a3.thy",
+      "path": "isabelle/putnam_1965_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1965_a3.thy"
+    },
+    {
+      "id": "ISA-054",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2013_a5.thy",
+      "path": "isabelle/putnam_2013_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2013_a5.thy"
+    },
+    {
+      "id": "ISA-055",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1977_b6.thy",
+      "path": "isabelle/putnam_1977_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1977_b6.thy"
+    },
+    {
+      "id": "ISA-056",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1979_b3.thy",
+      "path": "isabelle/putnam_1979_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1979_b3.thy"
+    },
+    {
+      "id": "ISA-057",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1992_b1.thy",
+      "path": "isabelle/putnam_1992_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1992_b1.thy"
+    },
+    {
+      "id": "ISA-058",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1964_b2.thy",
+      "path": "isabelle/putnam_1964_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1964_b2.thy"
+    },
+    {
+      "id": "ISA-059",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2011_b5.thy",
+      "path": "isabelle/putnam_2011_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2011_b5.thy"
+    },
+    {
+      "id": "ISA-060",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2022_a6.thy",
+      "path": "isabelle/putnam_2022_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2022_a6.thy"
+    },
+    {
+      "id": "ISA-061",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2005_a4.thy",
+      "path": "isabelle/putnam_2005_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2005_a4.thy"
+    },
+    {
+      "id": "ISA-062",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1985_b1.thy",
+      "path": "isabelle/putnam_1985_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1985_b1.thy"
+    },
+    {
+      "id": "ISA-063",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2018_b2.thy",
+      "path": "isabelle/putnam_2018_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2018_b2.thy"
+    },
+    {
+      "id": "ISA-064",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1984_a6.thy",
+      "path": "isabelle/putnam_1984_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1984_a6.thy"
+    },
+    {
+      "id": "ISA-065",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2019_a5.thy",
+      "path": "isabelle/putnam_2019_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2019_a5.thy"
+    },
+    {
+      "id": "ISA-066",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1979_a2.thy",
+      "path": "isabelle/putnam_1979_a2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1979_a2.thy"
+    },
+    {
+      "id": "ISA-067",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1992_b2.thy",
+      "path": "isabelle/putnam_1992_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1992_b2.thy"
+    },
+    {
+      "id": "ISA-068",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2005_b6.thy",
+      "path": "isabelle/putnam_2005_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2005_b6.thy"
+    },
+    {
+      "id": "ISA-069",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2013_b5.thy",
+      "path": "isabelle/putnam_2013_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2013_b5.thy"
+    },
+    {
+      "id": "ISA-070",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1962_b2.thy",
+      "path": "isabelle/putnam_1962_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1962_b2.thy"
+    },
+    {
+      "id": "ISA-071",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1998_b4.thy",
+      "path": "isabelle/putnam_1998_b4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1998_b4.thy"
+    },
+    {
+      "id": "ISA-072",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1972_a2.thy",
+      "path": "isabelle/putnam_1972_a2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1972_a2.thy"
+    },
+    {
+      "id": "ISA-073",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1970_a3.thy",
+      "path": "isabelle/putnam_1970_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1970_a3.thy"
+    },
+    {
+      "id": "ISA-074",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1986_a3.thy",
+      "path": "isabelle/putnam_1986_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1986_a3.thy"
+    },
+    {
+      "id": "ISA-075",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1984_b5.thy",
+      "path": "isabelle/putnam_1984_b5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1984_b5.thy"
+    },
+    {
+      "id": "ISA-076",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2006_b2.thy",
+      "path": "isabelle/putnam_2006_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2006_b2.thy"
+    },
+    {
+      "id": "ISA-077",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2020_a3.thy",
+      "path": "isabelle/putnam_2020_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2020_a3.thy"
+    },
+    {
+      "id": "ISA-078",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1985_a5.thy",
+      "path": "isabelle/putnam_1985_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1985_a5.thy"
+    },
+    {
+      "id": "ISA-079",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1973_a4.thy",
+      "path": "isabelle/putnam_1973_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1973_a4.thy"
+    },
+    {
+      "id": "ISA-080",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1976_b1.thy",
+      "path": "isabelle/putnam_1976_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1976_b1.thy"
+    },
+    {
+      "id": "ISA-081",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1987_b1.thy",
+      "path": "isabelle/putnam_1987_b1.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1987_b1.thy"
+    },
+    {
+      "id": "ISA-082",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1986_b3.thy",
+      "path": "isabelle/putnam_1986_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1986_b3.thy"
+    },
+    {
+      "id": "ISA-083",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1994_b3.thy",
+      "path": "isabelle/putnam_1994_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1994_b3.thy"
+    },
+    {
+      "id": "ISA-084",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1975_b6.thy",
+      "path": "isabelle/putnam_1975_b6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1975_b6.thy"
+    },
+    {
+      "id": "ISA-085",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1992_a2.thy",
+      "path": "isabelle/putnam_1992_a2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1992_a2.thy"
+    },
+    {
+      "id": "ISA-086",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2014_a4.thy",
+      "path": "isabelle/putnam_2014_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2014_a4.thy"
+    },
+    {
+      "id": "ISA-087",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1977_b3.thy",
+      "path": "isabelle/putnam_1977_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1977_b3.thy"
+    },
+    {
+      "id": "ISA-088",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1965_b2.thy",
+      "path": "isabelle/putnam_1965_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1965_b2.thy"
+    },
+    {
+      "id": "ISA-089",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1995_a6.thy",
+      "path": "isabelle/putnam_1995_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1995_a6.thy"
+    },
+    {
+      "id": "ISA-090",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1975_a4.thy",
+      "path": "isabelle/putnam_1975_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1975_a4.thy"
+    },
+    {
+      "id": "ISA-091",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2003_b2.thy",
+      "path": "isabelle/putnam_2003_b2.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2003_b2.thy"
+    },
+    {
+      "id": "ISA-092",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1964_a6.thy",
+      "path": "isabelle/putnam_1964_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1964_a6.thy"
+    },
+    {
+      "id": "ISA-093",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1993_a5.thy",
+      "path": "isabelle/putnam_1993_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1993_a5.thy"
+    },
+    {
+      "id": "ISA-094",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1983_a6.thy",
+      "path": "isabelle/putnam_1983_a6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1983_a6.thy"
+    },
+    {
+      "id": "ISA-095",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1989_b3.thy",
+      "path": "isabelle/putnam_1989_b3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1989_b3.thy"
+    },
+    {
+      "id": "ISA-096",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1968_a5.thy",
+      "path": "isabelle/putnam_1968_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1968_a5.thy"
+    },
+    {
+      "id": "ISA-097",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2009_a4.thy",
+      "path": "isabelle/putnam_2009_a4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2009_a4.thy"
+    },
+    {
+      "id": "ISA-098",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_1994_a3.thy",
+      "path": "isabelle/putnam_1994_a3.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_1994_a3.thy"
+    },
+    {
+      "id": "ISA-099",
+      "repo": "seL4/l4v",
+      "file": "Insulin.thy",
+      "path": "lib/Insulin.thy",
+      "family": "systems",
+      "prover": "isabelle",
+      "note": "seL4 verified kernel — Insulin.thy"
+    },
+    {
+      "id": "ISA-100",
+      "repo": "seL4/l4v",
+      "file": "Substitute.thy",
+      "path": "spec/cspec/Substitute.thy",
+      "family": "systems",
+      "prover": "isabelle",
+      "note": "seL4 verified kernel — Substitute.thy"
+    },
+    {
+      "id": "ISA-101",
+      "repo": "smrifaki/PutnamBench",
+      "file": "putnam_2022_b3.thy",
+      "path": "isabelle/putnam_2022_b3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2022_b3.thy"
+    },
+    {
+      "id": "ISA-102",
+      "repo": "amw-zero/edsl",
+      "file": "State.thy",
+      "path": "State.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — State.thy"
+    },
+    {
+      "id": "ISA-103",
+      "repo": "ttaylorr/thesis",
+      "file": "Broadcast.thy",
+      "path": "src/Broadcast.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Broadcast.thy"
+    },
+    {
+      "id": "ISA-104",
+      "repo": "isabelle-prover/mirror-isabelle",
+      "file": "Orderings.thy",
+      "path": "src/HOL/Orderings.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Orderings.thy"
+    },
+    {
+      "id": "ISA-105",
+      "repo": "isabelle-prover/mirror-isabelle",
+      "file": "Live_True.thy",
+      "path": "src/HOL/IMP/Live_True.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Live_True.thy"
+    },
+    {
+      "id": "ISA-106",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "Live_True.thy",
+      "path": "src/HOL/IMP/Live_True.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Live_True.thy"
+    },
+    {
+      "id": "ISA-107",
+      "repo": "caotic123/Isabelle",
+      "file": "Live_True.thy",
+      "path": "src/HOL/IMP/Live_True.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Live_True.thy"
+    },
+    {
+      "id": "ISA-108",
+      "repo": "isabelle-prover/mirror-isabelle",
+      "file": "Pure.thy",
+      "path": "src/Pure/Pure.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Pure.thy"
+    },
+    {
+      "id": "ISA-109",
+      "repo": "seL4/l4v",
+      "file": "Kernel_C.thy",
+      "path": "spec/cspec/RISCV64/Kernel_C.thy",
+      "family": "systems",
+      "prover": "isabelle",
+      "note": "seL4 verified kernel — Kernel_C.thy"
+    },
+    {
+      "id": "ISA-110",
+      "repo": "sneeuwballen/zipperposition",
+      "file": "HLBE.thy",
+      "path": "examples/sat_inspired/HLBE.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HLBE.thy"
+    },
+    {
+      "id": "ISA-111",
+      "repo": "trishullab/PutnamBench",
+      "file": "putnam_2020_a5.thy",
+      "path": "isabelle/putnam_2020_a5.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "Putnam competition — putnam_2020_a5.thy"
+    },
+    {
+      "id": "ISA-112",
+      "repo": "facebookresearch/miniF2F",
+      "file": "imo_1978_p5.thy",
+      "path": "isabelle/valid/imo_1978_p5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — imo_1978_p5.thy"
+    },
+    {
+      "id": "ISA-113",
+      "repo": "tangentstorm/tangentlabs",
+      "file": "Poly100.thy",
+      "path": "isar/Poly100.thy",
+      "family": "topology",
+      "prover": "isabelle",
+      "note": "Topology Isabelle — Poly100.thy"
+    },
+    {
+      "id": "ISA-114",
+      "repo": "seL4/isabelle",
+      "file": "VC_Condition.thy",
+      "path": "src/HOL/Nominal/Examples/VC_Condition.thy",
+      "family": "foundations",
+      "prover": "isabelle",
+      "note": "Isabelle/HOL core — VC_Condition.thy"
+    },
+    {
+      "id": "ISA-115",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "Core_Nits.thy",
+      "path": "src/HOL/Nitpick_Examples/Core_Nits.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Core_Nits.thy"
+    },
+    {
+      "id": "ISA-116",
+      "repo": "chuanyang-Zheng/Lyra-theorem-prover",
+      "file": "mathd_algebra_482.thy",
+      "path": "draft_data/valid/mathd_algebra_482.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mathd_algebra_482.thy"
+    },
+    {
+      "id": "ISA-117",
+      "repo": "argotorg/yul-isabelle",
+      "file": "YulSemantics.thy",
+      "path": "Yul/YulSemantics.thy",
+      "family": "smart_contracts",
+      "prover": "isabelle",
+      "note": "Yul/EVM Isabelle — YulSemantics.thy"
+    },
+    {
+      "id": "ISA-118",
+      "repo": "epfl-lara/jahob",
+      "file": "testinv1_Hashtable-lemmas.thy",
+      "path": "examples/containers/hashtable/testinv1_Hashtable-lemmas.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — testinv1_Hashtable-lemmas.thy"
+    },
+    {
+      "id": "ISA-119",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q985.thy",
+      "path": "isabelle/Q985.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q985.thy"
+    },
+    {
+      "id": "ISA-120",
+      "repo": "leouk/VDM_Toolkit",
+      "file": "localePOContextFreeStudy.thy",
+      "path": "vdm2isa/isa/localePOContextFreeStudy.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — localePOContextFreeStudy.thy"
+    },
+    {
+      "id": "ISA-121",
+      "repo": "rems-project/linksem",
+      "file": "Elf_Roundtrip_Proofs.thy",
+      "path": "auto_generated/isabelle/Elf_Roundtrip_Proofs.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Elf_Roundtrip_Proofs.thy"
+    },
+    {
+      "id": "ISA-122",
+      "repo": "BarrelfishOS/Isabelle-hardware-models",
+      "file": "ioapic_old.thy",
+      "path": "theories/interrupt/ioapic_old.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ioapic_old.thy"
+    },
+    {
+      "id": "ISA-123",
+      "repo": "spechub/Hets-lib",
+      "file": "RestrictOpProps.thy",
+      "path": "Isabelle/RestrictOpProps.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — RestrictOpProps.thy"
+    },
+    {
+      "id": "ISA-124",
+      "repo": "ChengsongTan/CXLcacheFormalisation",
+      "file": "Super2023.thy",
+      "path": "Super2023.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Super2023.thy"
+    },
+    {
+      "id": "ISA-125",
+      "repo": "filipmaric/IMO",
+      "file": "IMO_2006_SL_A4.thy",
+      "path": "IMO_files/statements/IMO_2006_SL_A4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — IMO_2006_SL_A4.thy"
+    },
+    {
+      "id": "ISA-126",
+      "repo": "matt-j-griffin/isabil",
+      "file": "Simp_Insert.thy",
+      "path": "attic/Simp_Insert.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Simp_Insert.thy"
+    },
+    {
+      "id": "ISA-127",
+      "repo": "gmkzwwg/akiritsu.emacs.d",
+      "file": "ParsingBug1.thy",
+      "path": "site-lisp/proof-general/etc/isar/ParsingBug1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ParsingBug1.thy"
+    },
+    {
+      "id": "ISA-128",
+      "repo": "spike7638/CS1951Y-2025",
+      "file": "THEexample.thy",
+      "path": "THEexample.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — THEexample.thy"
+    },
+    {
+      "id": "ISA-129",
+      "repo": "SEL4PROJ/jormungand",
+      "file": "Datatype_Nits.thy",
+      "path": "case_study/isabelle/src/HOL/Nitpick_Examples/Datatype_Nits.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Datatype_Nits.thy"
+    },
+    {
+      "id": "ISA-130",
+      "repo": "Arthur742Ramos/isa-blueprint",
+      "file": "Sqrt2_Demo.thy",
+      "path": "examples/sqrt2-irrational/Sqrt2_Demo.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sqrt2_Demo.thy"
+    },
+    {
+      "id": "ISA-131",
+      "repo": "RobertSachtleben/Refined-Adaptive-State-Counting",
+      "file": "TODO.thy",
+      "path": "FSM/TODO.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — TODO.thy"
+    },
+    {
+      "id": "ISA-132",
+      "repo": "xqyww123/NTP4VC",
+      "file": "dreal_P2_sqr_pos.thy",
+      "path": "data/why3/pearl/dreal_vcg/isabelle/dreal_P2_sqr_pos.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — dreal_P2_sqr_pos.thy"
+    },
+    {
+      "id": "ISA-133",
+      "repo": "xqyww123/NTP4VC",
+      "file": "ral_RAL_assoc1.thy",
+      "path": "data/why3/pearl/avl/ral_vcg/isabelle/ral_RAL_assoc1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ral_RAL_assoc1.thy"
+    },
+    {
+      "id": "ISA-134",
+      "repo": "sanastojanovic/UIDT",
+      "file": "mi16167_Matija_Sreckovic.thy",
+      "path": "uidt_2022_seminarski/mi16167_Matija_Sreckovic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mi16167_Matija_Sreckovic.thy"
+    },
+    {
+      "id": "ISA-135",
+      "repo": "CompSoftVer/CSim",
+      "file": "LanguageSafe.thy",
+      "path": "CSimpl/LanguageSafe.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — LanguageSafe.thy"
+    },
+    {
+      "id": "ISA-136",
+      "repo": "xqyww123/NTP4VC",
+      "file": "dreal_Power_G2_KO.thy",
+      "path": "data/why3/pearl/dreal_vcg/isabelle/dreal_Power_G2_KO.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — dreal_Power_G2_KO.thy"
+    },
+    {
+      "id": "ISA-137",
+      "repo": "gstruth/verisa",
+      "file": "KA.thy",
+      "path": "KA.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — KA.thy"
+    },
+    {
+      "id": "ISA-138",
+      "repo": "sanastojanovic/UIDT",
+      "file": "mi18490_Tomislav_Jankovic.thy",
+      "path": "uidt_2022_seminarski/mi18490_Tomislav_Jankovic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mi18490_Tomislav_Jankovic.thy"
+    },
+    {
+      "id": "ISA-139",
+      "repo": "gsayson/amvbc-isabelle",
+      "file": "CodegenProof.thy",
+      "path": "CodegenProof.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — CodegenProof.thy"
+    },
+    {
+      "id": "ISA-140",
+      "repo": "xqyww123/NTP4VC",
+      "file": "ral_RAL_neutral2.thy",
+      "path": "data/why3/pearl/avl/ral_vcg/isabelle/ral_RAL_neutral2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ral_RAL_neutral2.thy"
+    },
+    {
+      "id": "ISA-141",
+      "repo": "redbeardster/isabelle-hol",
+      "file": "IrisFr.thy",
+      "path": "lemmas/IrisFr.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — IrisFr.thy"
+    },
+    {
+      "id": "ISA-142",
+      "repo": "redbeardster/isabelle-hol",
+      "file": "tmpl06.thy",
+      "path": "FDS2017/tmpl06.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — tmpl06.thy"
+    },
+    {
+      "id": "ISA-143",
+      "repo": "redbeardster/isabelle-hol",
+      "file": "Isar_Demo.thy",
+      "path": "Demos/Isar_Demo.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Isar_Demo.thy"
+    },
+    {
+      "id": "ISA-144",
+      "repo": "emberian/dregg",
+      "file": "Dregg2_Carriers.thy",
+      "path": "uc-crypthol/Dregg2_Carriers.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Dregg2_Carriers.thy"
+    },
+    {
+      "id": "ISA-145",
+      "repo": "object-logics/isabelle_para",
+      "file": "Induct_Nits.thy",
+      "path": "src/HOL/Nitpick_Examples/Induct_Nits.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Induct_Nits.thy"
+    },
+    {
+      "id": "ISA-146",
+      "repo": "saisurbehera/mathProof",
+      "file": "imo_1961_p1.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/imo_1961_p1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — imo_1961_p1.thy"
+    },
+    {
+      "id": "ISA-147",
+      "repo": "saisurbehera/mathProof",
+      "file": "imo_1993_p5.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/imo_1993_p5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — imo_1993_p5.thy"
+    },
+    {
+      "id": "ISA-148",
+      "repo": "isabelle-utp/Hybrid-Verification",
+      "file": "HS_VC_Examples.thy",
+      "path": "Legacy/HS_VC_Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HS_VC_Examples.thy"
+    },
+    {
+      "id": "ISA-149",
+      "repo": "sanastojanovic/UIDT",
+      "file": "mi16149_Milos_Mikovic_2.thy",
+      "path": "uidt_2020_seminarski/mi16149_Milos_Mikovic_2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mi16149_Milos_Mikovic_2.thy"
+    },
+    {
+      "id": "ISA-150",
+      "repo": "saisurbehera/mathProof",
+      "file": "aime_1988_p3.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/aime_1988_p3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — aime_1988_p3.thy"
+    },
+    {
+      "id": "ISA-151",
+      "repo": "xqyww123/NTP4VC",
+      "file": "euler002_Solve_fqtvc.thy",
+      "path": "data/why3/pearl/euler002_vcg/isabelle/euler002_Solve_fqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — euler002_Solve_fqtvc.thy"
+    },
+    {
+      "id": "ISA-152",
+      "repo": "amw-zero/edsl",
+      "file": "Subprocess.thy",
+      "path": "Subprocess.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Subprocess.thy"
+    },
+    {
+      "id": "ISA-153",
+      "repo": "saisurbehera/mathProof",
+      "file": "amc12b_2004_p3.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/amc12b_2004_p3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — amc12b_2004_p3.thy"
+    },
+    {
+      "id": "ISA-154",
+      "repo": "isabelle-utp/Hybrid-Verification",
+      "file": "HS_Lens_Examples.thy",
+      "path": "Legacy/HS_Lens_Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HS_Lens_Examples.thy"
+    },
+    {
+      "id": "ISA-155",
+      "repo": "saisurbehera/mathProof",
+      "file": "amc12a_2009_p25.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/amc12a_2009_p25.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — amc12a_2009_p25.thy"
+    },
+    {
+      "id": "ISA-156",
+      "repo": "saisurbehera/mathProof",
+      "file": "amc12a_2003_p25.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/amc12a_2003_p25.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — amc12a_2003_p25.thy"
+    },
+    {
+      "id": "ISA-157",
+      "repo": "xqyww123/NTP4VC",
+      "file": "dreal_Misc_sqrt2_estimate.thy",
+      "path": "data/why3/pearl/dreal_vcg/isabelle/dreal_Misc_sqrt2_estimate.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — dreal_Misc_sqrt2_estimate.thy"
+    },
+    {
+      "id": "ISA-158",
+      "repo": "xqyww123/NTP4VC",
+      "file": "ISet_Impl_removeqtvc.thy",
+      "path": "data/why3/pearl/prover/ISet_vcg/isabelle/ISet_Impl_removeqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ISet_Impl_removeqtvc.thy"
+    },
+    {
+      "id": "ISA-159",
+      "repo": "xqyww123/NTP4VC",
+      "file": "binomial_Top_infix_slqtvc.thy",
+      "path": "data/why3/pearl/binomial_vcg/isabelle/binomial_Top_infix_slqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — binomial_Top_infix_slqtvc.thy"
+    },
+    {
+      "id": "ISA-160",
+      "repo": "dcobbley/cs322isabelletour",
+      "file": "Example11.thy",
+      "path": "isabelletour/Example11.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Example11.thy"
+    },
+    {
+      "id": "ISA-161",
+      "repo": "redbeardster/isabelle-hol",
+      "file": "ThermostatSystem.thy",
+      "path": "lemmas/ThermostatSystem.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ThermostatSystem.thy"
+    },
+    {
+      "id": "ISA-162",
+      "repo": "smrifaki/PutnamBench",
+      "file": "putnam_2005_b3.thy",
+      "path": "isabelle/putnam_2005_b3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2005_b3.thy"
+    },
+    {
+      "id": "ISA-163",
+      "repo": "smrifaki/PutnamBench",
+      "file": "putnam_1994_a1.thy",
+      "path": "isabelle/putnam_1994_a1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1994_a1.thy"
+    },
+    {
+      "id": "ISA-164",
+      "repo": "lukaskollmer/advent-of-code",
+      "file": "Auxiliary.thy",
+      "path": "src/2023/Auxiliary.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Auxiliary.thy"
+    },
+    {
+      "id": "ISA-165",
+      "repo": "sanastojanovic/UIDT",
+      "file": "Projekat.thy",
+      "path": "uidt_2024_seminarski/functional_algorithms/Projekat.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Projekat.thy"
+    },
+    {
+      "id": "ISA-166",
+      "repo": "xqyww123/NTP4VC",
+      "file": "euler001_Euler001_benchqtvc.thy",
+      "path": "data/why3/pearl/euler001_vcg/isabelle/euler001_Euler001_benchqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — euler001_Euler001_benchqtvc.thy"
+    },
+    {
+      "id": "ISA-167",
+      "repo": "sterraf/forcing_Isabelle",
+      "file": "Swap_vars.thy",
+      "path": "testing/Swap_vars.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Swap_vars.thy"
+    },
+    {
+      "id": "ISA-168",
+      "repo": "saisurbehera/mathProof",
+      "file": "mathd_numbertheory_64.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/mathd_numbertheory_64.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mathd_numbertheory_64.thy"
+    },
+    {
+      "id": "ISA-169",
+      "repo": "saisurbehera/mathProof",
+      "file": "mathd_numbertheory_32.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/mathd_numbertheory_32.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mathd_numbertheory_32.thy"
+    },
+    {
+      "id": "ISA-170",
+      "repo": "xqyww123/NTP4VC",
+      "file": "ring_buffer_Top_createqtvc.thy",
+      "path": "data/why3/pearl/ring_buffer_vcg/isabelle/ring_buffer_Top_createqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ring_buffer_Top_createqtvc.thy"
+    },
+    {
+      "id": "ISA-171",
+      "repo": "saisurbehera/mathProof",
+      "file": "mathd_numbertheory_232.thy",
+      "path": "src/tertiary_packages/miniF2F/isabelle/valid/mathd_numbertheory_232.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mathd_numbertheory_232.thy"
+    },
+    {
+      "id": "ISA-172",
+      "repo": "xqyww123/NTP4VC",
+      "file": "bitwalker_Bitwalker_nth8qtvc.thy",
+      "path": "data/why3/pearl/bitwalker_vcg/isabelle/bitwalker_Bitwalker_nth8qtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — bitwalker_Bitwalker_nth8qtvc.thy"
+    },
+    {
+      "id": "ISA-173",
+      "repo": "xqyww123/NTP4VC",
+      "file": "counting_sort_Spec_kqtvc.thy",
+      "path": "data/why3/pearl/counting_sort_vcg/isabelle/counting_sort_Spec_kqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — counting_sort_Spec_kqtvc.thy"
+    },
+    {
+      "id": "ISA-174",
+      "repo": "andrija-urosevic/master-rad-hott",
+      "file": "Hw04.thy",
+      "path": "isabelle/tum_exercises/Hw04.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Hw04.thy"
+    },
+    {
+      "id": "ISA-175",
+      "repo": "xqyww123/NTP4VC",
+      "file": "gcd_bezout_GcdBezout_gcdqtvc.thy",
+      "path": "data/why3/pearl/gcd_bezout_vcg/isabelle/gcd_bezout_GcdBezout_gcdqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — gcd_bezout_GcdBezout_gcdqtvc.thy"
+    },
+    {
+      "id": "ISA-176",
+      "repo": "santiago-calderon-pena/TheoremProving",
+      "file": "Case.thy",
+      "path": "Basics/ProofTechniques/Case.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Case.thy"
+    },
+    {
+      "id": "ISA-177",
+      "repo": "xqyww123/NTP4VC",
+      "file": "min_max_Top_a_similar_min_maxqtvc.thy",
+      "path": "data/why3/pearl/min_max_vcg/isabelle/min_max_Top_a_similar_min_maxqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — min_max_Top_a_similar_min_maxqtvc.thy"
+    },
+    {
+      "id": "ISA-178",
+      "repo": "xqyww123/NTP4VC",
+      "file": "max_matrix_MaxMatrixMemo_nqtvc.thy",
+      "path": "data/why3/pearl/max_matrix_vcg/isabelle/max_matrix_MaxMatrixMemo_nqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — max_matrix_MaxMatrixMemo_nqtvc.thy"
+    },
+    {
+      "id": "ISA-179",
+      "repo": "UoY-RoboStar/tick-tock-CSP",
+      "file": "CTock_FL.thy",
+      "path": "CTock_FL.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — CTock_FL.thy"
+    },
+    {
+      "id": "ISA-180",
+      "repo": "xqyww123/NTP4VC",
+      "file": "array_of_list_Top_lengthqtvc.thy",
+      "path": "data/why3/pearl/array_of_list_vcg/isabelle/array_of_list_Top_lengthqtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — array_of_list_Top_lengthqtvc.thy"
+    },
+    {
+      "id": "ISA-181",
+      "repo": "xqyww123/NTP4VC",
+      "file": "bitcount_BitCounting32_proof2qtvc.thy",
+      "path": "data/why3/pearl/bitcount_vcg/isabelle/bitcount_BitCounting32_proof2qtvc.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — bitcount_BitCounting32_proof2qtvc.thy"
+    },
+    {
+      "id": "ISA-182",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1965_b4.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1965_b4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1965_b4.thy"
+    },
+    {
+      "id": "ISA-183",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1975_b6.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1975_b6.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1975_b6.thy"
+    },
+    {
+      "id": "ISA-184",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2022_b6.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2022_b6.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2022_b6.thy"
+    },
+    {
+      "id": "ISA-185",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1982_a4.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1982_a4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1982_a4.thy"
+    },
+    {
+      "id": "ISA-186",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1989_b2.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1989_b2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1989_b2.thy"
+    },
+    {
+      "id": "ISA-187",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2003_b5.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2003_b5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2003_b5.thy"
+    },
+    {
+      "id": "ISA-188",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1972_b1.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1972_b1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1972_b1.thy"
+    },
+    {
+      "id": "ISA-189",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2023_a2.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2023_a2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2023_a2.thy"
+    },
+    {
+      "id": "ISA-190",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1974_b5.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1974_b5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1974_b5.thy"
+    },
+    {
+      "id": "ISA-191",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1991_b2.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1991_b2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1991_b2.thy"
+    },
+    {
+      "id": "ISA-192",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2017_b4.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2017_b4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2017_b4.thy"
+    },
+    {
+      "id": "ISA-193",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2023_a6.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2023_a6.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2023_a6.thy"
+    },
+    {
+      "id": "ISA-194",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2012_a3.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2012_a3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2012_a3.thy"
+    },
+    {
+      "id": "ISA-195",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1987_a1.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1987_a1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1987_a1.thy"
+    },
+    {
+      "id": "ISA-196",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2022_b1.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2022_b1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2022_b1.thy"
+    },
+    {
+      "id": "ISA-197",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_2013_a2.thy",
+      "path": "data/PutnamBench/isabelle/putnam_2013_a2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_2013_a2.thy"
+    },
+    {
+      "id": "ISA-198",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1992_b6.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1992_b6.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1992_b6.thy"
+    },
+    {
+      "id": "ISA-199",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1983_b5.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1983_b5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1983_b5.thy"
+    },
+    {
+      "id": "ISA-200",
+      "repo": "Hytn/AI4Math",
+      "file": "putnam_1986_b5.thy",
+      "path": "data/PutnamBench/isabelle/putnam_1986_b5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — putnam_1986_b5.thy"
+    },
+    {
+      "id": "ISA-201",
+      "repo": "seL4/l4v",
+      "file": "Solves_Tac.thy",
+      "path": "lib/Solves_Tac.thy",
+      "family": "systems",
+      "prover": "isabelle",
+      "note": "seL4 verified kernel — Solves_Tac.thy"
+    },
+    {
+      "id": "ISA-202",
+      "repo": "gustavo-depaula/stalin-sort",
+      "file": "Stalin.thy",
+      "path": "isabelle/Stalin.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Stalin.thy"
+    },
+    {
+      "id": "ISA-203",
+      "repo": "jepsen-io/elle",
+      "file": "Anomaly.thy",
+      "path": "proof/Anomaly.thy",
+      "family": "distributed_systems",
+      "prover": "isabelle",
+      "note": "Elle consistency proofs — Anomaly.thy"
+    },
+    {
+      "id": "ISA-204",
+      "repo": "pirapira/eth-isabelle",
+      "file": "CallTree.thy",
+      "path": "Hoare/CallTree.thy",
+      "family": "smart_contracts",
+      "prover": "isabelle",
+      "note": "Ethereum EVM Hoare — CallTree.thy"
+    },
+    {
+      "id": "ISA-205",
+      "repo": "sneeuwballen/zipperposition",
+      "file": "DPE.thy",
+      "path": "examples/sat_inspired/DPE.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — DPE.thy"
+    },
+    {
+      "id": "ISA-206",
+      "repo": "isabelle-utp/utp-main",
+      "file": "utp_spec.thy",
+      "path": "utp/utp_spec.thy",
+      "family": "program_verification",
+      "prover": "isabelle",
+      "note": "UTP program logic — utp_spec.thy"
+    },
+    {
+      "id": "ISA-207",
+      "repo": "data61/PSL",
+      "file": "Example.thy",
+      "path": "Example/Example.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — Example.thy"
+    },
+    {
+      "id": "ISA-208",
+      "repo": "argotorg/yul-isabelle",
+      "file": "Examples.thy",
+      "path": "Word_Lib/Examples.thy",
+      "family": "smart_contracts",
+      "prover": "isabelle",
+      "note": "Yul/EVM Isabelle — Examples.thy"
+    },
+    {
+      "id": "ISA-209",
+      "repo": "marlowe-lang/marlowe",
+      "file": "Serialisation.thy",
+      "path": "isabelle/Util/Serialisation.thy",
+      "family": "finance_crypto",
+      "prover": "isabelle",
+      "note": "Marlowe financial contracts — Serialisation.thy"
+    },
+    {
+      "id": "ISA-210",
+      "repo": "diekmann/Iptables_Semantics",
+      "file": "List_Group.thy",
+      "path": "thy/LOFT/List_Group.thy",
+      "family": "security",
+      "prover": "isabelle",
+      "note": "Iptables formal semantics — List_Group.thy"
+    },
+    {
+      "id": "ISA-211",
+      "repo": "tangentstorm/tangentlabs",
+      "file": "TopSpace_etc.thy",
+      "path": "isar/TopSpace_etc.thy",
+      "family": "topology",
+      "prover": "isabelle",
+      "note": "Topology Isabelle — TopSpace_etc.thy"
+    },
+    {
+      "id": "ISA-212",
+      "repo": "seL4/isabelle",
+      "file": "Sudoku.thy",
+      "path": "src/HOL/ex/Sudoku.thy",
+      "family": "foundations",
+      "prover": "isabelle",
+      "note": "Isabelle/HOL core — Sudoku.thy"
+    },
+    {
+      "id": "ISA-213",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "cube.thy",
+      "path": "cube.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — cube.thy"
+    },
+    {
+      "id": "ISA-214",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "If.thy",
+      "path": "src/FOL/ex/If.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — If.thy"
+    },
+    {
+      "id": "ISA-215",
+      "repo": "NICTA/l4v",
+      "file": "MonadEq.thy",
+      "path": "lib/MonadEq.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — MonadEq.thy"
+    },
+    {
+      "id": "ISA-216",
+      "repo": "moajohansson/IsaHipster",
+      "file": "Tree.thy",
+      "path": "Examples/Tree.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Tree.thy"
+    },
+    {
+      "id": "ISA-217",
+      "repo": "trvedata/crdt-isabelle",
+      "file": "Broadcast.thy",
+      "path": "src/Broadcast.thy",
+      "family": "distributed_systems",
+      "prover": "isabelle",
+      "note": "CRDT formal proof — Broadcast.thy"
+    },
+    {
+      "id": "ISA-218",
+      "repo": "pandaman64/sabi",
+      "file": "XVcgEx.thy",
+      "path": "Simpl/ex/XVcgEx.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — XVcgEx.thy"
+    },
+    {
+      "id": "ISA-219",
+      "repo": "harp-lab/slog-lang1",
+      "file": "extras.thy",
+      "path": "hol-formalism/extras.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — extras.thy"
+    },
+    {
+      "id": "ISA-220",
+      "repo": "tlaplus/tlapm",
+      "file": "SetTheory.thy",
+      "path": "isabelle/SetTheory.thy",
+      "family": "model_checking",
+      "prover": "isabelle",
+      "note": "TLA+ proof manager — SetTheory.thy"
+    },
+    {
+      "id": "ISA-221",
+      "repo": "lsingh123/automatedkantianethics",
+      "file": "kroy.thy",
+      "path": "kroy.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — kroy.thy"
+    },
+    {
+      "id": "ISA-222",
+      "repo": "leouk/VDM_Toolkit",
+      "file": "Attic.thy",
+      "path": "vdm2isa/isa/Attic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Attic.thy"
+    },
+    {
+      "id": "ISA-223",
+      "repo": "Daohub-io/cap9-spec",
+      "file": "Norm_Words.thy",
+      "path": "Word_Lib/Norm_Words.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Norm_Words.thy"
+    },
+    {
+      "id": "ISA-224",
+      "repo": "johnwickerson/HSV",
+      "file": "HSV_chapter5.thy",
+      "path": "isabelle/HSV_chapter5.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HSV_chapter5.thy"
+    },
+    {
+      "id": "ISA-225",
+      "repo": "johnwickerson/HSV",
+      "file": "HSV_tasks_2022.thy",
+      "path": "isabelle/2022/HSV_tasks_2022.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HSV_tasks_2022.thy"
+    },
+    {
+      "id": "ISA-226",
+      "repo": "leouk/VDM_Toolkit",
+      "file": "Sigma.thy",
+      "path": "vdm2isa/pub/pog/Sigma.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sigma.thy"
+    },
+    {
+      "id": "ISA-227",
+      "repo": "TheoryMine/IsaPlanner",
+      "file": "eval.thy",
+      "path": "src/examples/eval.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "IsaPlanner proof planner — eval.thy"
+    },
+    {
+      "id": "ISA-228",
+      "repo": "DeNA/IsarTutorial",
+      "file": "IsarTutorial.thy",
+      "path": "IsarTutorial.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — IsarTutorial.thy"
+    },
+    {
+      "id": "ISA-229",
+      "repo": "spechub/Hets-lib",
+      "file": "Functions_2.thy",
+      "path": "HasCASL/Functions_2.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Functions_2.thy"
+    },
+    {
+      "id": "ISA-230",
+      "repo": "TheoryMine/IsaPlanner",
+      "file": "Trees.thy",
+      "path": "src/benchmarks/Trees.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "IsaPlanner proof planner — Trees.thy"
+    },
+    {
+      "id": "ISA-231",
+      "repo": "TheoryMine/IsaPlanner",
+      "file": "demo_NL.thy",
+      "path": "src/examples/demo_NL.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "IsaPlanner proof planner — demo_NL.thy"
+    },
+    {
+      "id": "ISA-232",
+      "repo": "lammich/isabelle_llvm",
+      "file": "Sep_Value_RS.thy",
+      "path": "thys/vcg/Sep_Value_RS.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sep_Value_RS.thy"
+    },
+    {
+      "id": "ISA-233",
+      "repo": "SEL4PROJ/tlb",
+      "file": "Norm_Words.thy",
+      "path": "Word_Lib/Norm_Words.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Norm_Words.thy"
+    },
+    {
+      "id": "ISA-234",
+      "repo": "sigp/verified-consensus",
+      "file": "OVA.thy",
+      "path": "algebra/OVA.thy",
+      "family": "blockchain",
+      "prover": "isabelle",
+      "note": "Ethereum consensus — OVA.thy"
+    },
+    {
+      "id": "ISA-235",
+      "repo": "dominique-unruh/qrhl-tool",
+      "file": "O2H.thy",
+      "path": "isabelle-thys/O2H.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — O2H.thy"
+    },
+    {
+      "id": "ISA-236",
+      "repo": "lsingh123/automatedkantianethics",
+      "file": "paper31.thy",
+      "path": "paper/paper31.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — paper31.thy"
+    },
+    {
+      "id": "ISA-237",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q6.thy",
+      "path": "isabelle/Q6.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q6.thy"
+    },
+    {
+      "id": "ISA-238",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q4.thy",
+      "path": "isabelle/Q4.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q4.thy"
+    },
+    {
+      "id": "ISA-239",
+      "repo": "8l/AutoCorres",
+      "file": "Apply_Trace_Cmd.thy",
+      "path": "lib/Apply_Trace_Cmd.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Apply_Trace_Cmd.thy"
+    },
+    {
+      "id": "ISA-240",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q38.thy",
+      "path": "isabelle/Q38.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q38.thy"
+    },
+    {
+      "id": "ISA-241",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q25.thy",
+      "path": "isabelle/Q25.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q25.thy"
+    },
+    {
+      "id": "ISA-242",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q85.thy",
+      "path": "isabelle/Q85.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q85.thy"
+    },
+    {
+      "id": "ISA-243",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q29.thy",
+      "path": "isabelle/Q29.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q29.thy"
+    },
+    {
+      "id": "ISA-244",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q17.thy",
+      "path": "isabelle/Q17.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q17.thy"
+    },
+    {
+      "id": "ISA-245",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q35.thy",
+      "path": "isabelle/Q35.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q35.thy"
+    },
+    {
+      "id": "ISA-246",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q83.thy",
+      "path": "isabelle/Q83.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q83.thy"
+    },
+    {
+      "id": "ISA-247",
+      "repo": "LayerXcom/cbc-casper-proof",
+      "file": "TFGCasper.thy",
+      "path": "Isabelle/TFGCasper.thy",
+      "family": "blockchain",
+      "prover": "isabelle",
+      "note": "CBC Casper consensus — TFGCasper.thy"
+    },
+    {
+      "id": "ISA-248",
+      "repo": "jsiek/denotational_semantics",
+      "file": "Consistency.thy",
+      "path": "DenotSem/jod/Consistency.thy",
+      "family": "semantics",
+      "prover": "isabelle",
+      "note": "Denotational semantics — Consistency.thy"
+    },
+    {
+      "id": "ISA-249",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q666.thy",
+      "path": "isabelle/Q666.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q666.thy"
+    },
+    {
+      "id": "ISA-250",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q222.thy",
+      "path": "isabelle/Q222.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q222.thy"
+    },
+    {
+      "id": "ISA-251",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q139.thy",
+      "path": "isabelle/Q139.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q139.thy"
+    },
+    {
+      "id": "ISA-252",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q571.thy",
+      "path": "isabelle/Q571.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q571.thy"
+    },
+    {
+      "id": "ISA-253",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q641.thy",
+      "path": "isabelle/Q641.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q641.thy"
+    },
+    {
+      "id": "ISA-254",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q225.thy",
+      "path": "isabelle/Q225.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q225.thy"
+    },
+    {
+      "id": "ISA-255",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q218.thy",
+      "path": "isabelle/Q218.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q218.thy"
+    },
+    {
+      "id": "ISA-256",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q911.thy",
+      "path": "isabelle/Q911.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q911.thy"
+    },
+    {
+      "id": "ISA-257",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q865.thy",
+      "path": "isabelle/Q865.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q865.thy"
+    },
+    {
+      "id": "ISA-258",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q164.thy",
+      "path": "isabelle/Q164.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q164.thy"
+    },
+    {
+      "id": "ISA-259",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q787.thy",
+      "path": "isabelle/Q787.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q787.thy"
+    },
+    {
+      "id": "ISA-260",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q307.thy",
+      "path": "isabelle/Q307.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q307.thy"
+    },
+    {
+      "id": "ISA-261",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q883.thy",
+      "path": "isabelle/Q883.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q883.thy"
+    },
+    {
+      "id": "ISA-262",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q959.thy",
+      "path": "isabelle/Q959.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q959.thy"
+    },
+    {
+      "id": "ISA-263",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q536.thy",
+      "path": "isabelle/Q536.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q536.thy"
+    },
+    {
+      "id": "ISA-264",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q460.thy",
+      "path": "isabelle/Q460.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q460.thy"
+    },
+    {
+      "id": "ISA-265",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q404.thy",
+      "path": "isabelle/Q404.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q404.thy"
+    },
+    {
+      "id": "ISA-266",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q190.thy",
+      "path": "isabelle/Q190.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q190.thy"
+    },
+    {
+      "id": "ISA-267",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q824.thy",
+      "path": "isabelle/Q824.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q824.thy"
+    },
+    {
+      "id": "ISA-268",
+      "repo": "Zhitao-He/MATPBench",
+      "file": "Q961.thy",
+      "path": "isabelle/Q961.thy",
+      "family": "competition_math",
+      "prover": "isabelle",
+      "note": "MATP math benchmark — Q961.thy"
+    },
+    {
+      "id": "ISA-269",
+      "repo": "NICTA/l4v",
+      "file": "Solves_Tac.thy",
+      "path": "lib/Solves_Tac.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Solves_Tac.thy"
+    },
+    {
+      "id": "ISA-270",
+      "repo": "CompSoftVer/CSim2",
+      "file": "Solves_Tac.thy",
+      "path": "lib/Solves_Tac.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Solves_Tac.thy"
+    },
+    {
+      "id": "ISA-271",
+      "repo": "FVELER/l4v-FVEL",
+      "file": "Solves_Tac.thy",
+      "path": "lib/Solves_Tac.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Solves_Tac.thy"
+    },
+    {
+      "id": "ISA-272",
+      "repo": "mmalvarez/Yul-Isabelle",
+      "file": "Examples.thy",
+      "path": "Word_Lib/Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Examples.thy"
+    },
+    {
+      "id": "ISA-273",
+      "repo": "isabelle-prover/mirror-isabelle",
+      "file": "Sudoku.thy",
+      "path": "src/HOL/ex/Sudoku.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sudoku.thy"
+    },
+    {
+      "id": "ISA-274",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "Sudoku.thy",
+      "path": "src/HOL/ex/Sudoku.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sudoku.thy"
+    },
+    {
+      "id": "ISA-275",
+      "repo": "caotic123/Isabelle",
+      "file": "Sudoku.thy",
+      "path": "src/HOL/ex/Sudoku.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sudoku.thy"
+    },
+    {
+      "id": "ISA-276",
+      "repo": "lexbailey/itrees_isabelle_fork",
+      "file": "If.thy",
+      "path": "src/FOL/ex/If.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — If.thy"
+    },
+    {
+      "id": "ISA-277",
+      "repo": "AlyMohsen98/Isabelle",
+      "file": "If.thy",
+      "path": "src/FOL/ex/If.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — If.thy"
+    },
+    {
+      "id": "ISA-278",
+      "repo": "Treeniks/isabelle-language-server",
+      "file": "If.thy",
+      "path": "src/FOL/ex/If.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — If.thy"
+    },
+    {
+      "id": "ISA-279",
+      "repo": "digama0/isabelle",
+      "file": "If.thy",
+      "path": "src/FOL/ex/If.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — If.thy"
+    },
+    {
+      "id": "ISA-280",
+      "repo": "CompSoftVer/CSim2",
+      "file": "MonadEq.thy",
+      "path": "lib/MonadEq.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — MonadEq.thy"
+    },
+    {
+      "id": "ISA-281",
+      "repo": "yayyzan/HSV",
+      "file": "HSV_tasks_2022.thy",
+      "path": "isabelle/2022/HSV_tasks_2022.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HSV_tasks_2022.thy"
+    },
+    {
+      "id": "ISA-282",
+      "repo": "pirapira/eth-isabelle",
+      "file": "Norm_Words.thy",
+      "path": "Word_Lib/Norm_Words.thy",
+      "family": "smart_contracts",
+      "prover": "isabelle",
+      "note": "Ethereum EVM Hoare — Norm_Words.thy"
+    },
+    {
+      "id": "ISA-283",
+      "repo": "seL4/isabelle",
+      "file": "Event.thy",
+      "path": "src/HOL/Auth/Event.thy",
+      "family": "foundations",
+      "prover": "isabelle",
+      "note": "Isabelle/HOL core — Event.thy"
+    },
+    {
+      "id": "ISA-284",
+      "repo": "data61/PSL",
+      "file": "TIP_bin_plus.thy",
+      "path": "UR/TIP/TIP15/TIP15/TIP_bin_plus.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_bin_plus.thy"
+    },
+    {
+      "id": "ISA-285",
+      "repo": "FormalTheology/GoedelGod",
+      "file": "God_Disjunction.thy",
+      "path": "Formalizations/Isabelle/Leibniz/With Disjunction Instead of Implication/God_Disjunction.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — God_Disjunction.thy"
+    },
+    {
+      "id": "ISA-286",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "Chisholm_E.thy",
+      "path": "Deontic-Logics/ddl/Chisholm_E.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — Chisholm_E.thy"
+    },
+    {
+      "id": "ISA-287",
+      "repo": "leouk/VDM_Toolkit",
+      "file": "MapCompStudyClean.thy",
+      "path": "vdm2isa/isa/MapCompStudyClean.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — MapCompStudyClean.thy"
+    },
+    {
+      "id": "ISA-288",
+      "repo": "Xujiangjing/fyp-isabelle-fuzz",
+      "file": "Repro_LambdaFree.thy",
+      "path": "reproduce/Repro_LambdaFree.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Repro_LambdaFree.thy"
+    },
+    {
+      "id": "ISA-289",
+      "repo": "sanastojanovic/UIDT",
+      "file": "MyTheory.thy",
+      "path": "uidt_2023_materijali/.radni/ExercisesTemplate/MyTheory.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — MyTheory.thy"
+    },
+    {
+      "id": "ISA-290",
+      "repo": "vjackson725/GeneralRGSep",
+      "file": "RGLogic.thy",
+      "path": "RGLogic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — RGLogic.thy"
+    },
+    {
+      "id": "ISA-291",
+      "repo": "isabelle-utp/Z_Machines",
+      "file": "TelephoneExchange_locales.thy",
+      "path": "examples/TelephoneExchange_locales.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — TelephoneExchange_locales.thy"
+    },
+    {
+      "id": "ISA-292",
+      "repo": "laralalu/Masterthesis",
+      "file": "DDL_agents_4.thy",
+      "path": "DDL_agents_4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — DDL_agents_4.thy"
+    },
+    {
+      "id": "ISA-293",
+      "repo": "isabelle-prover/mirror-afp-devel",
+      "file": "Tseytin_Sema.thy",
+      "path": "thys/Propositional_Proof_Systems/Tseytin_Sema.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Tseytin_Sema.thy"
+    },
+    {
+      "id": "ISA-294",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "SOS.thy",
+      "path": "src/HOL/ex/SOS.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — SOS.thy"
+    },
+    {
+      "id": "ISA-295",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "Induct_Nits.thy",
+      "path": "benchmarks/isabelle/src/HOL/Nitpick_Examples/Induct_Nits.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Induct_Nits.thy"
+    },
+    {
+      "id": "ISA-296",
+      "repo": "moajohansson/IsaHipster",
+      "file": "BasicL.thy",
+      "path": "TestTheories/List-prfs/BasicL.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — BasicL.thy"
+    },
+    {
+      "id": "ISA-297",
+      "repo": "caotic123/Isabelle",
+      "file": "ScottVariantHOMLinK.thy",
+      "path": "src/Abduct/AFP/Notes_On_Goedels_Ontological_Argument/ScottVariantHOMLinK.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ScottVariantHOMLinK.thy"
+    },
+    {
+      "id": "ISA-298",
+      "repo": "z5146542/TOR",
+      "file": "Extract_Conjunct.thy",
+      "path": "checker-isa19/autocorres-1.6.1/lib/Extract_Conjunct.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Extract_Conjunct.thy"
+    },
+    {
+      "id": "ISA-299",
+      "repo": "Matthias-Sleurink/bidefinition-thesis-theories",
+      "file": "example_dimacs.thy",
+      "path": "example_dimacs.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — example_dimacs.thy"
+    },
+    {
+      "id": "ISA-300",
+      "repo": "matt-j-griffin/isabelle-tpod",
+      "file": "BD_Security_STS.thy",
+      "path": "ForAllForAllSecure/BD_Security_STS.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — BD_Security_STS.thy"
+    },
+    {
+      "id": "ISA-301",
+      "repo": "lammich/IsaFracSep",
+      "file": "LLVM_Integer.thy",
+      "path": "llvm/kernel/LLVM_Integer.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — LLVM_Integer.thy"
+    },
+    {
+      "id": "ISA-302",
+      "repo": "lammich/isabelle_llvm",
+      "file": "Ex_Typed.thy",
+      "path": "thys-2020/others/simple/Ex_Typed.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Ex_Typed.thy"
+    },
+    {
+      "id": "ISA-303",
+      "repo": "jameseb7/Isabelle-ETCS",
+      "file": "ETCS_Quantifier.thy",
+      "path": "ETCS_Quantifier.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ETCS_Quantifier.thy"
+    },
+    {
+      "id": "ISA-304",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "IMP_4.thy",
+      "path": "theorem-provers/isabelle/src/HOL/Predicate_Compile_Examples/IMP_4.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — IMP_4.thy"
+    },
+    {
+      "id": "ISA-305",
+      "repo": "imSaDy/Grounded-Arithmetic",
+      "file": "BGA_RecDef.thy",
+      "path": "Codes/BGA_RecDef.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — BGA_RecDef.thy"
+    },
+    {
+      "id": "ISA-306",
+      "repo": "sigp/verified-consensus",
+      "file": "Examples.thy",
+      "path": "Word_Lib/Examples.thy",
+      "family": "blockchain",
+      "prover": "isabelle",
+      "note": "Ethereum consensus — Examples.thy"
+    },
+    {
+      "id": "ISA-307",
+      "repo": "zchn/isabelle-practice",
+      "file": "Tree23.thy",
+      "path": "examples/src/HOL/ex/Tree23.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Tree23.thy"
+    },
+    {
+      "id": "ISA-308",
+      "repo": "n1lr4d1c4l/cva",
+      "file": "Logic.thy",
+      "path": "Logic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Logic.thy"
+    },
+    {
+      "id": "ISA-309",
+      "repo": "ssrg-vt/Luce-src",
+      "file": "Det_Step.thy",
+      "path": "safecomp2019_artifact/current_work/isabelle/Det_Step.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Det_Step.thy"
+    },
+    {
+      "id": "ISA-310",
+      "repo": "ChengsongTan/CXLcacheFormalisation",
+      "file": "Transposed.thy",
+      "path": "Transposed.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Transposed.thy"
+    },
+    {
+      "id": "ISA-311",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "Classical.thy",
+      "path": "theorem-provers/isabelle/src/HOL/ex/Classical.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Classical.thy"
+    },
+    {
+      "id": "ISA-312",
+      "repo": "git-vt/orca",
+      "file": "List_extra.thy",
+      "path": "Archive/Programming-Languages-Semantics/WP11-C-semantics/src/orca/utils/List_extra.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — List_extra.thy"
+    },
+    {
+      "id": "ISA-313",
+      "repo": "neuro-symbolic-ai/peirce",
+      "file": "clinical_73_8.thy",
+      "path": "formalisation/isabelle/4_clinical/clinical_73_8.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — clinical_73_8.thy"
+    },
+    {
+      "id": "ISA-314",
+      "repo": "wimmers/munta",
+      "file": "DBM_Operations_Impl_Refine.thy",
+      "path": "DBM/DBM_Operations_Impl_Refine.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — DBM_Operations_Impl_Refine.thy"
+    },
+    {
+      "id": "ISA-315",
+      "repo": "dominique-unruh/qrhl-tool",
+      "file": "Semi_Classical_Search.thy",
+      "path": "isabelle-thys/Semi_Classical_Search.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Semi_Classical_Search.thy"
+    },
+    {
+      "id": "ISA-316",
+      "repo": "8l/AutoCorres",
+      "file": "HoarePartialDef.thy",
+      "path": "c-parser/Simpl/HoarePartialDef.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — HoarePartialDef.thy"
+    },
+    {
+      "id": "ISA-317",
+      "repo": "redbeardster/isabelle-hol",
+      "file": "tut11.thy",
+      "path": "FDS2017/tut11.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — tut11.thy"
+    },
+    {
+      "id": "ISA-318",
+      "repo": "isabelle-prover/mirror-afp-2025-1",
+      "file": "Examples.thy",
+      "path": "thys/IMP2/doc/Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Examples.thy"
+    },
+    {
+      "id": "ISA-319",
+      "repo": "ImogenMorris/Birkhoff",
+      "file": "Metric_Geometry3.thy",
+      "path": "Metric_Geometry3.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Metric_Geometry3.thy"
+    },
+    {
+      "id": "ISA-320",
+      "repo": "data61/PSL",
+      "file": "TIP_regexp_RecStar.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_regexp_RecStar.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_regexp_RecStar.thy"
+    },
+    {
+      "id": "ISA-321",
+      "repo": "SpringVaS/RefinementOfVotingRules",
+      "file": "Sepref_Bindings.thy",
+      "path": "theories/Compositional_Structures/Sepref_Bindings.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Sepref_Bindings.thy"
+    },
+    {
+      "id": "ISA-322",
+      "repo": "joewatt95/CVM",
+      "file": "CVM_Algo_No_Fail.thy",
+      "path": "isabelle/CVM_Transforms/CVM_Algo_No_Fail.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — CVM_Algo_No_Fail.thy"
+    },
+    {
+      "id": "ISA-323",
+      "repo": "natasablagojevic/udit",
+      "file": "Vezbe02.thy",
+      "path": "Vezbanje3/Vezbe02.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Vezbe02.thy"
+    },
+    {
+      "id": "ISA-324",
+      "repo": "ChengsongTan/super_sketch_and_super_fix",
+      "file": "Transposed.thy",
+      "path": "Super_Fix/Transposed.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Transposed.thy"
+    },
+    {
+      "id": "ISA-325",
+      "repo": "DaraMac/FYP",
+      "file": "Bounded_Elementary_CA.thy",
+      "path": "project/Bounded_Elementary_CA.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Bounded_Elementary_CA.thy"
+    },
+    {
+      "id": "ISA-326",
+      "repo": "8l/AutoCorres",
+      "file": "UserGuide.thy",
+      "path": "c-parser/Simpl/UserGuide.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — UserGuide.thy"
+    },
+    {
+      "id": "ISA-327",
+      "repo": "object-logics/isabelle_para",
+      "file": "Homotopy.thy",
+      "path": "src/HOL/Analysis/Homotopy.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Homotopy.thy"
+    },
+    {
+      "id": "ISA-328",
+      "repo": "anqili426/hhl_frontend",
+      "file": "TotalLogic.thy",
+      "path": "mechanization/TotalLogic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — TotalLogic.thy"
+    },
+    {
+      "id": "ISA-329",
+      "repo": "wizard7377/sml-test-inputs",
+      "file": "Quantifiers_Int.thy",
+      "path": "theorem-provers/isabelle/src/FOL/ex/Quantifiers_Int.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Quantifiers_Int.thy"
+    },
+    {
+      "id": "ISA-330",
+      "repo": "neuro-symbolic-ai/peirce",
+      "file": "clinical_39_1.thy",
+      "path": "formalisation/isabelle/3.5_clinical/clinical_39_1.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — clinical_39_1.thy"
+    },
+    {
+      "id": "ISA-331",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "Hilbert.thy",
+      "path": "buffer/AlexSteen/Deontic/Hilbert.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — Hilbert.thy"
+    },
+    {
+      "id": "ISA-332",
+      "repo": "ChengsongTan/super_sketch_and_super_fix",
+      "file": "CoherenceProperties.thy",
+      "path": "Super_Fix/CoherenceProperties.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — CoherenceProperties.thy"
+    },
+    {
+      "id": "ISA-333",
+      "repo": "yabaitechtokyo/yabaitech_tokyo_vol_4",
+      "file": "Simpl_Rewrite.thy",
+      "path": "articles/wasabiz/autocorres-1.6.1/lib/clib/Simpl_Rewrite.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Simpl_Rewrite.thy"
+    },
+    {
+      "id": "ISA-334",
+      "repo": "sterraf/forcing_Isabelle",
+      "file": "Relative.thy",
+      "path": "Constructible/Relative.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Relative.thy"
+    },
+    {
+      "id": "ISA-335",
+      "repo": "orange-dot/mamut-os",
+      "file": "Reader_Option_Monad.thy",
+      "path": "l4v/lib/Monads/reader_option/Reader_Option_Monad.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Reader_Option_Monad.thy"
+    },
+    {
+      "id": "ISA-336",
+      "repo": "SEL4PROJ/jormungand",
+      "file": "OtwayReesBella.thy",
+      "path": "case_study/isabelle/src/HOL/Auth/OtwayReesBella.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — OtwayReesBella.thy"
+    },
+    {
+      "id": "ISA-337",
+      "repo": "data61/PSL",
+      "file": "TIP_prop_26.thy",
+      "path": "UR/TIP/Isaplanner/Isaplanner/TIP_prop_26.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_prop_26.thy"
+    },
+    {
+      "id": "ISA-338",
+      "repo": "data61/PSL",
+      "file": "TIP_prop_20.thy",
+      "path": "UR/TIP/Isaplanner/Isaplanner/TIP_prop_20.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_prop_20.thy"
+    },
+    {
+      "id": "ISA-339",
+      "repo": "data61/PSL",
+      "file": "TIP_prop_19.thy",
+      "path": "UR/TIP/Isaplanner/Isaplanner/TIP_prop_19.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_prop_19.thy"
+    },
+    {
+      "id": "ISA-340",
+      "repo": "zchn/isabelle-practice",
+      "file": "ex.thy",
+      "path": "exercises/isabelle.in.tum.de/exercises/trees/folding/ex.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ex.thy"
+    },
+    {
+      "id": "ISA-341",
+      "repo": "data61/PSL",
+      "file": "TIP_sort_nat_BubSortSorts.thy",
+      "path": "UR/TIP/TIP15/TIP15/TIP_sort_nat_BubSortSorts.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_sort_nat_BubSortSorts.thy"
+    },
+    {
+      "id": "ISA-342",
+      "repo": "lammich/isabelle_llvm",
+      "file": "LLVM_Codegen.thy",
+      "path": "thys-2020/basic/kernel/LLVM_Codegen.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — LLVM_Codegen.thy"
+    },
+    {
+      "id": "ISA-343",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "GoedelProof_P1.thy",
+      "path": "buffer/DavidFuenmayor/Types_Tableaus_and_Goedels_God/GoedelProof_P1.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — GoedelProof_P1.thy"
+    },
+    {
+      "id": "ISA-344",
+      "repo": "data61/PSL",
+      "file": "TIP_sort_TSortIsSort.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_sort_TSortIsSort.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_sort_TSortIsSort.thy"
+    },
+    {
+      "id": "ISA-345",
+      "repo": "data61/PSL",
+      "file": "TIP_list_nat_elem_map.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_list_nat_elem_map.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_list_nat_elem_map.thy"
+    },
+    {
+      "id": "ISA-346",
+      "repo": "data61/PSL",
+      "file": "TIP_nat_boring_gt_trans.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_nat_boring_gt_trans.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_nat_boring_gt_trans.thy"
+    },
+    {
+      "id": "ISA-347",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "GDPR_E.thy",
+      "path": "2020-DataInBrief-Data/GDPR_E.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — GDPR_E.thy"
+    },
+    {
+      "id": "ISA-348",
+      "repo": "isabelle-utp/utp-main",
+      "file": "utp_expr.thy",
+      "path": "utp/utp_expr.thy",
+      "family": "program_verification",
+      "prover": "isabelle",
+      "note": "UTP program logic — utp_expr.thy"
+    },
+    {
+      "id": "ISA-349",
+      "repo": "sanastojanovic/UIDT",
+      "file": "mi18256_Bosko_Delic.thy",
+      "path": "uidt_2022_seminarski/mi18256_Bosko_Delic.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — mi18256_Bosko_Delic.thy"
+    },
+    {
+      "id": "ISA-350",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "Extended_CJ_DDL.thy",
+      "path": "2020-DataInBrief-Data/Extended_CJ_DDL.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — Extended_CJ_DDL.thy"
+    },
+    {
+      "id": "ISA-351",
+      "repo": "isabelle-utp/interaction-trees",
+      "file": "ITree_CSP_Examples.thy",
+      "path": "examples/ITree_CSP_Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ITree_CSP_Examples.thy"
+    },
+    {
+      "id": "ISA-352",
+      "repo": "SEL4PROJ/jormungand",
+      "file": "Generator_CAMKES_CDL.thy",
+      "path": "case_study/l4v/camkes/cdl-refine/Generator_CAMKES_CDL.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Generator_CAMKES_CDL.thy"
+    },
+    {
+      "id": "ISA-353",
+      "repo": "Xujiangjing/fyp-isabelle-fuzz",
+      "file": "A_mp_lambda_vampire.thy",
+      "path": "sledgehammer_attack/A_mp_lambda_vampire/A_mp_lambda_vampire.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — A_mp_lambda_vampire.thy"
+    },
+    {
+      "id": "ISA-354",
+      "repo": "isabelle-prover/mirror-afp-devel",
+      "file": "Alpha_Beta_Linear.thy",
+      "path": "thys/Alpha_Beta_Pruning/Alpha_Beta_Linear.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Alpha_Beta_Linear.thy"
+    },
+    {
+      "id": "ISA-355",
+      "repo": "data61/PSL",
+      "file": "TIP_sort_nat_StoogeSortCount.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_sort_nat_StoogeSortCount.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_sort_nat_StoogeSortCount.thy"
+    },
+    {
+      "id": "ISA-356",
+      "repo": "cbenzmueller/LogiKEy",
+      "file": "SDL.thy",
+      "path": "2020-DataInBrief-Data/SDL.thy",
+      "family": "logic",
+      "prover": "isabelle",
+      "note": "LogiKEy ethical reasoning — SDL.thy"
+    },
+    {
+      "id": "ISA-357",
+      "repo": "data61/PSL",
+      "file": "TIP_sort_nat_StoogeSort2IsSort.thy",
+      "path": "UR/TIP_with_Proof/TIP15/TIP15/TIP_sort_nat_StoogeSort2IsSort.thy",
+      "family": "tactics",
+      "prover": "isabelle",
+      "note": "PSL proof strategy — TIP_sort_nat_StoogeSort2IsSort.thy"
+    },
+    {
+      "id": "ISA-358",
+      "repo": "m-fleury/isabelle-emacs",
+      "file": "Groebner_Examples.thy",
+      "path": "src/HOL/Examples/Groebner_Examples.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Groebner_Examples.thy"
+    },
+    {
+      "id": "ISA-359",
+      "repo": "caotic123/Isabelle",
+      "file": "Dioid.thy",
+      "path": "src/Abduct/AFP/Kleene_Algebra/Dioid.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — Dioid.thy"
+    },
+    {
+      "id": "ISA-360",
+      "repo": "dendisuhubdy/machine-generated-proof",
+      "file": "ToyList.thy",
+      "path": "benchmarks/isabelle/src/Doc/Tutorial/ToyList/ToyList.thy",
+      "family": "isabelle_misc",
+      "prover": "isabelle",
+      "note": "Isabelle open sorry/oops — ToyList.thy"
+    }
+  ]
+}
