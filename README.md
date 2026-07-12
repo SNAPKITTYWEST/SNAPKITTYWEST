@@ -53,6 +53,14 @@ meta_block(valid).
 
 ---
 
+<div align="center">
+
+**[⬡ Sovereign Router — Live Demo](https://snapkittywest.github.io/router.html)** &nbsp;·&nbsp; **[mathlib5](https://github.com/SNAPKITTYWEST/mathlib5)** &nbsp;·&nbsp; **[collectivekitty.com](https://collectivekitty.com)** &nbsp;·&nbsp; **[SNAPKITTY-PROOFS](https://github.com/SNAPKITTYWEST/SNAPKITTY-PROOFS)**
+
+</div>
+
+---
+
 # SnapKitty Sovereign Compute Architecture
 
 **Self-verifying multi-witness proof system — WORM-chain consensus, P/NP swarm solving, deterministic memory layers, and a constitutional cold-boot protocol for sovereign compute.**
