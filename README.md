@@ -514,13 +514,19 @@ where Ψ = (Ψ₀, Ψ₁, Ψ₂, Ψ₃) with Ψ_μ ∈ J₃(𝕆)
 
 ### Lean Certificate Status
 
-| Theorem | Statement | Status | Notes |
-|---------|-----------|--------|-------|
-| `I4_homogeneous` | I₄(rΨ) = r⁴ I₄(Ψ) | **SORRY** | Degree-4 homogeneity |
-| `I4_E7_Invariant` | I₄(R(Ψ)) = I₄(Ψ) | **SORRY** | E₇ Weyl group invariance |
-| `I4_Unique` | I₄ is the unique quartic E₇-invariant | **AXIOM** | Borsten et al. |
-| `drumOptimizerEOM` | Discrete Einstein equation | **PROVEN** | rfl |
-| `Sovereign_Compiler_Correct` | I₄(Si) = I₄(R(Drum(Si))) | **PROVEN** | Compiler preserves physics |
+| Theorem | File | Statement | Status | Notes |
+|---------|------|-----------|--------|-------|
+| `GKN.I4_homogeneous` | `mathlib5/.../GKN_I4_Homogeneous.lean` | I₄(c·s) = c⁴·I₄(s) | **PROVEN** | `ring` via 4 degree-lemmas, CommRing R, zero sorry |
+| `GKN.I4_scale2` | `mathlib5/.../GKN_I4_Homogeneous.lean` | I₄(2·s) = 16·I₄(s) | **PROVEN** | `norm_num` corollary |
+| `GKN.I4_zero` | `mathlib5/.../GKN_I4_Homogeneous.lean` | I₄(0·s) = 0 | **PROVEN** | `simp` corollary |
+| `I4_homogeneous` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | I₄(rΨ) = r⁶·I₄(Ψ) | **SORRY** | Float/no-Mathlib limit; degree corrected to 6 (State108) |
+| `I4_56_homogeneous` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | I₄₅₆(r·s) = r⁴·I₄₅₆(s) | **SORRY** | Float limit; numeric witness ratio=16 confirmed |
+| `I4_E7_Invariant` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | I₄(R(Ψ)) = I₄(Ψ) | **SORRY** | E₇ Weyl group invariance; Float limit |
+| `I4_Unique` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | I₄ is the unique quartic E₇-invariant | **AXIOM** | Borsten et al. |
+| `drumOptimizerEOM` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | Discrete Einstein equation | **PROVEN** | `rfl` |
+| `Sovereign_Compiler_Correct` | `S_AUTOCODE/SAUTOCODE/MTheory.lean` | I₄(Si) = I₄(R(Drum(Si))) | **PROVEN** | Compiler preserves physics |
+
+**Key discovery this session**: `State108` (27×4 matrix) makes I₄ degree **6** (cubicNorm scales r³, so N(c_μ)² → r⁶). The true GKN quartic lives on `State56` = (α,β,P,Q) ∈ ℝ×ℝ×J₃(𝕆)×J₃(𝕆) — the actual 56-dim E₇ fundamental rep — where degree=4 is confirmed by three independent numeric witnesses.
 
 ### Build
 
@@ -867,9 +873,11 @@ If you encounter a verification failure, do not modify the WORM chain. Instead, 
 | GitHub Pages Live | 37 |
 | WORM Chain Seals | 9 (indices 0–8) |
 | Verified Theorems (Python) | 5 (φ², φ⁻¹, Collatz, Ramsey, Ancient Sorry) |
-| **Lean Theorems (S_AUTOCODE)** | **4 (2 proven, 2 sorry)** |
-| **Lean Definitions (S_AUTOCODE)** | **27** |
+| **Lean Theorems (S_AUTOCODE)** | **4 (2 proven, 2 sorry) + State56/I4_56** |
+| **Lean Theorems (mathlib5/GKN)** | **3 proven, 0 sorry — I4_homogeneous closed via ring** |
+| **Lean Definitions (S_AUTOCODE)** | **27 + State56, I4_56, s56Scale** |
 | **Lean Axioms (S_AUTOCODE)** | **2** |
+| **Sovereign Sledgehammer** | `mathlib5/sledgehammer.py` — tactic ladder, WORM receipts |
 | Registered Skills | 2 |
 | Open P/NP Problems | 3 |
 | QWEN Skill Packets | 19 |
