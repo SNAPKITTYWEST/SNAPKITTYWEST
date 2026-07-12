@@ -18,6 +18,7 @@ const KEEP = new Set([
   // Public active
   'mathlib5',              // TIER 2 — only PR-accepting repo
   'SNAPKITTYWEST',         // umbrella
+  'SNAPKITTYWEST.github.io', // GitHub Pages — router UI lives here
   'snapkitty-chain',       // STELLA + P2P + WORM
   'agentic-arena',         // graveyard crawler
   'cartographer-agent',    // CARTO law engine + MyLaw
