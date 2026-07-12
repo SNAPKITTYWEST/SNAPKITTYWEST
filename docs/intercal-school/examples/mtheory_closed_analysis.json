@@ -1,0 +1,7 @@
+{
+  "status": "STRUCTURALLY_VALID",
+  "violation_class": "none",
+  "source_hash": "mtheory-closed-drumOptimizerEOM-Sovereign_Compiler_Correct-2f7c9a1b",
+  "target": "S_AUTOCODE.MTheory (proven theorems)",
+  "note": "drumOptimizerEOM (rfl) and Sovereign_Compiler_Correct (uses I4_E7_Invariant + Pipeline_Relocate_Axiom) are proven, 0 sorries."
+}
