@@ -1,0 +1,7 @@
+{
+  "status": "STRUCTURALLY_VALID",
+  "violation_class": "none",
+  "source_hash": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f60718293a4b5c6d7e8f90",
+  "borrow_chain": "valid",
+  "note": "sample analysis produced by BorrowChain.jl for a polite graduate submission"
+}
