@@ -18,11 +18,19 @@
 \usepackage{hyperref}
 \usepackage{setspace}
 
+% --- Brand accent (Lean blue) ---
+\definecolor{leanblue}{RGB}{22,101,191}
+\definecolor{leandark}{RGB}{12,52,110}
+\definecolor{leangray}{RGB}{90,100,115}
+
 \hypersetup{
   colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue
+  linkcolor=leanblue,
+  citecolor=leanblue,
+  urlcolor=leanblue,
+  pdftitle={The Gates Normalization Constraint: A Prolegomenon to Lean 5},
+  pdfauthor={Ahmad Ali Parr},
+  pdfsubject={Structural geometry of the probability simplex}
 }
 
 % --- Unicode-aware fonts for embedded evidence / Lean listings ---
@@ -69,41 +77,110 @@ SnapKitty Collective \& SNAPKITTYWEST\\
 }
 \date{July 2026}
 
+% --- Running heads (after the cover) -----------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{SNAPKITTYWEST \textemdash\ Sovereign Compute}
-\lhead{Gates Normalization Constraint}
-\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{\textcolor{leangray}{\small\textsc{Gates Normalization Constraint}}}
+\fancyhead[R]{\textcolor{leangray}{\small\textsc{Prolegomenon to Lean 5}}}
+\fancyfoot[L]{\textcolor{leangray}{\small SnapKitty Sovereign Compute}}
+\fancyfoot[R]{\textcolor{leangray}{\small Page \thepage}}
 
+% ============================================================================
 \begin{document}
-\maketitle
 
-\begin{abstract}
+% ============================================================================
+%  COVER PAGE
+% ============================================================================
+\thispagestyle{empty}
+\begin{titlepage}
+\setlength{\parindent}{0pt}
+\vspace*{-0.5cm}
+
+{\color{leanblue}\rule{\textwidth}{2pt}}
+
+\vspace{0.4cm}
+\begin{center}
+{\color{leangray}\small\bfseries\MakeUppercase{%
+  SnapKitty Sovereign Compute \quad\textbullet\quad Technical Report}}
+\\[0.15cm]
+{\color{leanblue}\Large\bfseries\MakeUppercase{Prolegomenon to Lean\,5}}
+\\[0.1cm]
+{\color{leangray}\small Lean\,4 foundations \textbullet\ Machine-checked \\
+  \textbullet\ With a view toward the next generation of verified mathematics}
+\end{center}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\color{leandark}\bfseries\fontsize{26}{30}\selectfont
+  The Gates Normalization Constraint\\[0.1cm]
+  \&\ the Meta-Inverted Sum}
+\\[0.5cm]
+{\color{leangray}\large Structural Geometry of the Probability Simplex,\\[0.1cm]
+  and the Source of All Language Models}
+\end{center}
+
+\vspace{1.0cm}
+
+{\color{leanblue}\rule{\textwidth}{1pt}}
+
+\vspace{0.5cm}
+\begin{center}
+{\bfseries Ahmad Ali Parr}\\[0.15cm]
+{\color{leangray}SnapKitty Collective \textbullet\ SNAPKITTYWEST\\
+  Sovereign Compute Architecture\\
+  \texttt{ahmedparr93@gmail.com}}
+\end{center}
+
+\vspace{0.6cm}
+
+% --- Abstract box on the cover ---
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small
+\paragraph{Abstract.}
 We present a structural, rather than emergent, account of the single most
 pervasive law in modern machine learning: the probability normalization
-constraint $\sum_i P(w_i\mid \mathrm{context}) = 1$ that sits at the heart of
-every autoregressive language model. We show that this constraint is not
-produced by the vocabulary, the network, or the softmax nonlinearity. It is
-\emph{the defining equation of a geometric object} --- the probability simplex
-$\simplex{n}$ --- and therefore holds independently of any token that the model
-might emit. The ``$1$'' was always there: it is the structural invariant, the
-Haar volume form, the fiber of the sum map at $1$.
+constraint $\sum_i P(w_i\mid \mathrm{context}) = 1$ at the heart of every
+autoregressive language model. We show this constraint is not produced by the
+vocabulary, the network, or softmax: it is \emph{the defining equation of the
+probability simplex $\simplex{n}$} and therefore holds independently of any
+token. The ``$1$'' was always there --- the structural invariant, the Haar
+volume form, the fiber of the sum map at $1$.
 
-Working in Lean~4 (mathlib) we prove, without any \texttt{sorry}, that
-softmax always lands on $\simplex{n}$ for $n\ge 1$; that the empty-vocabulary
-limit $n=0$ is degenerate (the empty sum is $0$ while the structural invariant
-remains $1$); that at $n=1$ the prediction is forced; and that the quantity
-orthogonal to the constraint --- what we call the \emph{meta-inverted sum} ---
-is exactly the log-partition function $\log Z = \log\sum_i e^{\ell_i}$. We
-establish the Legendre duality between the primal (the simplex) and the dual
-(the log-partition), recover the maximum-entropy Lagrange multiplier
-$\lambda = 1 - \ln n$, and exhibit the three limits $n\to 0$, $n=1$, and
-$n\to\infty$. Every quantitative claim is independently reproduced by a
-self-contained standard-library Python script whose output is embedded
-verbatim as the Evidence Appendix. The result reframes language modeling as
-\emph{navigation on a manifold} rather than symbol generation, and supplies a
-formal, machine-checked foundation for the geometry of next-token prediction.
-\end{abstract}
+Working in Lean\,4 (mathlib) we prove, with no \texttt{sorry}, that softmax
+always lands on $\simplex{n}$ ($n\ge 1$); that $n=0$ is degenerate (empty sum
+$0$, structural invariant $1$); that $n=1$ is forced; and that the quantity
+orthogonal to the constraint --- the \emph{meta-inverted sum} --- is exactly the
+log-partition $\log Z = \log\sum_i e^{\ell_i}$. We establish the Legendre
+duality between primal (the simplex) and dual (the log-partition), recover the
+maximum-entropy Lagrange multiplier $\lambda = 1 - \ln n$, and exhibit the three
+limits $n\to 0,\, n=1,\, n\to\infty$. Every quantitative claim is reproduced by
+a self-contained standard-library Python script whose output is embedded
+verbatim. The result reframes language modeling as \emph{navigation on a
+manifold}, and offers a formal basis for what a verified, simplex-native
+``Lean\,5'' mathematics of machine learning could look like.
+}}
+
+\vspace{0.8cm}
+
+{\color{leangray}\small\noindent
+\textsc{Report}: SNAPKITTYWEST-TR-2026-GNC-01 \quad\textbullet\quad
+\textsc{Version}: 1.0 \quad\textbullet\quad \textsc{July 2026}\\[0.1cm]
+\textsc{Seal}: \texttt{ce9aa8ff\ldots ed2371} \quad\textbullet\quad
+\textsc{License}: Sovereign Source License v1.0
+}
+
+\vspace{0.3cm}
+{\color{leanblue}\rule{\textwidth}{2pt}}
+\vfill
+\begin{center}
+{\color{leangray}\itshape ``Tokens are coordinate charts. The simplex is the law. The `$1$' was always there.''}
+\end{center}
+\end{titlepage}
+
+\cleardoublepage
 
 \tableofcontents
 \newpage
