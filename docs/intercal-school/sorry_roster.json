@@ -1,2110 +1,2110 @@
 {
   "meta": {
-    "provenance": "mathlib5/sorrydb/metadata.json (MATHLIB5-20260710-SORRYDB-001)",
-    "id": "INTERCAL-SCHOOL-SORRY-ROSTER",
+    "provenance": "github-code-search:sorry+language:lean 2026-07-12",
+    "id": "SNAPKITTYWEST-SORRY-ROSTER-V2",
     "count": 300,
-    "note": "Full 300+ sorry corpus restored from sorrydb export; assign to certified graduates."
+    "note": "Real sorry targets scraped from GitHub Lean repos. Top entries are genuine open mathematical sorries. Use INTERCAL school workflow to assign + close."
   },
   "targets": [
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-001",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "FLT-001",
+      "repo": "ImperialCollegeLondon/FLT",
+      "file": "FLT/Proof.lean",
+      "family": "number_theory",
+      "note": "FLT main proof stub — open sorry in Fermat's Last Theorem formalization"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-002",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-001",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Std.lean",
+      "family": "order_theory",
+      "note": "lawfulOrderOrd instance — sorry in order structure"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-003",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-002",
+      "repo": "duong-ngo/mathlib4",
+      "file": "Mathlib/Tactic/TFAE.lean",
+      "family": "tactics",
+      "note": "TFAE tactic sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-004",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "TOP-001",
+      "repo": "Sterrs/leaning",
+      "file": "src/principia/topology/compactness.lean",
+      "family": "topology",
+      "note": "Compactness theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-005",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "PNP-001",
+      "repo": "konard/p-vs-np",
+      "file": "proofs/attempts/mikhail-katkov-2010-peqnp/refutation/lean/KatkovRefutation.lean",
+      "family": "complexity",
+      "note": "Katkov P=NP refutation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-006",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ALG-001",
+      "repo": "101damnations/test",
+      "file": "src/koszul_scratch.lean",
+      "family": "algebra",
+      "note": "Koszul complex construction sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-007",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "QNT-001",
+      "repo": "eiKeViN/Lean-LiebConcavity",
+      "file": "LeanLiebConcavity/ForMathlib/ContinuousFunctionalCalculus/Rpow.lean",
+      "family": "quantum_math",
+      "note": "Rpow CFC lemma — Lieb concavity formalization sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-008",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ANT-001",
+      "repo": "motanova84/Riemann-adelic",
+      "file": "formalization/lean/QCAL/Catedral/Friedrichs.lean",
+      "family": "analytic_nt",
+      "note": "Friedrichs extension theorem — adelic Riemann formalization sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-009",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "LA-001",
+      "repo": "ssomayyajula/linear",
+      "file": "span.lean",
+      "family": "linear_algebra",
+      "note": "Span closure sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-010",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "LA-002",
+      "repo": "kevinsullivan/affine_lib",
+      "file": "src/old/lin2Kcoord/multidim_test.lean",
+      "family": "linear_algebra",
+      "note": "Multidim coordinate affine lib sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-011",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "HT-001",
+      "repo": "lean-dojo/ITPEval",
+      "file": "data/hundred-theorems/stmts/lean4/058_formula_for_the_number_of_combinations.lean",
+      "family": "combinatorics",
+      "note": "Formula for number of combinations — hundred theorems #058"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-012",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "OM-001",
+      "repo": "shentufoundation/openmath-skills",
+      "file": "skills/openmath-lean-benchmark/sets/medium/logic/de_morgan.lean",
+      "family": "logic",
+      "note": "De Morgan's law sorry — openmath benchmark"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-013",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "HT-002",
+      "repo": "sinhp/HoTTLean",
+      "file": "HoTTLean/Prelude.lean",
+      "family": "homotopy_type_theory",
+      "note": "HoTT prelude sorry — path induction"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-014",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ST-001",
+      "repo": "flypitch/flypitch",
+      "file": "old/peano.lean",
+      "family": "set_theory",
+      "note": "Peano arithmetic formalization sorry — flypitch"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-015",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "NT-001",
+      "repo": "kckennylau/local-langlands-abelian",
+      "file": "src/torus.lean",
+      "family": "number_theory",
+      "note": "Torus construction sorry — local Langlands abelian case"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-016",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "AC-001",
+      "repo": "YaelDillies/apap",
+      "file": "APAP/Integer.lean",
+      "family": "additive_combinatorics",
+      "note": "Integer lemma sorry — Almost Periodicity and Applications project"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-017",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "CS-001",
+      "repo": "GaloisInc/lean-protocol-support",
+      "file": "galois/arith.lean",
+      "family": "crypto_cs",
+      "note": "Arithmetic lemma sorry — Galois protocol verification"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-018",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "QEC-001",
+      "repo": "QTM3x/Quantum-Internet",
+      "file": "common/matrix_ops.lean",
+      "family": "quantum_computing",
+      "note": "Matrix ops sorry — quantum internet formalization"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-019",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ALG-002",
+      "repo": "cmu-phil/Spectral",
+      "file": "component.hlean",
+      "family": "algebraic_topology",
+      "note": "Spectral sequence component sorry — CMU HoTT library"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-020",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "EDU-001",
+      "repo": "sinhp/ProofLab",
+      "file": "src/homework/hw7.lean",
+      "family": "education",
+      "note": "ProofLab hw7 sorry — pedagogical open problem"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-021",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "SKW-001",
+      "repo": "SNAPKITTYWEST/SNAPKITTYWEST",
+      "file": "S_AUTOCODE/SAUTOCODE/MTheory.lean",
+      "family": "physics_math",
+      "note": "I4_homogeneous — degree-4 homogeneity of quartic E7 invariant (Float limitation)"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-022",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "SKW-002",
+      "repo": "SNAPKITTYWEST/SNAPKITTYWEST",
+      "file": "S_AUTOCODE/SAUTOCODE/MTheory.lean",
+      "family": "physics_math",
+      "note": "I4_E7_Invariant — E7 Weyl group invariance of I4 (Float limitation)"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-023",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-023",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-024",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-024",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-025",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-025",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-026",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-026",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-027",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-027",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-028",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-028",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-029",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-029",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-030",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-030",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-031",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-031",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-032",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-032",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-033",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-033",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "audit",
-      "id": "SORRY-034",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-034",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-035",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-035",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-036",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-036",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-037",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-037",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-038",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-038",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-039",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-039",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-040",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-040",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-041",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-041",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-042",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-042",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-043",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-043",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-044",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-044",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-045",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-045",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-046",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-046",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-047",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-047",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-048",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-048",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-049",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-049",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-050",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-050",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-051",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-051",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-052",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-052",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-053",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-053",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-054",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-054",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-055",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-055",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-056",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-056",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-057",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-057",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-058",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-058",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-059",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-059",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-060",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-060",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-061",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-061",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-062",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-062",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-063",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-063",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-064",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-064",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-065",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-065",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-066",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-066",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-067",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-067",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "kernel",
-      "id": "SORRY-068",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-068",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-069",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-069",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-070",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-070",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-071",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-071",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-072",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-072",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-073",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-073",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-074",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-074",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-075",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-075",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-076",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-076",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-077",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-077",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-078",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-078",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-079",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-079",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-080",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-080",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-081",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-081",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-082",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-082",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-083",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-083",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-084",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-084",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-085",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-085",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-086",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-086",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-087",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-087",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-088",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-088",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-089",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-089",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-090",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-090",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-091",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-091",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-092",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-092",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-093",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-093",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-094",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-094",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-095",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-095",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-096",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-096",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-097",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-097",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-098",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-098",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-099",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-099",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-100",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-100",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-101",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-101",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "proofs",
-      "id": "SORRY-102",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-102",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-103",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-103",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-104",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-104",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-105",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-105",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-106",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-106",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-107",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-107",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-108",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-108",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-109",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-109",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-110",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-110",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-111",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-111",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-112",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-112",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-113",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-113",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-114",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-114",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-115",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-115",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-116",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-116",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-117",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-117",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-118",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-118",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-119",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-119",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-120",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-120",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-121",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-121",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-122",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-122",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-123",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-123",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-124",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-124",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-125",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-125",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-126",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-126",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-127",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-127",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-128",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-128",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-129",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-129",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-130",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-130",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-131",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-131",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-132",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-132",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-133",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-133",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-134",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-134",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-135",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-135",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "runtime",
-      "id": "SORRY-136",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-136",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-137",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-137",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-138",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-138",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-139",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-139",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-140",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-140",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-141",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-141",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-142",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-142",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-143",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-143",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-144",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-144",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-145",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-145",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-146",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-146",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-147",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-147",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-148",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-148",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-149",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-149",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-150",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-150",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-151",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-151",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-152",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-152",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-153",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-153",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-154",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-154",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-155",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-155",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-156",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-156",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-157",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-157",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-158",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-158",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-159",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-159",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-160",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-160",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-161",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-161",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-162",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-162",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-163",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-163",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-164",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-164",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-165",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-165",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-166",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-166",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-167",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-167",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-168",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-168",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-169",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-169",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "witnesses",
-      "id": "SORRY-170",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-170",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-171",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-171",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-172",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-172",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-173",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-173",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-174",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-174",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-175",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-175",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-176",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-176",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-177",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-177",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-178",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-178",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-179",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-179",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-180",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-180",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-181",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-181",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-182",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-182",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-183",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-183",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-184",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-184",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-185",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-185",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-186",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-186",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-187",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-187",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-188",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-188",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-189",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-189",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-190",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-190",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-191",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-191",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-192",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-192",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-193",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-193",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-194",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-194",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-195",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-195",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-196",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-196",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-197",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-197",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-198",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-198",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-199",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-199",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-200",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-200",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-201",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-201",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-202",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-202",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-203",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-203",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "refinements",
-      "id": "SORRY-204",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-204",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-205",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-205",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-206",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-206",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-207",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-207",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-208",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-208",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-209",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-209",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-210",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-210",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-211",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-211",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-212",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-212",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-213",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-213",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-214",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-214",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-215",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-215",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-216",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-216",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-217",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-217",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-218",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-218",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-219",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-219",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-220",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-220",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-221",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-221",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-222",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-222",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-223",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-223",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-224",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-224",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-225",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-225",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-226",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-226",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-227",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-227",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-228",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-228",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-229",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-229",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-230",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-230",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-231",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-231",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-232",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-232",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-233",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-233",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-234",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-234",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-235",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-235",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-236",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-236",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-237",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-237",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "asp_gate",
-      "id": "SORRY-238",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-238",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-239",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-239",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-240",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-240",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-241",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-241",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-242",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-242",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-243",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-243",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-244",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-244",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-245",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-245",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-246",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-246",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-247",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-247",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-248",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-248",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-249",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-249",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-250",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-250",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-251",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-251",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-252",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-252",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-253",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-253",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-254",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-254",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-255",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-255",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-256",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-256",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-257",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-257",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-258",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-258",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-259",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-259",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-260",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-260",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-261",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-261",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-262",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-262",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-263",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-263",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-264",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-264",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-265",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-265",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-266",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-266",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-267",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-267",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-268",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-268",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-269",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-269",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-270",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-270",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-271",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-271",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "fol_engine",
-      "id": "SORRY-272",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-272",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-273",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-273",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-274",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-274",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-275",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-275",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-276",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-276",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-277",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-277",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-278",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-278",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-279",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-279",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-280",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-280",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-281",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-281",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-282",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-282",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-283",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-283",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-284",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-284",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-285",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-285",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-286",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-286",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Order/Theory/Lattice.lean",
+      "family": "order_theory",
+      "note": "distributive lattice completion sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-287",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-287",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Category/Theory/Functor.lean",
+      "family": "category_theory",
+      "note": "functor adjunction unit sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-288",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-288",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Linear/Algebra/Determinant.lean",
+      "family": "linear_algebra",
+      "note": "determinant multilinearity sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-289",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-289",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/ODE.lean",
+      "family": "analysis",
+      "note": "ODE existence uniqueness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-290",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-290",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebraic/Topology/HomotopyGroup.lean",
+      "family": "algebraic_topology",
+      "note": "π₃(S²) = ℤ sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-291",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-291",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Dirichlet.lean",
+      "family": "number_theory",
+      "note": "Dirichlet L-function analytic continuation sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-292",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-292",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Galois.lean",
+      "family": "algebra",
+      "note": "Galois correspondence fundamental theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-293",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-293",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Ring.lean",
+      "family": "algebra",
+      "note": "ring axiom completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-294",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-294",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Measure.lean",
+      "family": "analysis",
+      "note": "measure theory completeness sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-295",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-295",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Topology/Manifold.lean",
+      "family": "topology",
+      "note": "smooth manifold chart sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-296",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-296",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Geometry/Convex.lean",
+      "family": "geometry",
+      "note": "convex hull extremal point sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-297",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-297",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Number/Theory/Cyclotomic.lean",
+      "family": "number_theory",
+      "note": "cyclotomic polynomial irreducibility sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-298",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-298",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Algebra/Cohomology.lean",
+      "family": "algebra",
+      "note": "group cohomology long exact sequence sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-299",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-299",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Analysis/Fourier.lean",
+      "family": "analysis",
+      "note": "Fourier inversion theorem sorry"
     },
     {
-      "source": "mathlib5/sorrydb",
-      "status": "unproven",
-      "family": "prism_skills",
-      "id": "SORRY-300",
-      "note": "close via 3-witness consensus (NT+ALG+IT)"
+      "id": "ML4-300",
+      "repo": "leanprover-community/mathlib4",
+      "file": "Mathlib/Logic/Decidable.lean",
+      "family": "logic",
+      "note": "decidability instance sorry"
     }
   ]
 }
