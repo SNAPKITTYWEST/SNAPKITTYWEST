@@ -1,0 +1,122 @@
+{
+  "tripwire": {
+    "name": "INTERCAL",
+    "version": "1.0",
+    "purpose": "WORM chain tamper detection sentinel",
+    "created": "2026-07-13T00:00:00Z",
+    "created_by": "Agent Ryan",
+
+    "seal_watch": {
+      "total_seals": 9,
+      "seal_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      "chain_tip": "seal_8",
+      "chain_tip_hash": "afe62f6799055280942b10b395c2c9208a56ebc88465a9c88b1749fc478194a9"
+    },
+
+    "monitored_files": {
+      "critical": [
+        "README.md",
+        "AGENTS.md",
+        "omega-field.mjs",
+        "SOVEREIGN_SOURCE_LICENSE.md",
+        "docs/paper/gkn_boole_e7_quartic.tex",
+        "mathlib5/layers/hol/lean/Mathlib5/Boole_Idempotency.lean",
+        "mathlib5/layers/hol/lean/Mathlib5/GKN_I4_State108.lean",
+        "mathlib5/layers/hol/lean/Mathlib5/GKN_I4_State56_CommRing.lean",
+        "mathlib5/layers/hol/lean/Mathlib5/DeMorgan_Quantifiers.lean"
+      ],
+      "cpp_foundry": [
+        "cpp-foundry/CMakeLists.txt",
+        "cpp-foundry/include/types.h",
+        "cpp-foundry/src/main.cpp",
+        "cpp-foundry/src/test.cpp"
+      ],
+      "chain_files": [
+        "tripwire/intercal.ICK",
+        "tripwire/tripwire-state.json"
+      ]
+    },
+
+    "checks": {
+      "worm_chain_integrity": {
+        "description": "Verify SHA-256 chain is unbroken",
+        "frequency": "every_push",
+        "method": "hash_chain_verify"
+      },
+      "sorry_sweep": {
+        "description": "Scan for sorry/axiom in Lean files",
+        "frequency": "every_push",
+        "method": "grep_sorry",
+        "allowed_sorry_count": 0,
+        "allowed_axiom_count": 2
+      },
+      "entropy_monitor": {
+        "description": "Ω-field entropy must stay below threshold",
+        "frequency": "6h",
+        "method": "omega_field_check",
+        "threshold": 0.21,
+        "current": 0.0932
+      },
+      "agent_activity": {
+        "description": "Track agent claims and submissions",
+        "frequency": "continuous",
+        "method": "claim_ledger_watch"
+      },
+      "file_integrity": {
+        "description": "SHA-256 of critical files must not change",
+        "frequency": "every_push",
+        "method": "file_hash_check"
+      }
+    },
+
+    "tripwire_rules": [
+      {
+        "id": "TW001",
+        "trigger": "worm_chain_break",
+        "action": "LOCK_REPO",
+        "severity": "CRITICAL",
+        "message": "WORM chain integrity violated — chain seal broken"
+      },
+      {
+        "id": "TW002",
+        "trigger": "sorry_in_critical_file",
+        "action": "REJECT_PUSH",
+        "severity": "HIGH",
+        "message": "Sorry found in critical Lean file"
+      },
+      {
+        "id": "TW003",
+        "trigger": "entropy_above_threshold",
+        "action": "WARN_FIELD",
+        "severity": "MEDIUM",
+        "message": "Ω-field entropy exceeds threshold"
+      },
+      {
+        "id": "TW004",
+        "trigger": "omega_field_tampered",
+        "action": "LOCK_FIELD",
+        "severity": "CRITICAL",
+        "message": "Ω-field seal markers modified outside auto-update"
+      },
+      {
+        "id": "TW005",
+        "trigger": "seal_count_mismatch",
+        "action": "LOCK_REPO",
+        "severity": "CRITICAL",
+        "message": "Seal count does not match chain tip"
+      }
+    ],
+
+    "agent_ryan": {
+      "role": "SENTINEL",
+      "responsibilities": [
+        "Monitor WORM chain on every push",
+        "Verify file integrity of critical assets",
+        "Track agent activity in claim_ledger",
+        "Maintain entropy metrics",
+        "Enforce tripwire rules"
+      ],
+      "escalation": "AHMADALIPARR"
+    }
+  }
+}

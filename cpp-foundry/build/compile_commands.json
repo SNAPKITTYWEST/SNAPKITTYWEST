@@ -1,0 +1,68 @@
+[
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\goldilocks.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\goldilocks.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/goldilocks.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/goldilocks.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\pmat.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\pmat.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/pmat.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/pmat.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\spectral.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\spectral.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/spectral.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/spectral.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\recurrence.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\recurrence.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/recurrence.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/recurrence.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\gate.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\gate.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/gate.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/gate.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\certify.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\certify.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/certify.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/certify.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\audit.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\audit.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/audit.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/audit.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\linker.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\linker.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/linker.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/linker.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_core.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_core.dir\\src\\sha256.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\sha256.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/sha256.cpp",
+  "output": "CMakeFiles/foundry_core.dir/src/sha256.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry.dir\\src\\main.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\main.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/main.cpp",
+  "output": "CMakeFiles/foundry.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build",
+  "command": "C:\\Strawberry\\c\\bin\\c++.exe  @CMakeFiles/foundry_test.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\foundry_test.dir\\src\\test.cpp.obj -c C:\\Users\\jessi\\SNAPKITTYWEST\\cpp-foundry\\src\\test.cpp",
+  "file": "C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/src/test.cpp",
+  "output": "CMakeFiles/foundry_test.dir/src/test.cpp.obj"
+}
+]

@@ -1,0 +1,2 @@
+C:\Strawberry\c\bin\ar.exe qc libfoundry_core.a CMakeFiles/foundry_core.dir/src/goldilocks.cpp.obj CMakeFiles/foundry_core.dir/src/pmat.cpp.obj CMakeFiles/foundry_core.dir/src/spectral.cpp.obj CMakeFiles/foundry_core.dir/src/recurrence.cpp.obj CMakeFiles/foundry_core.dir/src/gate.cpp.obj CMakeFiles/foundry_core.dir/src/certify.cpp.obj CMakeFiles/foundry_core.dir/src/audit.cpp.obj CMakeFiles/foundry_core.dir/src/linker.cpp.obj CMakeFiles/foundry_core.dir/src/sha256.cpp.obj
+C:\Strawberry\c\bin\ranlib.exe libfoundry_core.a

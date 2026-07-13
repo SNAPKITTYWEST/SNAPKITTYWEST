@@ -1,0 +1,65 @@
+# INTERCAL Tripwire — WORM Chain Sentinel
+# "INTERCAL" = Compiler With No Logical Acronym
+# This file IS the tripwire. Delete it = trip fires.
+
+DO COME FROM .1
+DO .1 <- #0
+DO .2 <- #0
+DO .3 <- #0
+
+# WORM chain seal count (updated by Agent Ryan)
+PLEASE STASH .1
+DO .1 <- #9
+DO .2 <- #0
+
+# Compute tripwire hash
+PLEASE COME FROM .3
+DO .3 <- .3 + #1
+DO READ OUT #7
+DO (1010) NEXT
+
+# If this file is modified, the following block executes
+PLEASE READ OUT #13
+PLEASE READ OUT #14
+DO GIVE UP
+
+(1010) PLEASE RESUME .3
+
+# Seal verification labels
+PLEASE LABEL #0 = seal_0_hash
+DO .1 <- #0
+DO (1011) NEXT
+
+PLEASE LABEL #1 = seal_1_hash
+DO .1 <- #1
+DO (1011) NEXT
+
+PLEASE LABEL #2 = seal_2_hash
+DO .1 <- #2
+DO (1011) NEXT
+
+PLEASE LABEL #3 = seal_3_hash
+DO .1 <- #3
+DO (1011) NEXT
+
+PLEASE LABEL #4 = seal_4_hash
+DO .1 <- #4
+DO (1011) NEXT
+
+PLEASE LABEL #5 = seal_5_hash
+DO .1 <- #5
+DO (1011) NEXT
+
+PLEASE LABEL #6 = seal_6_hash
+DO .1 <- #6
+DO (1011) NEXT
+
+PLEASE LABEL #7 = seal_7_hash
+DO .1 <- #7
+DO (1011) NEXT
+
+PLEASE LABEL #8 = seal_8_hash
+DO .1 <- #8
+DO (1011) NEXT
+
+(1011) PLEASE RESUME #1

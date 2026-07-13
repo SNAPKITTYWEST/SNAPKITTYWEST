@@ -1,0 +1,5 @@
+C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build/CMakeFiles/foundry_core.dir
+C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build/CMakeFiles/foundry.dir
+C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build/CMakeFiles/foundry_test.dir
+C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build/CMakeFiles/edit_cache.dir
+C:/Users/jessi/SNAPKITTYWEST/cpp-foundry/build/CMakeFiles/rebuild_cache.dir
