@@ -35,6 +35,9 @@ SNAPKITTYWEST.github.io/
 # Temp
 *.tmp
 *.log
+docs/paper/*.aux
+docs/paper/*.out
+docs/paper/*.toc
 
 # API keys — NEVER commit these
 .env

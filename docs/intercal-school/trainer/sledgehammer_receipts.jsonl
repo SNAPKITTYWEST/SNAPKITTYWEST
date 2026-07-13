@@ -1,0 +1,8 @@
+{"ts": "2026-07-12T21:29:35.701795+00:00", "file": "easy_demo.lean", "line": 16, "tactic": "omega", "status": "CLOSED", "sha256": "6fe94e00675eb85e11bdf9b47cdd4e17306485083067d77a6997dda842b18171"}
+{"ts": "2026-07-12T21:29:37.129053+00:00", "file": "easy_demo.lean", "line": 14, "tactic": "simp", "status": "CLOSED", "sha256": "0fe80aeb321bf4b2cf459bb54c043cc84828a27b2589e5a22a206c84d2897e56"}
+{"ts": "2026-07-12T21:29:37.508211+00:00", "file": "easy_demo.lean", "line": 12, "tactic": "rfl", "status": "CLOSED", "sha256": "3bca1b4e4bfb71834b2aef55f07653cee1b183f45151a9b754be1940e8a63051"}
+{"ts": "2026-07-12T21:29:37.887235+00:00", "file": "easy_demo.lean", "line": 10, "tactic": "rfl", "status": "CLOSED", "sha256": "130e3edddf8cda49e295953f863373cbccbd8657b0f048de7bf2f14d0e8a8f66"}
+{"ts": "2026-07-12T21:29:38.266472+00:00", "file": "easy_demo.lean", "line": 8, "tactic": "rfl", "status": "CLOSED", "sha256": "9b067726c3d23cc69ce824b73953f890283fec738be80e1491296343436e3d1c"}
+{"ts": "2026-07-12T21:29:38.636260+00:00", "file": "easy_demo.lean", "line": 6, "tactic": "rfl", "status": "CLOSED", "sha256": "c054317893e92cc4978a93c28405dcfea3963f97610442bb87f4430ad46f899a"}
+{"ts": "2026-07-13T11:18:45.562729+00:00", "file": "mathlib5/solved/OM-001_sledged.lean", "line": 15, "tactic": "constructor/rintro", "status": "CLOSED", "sha256": "a812fd02b30c95fac780ad6b276a6dd00fcd310f1b0bb52dfdcbc5f36fc17ca0"}
+{"ts": "2026-07-13T11:18:45.562729+00:00", "file": "mathlib5/layers/hol/lean/Mathlib5/GKN_I4_State56_CommRing.lean", "line": 196, "tactic": "ring", "status": "CLOSED", "sha256": "2883225e1ab1f40c9d7f76ee4100a0d1fd01769e325eff91f1213e0cb2c7d29f"}

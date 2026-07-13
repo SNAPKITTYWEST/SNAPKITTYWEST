@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "provenance": "github-code-search:sorry+language:lean 2026-07-12",
+    "id": "SNAPKITTYWEST-SORRY-ROSTER-V2",
+    "count": 300,
+    "note": "Real sorry targets scraped from GitHub Lean repos. Top entries are genuine open mathematical sorries. Use INTERCAL school workflow to assign + close."
+  },
+  "targets": [
+    {
+      "id": "FLT-001",
+      "repo": "ImperialCollegeLondon/FLT",
+      "file": "FLT/Proof.lean",
+      "family": "number_theory",
+      "note": "FLT main proof stub \u2014 open sorry in Fermat's Last Theorem formalization"
+    },
+    {
+      "id": "ML4-002",
+      "repo": "duong-ngo/mathlib4",
+      "file": "Mathlib/Tactic/TFAE.lean",
+      "family": "tactics",
+      "note": "TFAE tactic sorry"
+    },
+    {
+      "id": "TOP-001",
+      "repo": "Sterrs/leaning",
+      "file": "src/principia/topology/compactness.lean",
+      "family": "topology",
+      "note": "Compactness theorem sorry"
+    },
+    {
+      "id": "PNP-001",
+      "repo": "konard/p-vs-np",
+      "file": "proofs/attempts/mikhail-katkov-2010-peqnp/refutation/lean/KatkovRefutation.lean",
+      "family": "complexity",
+      "note": "Katkov P=NP refutation sorry"
+    },
+    {
+      "id": "ALG-001",
+      "repo": "101damnations/test",
+      "file": "src/koszul_scratch.lean",
+      "family": "algebra",
+      "note": "Koszul complex construction sorry"
+    },
+    {
+      "id": "QNT-001",
+      "repo": "eiKeViN/Lean-LiebConcavity",
+      "file": "LeanLiebConcavity/ForMathlib/ContinuousFunctionalCalculus/Rpow.lean",
+      "family": "quantum_math",
+      "note": "Rpow CFC lemma \u2014 Lieb concavity formalization sorry"
+    },
+    {
+      "id": "ANT-001",
+      "repo": "motanova84/Riemann-adelic",
+      "file": "formalization/lean/QCAL/Catedral/Friedrichs.lean",
+      "family": "analytic_nt",
+      "note": "Friedrichs extension theorem \u2014 adelic Riemann formalization sorry"
+    },
+    {
+      "id": "LA-001",
+      "repo": "ssomayyajula/linear",
+      "file": "span.lean",
+      "family": "linear_algebra",
+      "note": "Span closure sorry"
+    },
+    {
+      "id": "LA-002",
+      "repo": "kevinsullivan/affine_lib",
+      "file": "src/old/lin2Kcoord/multidim_test.lean",
+      "family": "linear_algebra",
+      "note": "Multidim coordinate affine lib sorry"
+    },
+    {
+      "id": "HT-001",
+      "repo": "lean-dojo/ITPEval",
+      "file": "data/hundred-theorems/stmts/lean4/058_formula_for_the_number_of_combinations.lean",
+      "family": "combinatorics",
+      "note": "Formula for number of combinations \u2014 hundred theorems #058"
+    },
+    {
+      "id": "OM-001",
+      "repo": "shentufoundation/openmath-skills",
+      "file": "skills/openmath-lean-benchmark/sets/medium/logic/de_morgan.lean",
+      "family": "logic",
+      "note": "De Morgan's law sorry \u2014 openmath benchmark"
+    },
+    {
+      "id": "HT-002",
+      "repo": "sinhp/HoTTLean",
+      "file": "HoTTLean/Prelude.lean",
+      "family": "homotopy_type_theory",
+      "note": "HoTT prelude sorry \u2014 path induction"
+    },
+    {
+      "id": "ST-001",
+      "repo": "flypitch/flypitch",
+      "file": "old/peano.lean",
+      "family": "set_theory",
+      "note": "Peano arithmetic formalization sorry \u2014 flypitch"
+    },
+    {
+      "id": "NT-001",
+      "repo": "kckennylau/local-langlands-abelian",
+      "file": "src/torus.lean",
+      "family": "number_theory",
+      "note": "Torus construction sorry \u2014 local Langlands abelian case"
+    },
+    {
+      "id": "AC-001",
+      "repo": "YaelDillies/apap",
+      "file": "APAP/Integer.lean",
+      "family": "additive_combinatorics",
+      "note": "Integer lemma sorry \u2014 Almost Periodicity and Applications project"
+    },
+    {
+      "id": "CS-001",
+      "repo": "GaloisInc/lean-protocol-support",
+      "file": "galois/arith.lean",
+      "family": "crypto_cs",
+      "note": "Arithmetic lemma sorry \u2014 Galois protocol verification"
+    },
+    {
+      "id": "QEC-001",
+      "repo": "QTM3x/Quantum-Internet",
+      "file": "common/matrix_ops.lean",
+      "family": "quantum_computing",
+      "note": "Matrix ops sorry \u2014 quantum internet formalization"
+    },
+    {
+      "id": "ALG-002",
+      "repo": "cmu-phil/Spectral",
+      "file": "component.hlean",
+      "family": "algebraic_topology",
+      "note": "Spectral sequence component sorry \u2014 CMU HoTT library"
+    },
+    {
+      "id": "EDU-001",
+      "repo": "sinhp/ProofLab",
+      "file": "src/homework/hw7.lean",
+      "family": "education",
+      "note": "ProofLab hw7 sorry \u2014 pedagogical open problem"
+    },
+    {
+      "id": "SKW-001",
+      "repo": "SNAPKITTYWEST/SNAPKITTYWEST",
+      "file": "S_AUTOCODE/SAUTOCODE/MTheory.lean",
+      "family": "physics_math",
+      "note": "I4_homogeneous \u2014 degree-4 homogeneity of quartic E7 invariant (Float limitation)"
+    },
+    {
+      "id": "SKW-002",
+      "repo": "SNAPKITTYWEST/SNAPKITTYWEST",
+      "file": "S_AUTOCODE/SAUTOCODE/MTheory.lean",
+      "family": "physics_math",
+      "note": "I4_E7_Invariant \u2014 E7 Weyl group invariance of I4 (Float limitation)"
+    }
+  ],
+  "_meta": "Pruned to 21 real fetchable targets (279 synthetic ML4-* removed)"
+}

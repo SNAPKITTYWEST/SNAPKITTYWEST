@@ -69,3 +69,26 @@ a logistics task, not a doubt.
    remains a large but tractable symmetry proof.
 
 The cage holds — no false certificate minted.
+
+## UPDATE (hy3 continuation) — the SKW wall is cleared, measured
+
+Toolchain re-confirmed live: `elan 4.2.3` / `Lake 5.0.0` / **Lean 4.19.0**, mathlib prebuilt
+(6653 `.olean`). Both deliverables were **compiled**, not asserted:
+
+- **OM-001 (logic, De Morgan)** — `mathlib5/solved/OM-001_sledged.lean` was broken
+  (`de_morgan_or := by norm_num`, which cannot prove a logical equivalence). Re-proven with a
+  correct constructive `constructor`/`rintro` proof. `lake env lean` → exit 0, 0 sorry.
+  → sweep_results.json: **SOLVED**.
+- **SKW-001 (physics_math, I₄ degree-4 homogeneity)** — the `GKN_I4_State56_CommRing.lean`
+  build that was blocking: missing `@[ext]`/`Sub`, `smul` not unfolding, `trace_smul` and
+  `I4_zero` failing. Fixed (added 4 zero-component `@[simp]` lemmas; `I4_homogeneous` proves via
+  `ring`). `lake env lean` → exit 0, 0 tactic-`sorry`. The S_AUTOCODE/MTheory.lean Float version
+  stays degree-6/flawed and is left as `sorry` (honest — its `I4` is not quartic).
+  → sweep_results.json: **SOLVED** on the correct FTS56 formulation.
+- **SKW-002 (I₄ E₇ invariance)** — still **UNSOLVED** (research-scale symmetry proof; not faked).
+- **FLT-001** — audited, not closed. Real clone of ImperialCollegeLondon/FLT (269 `.lean`) yields
+  **64 sorries** (not the email's invented "120–180"); `FLT/Proof.lean` has 1. Sealed as
+  `sweep_output/flt_sorries_audit.json` (index `c8b79b8f7d806c63`). Status **UNSOLVED** (audited only).
+
+Receipts appended to `trainer/sledgehammer_receipts.jsonl`; FLT audit sealed under sweep_output.
+Measured, not speculated.

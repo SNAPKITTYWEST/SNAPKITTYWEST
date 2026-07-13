@@ -1,0 +1,514 @@
+[
+  {
+    "file": "FLT\\Proof.lean",
+    "line": 99,
+    "kind": "theorem",
+    "name": "B4_proof",
+    "signature": "sorry",
+    "sha256": "4f28526f0b80cde3"
+  },
+  {
+    "file": "FLT\\Assumptions\\KnownIn1980s.lean",
+    "line": 12,
+    "kind": "?",
+    "name": "?",
+    "signature": "`knownin1980s` is like `sorry` -- it can be used to prove",
+    "sha256": "bbbbae6e65fbdb6c"
+  },
+  {
+    "file": "FLT\\Assumptions\\KnownIn1980s.lean",
+    "line": 41,
+    "kind": "?",
+    "name": "?",
+    "signature": "of FLT which is sorry-free but which uses `knownin1980s` liberally.",
+    "sha256": "7bca614e3a448f2e"
+  },
+  {
+    "file": "FLT\\Data\\HurwitzRatHat.lean",
+    "line": 74,
+    "kind": "lemma",
+    "name": "injective_hRat",
+    "signature": "Function.Injective j\u2081 := sorry -- flatness",
+    "sha256": "d7e5ccb520d0c955"
+  },
+  {
+    "file": "FLT\\Data\\HurwitzRatHat.lean",
+    "line": 90,
+    "kind": "lemma",
+    "name": "injective_zHat",
+    "signature": "Function.Injective j\u2082 := sorry -- flatness",
+    "sha256": "9e9e90d9dc471cd7"
+  },
+  {
+    "file": "FLT\\Data\\HurwitzRatHat.lean",
+    "line": 94,
+    "kind": "lemma",
+    "name": "canonicalForm",
+    "signature": "sorry",
+    "sha256": "c001089c6a7708b8"
+  },
+  {
+    "file": "FLT\\Data\\HurwitzRatHat.lean",
+    "line": 96,
+    "kind": "lemma",
+    "name": "completed_units",
+    "signature": "lemma completed_units (z : D^\u02e3) : \u2203 (u : D\u02e3) (v : \ud835\udcde^\u02e3), (z : D^) = j\u2081 u * j\u2082 v := sorry",
+    "sha256": "4f8eb61d2887d4c6"
+  },
+  {
+    "file": "FLT\\Deformations\\LiftFunctor.lean",
+    "line": 116,
+    "kind": "def",
+    "name": "flatFunctor",
+    "signature": "map := sorry -- See e.g. Conrad Theorem 1.6 of CSS",
+    "sha256": "598967f15e4491c6"
+  },
+  {
+    "file": "FLT\\Deformations\\Representable.lean",
+    "line": 38,
+    "kind": "lemma",
+    "name": "isCorepresentable_deformationFunctor",
+    "signature": "sorry -- de Smit and Lenstra, Proposition 2.3 (1).",
+    "sha256": "013fdedca79908f6"
+  },
+  {
+    "file": "FLT\\Deformations\\Representable.lean",
+    "line": 106,
+    "kind": "lemma",
+    "name": "isCorepresentable_narrowSLiftFunctor",
+    "signature": "sorry",
+    "sha256": "c940e0888f6e4630"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 46,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.n_torsion_finite",
+    "signature": "theorem WeierstrassCurve.n_torsion_finite {n : \u2115} (hn : 0 < n) : Finite (E.nTorsion n) := sorry",
+    "sha256": "12968fd77ee03344"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 52,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.n_torsion_card",
+    "signature": "Nat.card (E.nTorsion n) = n^2 := sorry",
+    "sha256": "982e193392b15ce3"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 57,
+    "kind": "theorem",
+    "name": "group_theory_lemma",
+    "signature": "Nonempty ((Submodule.torsionBy \u2124 A n) \u2243+ (Fin r \u2192 (ZMod n))) := sorry",
+    "sha256": "3b9013cd9aa1fb2b"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 75,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.n_torsion_dimension",
+    "signature": "sorry",
+    "sha256": "fb357bb38dfe121e"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 109,
+    "kind": "lemma",
+    "name": "WeierstrassCurve.Points.map_comp",
+    "signature": "one_smul := sorry -- these should all be easy",
+    "sha256": "a5c210caa16d52a8"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 110,
+    "kind": "lemma",
+    "name": "WeierstrassCurve.Points.map_comp",
+    "signature": "mul_smul := sorry",
+    "sha256": "4f9c1ec1d6070b77"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 111,
+    "kind": "lemma",
+    "name": "WeierstrassCurve.Points.map_comp",
+    "signature": "smul_zero := sorry",
+    "sha256": "14544d2c7f8f2f60"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 112,
+    "kind": "lemma",
+    "name": "WeierstrassCurve.Points.map_comp",
+    "signature": "smul_add := sorry",
+    "sha256": "e78ed79dfe145f68"
+  },
+  {
+    "file": "FLT\\EllipticCurve\\Torsion.lean",
+    "line": 124,
+    "kind": "def",
+    "name": "WeierstrassCurve.galoisRep",
+    "signature": "GaloisRep K (ZMod n) ((E.map (algebraMap K (AlgebraicClosure K))).nTorsion n) := sorry",
+    "sha256": "4a70fab9c48e2902"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\Automorphic.lean",
+    "line": 100,
+    "kind": "def",
+    "name": "GaloisRep.IsAutomorphicOfLevel",
+    "signature": "IsQuaternionAlgebra E (E \u2297[F] D) := sorry -- Ask Edison?",
+    "sha256": "354c0c05c967c19c"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\Automorphic.lean",
+    "line": 184,
+    "kind": "theorem",
+    "name": "cyclic_base_change",
+    "signature": "sorry",
+    "sha256": "c957794f0849c781"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLnDefs.lean",
+    "line": 93,
+    "kind": "theorem",
+    "name": "diamond_fix",
+    "signature": "sorry",
+    "sha256": "6d7b1f2a70684132"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLnDefs.lean",
+    "line": 193,
+    "kind": "def",
+    "name": "actionTensorCAlg",
+    "signature": "sorry",
+    "sha256": "0d32882b1ecb3a07"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLnDefs.lean",
+    "line": 210,
+    "kind": "instance",
+    "name": ":",
+    "signature": "instance : Module \u2102 C^\u221e\u27ee\ud835\udcd8(\u211d, E), G; \ud835\udcd8(\u211d, \u2102), \u2102\u27ef := sorry",
+    "sha256": "0aae167616272dcb"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLnDefs.lean",
+    "line": 225,
+    "kind": "def",
+    "name": "actionTensorCAlg'3",
+    "signature": "def actionTensorCAlg'3 : Z G E \u2192\u2090[\u2102] Module.End \u2102 C^\u221e\u27ee\ud835\udcd8(\u211d, E), G; \ud835\udcd8(\u211d, \u2102), \u2102\u27ef := sorry",
+    "sha256": "59e1578aacfb5cf1"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 52,
+    "kind": "def",
+    "name": "GLn.Weight.IsTrivial",
+    "signature": "def GLn.Weight.IsTrivial {n : \u2115} (\u03c1 : Weight n) : Prop := sorry -- (\u03c1 = trivial 1d rep)",
+    "sha256": "9a84ceb3f70f761c"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 67,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "sorry",
+    "sha256": "49bb4e55a5811b53"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 85,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "is_open := by sorry -- used to be simp but there's a timeout",
+    "sha256": "d29253fae77401a5"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 122,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "is_smooth := sorry",
+    "sha256": "8e4a8ff51f928260"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 123,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "is_periodic := sorry",
+    "sha256": "d9d21e4949803c47"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 124,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "is_slowly_increasing := sorry",
+    "sha256": "5b9f1848abcd8a8d"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 126,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "has_finite_level := sorry -- needs a better name",
+    "sha256": "441fe7ca6599e386"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 133,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "invFun z := ofComplex z \u03c1 sorry",
+    "sha256": "f24fcc3fe0a12013"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 134,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "left_inv := sorry",
+    "sha256": "8457b500629df763"
+  },
+  {
+    "file": "FLT\\GlobalLanglandsConjectures\\GLzero.lean",
+    "line": 135,
+    "kind": "def",
+    "name": "ofComplex",
+    "signature": "right_inv := sorry",
+    "sha256": "109e4cf444ac9e4d"
+  },
+  {
+    "file": "FLT\\Deformations\\RepresentationTheory\\GaloisRep.lean",
+    "line": 381,
+    "kind": "def",
+    "name": "GaloisRep.Space",
+    "signature": "we can remove this condition and state the aforementioned result as a sorry.",
+    "sha256": "89a11696d03deda4"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Family.lean",
+    "line": 68,
+    "kind": "theorem",
+    "name": "mem_isCompatible",
+    "signature": "sorry",
+    "sha256": "f2fac8953ce5228d"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Frey.lean",
+    "line": 39,
+    "kind": "theorem",
+    "name": "FreyCurve.torsion_isHardlyRamified",
+    "signature": "IsHardlyRamified P.hp_odd sorry",
+    "sha256": "029d3e827ba78551"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Frey.lean",
+    "line": 41,
+    "kind": "theorem",
+    "name": "FreyCurve.torsion_isHardlyRamified",
+    "signature": "sorry",
+    "sha256": "bf789663573ba006"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Frey.lean",
+    "line": 46,
+    "kind": "theorem",
+    "name": "FreyCurve.torsion_not_isIrreducible",
+    "signature": "sorry -- TODO prove this",
+    "sha256": "681550b4e586b97f"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Lift.lean",
+    "line": 48,
+    "kind": "theorem",
+    "name": "lifts",
+    "signature": "IsHardlyRamified hpodd hW \u03c3 \u2227 (\u03c3.baseChange k).conj r = \u03c1 := sorry",
+    "sha256": "c771faa532b7abfa"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\ModThree.lean",
+    "line": 34,
+    "kind": "theorem",
+    "name": "mod_three",
+    "signature": "sorry",
+    "sha256": "ec7dc6dcf12bfaa7"
+  },
+  {
+    "file": "FLT\\GaloisRepresentation\\HardlyRamified\\Threeadic.lean",
+    "line": 39,
+    "kind": "theorem",
+    "name": "three_adic",
+    "signature": "(\u03c1.toLocal v (Frob v)).trace _ _ = 1 + p := sorry",
+    "sha256": "88791fe83c05684d"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\Flat.lean",
+    "line": 160,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.torsion_flat_of_good_reduction",
+    "signature": "sorry",
+    "sha256": "e80c7dde7a934363"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\Flat.lean",
+    "line": 229,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.resultant_\u03a6_\u03a8Sq",
+    "signature": "sorry",
+    "sha256": "6304290a8ff469a8"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\Flat.lean",
+    "line": 241,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.isCoprime_\u03a6_\u03a8Sq",
+    "signature": "sorry",
+    "sha256": "312aae26251660c0"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\GoodReduction.lean",
+    "line": 63,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.torsion_unramified_of_good_reduction",
+    "signature": "sorry",
+    "sha256": "973b416f895009b5"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\ReductionBaseChange.lean",
+    "line": 217,
+    "kind": "theorem",
+    "name": "algebraMap_integerMap",
+    "signature": "homomorphism `integerMap`. (An honest definition, not a sorry: it is",
+    "sha256": "34b4f7784bed49ef"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 123,
+    "kind": "?",
+    "name": "?",
+    "signature": "sorry",
+    "sha256": "6adfa73609709c4d"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 240,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.valuation_q_lt_one",
+    "signature": "sorry",
+    "sha256": "588f3e05efdd7fc5"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 250,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.exists_variableChange_tateCurve",
+    "signature": "sorry",
+    "sha256": "d108a3e85822f044"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 411,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tateEquiv_baseChange",
+    "signature": "sorry",
+    "sha256": "28823d21b787609c"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 424,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tateEquiv_galois",
+    "signature": "sorry",
+    "sha256": "4964c47cae7f8b67"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 464,
+    "kind": "instance",
+    "name": ":",
+    "signature": "sorry",
+    "sha256": "dfa13e032940152c"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 478,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tatePoint_baseChange",
+    "signature": "sorry",
+    "sha256": "db14a0465d2ec45c"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 485,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tatePoint_galois",
+    "signature": "sorry",
+    "sha256": "82e7f3e531221571"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 491,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tatePoint_mem_torsionBy_of_mem_rootsOfUnity",
+    "signature": "sorry",
+    "sha256": "2f96133945d4d4ca"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 498,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.tatePoint_mem_torsionBy_of_pow_eq",
+    "signature": "sorry",
+    "sha256": "98cb87acb39597e1"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\TateCurve.lean",
+    "line": 512,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.weilPairing_tatePoint",
+    "signature": "sorry",
+    "sha256": "42a1f29a62eb8e20"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\Torsion.lean",
+    "line": 38,
+    "kind": "theorem",
+    "name": "WeierstrassCurve.torsion_rank_two",
+    "signature": "sorry",
+    "sha256": "90858a7259ab9c43"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\EllipticCurves\\WeilPairing.lean",
+    "line": 42,
+    "kind": "def",
+    "name": "WeierstrassCurve.weilPairing",
+    "signature": "sorry",
+    "sha256": "5e0c5c6d17f85945"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\PGL2\\Defs.lean",
+    "line": 50,
+    "kind": "theorem",
+    "name": "classification_tame",
+    "signature": "sorry",
+    "sha256": "d5fb73401767dc8b"
+  },
+  {
+    "file": "FLT\\KnownIn1980s\\PGL2\\Defs.lean",
+    "line": 63,
+    "kind": "theorem",
+    "name": "classification_wild",
+    "signature": "sorry",
+    "sha256": "94bcf31bd3ecacec"
+  },
+  {
+    "file": "FLT\\Patching\\Utils\\CompactHausdorffRings.lean",
+    "line": 42,
+    "kind": "theorem",
+    "name": "Group.subsingleton_of_pow_prime_eq_one",
+    "signature": "sorry",
+    "sha256": "b00c952c157724f9"
+  }
+]
