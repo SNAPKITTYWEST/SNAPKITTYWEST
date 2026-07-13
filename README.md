@@ -950,15 +950,36 @@ If you encounter a verification failure, do not modify the WORM chain. Instead, 
 
 ## License
 
-Sovereign Source License v1.0 — See [`SOVEREIGN_SOURCE_LICENSE.md`](SOVEREIGN_SOURCE_LICENSE.md)
+Sovereign Source License v2.0 — See [`SOVEREIGN_SOURCE_LICENSE.md`](SOVEREIGN_SOURCE_LICENSE.md)
 
-Permissions:
+### Three Instruments, One License Family
+
+| Part | Scope | Effective |
+|------|-------|-----------|
+| **Part II** | Public Domain Dedication (Sovereign Substrate) | Unilateral, no counter-signature |
+| **Part III** | Sovereign Registry & Attribution | Bilateral, upon Declaration of Formation |
+| **Part VII** | Sovereign Certification Marks (Ω·I through Ω·IV) | Bilateral, upon certification application |
+
+Permissions (Part II — Sovereign Substrate):
+- ✅ The substrate is always free
 - ✅ Viewing, reading, auditing the source
 - ✅ Running the system for personal or research use
 - ✅ Forking for non-commercial, sovereign-aligned purposes
-- ❌ Commercial use without explicit written permission
+- ✅ Commercial use of Constitutional Core mathematics (Part II)
+
+Restrictions (Parts III & VII — Registry & Marks):
+- ❌ Commercial use without explicit written permission (Parts III & VII)
 - ❌ Redistribution of modified versions under a different name
 - ❌ Use in systems that violate the sovereignty principle
+- ❌ AI/ML training (never allowed, any tier)
+- ❌ Displaying Certification Marks without valid Tier (Section 8)
+- ❌ Representing work as "certified" without certification (Section 8)
+
+Certification Tiers:
+- `Ω·I` — Witnessed: 3-witness consensus (NT + ALG + IT)
+- `Ω·II` — Sealed: WORM chain seal + audit trail
+- `Ω·III` — Sovereign: Machine-checked proof (Lean 4 / WASM)
+- `Ω·IV` — Constitutional: Full boot closure + self-verification
 
 ---
 
