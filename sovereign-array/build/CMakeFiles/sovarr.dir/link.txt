@@ -1,0 +1,2 @@
+C:\Strawberry\c\bin\ar.exe qc libsovarr.a CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj
+C:\Strawberry\c\bin\ranlib.exe libsovarr.a

@@ -1,0 +1,101 @@
+:root {
+  --bg: #0a0e1a;
+  --panel: #121829;
+  --ink: #e6ecff;
+  --accent: #7af7c8;
+  --accent2: #6ea8ff;
+  --muted: #8b95b5;
+  --border: #243049;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Courier New", ui-monospace, monospace;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 50% 0%, #16203a 0%, var(--bg) 70%);
+}
+
+.logo { width: 120px; height: 120px; }
+
+.hero h1 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline { color: var(--muted); margin: 0; font-size: 0.85rem; }
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.panel h2 { margin-top: 0; color: var(--accent); }
+.panel h3 { color: var(--accent2); margin-bottom: 0.4rem; }
+
+button#run {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #06121f;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.status { color: var(--accent); min-height: 1.2em; }
+
+.kernel {
+  border-left: 3px solid var(--accent2);
+  padding-left: 0.9rem;
+  margin: 1rem 0;
+}
+
+pre {
+  background: #0c1220;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  overflow-x: auto;
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.usage { width: 100%; border: 1px solid var(--border); border-radius: 8px; background: #0c1220; }
+
+code { color: var(--accent); }
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+a { color: var(--accent2); }

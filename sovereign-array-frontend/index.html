@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sovereign Array Language — Playground</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.svg" />
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/logo.svg" alt="Sovereign Array logo" class="logo" />
+    <h1>Sovereign Array Language</h1>
+    <p class="tagline">Array I α = I → α &nbsp;·&nbsp; broadcast = pullback &nbsp;·&nbsp; pmap₂ = Π-map &nbsp;·&nbsp; no sorry remains</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Playground</h2>
+      <button id="run">Run all kernels</button>
+      <p id="status" class="status"></p>
+
+      <div class="kernel">
+        <h3>pmap₂ — pointwise Π-map</h3>
+        <pre id="out-pmap2">…</pre>
+      </div>
+      <div class="kernel">
+        <h3>broadcast — pullback π : J → I</h3>
+        <pre id="out-broadcast">…</pre>
+      </div>
+      <div class="kernel">
+        <h3>softmax — Π-map normalization</h3>
+        <pre id="out-softmax">…</pre>
+      </div>
+      <div class="kernel">
+        <h3>NAND — universal gate</h3>
+        <pre id="out-nand">…</pre>
+      </div>
+      <div class="kernel">
+        <h3>attention — NAND-extracted spec</h3>
+        <pre id="out-attention">…</pre>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Usage Guide</h2>
+      <img src="assets/usage.svg" alt="Sovereign Array usage guide" class="usage" />
+      <h3>How to use the language</h3>
+      <ol>
+        <li><strong>Spec (Lean 4)</strong> — define arrays as dependent functions <code>Fin n → α</code>; prove <code>broadcast_is_pullback</code> and <code>softmax_is_pmap</code> with <code>lake build</code> (zero sorry).</li>
+        <li><strong>Kernel (C++20)</strong> — <code>#include "sovereign_array.h"</code>; build with CMake; run <code>sovarr_test</code> (11/11 checks).</li>
+        <li><strong>Front-end (this page)</strong> — open <code>index.html</code>; the playground runs the same denotational semantics in the browser.</li>
+        <li><strong>Compose</strong> — chain <code>pmap₂</code> / <code>broadcast</code> / <code>softmax</code> / <code>nand_attention</code>; fusion is Π-map fusion — no loop in the denotation.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sovereign Array Language · 2026 · Ahmad Ali Parr &nbsp;·&nbsp; <a href="https://github.com/SNAPKITTYWEST/SNAPKITTYWEST">SNAPKITTYWEST</a></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
