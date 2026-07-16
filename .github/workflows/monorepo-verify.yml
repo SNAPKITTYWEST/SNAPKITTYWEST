@@ -1,0 +1,55 @@
+name: Monorepo Verify
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "packages/**"
+      - "tools/**"
+      - ".github/workflows/monorepo-verify.yml"
+  pull_request:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "packages/**"
+      - "tools/**"
+      - ".github/workflows/monorepo-verify.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      SNAPKITTYWEST_ROOT: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Digital twin status
+        run: npm run digital-twin:status
+
+      - name: Agent mesh Datalog gate
+        run: |
+          node inverted-turbo/datalog/scripts/generate_facts.mjs \
+            --repo-root inverted-turbo
+          node inverted-turbo/datalog/engine.mjs \
+            --facts inverted-turbo/datalog/facts/generated.dl \
+            --dir   inverted-turbo/datalog/rules \
+            --query "type_error(Var, Msg)"

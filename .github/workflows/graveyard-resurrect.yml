@@ -1,0 +1,88 @@
+name: Graveyard Resurrect
+
+on:
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: "Comma-separated list of repo names (no org prefix). Leave blank to scan all archived repos."
+        required: false
+        default: ""
+      org:
+        description: "GitHub org/user to scan"
+        required: false
+        default: "SNAPKITTYWEST"
+      dry_run:
+        description: "Dry run — no archive state changed (true/false)"
+        required: false
+        default: "true"
+  # Weekly resurrection sweep — dry-run only on schedule
+  schedule:
+    - cron: "0 3 * * 0"  # Sunday 03:00 UTC
+
+jobs:
+  graveyard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # push resurrection receipts
+      actions: write    # re-archive via GitHub API
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RANSOM_WORM_ALLOW_WRITES: ${{ github.event.inputs.dry_run == 'false' && '1' || '0' }}
+      SNAPKITTYWEST_ROOT: ${{ github.workspace }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install workspace
+        run: npm ci
+
+      - name: WORM gate — Datalog pre-check
+        run: |
+          node inverted-turbo/datalog/scripts/generate_facts.mjs \
+            --repo-root inverted-turbo
+          node inverted-turbo/datalog/engine.mjs \
+            --facts inverted-turbo/datalog/facts/generated.dl \
+            --dir   inverted-turbo/datalog/rules \
+            --query "type_error(Var, Msg)"
+
+      - name: Graveyard — single repo
+        if: ${{ github.event.inputs.repos != '' }}
+        run: |
+          IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repos }}"
+          for REPO in "${REPOS[@]}"; do
+            REPO_TRIMMED=$(echo "$REPO" | xargs)
+            DRY_FLAG=""
+            [[ "${{ github.event.inputs.dry_run }}" == "true" ]] && DRY_FLAG="--dry-run"
+            WRITE_FLAG=""
+            [[ "${{ github.event.inputs.dry_run }}" == "false" ]] && WRITE_FLAG="--allow-write"
+            node packages/ransom-worm/agents/graveyard.mjs \
+              --org "${{ github.event.inputs.org }}" \
+              --repo "${{ github.event.inputs.org }}/${REPO_TRIMMED}" \
+              $DRY_FLAG $WRITE_FLAG
+          done
+
+      - name: Graveyard — full constellation sweep (scheduled)
+        if: ${{ github.event.inputs.repos == '' }}
+        run: |
+          # Scheduled runs are always dry-run for safety
+          node packages/ransom-worm/agents/graveyard.mjs \
+            --org "${{ github.event.inputs.org || 'SNAPKITTYWEST' }}" \
+            --all --dry-run
+
+      - name: Seal sweep results to WORM
+        run: |
+          if [ -f packages/ransom-worm/worm-ledger.json ]; then
+            echo "WORM ledger entries after sweep:"
+            node -e "
+              const l = JSON.parse(require('fs').readFileSync('packages/ransom-worm/worm-ledger.json','utf8'));
+              console.log('  head:', l.head);
+              console.log('  entries:', (l.entries||[]).length);
+            "
+          fi

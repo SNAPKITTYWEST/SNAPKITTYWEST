@@ -1,0 +1,41 @@
+{
+  "name": "@snapkittywest/ransom-worm",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "relay": "node agents/orchestrate.mjs",
+    "once": "node agents/orchestrate.mjs --once",
+    "relay:test": "node agents/orchestrate.mjs --relay-only",
+    "metrics": "node agents/metric-stream.mjs",
+    "watermark": "node agents/watermark.mjs --target .",
+    "bifrost": "node agents/bifrost-translator.mjs --source",
+    "icp": "node agents/icp-verifier.mjs --once",
+    "resurrect": "node agents/resurrect.mjs --repo",
+    "resurrect:dry": "node agents/resurrect.mjs --dry-run --repo",
+    "graveyard": "node agents/graveyard.mjs --repo",
+    "graveyard:dry": "node agents/graveyard.mjs --dry-run --repo",
+    "graveyard:all:dry": "node agents/graveyard.mjs --all --dry-run"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3"
+  },
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ]
+  }
+}

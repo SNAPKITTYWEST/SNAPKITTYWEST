@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "seal": "434ee91e-worm-ce",
+      "sha": "a69ad4d6d02cb731b4a90d68f4105d910130d95c9f46015534a821e969a3d392",
+      "agent": "resurrect",
+      "action": "agent-result",
+      "payload": {
+        "status": "ACCEPTED",
+        "repo": "https://github.com/test/smoke-test-repo",
+        "dryRun": true
+      },
+      "ts": "2026-07-16T02:50:15.566Z",
+      "prev": "GENESIS:b1ada656-worm-1e"
+    },
+    {
+      "seal": "2fe944e3-worm-c6",
+      "sha": "baeeea684ec45f710864f4470f6e3fe423386afa96367a0d929523514cc570d2",
+      "agent": "resurrect",
+      "action": "agent-result",
+      "payload": {
+        "status": "ACCEPTED",
+        "repo": "https://github.com/test/smoke-test-repo",
+        "dryRun": true
+      },
+      "ts": "2026-07-16T03:32:57.870Z",
+      "prev": "434ee91e-worm-ce"
+    }
+  ],
+  "head": "2fe944e3-worm-c6"
+}
