@@ -64,7 +64,7 @@ meta_block(valid).
 # SnapKitty Sovereign Compute Architecture
 
 <div align="center">
-  <img src="./docs/brand/snapkitty-quantum-vacuum-swarm.svg" alt="SnapKitty quantum vacuum swarm brand mark" width="720" />
+  <img src="./docs/brand/snapkittywest-inverted-monorepo.svg" alt="SNAPKITTYWEST inverted monorepo production architecture" width="920" />
 </div>
 
 <div align="center">
