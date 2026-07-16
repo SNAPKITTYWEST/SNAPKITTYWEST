@@ -74,11 +74,23 @@ async function ghApi(method, path, body = null) {
 
 export async function listArchivedRepos(org = 'SNAPKITTYWEST') {
   log('GRAVEYARD', `Scanning archived repos in ${org}...`)
+
+  // Determine whether org is a GitHub org or a user account
+  let repoEndpoint
+  try {
+    await ghApi('GET', `/orgs/${org}`)
+    repoEndpoint = (page) => `/orgs/${org}/repos?type=all&per_page=100&page=${page}`
+    log('GRAVEYARD', `${org} is an organisation`)
+  } catch (e) {
+    if (!e.message.includes('404')) throw e
+    repoEndpoint = (page) => `/users/${org}/repos?type=owner&per_page=100&page=${page}`
+    log('GRAVEYARD', `${org} is a user account — using /users/ endpoint`)
+  }
+
   const repos = []
   let page = 1
   while (true) {
-    const batch = await ghApi('GET',
-      `/orgs/${org}/repos?type=all&per_page=100&page=${page}`)
+    const batch = await ghApi('GET', repoEndpoint(page))
     if (!batch || batch.length === 0) break
     for (const r of batch) {
       if (r.archived) repos.push({ name: r.name, fullName: r.full_name, url: r.clone_url, pushedAt: r.pushed_at })
