@@ -2,16 +2,25 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/RESONANCE-CORE" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SNAPKITTY-PROOFS" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SNAPKITTYWEST.github.io" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/all-apl" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/env-ship-public" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/exo-synchronicity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/agentos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/axiom-proof" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/collatz-verifier" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cosmic-invariant-sieve" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/gkn-i4-e7-lean" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/legacy-apl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/math-engine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/math-skills" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mathlib5" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/mathrosetta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pnp-attack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/prism-skills" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/qec-discovery" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resonance-math" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/snapkitty-agentos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/snapkitty-chain" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/snapkitty-gitbucket" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/snapkitty-mathrosetta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sovereign-array" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sovereign-array-frontend" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sovereign-utqc" vcs="Git" />
   </component>
 </project>

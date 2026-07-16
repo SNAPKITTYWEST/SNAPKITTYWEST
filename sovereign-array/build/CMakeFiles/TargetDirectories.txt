@@ -1,4 +1,5 @@
 C:/Users/jessi/SNAPKITTYWEST/sovereign-array/build/CMakeFiles/sovarr.dir
+C:/Users/jessi/SNAPKITTYWEST/sovereign-array/build/CMakeFiles/sovarr_shared.dir
 C:/Users/jessi/SNAPKITTYWEST/sovereign-array/build/CMakeFiles/sovarr_demo.dir
 C:/Users/jessi/SNAPKITTYWEST/sovereign-array/build/CMakeFiles/sovarr_test.dir
 C:/Users/jessi/SNAPKITTYWEST/sovereign-array/build/CMakeFiles/edit_cache.dir

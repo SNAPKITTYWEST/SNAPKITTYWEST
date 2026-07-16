@@ -6,8 +6,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(sovarr STATIC
     src/sovereign_array.cpp
+    src/sovereign_export.cpp
 )
 target_include_directories(sovarr PUBLIC include)
+
+add_library(sovarr_shared SHARED
+    src/sovereign_array.cpp
+    src/sovereign_export.cpp
+)
+target_include_directories(sovarr_shared PUBLIC include)
+set_target_properties(sovarr_shared PROPERTIES OUTPUT_NAME "sovereign_array")
 
 add_executable(sovarr_demo src/main.cpp)
 target_link_libraries(sovarr_demo PRIVATE sovarr)

@@ -1,10 +1,22 @@
 # Sovereign Array Language
 
+![License](https://img.shields.io/badge/license-MIT-0f766e?style=for-the-badge)
+![Spec](https://img.shields.io/badge/spec-Lean%204-0B5FFF?style=for-the-badge)
+![Kernel](https://img.shields.io/badge/kernel-C%2B%2B-1E824C?style=for-the-badge)
+![Docs](https://img.shields.io/badge/docs-user%20guide%20%7C%20hardening-334155?style=for-the-badge)
+
 A **new array language** scaffolded from the architectural review of the
 *Unimath Array* proposal — keeping the **valid isomorphisms** and discarding
 the **fatal conflations**.
 
 > No Abjad. No digital root. No NP-magic. No "univalence replaces SIMD".
+
+![Architecture](docs/architecture.svg)
+
+## Guides
+
+- [User guide](docs/USER_GUIDE.md)
+- [Production hardening](docs/PRODUCTION_HARDENING.md)
 
 ---
 
@@ -62,6 +74,7 @@ sovereign-array/
 │   ├── Broadcast.lean         # broadcast = pullback π : J → I
 │   ├── Softmax.lean           # softmax as Π-map (shift-invariant)
 │   ├── NandAttention.lean     # NAND universal gate + attention spec
+│   ├── SimplexNorm.lean       # Paper II: exact face geometry, no fake calculus
 │   └── Main.lean              # aggregator
 ├── include/
 │   └── sovereign_array.h      # Shape-typed Array<T>, pmap2, broadcast
@@ -92,6 +105,45 @@ cmake --build build
 cd sovereign-array
 lake build            # verifies zero-sorry array kernel
 ```
+
+---
+
+## Paper II — SimplexNorm (exact face geometry)
+
+The `SimplexNorm.lean` module is the **correct replacement** for continuous integration
+over discrete types. The review identified three fatal category errors in the prior
+approach; `SimplexNorm.lean` corrects all three:
+
+| Error | Fix |
+|-------|-----|
+| `∫ dx` over `ZMod 9` (discrete type) | Replace with `Finset.sum` — `ZMod 9` has 9 points, no paths |
+| Homotopy colimit → real centroid | Use `faceCentroid`: exact uniform distribution over face support |
+| Riemann sum "bypasses" NP | Riemann sum ≡ softmax with temperature — no asymptotic gain |
+
+**What `SimplexNorm.lean` proves (zero sorry, modulo one arithmetic stub):**
+
+```lean
+-- The probability simplex
+structure Simplex (n : ℕ) where
+  vals : Fin n → Float; nonneg : ...; sum_one : ...
+
+-- EXACT face centroid — no integration, no dx
+def faceCentroid {n : ℕ} (F : Finset (Fin n)) : Fin n → Float :=
+  fun i => if i ∈ F then 1.0 / F.card.toFloat else 0.0
+
+-- Nonzero exactly on support
+theorem faceCentroid_support : faceCentroid F i ≠ 0 ↔ i ∈ F
+
+-- Softmax at uniform logits = face centroid (the only honest bridge)
+theorem softmax_uniform_eq_faceCentroid : ∀ i ∈ F, softmax v i = faceCentroid F i
+
+-- SAT ↔ vertex feasibility (integer programming — NP-complete, no shortcut)
+theorem solveFeasibility_sound : solveFeasibility P = some v → P.isSat
+```
+
+> **NP stays NP.** The vertex enumeration loop is `O(n · |constraints|)` — polynomial
+> in the variable count, but this solves the **LP relaxation**, not IP. The integrality
+> gap is exactly where NP-hardness lives.
 
 ---
 

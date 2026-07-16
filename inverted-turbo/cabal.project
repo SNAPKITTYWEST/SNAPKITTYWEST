@@ -1,0 +1,6 @@
+packages:
+  haskell/sovereign-twin
+  haskell/pnp-core
+
+-- Allow newer for GHC 9.10+
+allow-newer: *

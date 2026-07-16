@@ -1,0 +1,25 @@
+% ══════════════════════════════════════════════════
+% smoke_test_quantum.dl — Detector Self-Test Fixture
+% ════════════════════════════════════════════════════
+% Facts extracted from a smoke-test code AST. This is the canonical
+% example that the Datalog verification engine MUST catch: qubit q1
+% is bound twice (multiplicity 2) which is a No-Cloning violation.
+%
+% Run with:
+%   node datalog/engine.mjs \
+%     --facts datalog/fixtures/smoke_test_quantum.dl \
+%     --dir  datalog/rules \
+%     --query "type_error(Var, Msg)" --expect
+% Expects: type_error(q1, "No-Cloning Violation").
+
+% --- Facts extracted from smoke_test_code AST ---
+declared_qubit(q1).
+declared_qubit(q2).
+declared_qubit(q_good).
+
+% binder q2 = q1 registers a SECOND use-site of q1's linear resource
+multiplicity(q1, 2). % used at: binding of q2, AND measure(q1)
+multiplicity(q2, 1). % used at: measure(q2) -- but backed by q1's resource
+multiplicity(q_good, 1).
+
+measurement_probability(q_good, 1.0).

@@ -1,0 +1,8 @@
+{"ts":"2026-07-11T20:58:36.685Z","input":"write hello world in rust","agent":"qwen","reason":"code/file generation","model":"codestral-latest","tokens":516}
+{"ts":"2026-07-11T21:00:05.503Z","input":"explain why the WORM chain is better than a database","agent":"claude","reason":"reasoning/proof","model":"us.anthropic.claude-sonnet-4-6","tokens":3785}
+{"ts":"2026-07-12T00:28:50.757Z","input":"explain why the WORM chain is better than a database","agent":"claude","reason":"reasoning","model":"us.anthropic.claude-sonnet-4-6","tokens":4230}
+{"ts":"2026-07-12T00:30:16.398Z","input":"write a Rust function that computes fibonacci","agent":"mistral","reason":"code/file generation","model":"codestral-latest","tokens":704}
+{"ts":"2026-07-12T00:30:25.660Z","input":"what is the current bitcoin market trend and price action","agent":"nova","reason":"market/news","model":"us.amazon.nova-pro-v1:0","tokens":1194}
+{"ts":"2026-07-12T00:31:25.750Z","input":"prove sum of squares induction","agent":"mistral","reason":"short imperative","model":"codestral-latest","tokens":1959}
+{"ts":"2026-07-12T00:35:10.471Z","input":"prove by induction sum of squares formula","agent":"deepseek","reason":"math/proof","model":"us.deepseek.r1-v1:0","tokens":882}
+{"ts":"2026-07-12T00:35:17.761Z","input":"use our local model to explain what WORM means","agent":"local","reason":"local inference","model":"nemotron","tokens":79}

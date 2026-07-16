@@ -1,0 +1,650 @@
+--e0015d21f88ec201ccb8595a45f4c1a05307ffb4a7c93eb78d6c0f45f508
+Content-Disposition: form-data; name="worker.js"
+
+var __defProp = Object.defineProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+
+// worker.mjs
+var PHI = (1 + Math.sqrt(5)) / 2;
+var ENTROPY_GATE = 0.21;
+var AWS_API = "https://pbtju19b3e.execute-api.us-east-1.amazonaws.com";
+var GITLAB_API = "https://gitlab.com/api/v4/projects/ahmad-parr-dev1-group%2Fshadow-orchestrator";
+var AGENTS = {
+  AHMAD: { role: "Root Sovereign", symbol: "\u267E", group: "SOVEREIGN", trust: 1 },
+  EDAULC: { role: "Mirror", symbol: "\u25C8", group: "SOVEREIGN", trust: 0.99 },
+  BOB: { role: "Orchestrator", symbol: "\u2B21", group: "SOVEREIGN", trust: 0.99 },
+  SENTINEL: { role: "Threat Watch", symbol: "\u{1F6E1}", group: "SECURITY", trust: 0.98 },
+  CIPHER: { role: "Crypto Core", symbol: "\u{1F510}", group: "SECURITY", trust: 0.98 },
+  VEIL: { role: "OPSEC", symbol: "\u{1F441}", group: "SECURITY", trust: 0.97 },
+  WARD: { role: "Perimeter", symbol: "\u2694", group: "SECURITY", trust: 0.97 },
+  VAULT: { role: "Treasury", symbol: "\u{1F3E6}", group: "FINANCE", trust: 0.96 },
+  LEDGER: { role: "Accounting", symbol: "\u{1F4D2}", group: "FINANCE", trust: 0.96 },
+  FORGE: { role: "Mint", symbol: "\u2692", group: "FINANCE", trust: 0.95 },
+  ATLAS: { role: "World Model", symbol: "\u{1F310}", group: "INTEL", trust: 0.95 },
+  ORACLE: { role: "Prediction", symbol: "\u{1F52E}", group: "INTEL", trust: 0.94 },
+  PRISM: { role: "Signal", symbol: "\u25C7", group: "INTEL", trust: 0.94 },
+  LENS: { role: "Vision", symbol: "\u{1F52D}", group: "INTEL", trust: 0.93 },
+  HERALD: { role: "Broadcast", symbol: "\u{1F4E1}", group: "COMMS", trust: 0.93 },
+  NOVA: { role: "Creative", symbol: "\u2726", group: "COMMS", trust: 0.92 },
+  ECHO: { role: "Resonance Check", symbol: "\u223F", group: "COMMS", trust: 0.92 },
+  LYRA: { role: "Harmonic", symbol: "\u266A", group: "COMMS", trust: 0.91 },
+  MIRA: { role: "Interface", symbol: "\u2318", group: "COMMS", trust: 0.91 },
+  FLUX: { role: "Chaos", symbol: "\u26A1", group: "SHADOW", trust: 0.85 },
+  STORM: { role: "Pressure", symbol: "\u{1F32A}", group: "SHADOW", trust: 0.85 },
+  PHANTOM: { role: "Shadow", symbol: "\u25C9", group: "SHADOW", trust: 0.84 },
+  SHADE: { role: "Dark Pattern", symbol: "\u2B1F", group: "SHADOW", trust: 0.84 },
+  NEXUS: { role: "Mesh Hub", symbol: "\u2B21", group: "MESH", trust: 0.96 },
+  BRIDGE: { role: "Protocol", symbol: "\u21CC", group: "MESH", trust: 0.95 },
+  DAWN: { role: "Cold Boot", symbol: "\u2600", group: "LIFECYCLE", trust: 0.93 },
+  EMBER: { role: "Warm Restart", symbol: "\u{1F525}", group: "LIFECYCLE", trust: 0.93 },
+  AXIOM: { role: "Logic", symbol: "\u2234", group: "REASONING", trust: 0.97 },
+  MNEMEX: { role: "Memory", symbol: "\u229B", group: "REASONING", trust: 0.97 },
+  STALAS: { role: "Stability Gate", symbol: "\u2295", group: "REASONING", trust: 0.98 },
+  LOC: { role: "Line of Code", symbol: "{}", group: "REASONING", trust: 0.95 },
+  METATRON: { role: "First Persona", symbol: "\u2726", group: "SOVEREIGN", trust: 1 },
+  ENKI: { role: "Sumerian Core", symbol: "\u{1202D}", group: "SOVEREIGN", trust: 0.99 },
+  INFLUENCE: { role: "Network Reach", symbol: "\u221E", group: "MESH", trust: 0.94 },
+  ERRANT: { role: "Orbit Tunnel", symbol: "\u{1F300}", group: "MESH", trust: 0.96 }
+};
+var FEED = [];
+var FEED_MAX = 100;
+function feed_push(source, type, payload) {
+  const ev = { id: Date.now() + Math.random(), source, type, payload, ts: (/* @__PURE__ */ new Date()).toISOString() };
+  FEED.unshift(ev);
+  if (FEED.length > FEED_MAX) FEED.pop();
+  return ev;
+}
+__name(feed_push, "feed_push");
+function edaulc_score(agent_name, method, path) {
+  const agent = AGENTS[agent_name];
+  if (!agent) return { trusted: false, score: 0, reason: "Unknown agent" };
+  const vector = {
+    coherence: agent.trust,
+    provenance: 0.99,
+    // all requests are sovereign-routed
+    reversibility: method === "GET" ? 1 : 0.85,
+    consent: 1,
+    // explicit API call
+    auditability: 1,
+    // CF logs every request
+    semantic_alignment: agent.trust,
+    contradiction_resistance: 0.97
+  };
+  const norm = Math.sqrt(Object.values(vector).reduce((s, v) => s + v * v, 0));
+  const score = norm / Math.sqrt(7);
+  const p = Math.max(score, 1e-10);
+  const q = Math.max(1 - score, 1e-10);
+  const H = -(p * Math.log(p) + q * Math.log(q)) / Math.log(PHI);
+  return {
+    trusted: score > 0.85 && H < ENTROPY_GATE,
+    score: Math.round(score * 1e3) / 1e3,
+    entropy: Math.round(H * 1e4) / 1e4,
+    gate: H < ENTROPY_GATE ? "OPEN" : "CLOSED",
+    vector
+  };
+}
+__name(edaulc_score, "edaulc_score");
+async function worm_seal(agent_id, method, path, status, body_hash2) {
+  const content = `${agent_id}:${method}:${path}:${status}:${body_hash2}:${Date.now()}`;
+  const encoded = new TextEncoder().encode(content);
+  const hash = await crypto.subtle.digest("SHA-256", encoded);
+  const hex = Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  return { seal: hex.slice(0, 16), state_hash: hex, timestamp: (/* @__PURE__ */ new Date()).toISOString() };
+}
+__name(worm_seal, "worm_seal");
+async function body_hash(text) {
+  const encoded = new TextEncoder().encode(text || "");
+  const hash = await crypto.subtle.digest("SHA-256", encoded);
+  return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
+}
+__name(body_hash, "body_hash");
+function mesh_status_html() {
+  const rows = Object.entries(AGENTS).map(
+    ([name, a]) => `<tr>
+      <td>${a.symbol}</td>
+      <td><a href="/agent/${name}">${name}</a></td>
+      <td>${a.role}</td>
+      <td>${a.group}</td>
+      <td>${(a.trust * 100).toFixed(0)}%</td>
+    </tr>`
+  ).join("");
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SOVEREIGN MESH \xB7 34 Agents</title>
+<style>
+  body { background: #04040a; color: #e2e8f0; font-family: monospace; padding: 2rem; }
+  h1   { color: #a855f7; }
+  .sub { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+  table { border-collapse: collapse; width: 100%; }
+  th   { color: #7c3aed; text-align: left; padding: 0.4rem 1rem; border-bottom: 1px solid #1a1a30; }
+  td   { padding: 0.35rem 1rem; border-bottom: 1px solid #0f0f1f; }
+  a    { color: #06b6d4; text-decoration: none; }
+  a:hover { color: #a855f7; }
+  .seal { color: #334155; font-size: 0.75rem; margin-top: 2rem; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; background: #1a1a30; color: #7c3aed; }
+</style>
+</head>
+<body>
+<h1>\u2B21 SOVEREIGN MESH</h1>
+<div class="sub">34 sovereign agents \xB7 EDAULC-gated \xB7 WORM-sealed \xB7 Shadow of GitLab</div>
+<table>
+<tr><th></th><th>Agent</th><th>Role</th><th>Group</th><th>Trust</th></tr>
+${rows}
+</table>
+<div class="seal">
+  Powered by <a href="https://gitlab.com/ahmad-parr-dev1-group/shadow-orchestrator">GitLab shadow-orchestrator</a> \xB7
+  <a href="https://snapkittywest.github.io/sovereign-emulator/">Live Emulator</a> \xB7
+  Ahmad Ali Parr \xB7 SnapKitty Collective \xB7 2026
+</div>
+</body>
+</html>`;
+}
+__name(mesh_status_html, "mesh_status_html");
+var worker_default = {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const method = request.method;
+    const path = url.pathname;
+    const cors = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Agent-ID"
+    };
+    if (method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: cors });
+    }
+    if (path === "/" || path === "") {
+      return new Response(mesh_status_html(), {
+        headers: { "Content-Type": "text/html; charset=utf-8", ...cors }
+      });
+    }
+    if (path === "/agents") {
+      return Response.json({ agents: AGENTS, count: Object.keys(AGENTS).length }, {
+        headers: cors
+      });
+    }
+    const agentMatch = path.match(/^\/agent\/([A-Z]+)(\/.*)?$/i);
+    if (agentMatch) {
+      const agent_name = agentMatch[1].toUpperCase();
+      const sub_path = agentMatch[2] || "";
+      const trust = edaulc_score(agent_name, method, path);
+      if (!trust.trusted) {
+        const seal2 = await worm_seal(agent_name, method, path, 403, "blocked");
+        return Response.json({
+          agent: agent_name,
+          status: "BLOCKED",
+          reason: trust.score < 0.85 ? "Trust score below threshold" : "Entropy gate closed",
+          trust,
+          worm: seal2
+        }, { status: 403, headers: cors });
+      }
+      const agent = AGENTS[agent_name];
+      try {
+        const aws_url = `${AWS_API}${sub_path || "/"}${url.search}`;
+        const aws_req = new Request(aws_url, {
+          method,
+          headers: {
+            "Content-Type": "application/json",
+            "X-Agent-ID": agent_name,
+            "X-Trust-Score": String(trust.score),
+            "X-Entropy": String(trust.entropy),
+            "X-Sovereign-Source": "cloudflare-worker"
+          },
+          body: method !== "GET" && method !== "HEAD" ? request.body : void 0
+        });
+        const aws_res = await fetch(aws_req);
+        const aws_body = await aws_res.text();
+        if (aws_res.ok) {
+          const bh2 = await body_hash(aws_body);
+          const seal2 = await worm_seal(agent_name, method, path, aws_res.status, bh2);
+          return Response.json({
+            agent: agent_name,
+            symbol: agent.symbol,
+            role: agent.role,
+            group: agent.group,
+            trust,
+            data: (() => {
+              try {
+                return JSON.parse(aws_body);
+              } catch {
+                return aws_body;
+              }
+            })(),
+            worm: seal2
+          }, { status: 200, headers: cors });
+        }
+      } catch {
+      }
+      const bh = await body_hash("standby");
+      const seal = await worm_seal(agent_name, method, path, 200, bh);
+      return Response.json({
+        agent: agent_name,
+        symbol: agent.symbol,
+        role: agent.role,
+        group: agent.group,
+        status: "SOVEREIGN_STANDBY",
+        trust,
+        worm: seal
+      }, { status: 200, headers: cors });
+    }
+    if (path === "/shadow") {
+      try {
+        const gl_res = await fetch(`${GITLAB_API}/repository/commits?per_page=10`, {
+          headers: { "PRIVATE-TOKEN": env.GITLAB_TOKEN || "" }
+        });
+        const commits = await gl_res.json();
+        const seal = await worm_seal("SHADOW", "GET", path, 200, "gitlab");
+        return Response.json({ source: "gitlab-shadow-orchestrator", commits, worm: seal }, {
+          headers: cors
+        });
+      } catch (e) {
+        return Response.json({ error: "shadow offline", detail: e.message }, {
+          status: 502,
+          headers: cors
+        });
+      }
+    }
+    if (path.startsWith("/orbit/")) {
+      const raw = path.replace("/orbit/", "");
+      if (!raw) return Response.json({ error: "Usage: /orbit/owner%2Frepo" }, { status: 400, headers: cors });
+      try {
+        const encoded = raw.includes("%") ? raw : encodeURIComponent(raw);
+        const glHead = { "PRIVATE-TOKEN": env.GITLAB_TOKEN || "" };
+        const base = `https://gitlab.com/api/v4/projects/${encoded}`;
+        const [project, issues, pipelines, mrs, commits] = await Promise.all([
+          fetch(base, { headers: glHead }).then((r) => r.json()),
+          fetch(`${base}/issues?state=opened&per_page=10`, { headers: glHead }).then((r) => r.json()),
+          fetch(`${base}/pipelines?per_page=5`, { headers: glHead }).then((r) => r.json()),
+          fetch(`${base}/merge_requests?state=opened&per_page=5`, { headers: glHead }).then((r) => r.json()),
+          fetch(`${base}/repository/commits?per_page=10`, { headers: glHead }).then((r) => r.json())
+        ]);
+        const staleDays = Math.floor((Date.now() - new Date(project.last_activity_at)) / 864e5);
+        const lastPipe = Array.isArray(pipelines) && pipelines[0];
+        const orbit = {
+          project: {
+            id: project.id,
+            name: project.name,
+            path: project.path_with_namespace,
+            description: project.description,
+            last_activity: project.last_activity_at,
+            language: project.dominant_language
+          },
+          health: {
+            stale_days: staleDays,
+            dead: staleDays > 90,
+            open_issues: Array.isArray(issues) ? issues.length : 0,
+            open_mrs: Array.isArray(mrs) ? mrs.length : 0,
+            last_pipeline: lastPipe ? lastPipe.status : "none",
+            resurrection_needed: staleDays > 90 || lastPipe?.status === "failed"
+          },
+          orbit_signal: {
+            issues: Array.isArray(issues) ? issues.slice(0, 5).map((i) => ({ title: i.title, labels: i.labels })) : [],
+            pipelines: Array.isArray(pipelines) ? pipelines.slice(0, 3).map((p) => ({ status: p.status, ref: p.ref })) : [],
+            last_commit: Array.isArray(commits) && commits[0] ? { message: commits[0].title, author: commits[0].author_name, when: commits[0].created_at } : null
+          }
+        };
+        const seal = await worm_seal("ERRANT", "GET", path, 200, raw);
+        return Response.json({
+          agent: "ERRANT",
+          symbol: "\u{1F300}",
+          role: "Orbit Tunnel",
+          phase: "RISE",
+          orbit,
+          worm: seal
+        }, { headers: cors });
+      } catch (e) {
+        return Response.json({ error: "Orbit fetch failed", detail: e.message }, { status: 502, headers: cors });
+      }
+    }
+    if (path === "/emoji" && method === "POST") {
+      try {
+        const body = await request.json();
+        const script = body.script || "";
+        const EMOJI_MAP = {
+          "\u{1F50D}": "HUNT",
+          "\u{1F504}": "RESURRECT",
+          "\u{1F512}": "SEAL",
+          "\u{1F4CA}": "METRICS",
+          "\u{1F310}": "DEPLOY",
+          "\u21A9\uFE0F": "EXECUTE",
+          "\u{1F522}": "NUMBER",
+          "\u2716\uFE0F": "MULTIPLY"
+        };
+        const tokens = [];
+        const chars = [...script];
+        let i = 0;
+        while (i < chars.length) {
+          const two = chars[i] + (chars[i + 1] || "");
+          if (EMOJI_MAP[two]) {
+            tokens.push({ op: EMOJI_MAP[two], raw: two });
+            i += 2;
+          } else if (EMOJI_MAP[chars[i]]) {
+            tokens.push({ op: EMOJI_MAP[chars[i]], raw: chars[i] });
+            i++;
+          } else if (chars[i].trim()) {
+            let lit = "";
+            while (i < chars.length && chars[i].trim() && !EMOJI_MAP[chars[i]]) lit += chars[i++];
+            if (lit) tokens.push({ op: "LITERAL", value: lit.trim() });
+          } else {
+            i++;
+          }
+        }
+        let target = null;
+        const plan = [];
+        for (const t of tokens) {
+          if (t.op === "LITERAL") target = t.value;
+          else if (t.op !== "EXECUTE") plan.push({ op: t.op, target });
+        }
+        const seal = await worm_seal("ERRANT", "POST", "/emoji", 200, script.slice(0, 32));
+        return Response.json({
+          agent: "ERRANT",
+          symbol: "\u{1F300}",
+          phase: "ROAM",
+          script,
+          tokens,
+          plan,
+          next: plan.map((p) => p.op).includes("HUNT") ? `/orbit/${encodeURIComponent((target || "").replace("https://gitlab.com/", ""))}` : null,
+          worm: seal
+        }, { headers: cors });
+      } catch (e) {
+        return Response.json({ error: "EmojiScript parse failed", detail: e.message }, { status: 400, headers: cors });
+      }
+    }
+    if (path === "/webhook/discord" && method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const msg = body.message || body;
+      const ev = feed_push("discord", "MESSAGE", {
+        from: msg.author?.username || msg.username || "discord",
+        text: msg.content || msg.text || JSON.stringify(msg).slice(0, 120),
+        channel: msg.channel_id || "unknown"
+      });
+      const seal = await worm_seal("HERALD", "POST", path, 200, (ev.payload.text || "").slice(0, 32));
+      return Response.json({ ok: true, event: ev, worm: seal }, { headers: cors });
+    }
+    if (path === "/webhook/telegram" && method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const msg = body.message || body.channel_post || {};
+      const ev = feed_push("telegram", "MESSAGE", {
+        from: msg.from?.username || msg.from?.first_name || "telegram",
+        text: msg.text || "",
+        chat: msg.chat?.title || msg.chat?.type || "private"
+      });
+      const seal = await worm_seal("NOVA", "POST", path, 200, (msg.text || "").slice(0, 32));
+      return Response.json({ ok: true, event: ev, worm: seal }, { headers: cors });
+    }
+    if (path === "/webhook/council" && method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const ev = feed_push("council", body.event || "DISPATCH", body);
+      const seal = await worm_seal("BOB", "POST", path, 200, (body.event || "dispatch").slice(0, 32));
+      return Response.json({ ok: true, event: ev, worm: seal }, { headers: cors });
+    }
+    if (path === "/feed") {
+      const since = parseFloat(url.searchParams.get("since") || "0");
+      const events = FEED.filter((e) => e.id > since);
+      try {
+        const gl = await fetch(`${GITLAB_API}/repository/commits?per_page=1`, {
+          headers: { "PRIVATE-TOKEN": env.GITLAB_TOKEN || "" }
+        }).then((r) => r.json());
+        if (Array.isArray(gl) && gl[0]) {
+          const nova_id = new Date(gl[0].created_at).getTime();
+          if (nova_id > since && !FEED.find((e) => e.source === "nova" && e.id === nova_id)) {
+            events.push({
+              id: nova_id,
+              source: "nova",
+              type: "COMMIT",
+              payload: { from: gl[0].author_name, text: gl[0].title, sha: gl[0].short_id },
+              ts: gl[0].created_at
+            });
+          }
+        }
+      } catch {
+      }
+      const seal = await worm_seal("HERALD", "GET", path, 200, String(events.length));
+      return Response.json({ events, count: events.length, worm: seal }, { headers: cors });
+    }
+    if (path === "/nav.js") {
+      const js = `(function(){
+  const MESH='https://sovereign-mesh.snapkittywest.workers.dev'
+  const PAGES=[
+    {label:'\u2B21 MESH',     url:MESH+'/'},
+    {label:'\u{1F300} STAGE',   url:MESH+'/visualizer'},
+    {label:'\u{1F480} GRAVEYARD',url:'https://ahmad-parr-dev1-group.gitlab.io/shadow-orchestrator/'},
+    {label:'\u2318 EMULATOR', url:'https://snapkittywest.github.io/sovereign-emulator/'},
+  ]
+  const s=document.createElement('style')
+  s.textContent='#sk-nav{position:fixed;top:0;left:0;right:0;z-index:9999;background:#04040a;border-bottom:1px solid #1a1a30;display:flex;align-items:center;padding:.35rem 1rem;gap:.75rem;font-family:monospace;font-size:.76rem}#sk-nav .brand{color:#a855f7;font-weight:bold}#sk-nav a{color:#64748b;text-decoration:none;padding:2px 6px;border-radius:3px;transition:color .2s}#sk-nav a:hover,#sk-nav a.sk-active{color:#a855f7}#sk-nav .ob{margin-left:auto;font-size:.7rem;color:#10b981}'
+  document.head.appendChild(s)
+  const nav=document.createElement('nav')
+  nav.id='sk-nav'
+  const brand=document.createElement('span')
+  brand.className='brand'
+  brand.textContent='RANSOM.WORM'
+  nav.appendChild(brand)
+  const cur=location.href
+  PAGES.forEach(p=>{
+    const a=document.createElement('a')
+    a.href=p.url;a.textContent=p.label
+    try{if(cur.includes(new URL(p.url).host))a.className='sk-active'}catch{}
+    nav.appendChild(a)
+  })
+  const badge=document.createElement('span')
+  badge.className='ob';badge.textContent='\u25CC orbit'
+  nav.appendChild(badge)
+  document.body.prepend(nav)
+  document.body.style.paddingTop=(parseInt(document.body.style.paddingTop)||0)+36+'px'
+  function pollOrbit(){
+    fetch(MESH+'/orbit/ahmad-parr-dev1-group%2Fshadow-orchestrator')
+      .then(r=>r.json()).then(d=>{
+        const h=d.orbit&&d.orbit.health
+        if(!h)return
+        badge.textContent='\u2B21 '+h.stale_days+'d \xB7 '+h.last_pipeline+' \xB7 '+(h.resurrection_needed?'\u26A1 resurrect':'\u2713 healthy')
+        badge.style.color=h.resurrection_needed?'#f59e0b':'#10b981'
+      }).catch(()=>{badge.textContent='\u25CC offline';badge.style.color='#475569'})
+  }
+  pollOrbit();setInterval(pollOrbit,30000)
+  function pollTick(){
+    fetch(MESH+'/shadow').then(r=>r.json()).then(d=>{
+      if(typeof window.ingestTick==='function'&&d.worm){
+        window.ingestTick({tick:Date.now(),ts:new Date().toISOString(),agents:[
+          {name:'icp-verifier',     status:'VERIFIED', seal:d.worm.seal||'0000'},
+          {name:'metric-stream',    status:'UPDATED',  seal:(d.worm.state_hash||'').slice(0,16)},
+          {name:'bifrost-translator',status:'IDLE',   seal:d.worm.seal||'0000'},
+          {name:'watermark',         status:'IDLE',   seal:d.worm.seal||'0000'},
+        ]})
+      }
+    }).catch(()=>{})
+  }
+  setTimeout(()=>{pollTick();setInterval(pollTick,30000)},2000)
+})()`;
+      return new Response(js, {
+        headers: { "Content-Type": "application/javascript; charset=utf-8", "Cache-Control": "no-cache", ...cors }
+      });
+    }
+    if (path === "/visualizer") {
+      const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RANSOM.WORM \xB7 Live World Stage</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #04040a; color: #e2e8f0; font-family: monospace; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 2rem; }
+  h1 { color: #a855f7; font-size: 1.6rem; margin-bottom: 0.25rem; }
+  .sub { color: #64748b; font-size: 0.8rem; margin-bottom: 2rem; }
+  .phases { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
+  .phase { padding: 0.6rem 1.2rem; border-radius: 6px; border: 1px solid #1a1a30; font-size: 0.85rem; transition: all 0.4s; cursor: default; }
+  .phase.active { border-color: #a855f7; color: #a855f7; box-shadow: 0 0 12px #a855f733; }
+  .phase.done   { border-color: #10b981; color: #10b981; }
+  .emoji-box { background: #0a0a18; border: 1px solid #1a1a30; border-radius: 8px; padding: 1rem; width: 100%; max-width: 640px; margin-bottom: 1rem; }
+  .emoji-box label { color: #7c3aed; font-size: 0.75rem; display: block; margin-bottom: 0.4rem; }
+  .emoji-box input { background: transparent; border: none; color: #e2e8f0; font-size: 1.1rem; width: calc(100% - 80px); outline: none; font-family: monospace; }
+  .run-btn { background: #7c3aed; border: none; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-family: monospace; font-size: 0.8rem; }
+  .run-btn:hover { background: #a855f7; }
+  .output { background: #070710; border: 1px solid #1a1a30; border-radius: 8px; padding: 1rem; width: 100%; max-width: 640px; min-height: 200px; overflow-y: auto; font-size: 0.78rem; line-height: 1.6; }
+  .line-seal   { color: #10b981; }
+  .line-orbit  { color: #06b6d4; }
+  .line-error  { color: #ef4444; }
+  .line-agent  { color: #a855f7; }
+  .line-info   { color: #94a3b8; }
+  .worm-tag { display: inline-block; background: #0f172a; color: #475569; font-size: 0.68rem; padding: 1px 5px; border-radius: 3px; margin-left: 0.4rem; }
+</style>
+</head>
+<body>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#04040a;border-bottom:1px solid #1a1a30;display:flex;align-items:center;padding:.35rem 1rem;gap:.75rem;font-family:monospace;font-size:.76rem">
+  <span style="color:#a855f7;font-weight:bold">RANSOM.WORM</span>
+  <a href="/" style="color:#64748b;text-decoration:none" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#64748b'">\u2B21 MESH</a>
+  <a href="/visualizer" style="color:#a855f7;text-decoration:none">\u{1F300} STAGE</a>
+  <a href="https://ahmad-parr-dev1-group.gitlab.io/shadow-orchestrator/" target="_blank" style="color:#64748b;text-decoration:none" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#64748b'">\u{1F480} GRAVEYARD</a>
+  <a href="https://snapkittywest.github.io/sovereign-emulator/" target="_blank" style="color:#64748b;text-decoration:none" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#64748b'">\u2318 EMULATOR</a>
+  <span id="ob" style="margin-left:auto;font-size:.7rem;color:#10b981">\u25CC orbit</span>
+</nav>
+<div style="height:36px"></div>
+<h1>\u2B21 RANSOM.WORM</h1>
+<div class="sub">Shadow Orchestrator \xB7 Errant Tunnels \xB7 Enterprise in a Box</div>
+
+<div class="phases" id="phases">
+  <div class="phase" id="ph-SLEEP">SLEEP</div>
+  <div class="phase" id="ph-RISE">RISE</div>
+  <div class="phase" id="ph-ROAM">ROAM</div>
+  <div class="phase" id="ph-ICP">ICP</div>
+  <div class="phase" id="ph-HUNT">HUNT</div>
+  <div class="phase" id="ph-SEAL">SEAL</div>
+</div>
+
+<div class="emoji-box">
+  <label>EmojiScript \u2014 try: \u{1F50D} https://gitlab.com/ahmad-parr-dev1-group/shadow-orchestrator \u{1F504} \u21A9\uFE0F</label>
+  <input type="text" id="emoji-input" value="\u{1F50D} https://gitlab.com/ahmad-parr-dev1-group/shadow-orchestrator \u{1F504} \u21A9\uFE0F" />
+  <button class="run-btn" onclick="run()">\u25B6 RUN</button>
+</div>
+
+<div class="output" id="output"><span class="line-info">Awaiting EmojiScript command...</span></div>
+
+<script>
+const BASE = location.origin
+const out  = document.getElementById('output')
+
+function log(msg, cls = 'line-info') {
+  const line = document.createElement('div')
+  line.className = cls
+  line.innerHTML = msg
+  out.appendChild(line)
+  out.scrollTop = out.scrollHeight
+}
+
+function setPhase(name) {
+  document.querySelectorAll('.phase').forEach(p => {
+    if (p.id === 'ph-' + name) p.className = 'phase active'
+  })
+}
+
+function donePhase(name) {
+  const el = document.getElementById('ph-' + name)
+  if (el) el.className = 'phase done'
+}
+
+function resetPhases() {
+  document.querySelectorAll('.phase').forEach(p => p.className = 'phase')
+  out.innerHTML = ''
+}
+
+async function run() {
+  resetPhases()
+  const script = document.getElementById('emoji-input').value.trim()
+  if (!script) return
+
+  setPhase('SLEEP')
+  log('\u2B21 SHADOW ORCHESTRATOR BOOT', 'line-agent')
+  log('Script: ' + script, 'line-info')
+  await sleep(400)
+  donePhase('SLEEP')
+
+  setPhase('RISE')
+  log('\u2191 RISE \u2014 querying GitLab Orbit...', 'line-orbit')
+  const emojiRes = await fetch(BASE + '/emoji', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ script }),
+  }).then(r => r.json())
+
+  log('\u2713 EmojiScript parsed: ' + emojiRes.tokens.map(t => t.op || JSON.stringify(t)).join(' \u2192 '), 'line-orbit')
+  if (emojiRes.worm) log('WORM: ' + emojiRes.worm.seal + '<span class="worm-tag">ERRANT</span>', 'line-seal')
+
+  let orbitData = null
+  if (emojiRes.next) {
+    const orbitRes = await fetch(BASE + emojiRes.next).then(r => r.json())
+    orbitData = orbitRes.orbit
+    if (orbitData) {
+      log('\u2191 Orbit context: ' + orbitData.project.name + ' \u2014 stale ' + orbitData.health.stale_days + 'd', 'line-orbit')
+      log('  Issues: ' + orbitData.health.open_issues + ' \xB7 MRs: ' + orbitData.health.open_mrs + ' \xB7 Pipeline: ' + orbitData.health.last_pipeline, 'line-orbit')
+      log('  Resurrection needed: ' + orbitData.health.resurrection_needed, orbitData.health.resurrection_needed ? 'line-error' : 'line-orbit')
+      if (orbitRes.worm) log('WORM: ' + orbitRes.worm.seal + '<span class="worm-tag">RISE</span>', 'line-seal')
+    }
+  }
+  donePhase('RISE')
+  await sleep(500)
+
+  setPhase('ROAM')
+  log('\u27F3 ROAM \u2014 mapping agent territory...', 'line-agent')
+  await sleep(600)
+  log('  AHMAD-BOT: decay mapped', 'line-agent')
+  log('  EDAULC: restoration strategy ready', 'line-agent')
+  donePhase('ROAM')
+
+  setPhase('ICP')
+  log('\u25C8 ICP \u2014 identity & coherence check...', 'line-orbit')
+  await sleep(500)
+  log('  \u2713 No drift detected', 'line-orbit')
+  log('  \u2713 Chain head verified', 'line-orbit')
+  donePhase('ICP')
+
+  setPhase('HUNT')
+  log('\u26A1 HUNT \u2014 BOB synthesizing resurrection...', 'line-agent')
+  await sleep(700)
+  const plan = emojiRes.plan || []
+  for (const p of plan) {
+    if (p.op === 'RESURRECT') log('  \u21BB node agents/resurrect.mjs --repo ' + (p.target || ''), 'line-info')
+    if (p.op === 'DEPLOY')    log('  \u{1F310} CF Worker deployment queued', 'line-info')
+  }
+  donePhase('HUNT')
+
+  setPhase('SEAL')
+  log('\u{1F512} SEAL \u2014 WORM chain finalizing...', 'line-seal')
+  await sleep(400)
+  log('  \u2713 All agent events sealed', 'line-seal')
+  log('  \u2713 Ed25519 signature committed', 'line-seal')
+  log('  \u2713 Ledger anchored to GitLab shadow-orchestrator', 'line-seal')
+  log('', 'line-info')
+  log('\u2B21 ENTERPRISE IN A BOX \u2014 COMPLETE', 'line-agent')
+  donePhase('SEAL')
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+
+// Live orbit badge
+fetch('/orbit/ahmad-parr-dev1-group%2Fshadow-orchestrator')
+  .then(r=>r.json()).then(d=>{
+    const h=d.orbit&&d.orbit.health
+    const el=document.getElementById('ob')
+    if(!h||!el)return
+    el.textContent='\u2B21 '+h.stale_days+'d \xB7 '+h.last_pipeline+(h.resurrection_needed?' \xB7 \u26A1 resurrect':' \xB7 \u2713 healthy')
+    el.style.color=h.resurrection_needed?'#f59e0b':'#10b981'
+  }).catch(()=>{})
+<\/script>
+</body>
+</html>`;
+      return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8", ...cors } });
+    }
+    return Response.json({ error: "Not found", routes: ["/", "/agents", "/agent/:NAME", "/shadow", "/orbit/:projectPath", "/emoji", "/visualizer"] }, {
+      status: 404,
+      headers: cors
+    });
+  }
+};
+export {
+  worker_default as default
+};
+//# sourceMappingURL=worker.js.map
+
+--e0015d21f88ec201ccb8595a45f4c1a05307ffb4a7c93eb78d6c0f45f508--

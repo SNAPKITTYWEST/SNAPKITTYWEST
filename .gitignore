@@ -66,6 +66,8 @@ snapkitty-chain/
 # snapkitty-agentos is now a proper submodule — see .gitmodules
 
 # Sovereign sub-projects (standalone repos, not part of this repo)
+sovereign-array/
+sovereign-array-frontend/
 sovereign-addr/
 sovereign-adr/
 sovereign-agt/

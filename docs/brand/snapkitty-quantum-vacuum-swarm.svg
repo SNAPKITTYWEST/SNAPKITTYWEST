@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#10182a"/><stop offset="55%" stop-color="#070b14"/><stop offset="100%" stop-color="#020409"/></radialGradient>
+    <radialGradient id="vacuum" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#fff"/><stop offset="8%" stop-color="#9ffcff"/><stop offset="22%" stop-color="#3bd7ff"/><stop offset="48%" stop-color="#7a4dff"/><stop offset="72%" stop-color="#20144d"/><stop offset="100%" stop-color="#050713" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4dfcff"/><stop offset="45%" stop-color="#7a5cff"/><stop offset="100%" stop-color="#ff4fd8"/></linearGradient>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4dfcff" stop-opacity="0"/><stop offset="100%" stop-color="#4dfcff" stop-opacity=".95"/></linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <symbol id="agent" viewBox="-60 -60 120 120">
+      <path d="M-37 -18 L-48 -47 L-17 -35 Q0 -45 17 -35 L48 -47 L37 -18 Q48 -2 42 19 Q35 45 0 49 Q-35 45 -42 19 Q-48 -2 -37 -18Z" fill="#0d1424" stroke="#68f7ff" stroke-width="4"/>
+      <path d="M-29 -19 L-22 -38 L-8 -27 M29 -19 L22 -38 L8 -27" fill="none" stroke="#ff5ae0" stroke-width="3"/>
+      <circle cx="-15" cy="5" r="6" fill="#8dff8a"/><circle cx="15" cy="5" r="6" fill="#8dff8a"/>
+      <path d="M-8 23 Q0 30 8 23" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-30 18 L-52 14 M-30 24 L-54 28 M30 18 L52 14 M30 24 L54 28" stroke="#68f7ff" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="0" cy="-2" r="42" fill="none" stroke="#7b5cff" stroke-opacity=".35" stroke-width="2"/>
+    </symbol>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g fill="#d7fbff" opacity=".9"><circle cx="110" cy="120" r="2"/><circle cx="280" cy="80" r="1.5"/><circle cx="420" cy="170" r="2"/><circle cx="1370" cy="95" r="2"/><circle cx="1490" cy="210" r="1.5"/><circle cx="1210" cy="170" r="1.8"/><circle cx="150" cy="730" r="1.7"/><circle cx="360" cy="810" r="2"/><circle cx="1310" cy="760" r="2"/><circle cx="1480" cy="690" r="1.5"/><circle cx="960" cy="110" r="1.6"/><circle cx="710" cy="70" r="1.5"/></g>
+  <g transform="translate(800 450)">
+    <circle r="310" fill="url(#vacuum)" opacity=".9" filter="url(#glow)"/>
+    <ellipse rx="345" ry="135" fill="none" stroke="url(#ring)" stroke-width="12" opacity=".9" transform="rotate(-12)" filter="url(#glow)"/>
+    <ellipse rx="290" ry="100" fill="none" stroke="#4dfcff" stroke-width="4" opacity=".65" transform="rotate(24)"/>
+    <ellipse rx="250" ry="70" fill="none" stroke="#ff4fd8" stroke-width="3" opacity=".45" transform="rotate(-35)"/>
+    <circle r="92" fill="#02040b" stroke="#d6ffff" stroke-width="4" filter="url(#glow)"/>
+    <circle r="38" fill="#fff" opacity=".95" filter="url(#glow)"/>
+    <text x="0" y="-330" text-anchor="middle" fill="#eaffff" font-family="monospace" font-size="34" font-weight="700" letter-spacing="8">QUANTUM VACUUM</text>
+    <text x="0" y="355" text-anchor="middle" fill="#7df8ff" font-family="monospace" font-size="24" letter-spacing="5">SNAPKITTY SWARM RELEASE</text>
+  </g>
+  <g stroke="url(#trail)" stroke-width="8" stroke-linecap="round" opacity=".8" filter="url(#softGlow)"><path d="M760 430 C600 390 420 360 230 330"/><path d="M770 455 C580 455 390 470 170 520"/><path d="M780 480 C620 545 450 620 260 700"/><path d="M840 430 C1010 365 1190 330 1410 290"/><path d="M845 455 C1040 455 1240 470 1460 520"/><path d="M835 485 C1010 560 1190 640 1390 735"/></g>
+  <g filter="url(#softGlow)">
+    <use href="#agent" x="170" y="260" width="120" height="120" transform="rotate(-12 230 320)"/><use href="#agent" x="300" y="335" width="105" height="105" transform="rotate(-5 352 387)"/><use href="#agent" x="110" y="455" width="130" height="130" transform="rotate(9 175 520)"/><use href="#agent" x="270" y="650" width="110" height="110" transform="rotate(13 325 705)"/><use href="#agent" x="420" y="545" width="95" height="95" transform="rotate(4 467 592)"/>
+    <use href="#agent" x="1320" y="220" width="120" height="120" transform="rotate(12 1380 280)"/><use href="#agent" x="1190" y="345" width="105" height="105" transform="rotate(5 1242 397)"/><use href="#agent" x="1380" y="455" width="130" height="130" transform="rotate(-9 1445 520)"/><use href="#agent" x="1260" y="655" width="110" height="110" transform="rotate(-13 1315 710)"/><use href="#agent" x="1080" y="565" width="95" height="95" transform="rotate(-4 1127 612)"/>
+  </g>
+  <g stroke="#e9ffff" stroke-linecap="round" opacity=".75"><path d="M70 390 l95 -18" stroke-width="3"/><path d="M90 610 l120 12" stroke-width="2"/><path d="M1450 390 l95 -20" stroke-width="3"/><path d="M1390 620 l130 16" stroke-width="2"/><path d="M520 250 l70 -55" stroke-width="2"/><path d="M1010 250 l70 -55" stroke-width="2"/></g>
+  <text x="800" y="835" text-anchor="middle" fill="#bffcff" font-family="monospace" font-size="17" letter-spacing="4">EVIDENCE OR SILENCE · WORM-SEALED AGENTIC COMPUTE</text>
+</svg>

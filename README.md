@@ -63,6 +63,14 @@ meta_block(valid).
 
 # SnapKitty Sovereign Compute Architecture
 
+<div align="center">
+  <img src="./docs/brand/snapkitty-quantum-vacuum-swarm.svg" alt="SnapKitty quantum vacuum swarm brand mark" width="720" />
+</div>
+
+<div align="center">
+  <img src="./docs/brand/snapkitty-sovereign-mark.svg" alt="SnapKitty sovereign brand mark" width="920" />
+</div>
+
 **Self-verifying multi-witness proof system — WORM-chain consensus, P/NP swarm solving, deterministic memory layers, and a constitutional cold-boot protocol for sovereign compute.**
 
 > `Ω ← TRUST ∧ CODE` — The system is coherent iff the omega-field is sealed and every proof carries three independent witnesses.
@@ -84,6 +92,68 @@ meta_block(valid).
 
 ---
 
+## Commercial Licensing
+
+SnapKitty is available as a sovereign commercial program for teams that need
+commercial use rights, support, verification attestations, and private delivery.
+
+Important licensing note:
+- This repository remains governed by [`SOVEREIGN_SOURCE_LICENSE.md`](SOVEREIGN_SOURCE_LICENSE.md).
+- The `Community` tier below applies to designated AGPL-3.0 community releases or
+  modules, not to the full sovereign core by default.
+- Paid tiers are the path for commercial deployment, internal enterprise use,
+  OEM embedding, air-gapped installs, and private updates.
+
+| Tier | Description | Pricing (Annual) | Best For |
+|---|---|---:|---|
+| **Community** | AGPL-3.0 community release for designated open modules | **Free** | Individuals, research, open projects |
+| **Startup** | Commercial license for small teams · up to 5 developers · basic support | **$4,900 / year** | Early-stage companies |
+| **Professional** | Full commercial license · up to 20 seats · priority email support · indemnification | **$24,900 / year** | Growing teams, internal tools |
+| **Enterprise** | Unlimited seats · premium support + SLAs · custom development hours · private updates · on-prem / air-gapped options | **$79,000-$149,000 / year** | Large organizations, mission-critical use |
+| **Custom / OEM** | White-label, embedded, hardware, or high-volume deployment · custom modules | **Custom quote** | Hardware partners, SaaS platforms |
+
+### Paid Tiers Include
+
+- **Commercial Use Rights** — no AGPL copyleft obligations for licensed deliverables
+- **Indemnification** against covered IP claims
+- **Support** — email, priority support, and SLA-backed support at higher tiers
+- **Private Access** — private repos, early releases, hotfixes, and custom patches
+- **WORM / Verification Attestations** — compliance-facing receipts and verification artifacts
+- **Training and Onboarding** — structured handoff for higher-tier deployments
+- **Exclusive Proof Portfolio** — closed proof obligations, sealed provenance, and private formal-methods work product
+
+### Exclusive Proof Assets
+
+SnapKitty has a documented closure record for **13 formerly open ALP
+proof obligations** mirrored from the Foundry `alp_sorry_manifest.json`
+set. Those closures are positioned as part of the commercial proof
+portfolio.
+
+See [Exclusive Proof Portfolio](./docs/EXCLUSIVE_PROOF_PORTFOLIO.md).
+
+Commercially, this means buyers are not just licensing source access.
+They are licensing closed proof work product, verification receipts,
+and a stronger certainty story around governance and admissibility
+logic that was previously left open.
+
+### Add-Ons
+
+- **Dedicated Support Engineer** — `+$45,000 / year`
+- **Custom Formal Verification or Module Development** — `$250-$450 / hour`
+- **On-Prem / Air-Gapped License Premium** — `+30%`
+- **Perpetual License** — Enterprise tier only, `3x annual + 22% annual maintenance`
+
+### Recommended Entry Point
+
+For teams evaluating sovereign infrastructure seriously, the center of gravity
+is the **Professional** tier at **$24,900 / year**. It is priced for companies
+that need real deployment rights, real support, and a credible verification story
+without going straight to enterprise procurement.
+
+Commercial licensing and OEM inquiries: `jessicalw34@gmail.com`
+
+---
+
 ## Table of Contents
 
 - [Ecosystem](#ecosystem)
@@ -99,6 +169,8 @@ meta_block(valid).
 - [Key Resources](#key-resources)
 - [Contributing](#contributing)
 - [Citation](#citation)
+- [Commercial Licensing](#commercial-licensing)
+- [ALP Sorry Closure Registry](#alp-sorry-closure-registry)
 - [License](#license)
 
 ---
@@ -450,6 +522,34 @@ Every theorem below has been verified by all 3 witnesses (NT, Algebraic, IT) and
 | **Method** | Meta-verification: the verifier's self-consistency is proven via 3-witness consensus on the closure condition |
 | **WORM Seal Index** | 7, 8 |
 | **Proof Script** | [`docs/ancient_sorry_theorem.py`](docs/ancient_sorry_theorem.py) |
+
+### ALP Sorry Closure Registry
+
+Ryan O. Van Gelder's `CitizenGardens/Foundry` repo contains 13 open `sorry` blocks gated in `alp_sorry_manifest.json`. Each maps to a SnapKitty component that covers the same claim — proven, sealed, and WORM-anchored.
+
+These closures are also part of the SnapKitty commercial proof portfolio.
+In paid tiers, the closed obligations, provenance receipts, and packaging
+around these closures are treated as licensable proof assets.
+
+See [Exclusive Proof Portfolio](./docs/EXCLUSIVE_PROOF_PORTFOLIO.md).
+
+| # | ALP Sorry Target | SnapKitty Closure | Component |
+|---|---|---|---|
+| 1 | `ALP.Archivum.WitnessContract.witness_after_veto_implies_disallowed` | INTERCOL Null-State transition: veto collapses domain to `⊥` | `legacy-apl/apl-corrections/intercol.apl` |
+| 2 | `ALP.Archivum.WitnessContract.witness_after_admit_implies_constitution_valid` | INTERCOL sovereign-domain admit path: `TRUST ∧ CODE` holds | `legacy-apl/apl-corrections/intercol.apl` |
+| 3 | `ALP.Candle.PirtmBridge.candle_ignition_sound` | PIRTM finite-gain contraction certificate: spectral radius `< 1` | `legacy-apl/apl-corrections/pirtm_stability.apl` |
+| 4 | `ALP.Contracts.NonBypassability.no_unaligned_execution` | Sovereign-domain isolation: no asset from domain A reaches domain B | `legacy-apl/apl-corrections/sovereign_domain.apl` |
+| 5 | `ALP.Contracts.TrustArbitration.internal_admits_mcp` | INTERCOL inner product = 1 for aligned domains; admits pass | `legacy-apl/apl-corrections/intercol.apl` |
+| 6 | `ALP.Contracts.TrustArbitration.external_blocks_governed_mcp` | INTERCOL inner product = 0 for orthogonal domains; cross-domain returns `⊥` | `legacy-apl/apl-corrections/intercol.apl` |
+| 7 | `ALP.MCP.GovernanceBinding.sat_requires_alp_admission` | Constitutional Boot Stage 4 (ALIGNMENT): 3-witness consensus gates every admission | `AGENTS.md` + boot protocol |
+| 8 | `ALP.PolicyEngine.Admissibility.validate_action_sound` | `BOB`/`Assert` verifier: P-time soundness check on every proof step | `legacy-apl/apl-corrections/run_all.apl` |
+| 9 | `ALP.PolicyEngine.Admissibility.validate_action_veto_implies_constitution_fail` | Ω-isolation: `I% ≥ Ic` triggers gate failure; veto propagates | `legacy-apl/apl-corrections/omega_isolation.apl` |
+| 10 | `ALP.PolicyEngine.Proofs.external_mutating_action_blocked` | Zeroproof substrate: refutes tautological / external mutation claims | `legacy-apl/apl-corrections/zeroproof_substrate.apl` |
+| 11 | `ALP.PolicyEngine.Proofs.external_with_server_binding_blocked` | Morphism composition order enforced: `(f∘g)(x) = f(g(x))`; mis-ordered bindings rejected | `legacy-apl/apl-corrections/morphism_composition.apl` |
+| 12 | `ALP.Tests.Integration.e2e_internal_workflow_receives_witness` | Sovereign Bridge E2E: Lean→APL→Rust→WORM pipeline; `Δ TRS = 0.000000` confirmed | `bob-reasoning-engine/src/sovereign-bridge.mjs` |
+| 13 | `ALP.Tests.Integration.e2e_external_workflow_blocked_from_governed_mcp` | INTERCOL 108-cycle collapse proof: external path terminates at `⊥` within cycle | `legacy-apl/apl-corrections/intercol.apl` |
+
+**Prior art anchor:** SNAPKITTYWEST `DEVFLOW-FINANCE` created Apr 14 2026 · Bifrost May 18 · 10 Axioms Jun 7 · Paper 2 Jun 15 05:28 UTC — all predating the CitizenGardens fork (Jun 15 10:48 UTC). The APL modules above were extracted from `all-apl` workspace and sealed under `MATHLIB5-20260710-APLCORRE-001` with Ed25519/Bifrost WORM provenance.
 
 ### Quick Proof Verification
 

@@ -1,0 +1,87 @@
+name: Build & Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  haskell:
+    name: Haskell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.10'
+          cabal-version: '3.12'
+      - run: cabal update
+      - run: cabal build all
+      - run: cabal test pnp-core-test
+
+  rust:
+    name: Rust
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release --workspace
+      - run: cargo test --workspace
+
+  lean:
+    name: Lean 4
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean4-action@v1
+        with:
+          lean-version: 'leanprover/lean4:v4.19.0'
+      - run: cd lean && lake build
+
+  datalog:
+    name: Datalog Verification (linter replacement)
+    runs-on: ubuntu-latest
+    needs: [rust, lean]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate facts from build state
+        run: node datalog/scripts/generate_facts.mjs
+
+      - name: Datalog verification gate (replaces linter)
+        run: |
+          echo "═════════════════════════════════════════════════"
+          echo "  SNAPKITTYWEST Datalog Verification Gate"
+          echo "  (linter replacement — honors every type_error rule)"
+          echo "═════════════════════════════════════════════════"
+          node datalog/engine.mjs \
+            --facts datalog/facts/generated.dl \
+            --dir  datalog/rules \
+            --query "type_error(Var, Msg)"
+
+      - name: Datalog detector self-test (must catch No-Cloning)
+        run: |
+          echo "── Detector self-test: engine must FIRE on known-bad trace ──"
+          node datalog/engine.mjs \
+            --facts datalog/fixtures/smoke_test_quantum.dl \
+            --dir  datalog/rules \
+            --query "type_error(Var, Msg)" \
+            --expect
+
+  worm-seal:
+    name: WORM Seal
+    runs-on: ubuntu-latest
+    needs: [haskell, rust, lean, datalog]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "Sealing to WORM chain..."
+          TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          HASH=$(echo -n "$TIMESTAMP" | sha256sum | cut -d' ' -f1)
+          echo "{\"timestamp\":\"$TIMESTAMP\",\"hash\":\"$HASH\",\"event\":\"build_sealed\"}" >> worm/build_ledger.jsonl

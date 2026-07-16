@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/jessi/SNAPKITTYWEST/sovereign-array/src/sovereign_array.cpp" "CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj" "gcc" "CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj.d"
+  "C:/Users/jessi/SNAPKITTYWEST/sovereign-array/src/sovereign_export.cpp" "CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj" "gcc" "CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

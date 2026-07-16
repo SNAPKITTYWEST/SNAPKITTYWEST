@@ -1,7 +1,7 @@
 <!--OMEGA-FIELD:START-->
 <div align="center">
 
-![License](https://img.shields.io/badge/license-Sovereign%20Source%20v2.0-blueviolet)
+![License](https://img.shields.io/badge/license-MIT-0f766e)
 ![Stack](https://img.shields.io/badge/stack-Lean%204%20%7C%20C%2B%2B20%20%7C%20JS-orange)
 ![Kernels](https://img.shields.io/badge/kernels-5%20%CE%A0--maps-green)
 ![Status](https://img.shields.io/badge/status-zero--sorry-success)
@@ -12,6 +12,8 @@
 
 </div>
 <!--OMEGA-FIELD:END-->
+
+![Docs](https://img.shields.io/badge/docs-user%20guide%20%7C%20hardening-334155?style=for-the-badge)
 
 ---
 
@@ -33,7 +35,7 @@
 
 # Sovereign Array Language — Front-End
 
-The **front-end** for the [Sovereign Array Language](../sovereign-array): an
+The **front-end** for the [Sovereign Array Language](https://github.com/SNAPKITTYWEST/sovereign-array): an
 interactive browser playground that runs the *same denotational semantics*
 as the Lean 4 spec and the C++20 kernel — no Abjad, no digital root, no NP-magic.
 
@@ -44,8 +46,8 @@ as the Lean 4 spec and the C++20 kernel — no Abjad, no digital root, no NP-mag
 
 | Layer | Repo | Role |
 |-------|------|------|
-| **Spec** | [`sovereign-array`](../sovereign-array) | Lean 4 — `Array I α = I → α`, zero-sorry proofs |
-| **Kernel** | [`sovereign-array`](../sovereign-array) | C++20 — `Array<T>`, `pmap2`, `broadcast`, `softmax`, `nand_attention` |
+| **Spec** | [`sovereign-array`](https://github.com/SNAPKITTYWEST/sovereign-array) | Lean 4 — `Array I α = I → α`, zero-sorry proofs |
+| **Kernel** | [`sovereign-array`](https://github.com/SNAPKITTYWEST/sovereign-array) | C++20 — `Array<T>`, `pmap2`, `broadcast`, `softmax`, `nand_attention` |
 | **Front-End** | **`sovereign-array-frontend`** (this repo) | Browser playground + usage guide |
 
 ## Quick Start
@@ -58,6 +60,11 @@ python -m http.server 8080
 ```
 
 No build step. Pure HTML/CSS/JS (ES modules).
+
+## Guides
+
+- [User guide](docs/USER_GUIDE.md)
+- [Production hardening](docs/PRODUCTION_HARDENING.md)
 
 ## How to use the language
 

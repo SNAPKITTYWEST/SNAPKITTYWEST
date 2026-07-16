@@ -83,17 +83,34 @@ CMakeFiles/sovarr.dir/src/sovereign_array.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sovarr.dir/src/sovereign_array.cpp.s"
 	C:\Strawberry\c\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jessi\SNAPKITTYWEST\sovereign-array\src\sovereign_array.cpp -o CMakeFiles\sovarr.dir\src\sovereign_array.cpp.s
 
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj: CMakeFiles/sovarr.dir/flags.make
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj: CMakeFiles/sovarr.dir/includes_CXX.rsp
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj: C:/Users/jessi/SNAPKITTYWEST/sovereign-array/src/sovereign_export.cpp
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj: CMakeFiles/sovarr.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\jessi\SNAPKITTYWEST\sovereign-array\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj"
+	C:\Strawberry\c\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj -MF CMakeFiles\sovarr.dir\src\sovereign_export.cpp.obj.d -o CMakeFiles\sovarr.dir\src\sovereign_export.cpp.obj -c C:\Users\jessi\SNAPKITTYWEST\sovereign-array\src\sovereign_export.cpp
+
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sovarr.dir/src/sovereign_export.cpp.i"
+	C:\Strawberry\c\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jessi\SNAPKITTYWEST\sovereign-array\src\sovereign_export.cpp > CMakeFiles\sovarr.dir\src\sovereign_export.cpp.i
+
+CMakeFiles/sovarr.dir/src/sovereign_export.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sovarr.dir/src/sovereign_export.cpp.s"
+	C:\Strawberry\c\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jessi\SNAPKITTYWEST\sovereign-array\src\sovereign_export.cpp -o CMakeFiles\sovarr.dir\src\sovereign_export.cpp.s
+
 # Object files for target sovarr
 sovarr_OBJECTS = \
-"CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj"
+"CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj" \
+"CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj"
 
 # External object files for target sovarr
 sovarr_EXTERNAL_OBJECTS =
 
 libsovarr.a: CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj
+libsovarr.a: CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj
 libsovarr.a: CMakeFiles/sovarr.dir/build.make
 libsovarr.a: CMakeFiles/sovarr.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\jessi\SNAPKITTYWEST\sovereign-array\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libsovarr.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\jessi\SNAPKITTYWEST\sovereign-array\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libsovarr.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\sovarr.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\sovarr.dir\link.txt --verbose=$(VERBOSE)
 

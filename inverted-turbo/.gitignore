@@ -1,0 +1,38 @@
+# Build artifacts
+target/
+dist-newstyle/
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Haskell
+.cabal-sandbox/
+cabal.sandbox.config
+dist/
+.ghc.environment.*
+.cabal-store/
+
+# Rust
+Cargo.lock
+
+# Lean
+lean/.lake/
+lean/lake-packages/
+
+# Nix
+result/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

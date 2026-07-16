@@ -129,6 +129,19 @@ sovarr/fast:
 .PHONY : sovarr/fast
 
 #=============================================================================
+# Target rules for targets named sovarr_shared
+
+# Build rule for target.
+sovarr_shared: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 sovarr_shared
+.PHONY : sovarr_shared
+
+# fast build rule for target.
+sovarr_shared/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/build
+.PHONY : sovarr_shared/fast
+
+#=============================================================================
 # Target rules for targets named sovarr_demo
 
 # Build rule for target.
@@ -184,6 +197,7 @@ src/sovereign_array.obj: src/sovereign_array.cpp.obj
 # target to build an object file
 src/sovereign_array.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_array.cpp.obj
 .PHONY : src/sovereign_array.cpp.obj
 
 src/sovereign_array.i: src/sovereign_array.cpp.i
@@ -192,6 +206,7 @@ src/sovereign_array.i: src/sovereign_array.cpp.i
 # target to preprocess a source file
 src/sovereign_array.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_array.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_array.cpp.i
 .PHONY : src/sovereign_array.cpp.i
 
 src/sovereign_array.s: src/sovereign_array.cpp.s
@@ -200,7 +215,35 @@ src/sovereign_array.s: src/sovereign_array.cpp.s
 # target to generate assembly for a file
 src/sovereign_array.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_array.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_array.cpp.s
 .PHONY : src/sovereign_array.cpp.s
+
+src/sovereign_export.obj: src/sovereign_export.cpp.obj
+.PHONY : src/sovereign_export.obj
+
+# target to build an object file
+src/sovereign_export.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_export.cpp.obj
+.PHONY : src/sovereign_export.cpp.obj
+
+src/sovereign_export.i: src/sovereign_export.cpp.i
+.PHONY : src/sovereign_export.i
+
+# target to preprocess a source file
+src/sovereign_export.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_export.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_export.cpp.i
+.PHONY : src/sovereign_export.cpp.i
+
+src/sovereign_export.s: src/sovereign_export.cpp.s
+.PHONY : src/sovereign_export.s
+
+# target to generate assembly for a file
+src/sovereign_export.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr.dir\build.make CMakeFiles/sovarr.dir/src/sovereign_export.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sovarr_shared.dir\build.make CMakeFiles/sovarr_shared.dir/src/sovereign_export.cpp.s
+.PHONY : src/sovereign_export.cpp.s
 
 test/test.obj: test/test.cpp.obj
 .PHONY : test/test.obj
@@ -236,6 +279,7 @@ help:
 	@echo ... rebuild_cache
 	@echo ... sovarr
 	@echo ... sovarr_demo
+	@echo ... sovarr_shared
 	@echo ... sovarr_test
 	@echo ... src/main.obj
 	@echo ... src/main.i
@@ -243,6 +287,9 @@ help:
 	@echo ... src/sovereign_array.obj
 	@echo ... src/sovereign_array.i
 	@echo ... src/sovereign_array.s
+	@echo ... src/sovereign_export.obj
+	@echo ... src/sovereign_export.i
+	@echo ... src/sovereign_export.s
 	@echo ... test/test.obj
 	@echo ... test/test.i
 	@echo ... test/test.s

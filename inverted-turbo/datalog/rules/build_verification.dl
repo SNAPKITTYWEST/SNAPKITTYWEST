@@ -1,0 +1,49 @@
+% ══════════════════════════════════════════════════════════
+% build_verification.dl — Build Artifact Verification
+% ══════════════════════════════════════════════════════════
+% Verifies that all required build artifacts exist and are consistent.
+
+% --- Input facts ---
+% build_success(TARGET)      — target compiled successfully
+% has_test(TARGET, TEST)     — target has associated test
+% test_pass(TEST)            — test passed
+% has_verifier(TARGET, VER)  — target has WASM verifier
+% verifier_pass(VER)         — verifier passed
+% sealed_to_worm(TARGET)     — target is sealed to WORM chain
+
+% --- Build health ---
+build_healthy(TARGET) :-
+    build_success(TARGET),
+    all_tests_pass(TARGET),
+    has_verifier(TARGET, VER),
+    verifier_pass(VER).
+
+all_tests_pass(TARGET) :-
+    build_success(TARGET),
+    \+ failing_test(TARGET).
+
+failing_test(TARGET) :-
+    has_test(TARGET, TEST),
+    \+ test_pass(TEST).
+
+% Missing verifier for compiled target
+type_error(TARGET, "Missing WASM verifier") :-
+    build_success(TARGET),
+    exported(TARGET),
+    \+ has_verifier(TARGET, _).
+
+% Test failure
+type_error(TARGET, "Test failure") :-
+    has_test(TARGET, TEST),
+    \+ test_pass(TEST).
+
+% Build regression: target compiled but verifier failed
+type_error(TARGET, "Verifier regression") :-
+    build_success(TARGET),
+    has_verifier(TARGET, VER),
+    \+ verifier_pass(VER).
+
+% Sealed but not verified — inconsistency
+type_error(TARGET, "Sealed without verifier") :-
+    sealed_to_worm(TARGET),
+    \+ has_verifier(TARGET, _).

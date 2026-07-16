@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Apple II Universal Machine — SNAPKITTYWEST</title>
+<meta name="description" content="Browser-native sovereign cockpit. GitHub Pages as ROM. Woz Vault as memory. Bifrost as seal."/>
+<style>
+:root{
+  --bg:#040408;--panel:#0a0a14;--border:#1e1e2a;
+  --text:#e8e8f0;--muted:#555;--dim:#2a2a3a;
+  --green:#00ff88;--gold:#ffd700;--blue:#0a84ff;
+  --purple:#bf5af2;--orange:#ff6b00;--red:#ff453a;
+  --mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;}
+.topbar{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.topbar-title{color:var(--orange);font-size:12px;letter-spacing:.12em;}
+.topbar-badge{font-size:10px;padding:2px 7px;border-radius:2px;border:1px solid;letter-spacing:.08em;}
+.badge-bifrost{color:#00d4ff;border-color:#00d4ff44;background:#00d4ff08;}
+.badge-worm{color:var(--green);border-color:#00ff8844;background:#00ff8808;}
+.badge-seal{color:var(--gold);border-color:#ffd70044;background:#ffd70008;}
+.topbar-status{margin-left:auto;font-size:10px;color:var(--muted);}
+.main{display:flex;flex:1;min-height:0;}
+.terminal-wrap{flex:1;display:flex;flex-direction:column;padding:10px 14px;gap:8px;min-width:0;}
+.terminal{flex:1;overflow-y:auto;background:var(--panel);border:1px solid var(--border);border-radius:3px;padding:10px 12px;font-size:12px;line-height:1.7;}
+.terminal::-webkit-scrollbar{width:4px;}
+.terminal::-webkit-scrollbar-track{background:#000;}
+.terminal::-webkit-scrollbar-thumb{background:var(--border);}
+.input-row{display:flex;gap:8px;align-items:center;}
+.prompt{color:var(--orange);font-size:12px;white-space:nowrap;}
+.cmd-input{flex:1;background:transparent;border:none;border-bottom:1px solid var(--border);outline:none;color:var(--text);font-family:var(--mono);font-size:12px;padding:4px 0;}
+.sidebar{width:220px;border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.side-section{padding:10px 12px;border-bottom:1px solid var(--border);}
+.side-label{font-size:9px;color:var(--muted);letter-spacing:.15em;margin-bottom:6px;}
+.side-stat{display:flex;justify-content:space-between;font-size:11px;color:var(--text);margin-bottom:3px;}
+.side-stat span{color:var(--green);}
+.audit-list{flex:1;overflow-y:auto;padding:8px 12px;}
+.audit-entry{font-size:10px;color:var(--muted);padding:2px 0;border-bottom:1px solid #0f0f1a;}
+.audit-entry.sealed{color:#00d4ff;}
+.l-green{color:var(--green);}
+.l-cyan{color:#00d4ff;}
+.l-gold{color:var(--gold);}
+.l-orange{color:var(--orange);}
+.l-white{color:var(--text);}
+.l-dim{color:var(--muted);}
+.l-red{color:var(--red);}
+.back-link{font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em;}
+.back-link:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">&#x2318; APPLE II UNIVERSAL MACHINE</div>
+  <div class="topbar-badge badge-worm">WOZ VAULT</div>
+  <div class="topbar-badge badge-seal" id="seal-badge">SEAL: LOCAL</div>
+  <div class="topbar-badge badge-bifrost" id="bifrost-badge">BIFROST: --</div>
+  <div class="topbar-status" id="top-status">booting...</div>
+  <a href="index.html" class="back-link">&#8592; SNAPKITTYWEST</a>
+</div>
+
+<div class="main">
+  <div class="terminal-wrap">
+    <div class="terminal" id="terminal"></div>
+    <div class="input-row">
+      <span class="prompt">HolySim&gt;</span>
+      <input class="cmd-input" id="cmd-input" type="text" autocomplete="off" autofocus spellcheck="false"/>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="side-section">
+      <div class="side-label">CHAIN STATE</div>
+      <div class="side-stat">VAULT EVENTS <span id="vault-count">0</span></div>
+      <div class="side-stat">SEALS <span id="seal-count">0</span></div>
+      <div class="side-stat">MODE <span id="runtime-mode">holy-sim</span></div>
+      <div class="side-stat">BIFROST <span id="bifrost-height">--</span></div>
+    </div>
+    <div class="side-label" style="padding:8px 12px 2px;">AUDIT LOG</div>
+    <div class="audit-list" id="audit-list"></div>
+  </div>
+</div>
+
+<script>
+var WozVault = {
+  KEY: 'woz_vault_v1',
+  _read: function() {
+    try { return JSON.parse(localStorage.getItem(this.KEY)) || { events: [], snapshots: [] }; }
+    catch(e) { return { events: [], snapshots: [] }; }
+  },
+  _write: function(d) { localStorage.setItem(this.KEY, JSON.stringify(d)); },
+  writeAuditEvent: function(ev) {
+    var d = this._read();
+    var entry = Object.assign({}, ev, { id: 'evt_' + Date.now().toString(36), timestamp: new Date().toISOString() });
+    d.events.push(entry);
+    this._write(d);
+    return entry;
+  },
+  readAuditLog: function() { return this._read().events; },
+  clearVault: function() { localStorage.removeItem(this.KEY); },
+  saveSnapshot: function(snap) {
+    var d = this._read();
+    var entry = Object.assign({}, snap, { id: 'snap_' + Date.now().toString(36), timestamp: new Date().toISOString() });
+    d.snapshots.push(entry);
+    this._write(d);
+    return entry;
+  },
+  readSnapshots: function() { return this._read().snapshots; }
+};
+
+var Seal = {
+  BIFROST_URL: 'http://localhost:7474',
+  _bifrostOnline: null,
+  sha256: async function(input) {
+    var data = new TextEncoder().encode(input);
+    var hash = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hash)).map(function(b) { return b.toString(16).padStart(2,'0'); }).join('');
+  },
+  _probeBifrost: async function() {
+    if (this._bifrostOnline !== null) return this._bifrostOnline;
+    try {
+      var resp = await fetch(this.BIFROST_URL + '/health', {
+        signal: AbortSignal.timeout ? AbortSignal.timeout(1500) : undefined
+      });
+      this._bifrostOnline = resp.ok;
+    } catch(e) { this._bifrostOnline = false; }
+    var self = this;
+    setTimeout(function() { self._bifrostOnline = null; }, 30000);
+    return this._bifrostOnline;
+  },
+  createSeal: async function(payload) {
+    var ts = new Date().toISOString();
+    var raw = JSON.stringify(payload) + '|' + ts;
+    if (await this._probeBifrost()) {
+      try {
+        var resp = await fetch(this.BIFROST_URL + '/api/seal', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ payload: raw }),
+          signal: AbortSignal.timeout ? AbortSignal.timeout(5000) : undefined
+        });
+        if (resp.ok) {
+          var data = await resp.json();
+          return { hash: data.cid, timestamp: ts, payload: payload, ed25519: data.signature, pubkey: data.pubkey, height: data.height, mode: 'bifrost' };
+        }
+      } catch(e) {}
+    }
+    var hash = await this.sha256(raw);
+    return { hash: hash, timestamp: ts, payload: payload, mode: 'local' };
+  }
+};
+
+var term = document.getElementById('terminal');
+var input = document.getElementById('cmd-input');
+var sealTotal = 0;
+
+function print(text, cls) {
+  var d = document.createElement('div');
+  d.className = cls || 'l-green';
+  d.textContent = text;
+  term.appendChild(d);
+  term.scrollTop = term.scrollHeight;
+}
+function prints(text, cls) { text.split('\n').forEach(function(l) { print(l, cls); }); }
+
+function refreshUI() {
+  var events = WozVault.readAuditLog();
+  document.getElementById('vault-count').textContent = events.length;
+  document.getElementById('seal-count').textContent = sealTotal;
+  var list = document.getElementById('audit-list');
+  list.innerHTML = '';
+  events.slice(-20).forEach(function(e) {
+    var div = document.createElement('div');
+    div.className = 'audit-entry' + (e.mode === 'bifrost' ? ' sealed' : '');
+    div.textContent = '[' + (e.timestamp||'').slice(11,19) + '] ' + e.type;
+    list.appendChild(div);
+  });
+  list.scrollTop = list.scrollHeight;
+}
+
+async function probeBifrost() {
+  var online = await Seal._probeBifrost();
+  var badge = document.getElementById('bifrost-badge');
+  if (online) {
+    badge.textContent = 'BIFROST: LIVE';
+    badge.style.color = '#00ff88';
+    badge.style.borderColor = '#00ff8844';
+    document.getElementById('seal-badge').textContent = 'SEAL: ED25519';
+    try {
+      var r = await fetch(Seal.BIFROST_URL + '/api/head');
+      if (r.ok) {
+        var d = await r.json();
+        document.getElementById('bifrost-height').textContent = d.height;
+      }
+    } catch(e) {}
+  } else {
+    badge.textContent = 'BIFROST: OFFLINE';
+  }
+}
+
+async function doSeal(payload) {
+  var s = await Seal.createSeal(payload);
+  sealTotal++;
+  WozVault.writeAuditEvent({ type: 'SEAL_CREATED', seal: s.hash, mode: s.mode });
+  refreshUI();
+  return s;
+}
+
+var COMMANDS = {
+  help: function() {
+    prints(
+      '╔══════════════════════════════════════════════════════════╗\n' +
+      '║  APPLE II UNIVERSAL MACHINE                             ║\n' +
+      '╠══════════════════════════════════════════════════════════╣\n' +
+      '║  help         -- this screen                            ║\n' +
+      '║  boot         -- cold boot + seal                       ║\n' +
+      '║  seal         -- seal current state                     ║\n' +
+      '║  vault        -- show audit log                         ║\n' +
+      '║  bifrost      -- probe bifrost chain server             ║\n' +
+      '║  verify       -- verify bifrost chain                   ║\n' +
+      '║  status       -- runtime + chain status                 ║\n' +
+      '║  export       -- export vault snapshot                  ║\n' +
+      '║  clear-vault  -- wipe local vault (confirm required)    ║\n' +
+      '║  about        -- about this machine                     ║\n' +
+      '╚══════════════════════════════════════════════════════════╝', 'l-cyan');
+  },
+  about: function() {
+    prints(
+      '\n  APPLE II UNIVERSAL MACHINE v2.0 -- The New Apple\n\n' +
+      '  ROM:        GitHub Pages (snapkittywest.github.io)\n' +
+      '  Memory:     Woz Vault (localStorage, local-first)\n' +
+      '  Seal:       SHA-256 local | Ed25519 Bifrost when live\n' +
+      '  Chain:      snap-os Bifrost (localhost:7474)\n' +
+      '  Runtime:    holy-sim | wasm | ollama | webllm\n' +
+      '  Primitives: WozMon . Sweet16 . WozBASIC\n' +
+      '  Kernel:     snap-os (Rust, Cranelift, Ed25519)\n\n' +
+      '  "GitHub Pages as ROM. Woz Vault as memory.\n' +
+      '   Bifrost as the seal. snap-os as the kernel."', 'l-white');
+  },
+  boot: async function() {
+    prints('\n  COLD BOOT SEQUENCE', 'l-orange');
+    var events = WozVault.readAuditLog().length;
+    prints('  [~] vault         --> ' + events + ' events', 'l-dim');
+    var s = await doSeal({ type: 'COLD_BOOT', vaultEvents: events });
+    prints('  [OK] seal         --> ' + s.hash.slice(0,24) + '... (' + s.mode + ')', s.mode === 'bifrost' ? 'l-cyan' : 'l-gold');
+    WozVault.writeAuditEvent({ type: 'COLD_BOOT', agent: 'KERNEL', success: true, mode: s.mode });
+    prints('  [OK] boot complete', 'l-green');
+    document.getElementById('top-status').textContent = 'online . ' + s.mode;
+    refreshUI();
+  },
+  seal: async function(args) {
+    var label = args && args.length ? args.join(' ') : 'manual';
+    var s = await doSeal({ type: 'MANUAL_SEAL', label: label });
+    prints('SEAL (' + s.mode + '): ' + s.hash, s.mode === 'bifrost' ? 'l-cyan' : 'l-gold');
+    if (s.height !== undefined) prints('HEIGHT: ' + s.height, 'l-dim');
+  },
+  vault: function() {
+    var events = WozVault.readAuditLog();
+    if (!events.length) { print('vault is empty', 'l-dim'); return; }
+    prints('\nVAULT -- ' + events.length + ' events', 'l-cyan');
+    events.slice(-20).forEach(function(e) {
+      print('[' + (e.timestamp||'').slice(11,19) + '] ' + e.type + (e.mode ? ' (' + e.mode + ')' : ''), e.mode === 'bifrost' ? 'l-cyan' : 'l-dim');
+    });
+  },
+  bifrost: async function() {
+    print('probing bifrost at localhost:7474...', 'l-dim');
+    await probeBifrost();
+    var online = Seal._bifrostOnline;
+    if (online) {
+      prints('BIFROST: ONLINE', 'l-green');
+      try {
+        var r = await fetch(Seal.BIFROST_URL + '/api/head');
+        var d = await r.json();
+        prints('HEAD: ' + d.cid.slice(0,24) + '...', 'l-cyan');
+        prints('HEIGHT: ' + d.height, 'l-cyan');
+      } catch(e) {}
+    } else {
+      prints('BIFROST: OFFLINE (seals use local SHA-256)', 'l-dim');
+      prints('  run: cargo run -p bifrost-http -- --chain ./chain --port 7474', 'l-dim');
+    }
+  },
+  verify: async function() {
+    if (!Seal._bifrostOnline) { print('bifrost offline -- run bifrost first', 'l-dim'); return; }
+    try {
+      var r = await fetch(Seal.BIFROST_URL + '/api/verify');
+      var d = await r.json();
+      if (d.ok) {
+        prints('CHAIN VERIFY: OK', 'l-green');
+        prints('  events: ' + d.events + '  height: ' + d.height, 'l-dim');
+      } else {
+        prints('CHAIN VERIFY: FAIL', 'l-red');
+        (d.errors || []).forEach(function(e) { print('  ' + e, 'l-red'); });
+      }
+    } catch(e) { print('verify error: ' + e.message, 'l-red'); }
+  },
+  status: async function() {
+    await probeBifrost();
+    prints('\nSYSTEM STATUS', 'l-cyan');
+    prints('  RUNTIME:   holy-sim (JS simulation)', 'l-dim');
+    prints('  VAULT:     ' + WozVault.readAuditLog().length + ' events', 'l-green');
+    prints('  SEALS:     ' + sealTotal + ' this session', 'l-gold');
+    prints('  BIFROST:   ' + (Seal._bifrostOnline ? 'LIVE (Ed25519)' : 'OFFLINE (SHA-256 fallback)'), Seal._bifrostOnline ? 'l-cyan' : 'l-dim');
+  },
+  export: function() {
+    var snap = WozVault.saveSnapshot({ type: 'MANUAL_EXPORT', events: WozVault.readAuditLog() });
+    var blob = new Blob([JSON.stringify(snap, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'woz-vault-snapshot-' + Date.now() + '.json';
+    a.click(); URL.revokeObjectURL(url);
+    print('snapshot exported', 'l-green');
+    refreshUI();
+  },
+  'clear-vault': function(args) {
+    if (!args || args.indexOf('confirm') === -1) {
+      print('clear-vault confirm -- required to wipe', 'l-dim'); return;
+    }
+    WozVault.clearVault();
+    sealTotal = 0;
+    print('vault cleared', 'l-red');
+    refreshUI();
+  }
+};
+
+var cmdHistory = [];
+var histIdx = -1;
+input.addEventListener('keydown', async function(e) {
+  if (e.key === 'Enter') {
+    var raw = input.value.trim();
+    if (!raw) return;
+    cmdHistory.unshift(raw); histIdx = -1;
+    input.value = '';
+    print('HolySim> ' + raw, 'l-dim');
+    var parts = raw.match(/(".*?"|\S+)/g) || [];
+    var cmd = parts[0].toLowerCase();
+    var args = parts.slice(1);
+    if (COMMANDS[cmd]) {
+      try { await COMMANDS[cmd](args); }
+      catch(err) { print('ERROR: ' + err.message, 'l-red'); }
+    } else {
+      print('unknown command: ' + cmd + ' (type help)', 'l-dim');
+    }
+    WozVault.writeAuditEvent({ type: 'CMD', cmd: cmd });
+    refreshUI();
+  } else if (e.key === 'ArrowUp') {
+    histIdx = Math.min(histIdx + 1, cmdHistory.length - 1);
+    input.value = cmdHistory[histIdx] || '';
+  } else if (e.key === 'ArrowDown') {
+    histIdx = Math.max(histIdx - 1, -1);
+    input.value = histIdx >= 0 ? cmdHistory[histIdx] : '';
+  }
+});
+
+(async function() {
+  prints('APPLE II UNIVERSAL MACHINE -- The New Apple', 'l-orange');
+  prints('ROM: snapkittywest.github.io  |  kernel: snap-os  |  seal: Bifrost', 'l-dim');
+  print('', 'l-dim');
+  await probeBifrost();
+  prints('type help for commands', 'l-dim');
+  WozVault.writeAuditEvent({ type: 'PAGE_LOAD', agent: 'KERNEL' });
+  refreshUI();
+  document.getElementById('top-status').textContent = 'ready';
+})();
+</script>
+</body>
+</html>

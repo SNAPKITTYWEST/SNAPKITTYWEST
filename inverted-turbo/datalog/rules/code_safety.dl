@@ -1,0 +1,65 @@
+% ══════════════════════════════════════════════════════════
+% code_safety.dl — Static Analysis via Datalog
+% ══════════════════════════════════════════════════════════
+% General code safety rules derived from AST facts.
+
+% --- Input facts ---
+% declared_func(F)        — function F exists
+% calls(F, G)             — F calls G
+% has_type(F, T)          — F has type T
+% is_pure(F)              — F is side-effect free
+% is_linear(F)            — F consumes its argument exactly once
+% exported(F)             — F is part of the public API
+% has_verify_fn(F)        — F has an associated WASM verifier
+
+% --- Call graph analysis ---
+transitive_call(F, G) :- calls(F, G).
+transitive_call(F, H) :- calls(F, G), transitive_call(G, H).
+
+% Purity propagation: if F calls only pure functions, F is pure
+propagated_pure(F) :-
+    declared_func(F),
+    is_pure(F).
+
+propagated_pure(F) :-
+    declared_func(F),
+    forall_calls_pure(F).
+
+forall_calls_pure(F) :-
+    declared_func(F),
+    \+ impure_callee(F).
+
+impure_callee(F) :-
+    calls(F, G),
+    \+ is_pure(G).
+
+% Linearity check: linear function must not alias its argument
+linear_safe(F) :-
+    is_linear(F),
+    \+ aliases_arg(F).
+
+% Type error: exported function without verifier
+type_error(F, "Exported function missing verifier") :-
+    exported(F),
+    \+ has_verify_fn(F).
+
+% Type error: impure function in trust boundary
+type_error(F, "Impure function in trust boundary") :-
+    calls(F, G),
+    in_trust_boundary(G),
+    \+ is_pure(G).
+
+% Trust boundary (functions that touch WORM chain)
+in_trust_boundary(F) :-
+    declared_func(F),
+    name_contains(F, "worm").
+in_trust_boundary(F) :-
+    declared_func(F),
+    name_contains(F, "seal").
+in_trust_boundary(F) :-
+    declared_func(F),
+    name_contains(F, "verify").
+
+% Recursive check
+type_error(F, "Unbounded recursion detected") :-
+    transitive_call(F, F).

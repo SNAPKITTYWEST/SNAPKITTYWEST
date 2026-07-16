@@ -1,0 +1,63 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050816"/>
+      <stop offset="0.5" stop-color="#0A0F24"/>
+      <stop offset="1" stop-color="#12081E"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="640" y1="330" x2="960" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE071"/>
+      <stop offset="1" stop-color="#F4A300"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="430" y1="250" x2="1140" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF3FD4"/>
+      <stop offset="1" stop-color="#A62BFF"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="410" y1="240" x2="1180" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25E6FF"/>
+      <stop offset="1" stop-color="#00A9FF"/>
+    </linearGradient>
+    <filter id="glowPink" x="280" y="145" width="1040" height="610" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowCyan" x="290" y="150" width="1020" height="600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+
+  <circle cx="800" cy="450" r="320" stroke="#1F2A52" stroke-width="2"/>
+  <circle cx="800" cy="450" r="365" stroke="#2B1842" stroke-width="2"/>
+  <circle cx="800" cy="450" r="405" stroke="#1C355D" stroke-width="2"/>
+
+  <ellipse cx="800" cy="450" rx="330" ry="180" transform="rotate(18 800 450)" stroke="url(#pink)" stroke-width="10" filter="url(#glowPink)"/>
+  <ellipse cx="800" cy="450" rx="300" ry="210" transform="rotate(-22 800 450)" stroke="url(#cyan)" stroke-width="10" filter="url(#glowCyan)"/>
+  <ellipse cx="800" cy="450" rx="255" ry="255" stroke="#F4B522" stroke-opacity="0.65" stroke-width="6"/>
+
+  <circle cx="800" cy="450" r="145" fill="#081224" stroke="#143A59" stroke-width="2"/>
+  <path d="M726 356H774L800 405L826 356H874L825 438L882 544H833L800 486L767 544H718L775 438L726 356Z" fill="url(#gold)"/>
+
+  <circle cx="800" cy="238" r="32" fill="#E1439A"/>
+  <circle cx="610" cy="520" r="30" fill="#425365"/>
+  <circle cx="990" cy="520" r="30" fill="#26DDF5"/>
+
+  <text x="800" y="96" fill="#F7D45A" font-family="Arial, Helvetica, sans-serif" font-size="54" text-anchor="middle" letter-spacing="6">SNAPKITTY ∞</text>
+  <text x="800" y="142" fill="#32E3FF" font-family="Arial, Helvetica, sans-serif" font-size="32" text-anchor="middle" letter-spacing="4">SOVEREIGN COMPUTE ARCHITECTURE</text>
+  <text x="800" y="188" fill="#FF4ED8" font-family="Arial, Helvetica, sans-serif" font-size="26" text-anchor="middle" letter-spacing="7">TRUST · VERIFICATION · EVIDENCE · SOVEREIGNTY</text>
+
+  <rect x="172" y="710" width="1256" height="114" rx="20" fill="#090E1D" stroke="#1F3B63"/>
+  <text x="220" y="758" fill="#F8CC54" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="3">COMMERCIAL PROGRAM</text>
+  <text x="220" y="804" fill="#CDE6FF" font-family="Arial, Helvetica, sans-serif" font-size="24">Community / AGPL modules · Startup $4.9k · Professional $24.9k · Enterprise $79k-$149k · OEM Custom</text>
+
+  <text x="1265" y="758" fill="#2DE5FF" font-family="Arial, Helvetica, sans-serif" font-size="26" text-anchor="end" letter-spacing="2">Ω·I  Ω·II  Ω·III  Ω·IV</text>
+  <text x="1265" y="804" fill="#FF63E5" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="end">Source-visible core · commercial rights available by license</text>
+</svg>

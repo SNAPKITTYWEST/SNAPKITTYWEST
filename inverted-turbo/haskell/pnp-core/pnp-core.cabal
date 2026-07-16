@@ -1,0 +1,45 @@
+cabal-version: 3.0
+name:          pnp-core
+version:       0.1.0.0
+synopsis:      P/NP Swarm core types and verification
+description:
+  Core types for the P/NP Swarm Protocol.
+  Problem registry, claim ledger, solution pool, convergence metrics.
+license:       LicenseRef-SovereignSourceLicense
+author:        Ahmad Ali Parr
+maintainer:    ahmedparr93@gmail.com
+build-type:    Simple
+
+library
+  exposed-modules:
+    PnP.Problem
+    PnP.Claim
+    PnP.Solution
+    PnP.Verify
+    PnP.Convergence
+    PnP.Registry
+  build-depends:
+    base >= 4.18 && < 5,
+    aeson,
+    text,
+    bytestring,
+    cryptonite,
+    memory,
+    containers,
+    time,
+    filepath,
+    directory
+  default-language: GHC2021
+  extensions:
+    DataKinds
+    DeriveGeneric
+    OverloadedStrings
+  ghc-options: -Wall
+
+test-suite pnp-core-test
+  type:          exitcode-stdio-1.0
+  main-is:       Spec.hs
+  hs-source-dirs: test
+  build-depends:  base, pnp-core, tasty, tasty-hunit
+  default-language: GHC2021
+  ghc-options:    -Wall

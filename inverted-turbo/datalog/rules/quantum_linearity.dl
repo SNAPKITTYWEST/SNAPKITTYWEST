@@ -1,0 +1,36 @@
+% ══════════════════════════════════════════════════════════
+% quantum_linearity.dl — No-Cloning Violation Detection
+% ══════════════════════════════════════════════════════════
+% Detects quantum resource linearity violations (no-cloning).
+% A qubit used more than once without explicit copy = error.
+
+% --- Input facts (injected from AST analysis) ---
+% declared_qubit(Q)
+% multiplicity(Q, N)   — how many times Q's resource is used
+
+% --- Derivation rules ---
+
+% Step 1: Every declared qubit is a quantum state
+quantum_state(Q) :- declared_qubit(Q).
+
+% Step 2: Valid multiplicity (N = 1) — single-use qubit
+valid_multiplicity(Q, 1) :-
+    quantum_state(Q),
+    multiplicity(Q, 1).
+
+% Step 3: No-cloning violation (N > 1)
+type_error(Q, "No-Cloning Violation") :-
+    quantum_state(Q),
+    multiplicity(Q, N),
+    gt(N, 1).
+
+% Step 4: Measurement is safe only on single-use qubits
+safe_measurement(Q) :-
+    quantum_state(Q),
+    multiplicity(Q, 1).
+
+% Step 5: Bound check — qubit weight must be ≤ 1.0
+refined_quantum_bound(Q) :-
+    quantum_state(Q),
+    measurement_probability(Q, P),
+    le(P, 1.0).

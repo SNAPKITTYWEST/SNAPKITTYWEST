@@ -1,0 +1,58 @@
+cabal-version: 3.0
+name:          sovereign-twin
+version:       0.1.0.0
+synopsis:      ComputableRefinement Σ-types with ComeFrom control flow
+description:
+  Core library for the Sovereign Twin architecture.
+  ComputableRefinement = Σ (val : α) . P val where P : α → Type.
+  ComeFrom/InvertedBlock threading as computational property payloads.
+  Agda-to-Lisp compiler with linear closure serialization.
+license:       LicenseRef-SovereignSourceLicense
+author:        Ahmad Ali Parr
+maintainer:    ahmedparr93@gmail.com
+build-type:    Simple
+
+library
+  exposed-modules:
+    SovereignTwin.ComputableRefinement
+    SovereignTwin.ComeFrom
+    SovereignTwin.InvertedBlock
+    SovereignTwin.HEq
+    SovereignTwin.Transport
+    SovereignTwin.AST
+    SovereignTwin.SExp
+    SovereignTwin.Resonance
+    SovereignTwin.RexxDaemon
+    SovereignTwin.Kernel
+  build-depends:
+    base >= 4.18 && < 5,
+    text,
+    bytestring,
+    binary,
+    containers,
+    time,
+    filepath,
+    directory
+  default-language: GHC2021
+  extensions:
+    DataKinds
+    GADTs
+    TypeFamilies
+    PolyKinds
+    RankNTypes
+    ScopedTypeVariables
+    ConstraintKinds
+    TypeOperators
+    QuantifiedConstraints
+    UndecidableInstances
+    AllowAmbiguousTypes
+    QualifiedDo
+    GeneralizedNewtypeDeriving
+  ghc-options: -Wall -Wno-unticked-promoted-constructors
+
+executable sovereign-twin-cli
+  main-is:          Main.hs
+  hs-source-dirs:   app
+  build-depends:    base, sovereign-twin, text, bytestring, optparse-applicative, directory
+  default-language: GHC2021
+  ghc-options:      -Wall -threaded

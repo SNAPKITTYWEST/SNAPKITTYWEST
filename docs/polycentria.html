@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Polycentria — Scalar Field Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#000;overflow:hidden;font-family:'Courier New',monospace;}
+canvas{display:block;}
+#hud{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:28px;pointer-events:all;}
+.sl{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.sl label{font-size:9px;color:#444;letter-spacing:.15em;}
+.sl input{-webkit-appearance:none;width:110px;height:2px;background:#111;outline:none;}
+.sl input::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;background:#7c3aed;cursor:pointer;}
+.sl span{font-size:10px;color:#7c3aed;min-width:32px;text-align:center;}
+#lbl{position:fixed;top:14px;left:50%;transform:translateX(-50%);font-size:10px;color:#7c3aed;letter-spacing:.25em;text-shadow:0 0 12px #7c3aed;}
+#hint{position:fixed;top:32px;left:50%;transform:translateX(-50%);font-size:8px;color:#222;letter-spacing:.15em;}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="lbl">⬡ POLYCENTRIA · SHD-CCP · HOPF FIELD ENGINE</div>
+<div id="hint">SPACE = new seed · Z = resonance · R = reset</div>
+<div id="hud">
+  <div class="sl"><label>SPEED</label><input type="range" id="ispeed" min="0.1" max="3" step="0.05" value="1"/><span id="vspeed">1.0</span></div>
+  <div class="sl"><label>TORSION</label><input type="range" id="itorsion" min="0" max="12" step="0.1" value="6"/><span id="vtorsion">6.0</span></div>
+  <div class="sl"><label>SCALE</label><input type="range" id="iscale" min="0.3" max="2" step="0.05" value="1"/><span id="vscale">1.0</span></div>
+  <div class="sl"><label>SEED</label><input type="range" id="iseed" min="1" max="9999" step="1" value="1337"/><span id="vseed">1337</span></div>
+</div>
+
+<script>
+const C = document.getElementById('c');
+const gl = C.getContext('webgl') || C.getContext('experimental-webgl');
+
+function resize() {
+  C.width  = window.innerWidth;
+  C.height = window.innerHeight;
+  gl.viewport(0, 0, C.width, C.height);
+}
+window.addEventListener('resize', resize);
+resize();
+
+// ── Shaders ───────────────────────────────────────────────────────────────────
+
+const VS = `
+attribute vec2 pos;
+void main() { gl_Position = vec4(pos, 0.0, 1.0); }
+`;
+
+const FS = `
+precision mediump float;
+uniform float T;
+uniform vec2  R;
+uniform float SPEED;
+uniform float TORSION;
+uniform float SCALE;
+uniform float SEED;
+
+#define PI  3.14159265358979
+#define TAU 6.28318530717959
+#define PHI 1.61803398874989
+
+// ── Utils ─────────────────────────────────────────────────────────────────────
+
+mat2 rot2(float a) {
+  return mat2(cos(a), -sin(a), sin(a), cos(a));
+}
+
+float hash(float n) { return fract(sin(n) * 43758.5453); }
+float hash(vec2 p)  { return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5); }
+float hash(vec3 p)  {
+  p = fract(p * vec3(127.1, 311.7, 74.7));
+  return fract(sin(dot(p, vec3(269.5, 183.3, 421.9))) * 43758.5);
+}
+
+// ── UFO signed distance ───────────────────────────────────────────────────────
+// lens / saucer: intersection of two spheres
+
+float sdUFO(vec3 p) {
+  // flatten y = saucer disc
+  vec3 q = vec3(p.x, p.y * 4.5, p.z);
+  float body = length(q) - 1.0;
+  // top dome
+  float dome = length(p - vec3(0.0, 0.28, 0.0)) - 0.72;
+  float saucer = max(body, -dome);
+  // engine ring under belly
+  float rr = length(p.xz) - 0.72;
+  float ring = length(vec2(rr, p.y + 0.08)) - 0.07;
+  return min(saucer * 0.22, ring * 0.22);
+}
+
+// ── Trefoil path ──────────────────────────────────────────────────────────────
+
+vec3 trefoil(float t) {
+  return vec3(
+    sin(t) + 2.0 * sin(2.0 * t),
+    cos(t) - 2.0 * cos(2.0 * t),
+    -sin(3.0 * t)
+  ) * 0.18;
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+
+void main() {
+  vec2 uv = (gl_FragCoord.xy - R * 0.5) / min(R.x, R.y);
+  float t = T * SPEED;
+  float sc = SCALE;
+  float seed = SEED;
+
+  // ── Ray ───────────────────────────────────────────────────────────────────
+  vec3 ro = vec3(0.0, 0.0, 3.5);
+  vec3 rd = normalize(vec3(uv * sc, -1.5));
+
+  // Slowly rotate camera — the spinning-screensaver feel
+  float ry = t * 0.18;
+  float rx = sin(t * 0.07) * 0.4;
+  // rotate rd
+  rd.xz = rot2(ry) * rd.xz;
+  rd.yz = rot2(rx) * rd.yz;
+  ro.xz = rot2(ry) * ro.xz;
+  ro.yz = rot2(rx) * ro.yz;
+
+  // ── Volume accumulate ─────────────────────────────────────────────────────
+  vec3 col = vec3(0.0);
+  float alpha = 0.0;
+  float dt = 0.06;
+
+  for (int i = 0; i < 80; i++) {
+    if (alpha > 0.97) break;
+    vec3 p = ro + rd * (dt * float(i));
+
+    // ── UFO density (main body) ──────────────────────────────────────────
+    // Transform to UFO local space (saucer tilted, spinning)
+    vec3 pu = p;
+    pu.xz = rot2(t * 0.4 + TORSION * 0.3) * pu.xz;
+    pu.xy = rot2(sin(t * 0.15) * 0.4) * pu.xy;
+    float sd = sdUFO(pu);
+    float ufo_d = clamp(-sd * 8.0, 0.0, 1.0);
+
+    // ── Trefoil wave glow (energy tendrils) ──────────────────────────────
+    float wave = 0.0;
+    for (int k = 0; k < 3; k++) {
+      float ph = float(k) * TAU / 3.0 + TORSION * 0.4;
+      vec3 tk = trefoil(t * 0.5 + ph) * 1.4;
+      float dist = length(p - tk);
+      wave += exp(-dist * dist * 10.0) * 0.6;
+    }
+
+    // ── Hopf field rings ─────────────────────────────────────────────────
+    float rings = 0.0;
+    float r2 = length(p.xz);
+    rings += exp(-abs(r2 - 0.9) * 18.0) * exp(-p.y*p.y * 8.0) * 0.5;
+    rings += exp(-abs(r2 - 1.4) * 22.0) * exp(-p.y*p.y * 6.0) * 0.3;
+    rings += exp(-abs(r2 - 1.9) * 26.0) * exp(-p.y*p.y * 5.0) * 0.2;
+
+    float dens = (ufo_d * 1.2 + wave * 0.8 + rings * 0.6) * dt;
+
+    if (dens > 0.001) {
+      // ── UFO hull color ─────────────────────────────────────────────
+      float depth = float(i) / 80.0;
+
+      // Base: deep indigo → electric violet
+      vec3 c = mix(
+        vec3(0.15, 0.02, 0.55),  // deep indigo
+        vec3(0.5,  0.1,  1.0),   // electric violet
+        ufo_d
+      );
+
+      // Underside glow: cyan energy
+      float belly = exp(-(pu.y + 0.3) * (pu.y + 0.3) * 20.0);
+      c = mix(c, vec3(0.0, 0.9, 1.0), belly * ufo_d * 0.7);
+
+      // Engine ring: pulsing green
+      float ring_pulse = sin(t * 4.0) * 0.5 + 0.5;
+      c += vec3(0.1, 1.0, 0.4) * ring_pulse * ufo_d * 0.5;
+
+      // Trefoil tendrils: magenta/purple
+      c = mix(c, vec3(0.9, 0.0, 0.7), wave * 0.6);
+
+      // Hopf rings: cold blue
+      c = mix(c, vec3(0.0, 0.5, 1.0), rings * 0.8);
+
+      // Depth falloff
+      c *= 1.0 - depth * 0.6;
+
+      col   += c * dens * (1.0 - alpha);
+      alpha += dens * (1.0 - alpha) * 0.8;
+    }
+  }
+
+  // ── Background: deep space ────────────────────────────────────────────────
+  // Slow dark-purple nebula wisps
+  float neb = hash(rd * vec3(3.1, 7.3, 2.9) + seed * 0.001) * 0.12;
+  neb += hash(rd * vec3(5.7, 2.1, 8.4) + seed * 0.002) * 0.06;
+  vec3 bg = mix(vec3(0.0, 0.0, 0.015), vec3(0.06, 0.0, 0.15), neb);
+
+  // Stars
+  float st = pow(hash(floor(rd * 200.0 + seed)), 22.0);
+  bg += vec3(0.6, 0.7, 1.0) * st;
+
+  // Final composite
+  vec3 final = col + bg * (1.0 - alpha);
+
+  // Tone map + gamma
+  final = final / (final + 0.8);
+  final = pow(final, vec3(0.42));
+
+  // Vignette
+  float vig = 1.0 - dot(uv, uv) * 0.45;
+  final *= vig;
+
+  gl_FragColor = vec4(final, 1.0);
+}
+`;
+
+// ── Compile ───────────────────────────────────────────────────────────────────
+
+function mk(type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+    console.error('SHADER ERROR:', gl.getShaderInfoLog(s));
+    return null;
+  }
+  return s;
+}
+
+const prog = gl.createProgram();
+const vs = mk(gl.VERTEX_SHADER, VS);
+const fs = mk(gl.FRAGMENT_SHADER, FS);
+if (!vs || !fs) {
+  document.body.innerHTML = '<div style="color:#ff453a;font-family:monospace;padding:40px">SHADER COMPILE ERROR — check console (F12)</div>';
+} else {
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const al = gl.getAttribLocation(prog, 'pos');
+  gl.enableVertexAttribArray(al);
+  gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
+
+  const U = {
+    T:       gl.getUniformLocation(prog, 'T'),
+    R:       gl.getUniformLocation(prog, 'R'),
+    SPEED:   gl.getUniformLocation(prog, 'SPEED'),
+    TORSION: gl.getUniformLocation(prog, 'TORSION'),
+    SCALE:   gl.getUniformLocation(prog, 'SCALE'),
+    SEED:    gl.getUniformLocation(prog, 'SEED'),
+  };
+
+  const state = { speed: 1, torsion: 6, scale: 1, seed: 1337 };
+
+  function wire(id, vid, key, fmt) {
+    const el = document.getElementById(id);
+    const vl = document.getElementById(vid);
+    el.addEventListener('input', () => {
+      state[key] = parseFloat(el.value);
+      vl.textContent = fmt(state[key]);
+    });
+  }
+  wire('ispeed',   'vspeed',   'speed',   v => v.toFixed(1));
+  wire('itorsion', 'vtorsion', 'torsion', v => v.toFixed(1));
+  wire('iscale',   'vscale',   'scale',   v => v.toFixed(1));
+  wire('iseed',    'vseed',    'seed',    v => Math.floor(v));
+
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Space') {
+      state.seed = Math.random() * 9999 | 0;
+      document.getElementById('iseed').value = state.seed;
+      document.getElementById('vseed').textContent = state.seed;
+    }
+    if (e.key === 'r' || e.key === 'R') {
+      state.speed=1; state.torsion=6; state.scale=1; state.seed=1337;
+      ['speed','torsion','scale','seed'].forEach(k => {
+        document.getElementById('i'+k).value = state[k];
+        document.getElementById('v'+k).textContent = k==='seed'?state[k]:state[k].toFixed(1);
+      });
+    }
+    if (e.key === 'z' || e.key === 'Z') {
+      state.torsion = 12;
+      document.getElementById('itorsion').value = 12;
+      document.getElementById('vtorsion').textContent = '12.0';
+    }
+  });
+
+  const t0 = performance.now();
+  function frame() {
+    requestAnimationFrame(frame);
+    const t = (performance.now() - t0) / 1000;
+    gl.uniform1f(U.T,       t);
+    gl.uniform2f(U.R,       C.width, C.height);
+    gl.uniform1f(U.SPEED,   state.speed);
+    gl.uniform1f(U.TORSION, state.torsion);
+    gl.uniform1f(U.SCALE,   state.scale);
+    gl.uniform1f(U.SEED,    state.seed);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  frame();
+}
+</script>
+</body>
+</html>

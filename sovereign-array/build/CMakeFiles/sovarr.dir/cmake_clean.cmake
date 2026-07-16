@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj"
   "CMakeFiles/sovarr.dir/src/sovereign_array.cpp.obj.d"
+  "CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj"
+  "CMakeFiles/sovarr.dir/src/sovereign_export.cpp.obj.d"
   "libsovarr.a"
   "libsovarr.pdb"
 )

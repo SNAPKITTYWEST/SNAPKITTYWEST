@@ -1,0 +1,27 @@
+{
+  "MISTRAL_API_KEY": {
+    "iv": "120d38b21005e57433584f62",
+    "tag": "9d83d80dee05d69d5a306f44f58cad77",
+    "data": "cbc403d39916f0194a5e261aa0d0becdb9c0e7b3a36485cc2e818dca0f272138"
+  },
+  "DDG_API_KEY": {
+    "iv": "c879fb7233e786ea698fcdfd",
+    "tag": "0d46a91340beb4ec5180022495f73d85",
+    "data": "2840f5532a4d2ed8476cb225d8b4caf356a92c75cf68c20d"
+  },
+  "MW_DICT_KEY": {
+    "iv": "97e8cd667cae0d79c7b04385",
+    "tag": "e2df0a48fccda20e7b1f73b45cdd5f1d",
+    "data": "b5089feceacf4c2895f28fd2fa14895589d00821cde8fcf2d10549be7b7877e3883dd2af"
+  },
+  "MW_THESAURUS_KEY": {
+    "iv": "840d966a6dc44f4ac3a06e03",
+    "tag": "0bf904542881b34acacc1c7c7faea786",
+    "data": "b13a38f8bcf69892087c9cbbbd90152a11c4cbef37426ffcfac07c9aab3961c2b9d91631"
+  },
+  "CF_ZONE_ROUTES_TOKEN": {
+    "iv": "21ca2c1690c398c7cd9c545e",
+    "tag": "96009c3d9c2d4cdb6f2cc3355c71874a",
+    "data": "0944b18b0a6819b43b16b8635ee61261b31494e0eab17faf8c62545c934be2b8d713241a6fea4c2d8ef823dee88ef1821e922dea78"
+  }
+}
