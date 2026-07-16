@@ -1,0 +1,7 @@
+{
+  "name": "@resonance-block/contractivity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Layer 10 — Contractivity math: Banach fixed-point, contraction constant k in (0,1], T_inf bound."
+}

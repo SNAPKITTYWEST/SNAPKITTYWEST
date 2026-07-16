@@ -1,0 +1,47 @@
+name: Resonance Block — Assemble & Verify
+
+on:
+  push:
+    paths:
+      - "resonance-block/**"
+      - "inverted-turbo/datalog/**"
+  pull_request:
+    paths:
+      - "resonance-block/**"
+      - "inverted-turbo/datalog/**"
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: resonance-block
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need the sibling inverted-turbo datalog engine for the gate.
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Assemble the Resonance Block
+        run: |
+          node layers/repo-assembly/assemble.mjs \
+            --repo . \
+            --facts ../inverted-turbo/datalog/facts/generated.dl \
+            --dir  ../inverted-turbo/datalog/rules
+
+      - name: Upload assembly report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: assembly-report
+          path: resonance-block/assembly-report.json
+
+      # Forge the WORM seal into the job summary for traceability.
+      - name: Summarize WORM seal
+        if: always()
+        run: |
+          node -e "const r=require('./assembly-report.json');console.log('## Resonance Block assembly\n\n- VERDICT: **'+r.verdict+'**\n- block k: '+r.block_contractivity.k+'\n- WORM seal: `'+r.worm_seal+'`')" >> "$GITHUB_STEP_SUMMARY"

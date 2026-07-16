@@ -1,0 +1,21 @@
+{
+  "id": "resonance-block",
+  "version": "0.1.0",
+  "title": "Resonance Block — 11-Layer Sovereign Verification Scaffold",
+  "description": "Layered architecture. Layers 1-7 (veneer) were synthesized in a prior session. Layers 8-11 are scaffolded in this repo.",
+  "layers": [
+    { "index": 1,  "name": "@veneer/lean",     "status": "synthesized", "dir": "layers/veneer-lean" },
+    { "index": 2,  "name": "constitution",      "status": "synthesized", "dir": "layers/constitution" },
+    { "index": 3,  "name": "trust",             "status": "synthesized", "dir": "layers/trust" },
+    { "index": 4,  "name": "triple-lock",       "status": "synthesized", "dir": "layers/triple-lock" },
+    { "index": 5,  "name": "bob-gate",          "status": "synthesized", "dir": "layers/bob-gate" },
+    { "index": 6,  "name": "worm",              "status": "synthesized", "dir": "layers/worm" },
+    { "index": 7,  "name": "metatron",          "status": "synthesized", "dir": "layers/metatron" },
+    { "index": 8,  "name": "source",            "status": "scaffolded",  "dir": "layers/source" },
+    { "index": 9,  "name": "datalog",           "status": "scaffolded",  "dir": "layers/datalog" },
+    { "index": 10, "name": "contractivity",     "status": "scaffolded",  "dir": "layers/contractivity" },
+    { "index": 11, "name": "repo-assembly",     "status": "scaffolded",  "dir": "layers/repo-assembly" }
+  ],
+  "contractivity_requirement": "Every layer that emits a verdict must report a contractivity_score in (0, 1] (Banach precondition). k <= 0 => non-contractive (T_inf undefined); k > 1 => expansive (Banach FP fails).",
+  "worm_seal": "SHA-256 of the full assembled layer manifest, produced by repo-assembly."
+}

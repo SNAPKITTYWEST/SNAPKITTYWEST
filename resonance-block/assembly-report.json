@@ -1,0 +1,84 @@
+{
+  "layers": [
+    {
+      "name": "source",
+      "index": 8,
+      "contractivity_score": 0.5,
+      "worm_head": "c74b5a60",
+      "fileCount": 22,
+      "ok": true
+    },
+    {
+      "name": "datalog",
+      "index": 9,
+      "contractivity_score": 1,
+      "verdict": "PASS",
+      "violations": 0,
+      "ok": true
+    },
+    {
+      "name": "contractivity",
+      "index": 10,
+      "contractivity_score": 0.618,
+      "ok": true
+    },
+    {
+      "name": "@veneer/lean",
+      "index": 1,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "constitution",
+      "index": 2,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "trust",
+      "index": 3,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "triple-lock",
+      "index": 4,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "bob-gate",
+      "index": 5,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "worm",
+      "index": 6,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    },
+    {
+      "name": "metatron",
+      "index": 7,
+      "contractivity_score": 0.5,
+      "synthesized": true,
+      "ok": true
+    }
+  ],
+  "block_contractivity": {
+    "k": 1,
+    "status": "contractive",
+    "ok": true
+  },
+  "verdict": "EVIDENCE",
+  "worm_seal": "0d384ae41f704030508e3166df76ac68e65c283d910337c211eb15ca6649becd",
+  "ts": 1784184861065,
+  "contractivity_seal": "cfb95a0dbaf3113baa5c7c251b5ab53632f37399da61c7c9a3d813d75eba9323"
+}
