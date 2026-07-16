@@ -309,7 +309,7 @@ export async function executeTool(name: string, args: Record<string, string>): P
     }
 
     case "web_verify": {
-      const { webVerify } = await import("./web-verify.mjs");
+      const { webVerify } = await import("./web-verify");
       const apiKey = process.env.TAVILY_API_KEY;
       if (!apiKey) return "TAVILY_API_KEY not set in .env";
       console.log(`\n[TOOL web_verify] query: ${args.query}`);
