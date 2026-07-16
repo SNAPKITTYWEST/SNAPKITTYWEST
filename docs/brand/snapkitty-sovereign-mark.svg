@@ -1,63 +1,76 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SNAPKITTYWEST Sovereign Lattice Mark</title>
+  <desc id="desc">Original SNAPKITTYWEST brand mark showing a sovereign compute lattice, verification spine, evidence gates, and WORM seal paths.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#050816"/>
-      <stop offset="0.5" stop-color="#0A0F24"/>
-      <stop offset="1" stop-color="#12081E"/>
+    <linearGradient id="skyline" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.42" stop-color="#10263b"/>
+      <stop offset="1" stop-color="#170d2c"/>
     </linearGradient>
-    <linearGradient id="gold" x1="640" y1="330" x2="960" y2="570" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFE071"/>
-      <stop offset="1" stop-color="#F4A300"/>
+    <linearGradient id="wire" x1="280" y1="220" x2="1320" y2="690" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#48f4df"/>
+      <stop offset="0.48" stop-color="#ffd15c"/>
+      <stop offset="1" stop-color="#ff5aa8"/>
     </linearGradient>
-    <linearGradient id="pink" x1="430" y1="250" x2="1140" y2="680" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FF3FD4"/>
-      <stop offset="1" stop-color="#A62BFF"/>
+    <linearGradient id="core" x1="638" y1="268" x2="960" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff2a8"/>
+      <stop offset="0.55" stop-color="#46f0d6"/>
+      <stop offset="1" stop-color="#6d7cff"/>
     </linearGradient>
-    <linearGradient id="cyan" x1="410" y1="240" x2="1180" y2="700" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#25E6FF"/>
-      <stop offset="1" stop-color="#00A9FF"/>
-    </linearGradient>
-    <filter id="glowPink" x="280" y="145" width="1040" height="610" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
+    <filter id="soft-light" x="120" y="70" width="1360" height="760" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="glowCyan" x="290" y="150" width="1020" height="600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="9" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <pattern id="ticks" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M0 80H80V0" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
   </defs>
 
-  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#skyline)"/>
+  <rect width="1600" height="900" fill="url(#ticks)"/>
+  <path d="M120 700C310 616 440 626 612 690C758 744 900 726 1058 640C1220 552 1360 542 1480 604" fill="none" stroke="#67ead7" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M120 228C320 302 470 282 630 214C772 154 916 170 1064 248C1224 332 1358 344 1480 286" fill="none" stroke="#ffcf66" stroke-opacity="0.2" stroke-width="2"/>
 
-  <circle cx="800" cy="450" r="320" stroke="#1F2A52" stroke-width="2"/>
-  <circle cx="800" cy="450" r="365" stroke="#2B1842" stroke-width="2"/>
-  <circle cx="800" cy="450" r="405" stroke="#1C355D" stroke-width="2"/>
+  <g filter="url(#soft-light)">
+    <path d="M282 450L482 252H1118L1318 450L1118 648H482L282 450Z" fill="#08182a" stroke="url(#wire)" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M482 252L800 450L1118 252M482 648L800 450L1118 648M282 450H1318" fill="none" stroke="#c9f9ff" stroke-opacity="0.34" stroke-width="3"/>
 
-  <ellipse cx="800" cy="450" rx="330" ry="180" transform="rotate(18 800 450)" stroke="url(#pink)" stroke-width="10" filter="url(#glowPink)"/>
-  <ellipse cx="800" cy="450" rx="300" ry="210" transform="rotate(-22 800 450)" stroke="url(#cyan)" stroke-width="10" filter="url(#glowCyan)"/>
-  <ellipse cx="800" cy="450" rx="255" ry="255" stroke="#F4B522" stroke-opacity="0.65" stroke-width="6"/>
+    <g fill="#0e263f" stroke="#53eadb" stroke-width="4">
+      <rect x="394" y="206" width="178" height="92" rx="10"/>
+      <rect x="1028" y="206" width="178" height="92" rx="10"/>
+      <rect x="394" y="602" width="178" height="92" rx="10"/>
+      <rect x="1028" y="602" width="178" height="92" rx="10"/>
+    </g>
 
-  <circle cx="800" cy="450" r="145" fill="#081224" stroke="#143A59" stroke-width="2"/>
-  <path d="M726 356H774L800 405L826 356H874L825 438L882 544H833L800 486L767 544H718L775 438L726 356Z" fill="url(#gold)"/>
+    <g font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle">
+      <text x="483" y="246" fill="#e9fffb" font-size="24" letter-spacing="2">TRUST</text>
+      <text x="1117" y="246" fill="#e9fffb" font-size="24" letter-spacing="2">PROOF</text>
+      <text x="483" y="642" fill="#e9fffb" font-size="24" letter-spacing="2">WORM</text>
+      <text x="1117" y="642" fill="#e9fffb" font-size="24" letter-spacing="2">AGENTS</text>
+    </g>
 
-  <circle cx="800" cy="238" r="32" fill="#E1439A"/>
-  <circle cx="610" cy="520" r="30" fill="#425365"/>
-  <circle cx="990" cy="520" r="30" fill="#26DDF5"/>
+    <path d="M702 305H898L998 450L898 595H702L602 450L702 305Z" fill="#0b1730" stroke="#fff0a0" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M758 365H842L886 450L842 535H758L714 450L758 365Z" fill="url(#core)" stroke="#f7fff6" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M800 320V580M670 450H930M728 378L872 522M872 378L728 522" stroke="#07111f" stroke-opacity="0.66" stroke-width="9" stroke-linecap="round"/>
+    <path d="M800 326V574M676 450H924M734 384L866 516M866 384L734 516" stroke="#f8fffb" stroke-width="3" stroke-linecap="round"/>
 
-  <text x="800" y="96" fill="#F7D45A" font-family="Arial, Helvetica, sans-serif" font-size="54" text-anchor="middle" letter-spacing="6">SNAPKITTY ∞</text>
-  <text x="800" y="142" fill="#32E3FF" font-family="Arial, Helvetica, sans-serif" font-size="32" text-anchor="middle" letter-spacing="4">SOVEREIGN COMPUTE ARCHITECTURE</text>
-  <text x="800" y="188" fill="#FF4ED8" font-family="Arial, Helvetica, sans-serif" font-size="26" text-anchor="middle" letter-spacing="7">TRUST · VERIFICATION · EVIDENCE · SOVEREIGNTY</text>
+    <g fill="#ffd15c">
+      <circle cx="282" cy="450" r="13"/>
+      <circle cx="482" cy="252" r="13"/>
+      <circle cx="1118" cy="252" r="13"/>
+      <circle cx="1318" cy="450" r="13"/>
+      <circle cx="1118" cy="648" r="13"/>
+      <circle cx="482" cy="648" r="13"/>
+    </g>
+  </g>
 
-  <rect x="172" y="710" width="1256" height="114" rx="20" fill="#090E1D" stroke="#1F3B63"/>
-  <text x="220" y="758" fill="#F8CC54" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="3">COMMERCIAL PROGRAM</text>
-  <text x="220" y="804" fill="#CDE6FF" font-family="Arial, Helvetica, sans-serif" font-size="24">Community / AGPL modules · Startup $4.9k · Professional $24.9k · Enterprise $79k-$149k · OEM Custom</text>
-
-  <text x="1265" y="758" fill="#2DE5FF" font-family="Arial, Helvetica, sans-serif" font-size="26" text-anchor="end" letter-spacing="2">Ω·I  Ω·II  Ω·III  Ω·IV</text>
-  <text x="1265" y="804" fill="#FF63E5" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="end">Source-visible core · commercial rights available by license</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="800" y="104" fill="#f7fbff" font-size="58" font-weight="800" letter-spacing="5">SNAPKITTYWEST</text>
+    <text x="800" y="158" fill="#78f1df" font-size="28" font-weight="700" letter-spacing="8">SOVEREIGN COMPUTE LATTICE</text>
+    <text x="800" y="798" fill="#f7fbff" font-size="28" font-weight="700" letter-spacing="4">VERIFIABLE TRUST - WORM EVIDENCE - LIVE AGENT MESH</text>
+    <text x="800" y="840" fill="#ffd15c" font-size="20" font-weight="600" letter-spacing="3">ORIGINAL VECTOR MARK / NO RASTER IMAGE / NO EXTERNAL ASSETS</text>
+  </g>
 </svg>
