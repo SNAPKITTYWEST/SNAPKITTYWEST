@@ -32,7 +32,9 @@ library
     containers,
     time,
     filepath,
-    directory
+    directory,
+    process,
+    raw-strings-qq
   default-language: GHC2021
   extensions:
     DataKinds
@@ -53,6 +55,6 @@ library
 executable sovereign-twin-cli
   main-is:          Main.hs
   hs-source-dirs:   app
-  build-depends:    base, sovereign-twin, text, bytestring, optparse-applicative, directory
+  build-depends:    base, sovereign-twin, text, bytestring, directory
   default-language: GHC2021
-  ghc-options:      -Wall -threaded
+  ghc-options:      -Wall -threaded -rtsopts

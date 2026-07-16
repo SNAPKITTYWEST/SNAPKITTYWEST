@@ -1,13 +1,28 @@
 {
   "name": "snapkittywest",
   "version": "1.0.0",
-  "description": "SnapKitty Sovereign Compute — Claude API integration",
+  "description": "SnapKitty Sovereign Compute — inverted monorepo digital twin",
   "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "claude": "npx tsx claude.ts",
     "router": "npx tsx sovereign-router.ts",
     "vault:seal": "npx tsx vault.ts seal",
-    "build": "tsc --noEmit"
+    "build": "tsc --noEmit && npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "verify:all": "npm run test && npm run build && npm run digital-twin:status",
+    "shadow:demo": "npm run demo -w @snapkittywest/shadow-orchestrator",
+    "shadow:start": "npm run start -w @snapkittywest/shadow-orchestrator",
+    "ransom-worm:relay": "npm run relay -w @snapkittywest/ransom-worm",
+    "ransom-worm:once": "npm run once -w @snapkittywest/ransom-worm",
+    "ransom-worm:dry": "npm run resurrect:dry -w @snapkittywest/ransom-worm --",
+    "graveyard:dry": "npm run graveyard:dry -w @snapkittywest/ransom-worm --",
+    "graveyard:all:dry": "npm run graveyard:all:dry -w @snapkittywest/ransom-worm",
+    "graveyard:run": "npm run graveyard -w @snapkittywest/ransom-worm --",
+    "digital-twin:status": "node tools/digital-twin/status.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.54.0",
@@ -16,7 +31,13 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

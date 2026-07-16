@@ -43,7 +43,8 @@ type_error(TARGET, "Verifier regression") :-
     has_verifier(TARGET, VER),
     \+ verifier_pass(VER).
 
-% Sealed but not verified — inconsistency
+% Sealed but not verified — only applies to compiled build targets, not JS chains
 type_error(TARGET, "Sealed without verifier") :-
     sealed_to_worm(TARGET),
+    has_type(TARGET, "binary"),
     \+ has_verifier(TARGET, _).

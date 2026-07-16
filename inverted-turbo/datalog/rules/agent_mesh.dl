@@ -1,0 +1,44 @@
+% ══════════════════════════════════════════════════════════
+% agent_mesh.dl — Cross-package agent mesh invariants
+% ══════════════════════════════════════════════════════════
+% Negation-as-failure here is only over EDB (base facts),
+% not over derived predicates, to stay safe with naive bottom-up eval.
+
+% --- Input facts (injected by generate_facts.mjs) ---
+% declared_func(F)
+% has_type(F, T)
+% sealed_to_worm(TARGET)
+% is_pure(F)
+
+% --- Violations (EDB-only negation) ---
+
+% JS chain sealed but appendEvent not declared
+type_error("shadow-orchestrator", "WORM page not wired — appendEvent missing") :-
+    sealed_to_worm("ransom-worm-chain"),
+    \+ declared_func("appendEvent").
+
+% JS chain sealed but verifyChain not declared
+type_error("shadow-orchestrator", "WORM page not wired — verifyChain missing") :-
+    sealed_to_worm("ransom-worm-chain"),
+    \+ declared_func("verifyChain").
+
+% ShadowOrchestrator declared but JS chain not sealed
+type_error("ransom-worm-chain", "ShadowOrchestrator present but WORM chain ledger not sealed") :-
+    declared_func("ShadowOrchestrator"),
+    \+ sealed_to_worm("ransom-worm-chain").
+
+% ShadowOrchestrator declared but Kernel not in mesh
+type_error("mesh", "ShadowOrchestrator wired but SovereignTwin.Kernel absent") :-
+    declared_func("ShadowOrchestrator"),
+    \+ has_type("SovereignTwin.Kernel", "haskell_module").
+
+% Graveyard registered but orchestrate not present — flicker gate has no dispatcher
+type_error("graveyard", "graveyard agent present but orchestrate dispatcher absent") :-
+    has_type("graveyard", "flicker_gate"),
+    \+ declared_func("orchestrate").
+
+% Orchestrate present but graveyard not wired — constellation has no flicker gate
+type_error("graveyard", "orchestrate present but graveyard flicker gate not wired") :-
+    declared_func("orchestrate"),
+    declared_func("ShadowOrchestrator"),
+    \+ has_type("graveyard", "flicker_gate").

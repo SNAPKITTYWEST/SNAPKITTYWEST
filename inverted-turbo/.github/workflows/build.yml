@@ -10,6 +10,9 @@ jobs:
   haskell:
     name: Haskell
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: inverted-turbo
     steps:
       - uses: actions/checkout@v4
       - uses: haskell-actions/setup@v2
@@ -23,6 +26,9 @@ jobs:
   rust:
     name: Rust
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: inverted-turbo
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -32,12 +38,15 @@ jobs:
   lean:
     name: Lean 4
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: inverted-turbo/lean
     steps:
       - uses: actions/checkout@v4
       - uses: leanprover/lean4-action@v1
         with:
           lean-version: 'leanprover/lean4:v4.19.0'
-      - run: cd lean && lake build
+          working-directory: inverted-turbo/lean
 
   datalog:
     name: Datalog Verification (linter replacement)
@@ -51,9 +60,11 @@ jobs:
           node-version: '22'
 
       - name: Generate facts from build state
-        run: node datalog/scripts/generate_facts.mjs
+        working-directory: inverted-turbo
+        run: node datalog/scripts/generate_facts.mjs --repo-root .
 
       - name: Datalog verification gate (replaces linter)
+        working-directory: inverted-turbo
         run: |
           echo "═════════════════════════════════════════════════"
           echo "  SNAPKITTYWEST Datalog Verification Gate"
@@ -65,6 +76,7 @@ jobs:
             --query "type_error(Var, Msg)"
 
       - name: Datalog detector self-test (must catch No-Cloning)
+        working-directory: inverted-turbo
         run: |
           echo "── Detector self-test: engine must FIRE on known-bad trace ──"
           node datalog/engine.mjs \
@@ -84,4 +96,6 @@ jobs:
           echo "Sealing to WORM chain..."
           TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           HASH=$(echo -n "$TIMESTAMP" | sha256sum | cut -d' ' -f1)
-          echo "{\"timestamp\":\"$TIMESTAMP\",\"hash\":\"$HASH\",\"event\":\"build_sealed\"}" >> worm/build_ledger.jsonl
+          mkdir -p inverted-turbo/worm
+          echo "{\"timestamp\":\"$TIMESTAMP\",\"hash\":\"$HASH\",\"event\":\"build_sealed\"}" \
+            >> inverted-turbo/worm/build_ledger.jsonl

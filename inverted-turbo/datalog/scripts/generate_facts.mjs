@@ -6,11 +6,14 @@
  * Output: datalog/facts/generated.dl
  */
 
-import { existsSync, writeFileSync, readdirSync, statSync } from "fs";
-import { join, basename } from "path";
-import { execSync } from "child_process";
+import { existsSync, writeFileSync, readdirSync, readFileSync } from "fs";
+import { join, resolve } from "path";
 
-const ROOT = import.meta.dirname + "/../..";
+// Allow CI to pass --repo-root <path> so cross-repo paths resolve correctly
+const rootArgIdx = process.argv.indexOf("--repo-root");
+const ROOT = rootArgIdx !== -1
+  ? resolve(process.argv[rootArgIdx + 1])
+  : resolve(import.meta.dirname + "/../..");
 const OUT = join(ROOT, "datalog", "facts", "generated.dl");
 
 const facts = [];
@@ -70,7 +73,7 @@ for (const mod of hsModules) {
 const pnpRegistry = join(ROOT, "../snapkitty-agentos/.agentos/pnp/problem_registry.json");
 if (existsSync(pnpRegistry)) {
   try {
-    const reg = JSON.parse(require("fs").readFileSync(pnpRegistry, "utf8"));
+    const reg = JSON.parse(readFileSync(pnpRegistry, "utf8"));
     for (const p of reg.problems || []) {
       fact("declared_func", p.id);
       fact("has_type", p.id, p.difficulty);
@@ -92,10 +95,62 @@ if (existsSync(wasmDir)) {
   }
 }
 
-// ─── WORM seal state ────────────────────────────────────────────────────────
+// ─── WORM seal state (plasma gate) ──────────────────────────────────────────
 const wormLedger = join(ROOT, "../snapkitty-agentos/.agentos/plasma_gate/pubkey.pem");
 if (existsSync(wormLedger)) {
   fact("sealed_to_worm", "plasma_gate");
+}
+
+// ─── ransom-worm JS chain (monorepo packages/ransom-worm) ───────────────────
+// ROOT is inverted-turbo/; monorepo root is one level up
+const monoRoot = join(ROOT, "..");
+const ransomWormLedger = join(monoRoot, "packages", "ransom-worm", "worm-ledger.json");
+if (existsSync(ransomWormLedger)) {
+  try {
+    const ledger = JSON.parse(readFileSync(ransomWormLedger, "utf8"));
+    const entries = Array.isArray(ledger.entries) ? ledger.entries.length : 0;
+    fact("sealed_to_worm", "ransom-worm-chain");
+    fact("has_type", "ransom-worm-chain", "js_worm_chain");
+    // Surface head seal so build_verification rules can check it
+    if (ledger.head) {
+      fact("declared_func", `worm_head:${ledger.head}`);
+    }
+    // Each agent in the last entry becomes a declared function
+    const last = Array.isArray(ledger.entries) && ledger.entries[ledger.entries.length - 1];
+    if (last && last.agent) {
+      fact("declared_func", last.agent);
+      fact("has_type", last.agent, "worm_agent");
+    }
+  } catch {}
+}
+
+// ─── shadow-orchestrator (packages/shadow-orchestrator) ─────────────────────
+const shadowMain = join(monoRoot, "packages", "shadow-orchestrator", "main.ts");
+if (existsSync(shadowMain)) {
+  fact("declared_func", "ShadowOrchestrator");
+  fact("has_type", "ShadowOrchestrator", "ts_orchestrator");
+}
+
+const shadowWormPage = join(monoRoot, "packages", "shadow-orchestrator", "pages", "00-worm", "index.ts");
+if (existsSync(shadowWormPage)) {
+  fact("declared_func", "appendEvent");
+  fact("declared_func", "verifyChain");
+  fact("is_pure", "verifyChain");
+  fact("has_type", "appendEvent", "worm_primitive");
+}
+
+// ─── ransom-worm agents (graveyard + orchestrate) ───────────────────────────
+const graveyardAgent = join(monoRoot, "packages", "ransom-worm", "agents", "graveyard.mjs");
+if (existsSync(graveyardAgent)) {
+  fact("declared_func", "graveyard");
+  fact("has_type", "graveyard", "worm_agent");
+  fact("has_type", "graveyard", "flicker_gate");
+}
+
+const orchestrateAgent = join(monoRoot, "packages", "ransom-worm", "agents", "orchestrate.mjs");
+if (existsSync(orchestrateAgent)) {
+  fact("declared_func", "orchestrate");
+  fact("has_type", "orchestrate", "worm_agent");
 }
 
 // ─── Write output ────────────────────────────────────────────────────────────

@@ -158,6 +158,12 @@ Commercial licensing and OEM inquiries: `jessicalw34@gmail.com`
 
 - [Ecosystem](#ecosystem)
 - [Architecture Overview](#architecture-overview)
+- [Inverted-Turbo — Live Digital Twin](#inverted-turbo--live-digital-twin)
+- [Monorepo Packages](#monorepo-packages)
+- [Sovereign Kernel Loop](#sovereign-kernel-loop)
+- [Datalog Verification Gate](#datalog-verification-gate)
+- [Agent Mesh](#agent-mesh)
+- [Graveyard Protocol](#graveyard-protocol)
 - [Constitutional Boot Protocol](#constitutional-boot-protocol)
 - [P/NP Swarm Solving Engine](#pnp-swarm-solving-engine)
 - [Verified Theorems](#verified-theorems)
@@ -334,6 +340,213 @@ graph LR
     Chain --> Swarm
     Swarm --> CLOSURE[Ancient Sorry Closure]
 ```
+
+---
+
+## Inverted-Turbo — Live Digital Twin
+
+`inverted-turbo/` is a polyglot monorepo-within-the-umbrella. Every language in the constellation is a projection of one logical sovereign machine. Architectural authority flows inward — local repos are instances; the constellation is the kernel.
+
+```
+inverted-turbo/
+├── haskell/sovereign-twin/     Sovereign kernel loop (ComeFrom dispatch, Lisp image dump)
+├── lean/                       Proof-carrying compiler (InvertedTurbo.Metaprogram.Basic)
+├── rust/sovereign-daemon/      TCP resonance daemon (env-var config, 0.0.0.0 bind)
+├── agda/                       Agda type-theoretic spine
+├── datalog/                    Bottom-up Datalog engine + verification rules
+│   ├── engine.mjs              Naive bottom-up evaluator (negation-as-failure over EDB)
+│   ├── rules/                  build_verification.dl · agent_mesh.dl
+│   └── scripts/generate_facts.mjs   Scans live build state → Datalog facts
+├── worm/                       Build ledger (append-only, CI-sealed)
+└── .github/workflows/build.yml Per-language CI jobs with working-directory defaults
+```
+
+### Architecture Invariant
+
+> The system is coherent iff `type_error(_, _)` derives **zero** violations in the Datalog gate.
+
+Every push runs `generate_facts.mjs` to emit base facts from live build state, then `engine.mjs` queries all rule files. The gate blocks CI if any violation survives.
+
+### Sovereign Stack Flow
+
+```
+RESONANCE_PATH (env var, default z:/resonance.xml)
+        │
+        ▼
+Haskell Kernel ──▶ ComeFrom dispatch ──▶ Lisp image dump ──▶ consume block atomically
+        │
+        ▼
+Lean 4 proof-carrying compiler ──▶ crToSExp + blockToThreaded (zero sorry)
+        │
+        ▼
+Rust sovereign-daemon ──▶ TCP port 3777 ──▶ resonance block relay
+        │
+        ▼
+Datalog gate ──▶ generate_facts.mjs ──▶ engine.mjs ──▶ PASS / FAIL
+```
+
+---
+
+## Monorepo Packages
+
+Root `package.json` is an npm workspace monorepo. `packages/*` are private workspace packages.
+
+| Package | Role |
+|---|---|
+| `@snapkittywest/shadow-orchestrator` | `ShadowOrchestrator` class — governance → state transition → WORM seal → PublicReasoningTrace |
+| `@snapkittywest/ransom-worm` | 6-agent swarm: bifrost-translator, icp-verifier, metric-stream, orchestrate, resurrect, watermark + graveyard |
+
+### Shadow Orchestrator
+
+Every `tick(action)` produces a `TickResult` with a `PublicReasoningTrace` — the full governance chain is always visible. No silent state mutations.
+
+```typescript
+// packages/shadow-orchestrator/main.ts
+const result: TickResult = orchestrator.tick(action)
+// result.trace — every governance step, in order, WORM-sealed
+```
+
+### Ransom-Worm Agent Swarm
+
+```
+orchestrate.mjs     Master tick loop + WebSocket relay (127.0.0.1 only)
+    │
+    ├── icp-verifier.mjs      Checks ICP-mainnet state (opt-in: ICP_VERIFY=1)
+    ├── metric-stream.mjs     File walk metrics → public/metrics.json
+    ├── bifrost-translator.mjs  Cross-language translation (LLM opt-in: BIFROST_USE_LLM=1)
+    ├── watermark.mjs         Watermarks new output files
+    ├── resurrect.mjs         Single-repo resurrection (write gate: --allow-write)
+    └── graveyard.mjs         Archived-repo flicker gate (see Graveyard Protocol)
+```
+
+WORM chain: every agent result is sealed into `packages/ransom-worm/worm-ledger.json` via djb2 hash chain.
+
+**Scripts:**
+```bash
+npm run shadow:demo              # Shadow Orchestrator demo tick
+npm run ransom-worm:once         # Single orchestrate tick
+npm run graveyard:all:dry        # Scan all archived repos (dry run)
+npm run graveyard:dry -- SNAPKITTYWEST/repo-name   # Single repo dry flicker
+npm run digital-twin:status      # Full 10-layer + constellation status probe
+```
+
+---
+
+## Sovereign Kernel Loop
+
+The Haskell kernel (`inverted-turbo/haskell/sovereign-twin/`) is the control plane. It:
+
+1. Polls `RESONANCE_PATH` (env var) every N ms (adaptive interval via `RexxConfig`)
+2. On block detection: dispatches ComeFrom vectors to all registered exec addresses
+3. Dumps current Agda AST to a Lisp S-expression image via `dumpWorld`
+4. Atomically consumes the resonance block (`removeFile` with `doesNotExistError` guard)
+5. Catches `SomeException` per step — never crashes the loop
+6. Responds to `UserInterrupt` / `AsyncException` for clean shutdown via `MVar ()` halt signal
+
+```haskell
+-- ComeFrom dispatch (INTERCAL-style non-local control transfer)
+dispatchComeFrom :: ComeFromRegistry -> ExecAddr -> Maybe ExecAddr
+
+-- ComputableRefinement — Σ-type with runtime witness, NOT erased
+data ComputableRefinement α = CR { val :: α, witness :: Proof (P α) }
+```
+
+The Lean 4 layer (`inverted-turbo/lean/`) compiles `crToSExp` and `blockToThreaded` with `crExtHEq`/`crExtCast` theorems — zero `sorry`, proof-carried alongside the binary.
+
+---
+
+## Datalog Verification Gate
+
+Implemented in `inverted-turbo/datalog/`. Node.js naive bottom-up evaluator with negation-as-failure. **EDB-only negation** (negation only over base facts, not derived predicates) avoids stratification issues.
+
+### Rule Files
+
+| File | What it enforces |
+|---|---|
+| `build_verification.dl` | Compiled binaries have verifiers; tests pass; WORM seal has verifier (binary-only, not JS chains) |
+| `agent_mesh.dl` | Cross-package invariants: WORM page wired, ShadowOrchestrator ↔ Kernel ↔ graveyard fully connected |
+
+### Key Invariants
+
+```prolog
+% JS chain sealed but appendEvent not declared — WORM page not wired
+type_error("shadow-orchestrator", "WORM page not wired — appendEvent missing") :-
+    sealed_to_worm("ransom-worm-chain"), \+ declared_func("appendEvent").
+
+% ShadowOrchestrator wired but Kernel absent — mesh broken
+type_error("mesh", "ShadowOrchestrator wired but SovereignTwin.Kernel absent") :-
+    declared_func("ShadowOrchestrator"),
+    \+ has_type("SovereignTwin.Kernel", "haskell_module").
+
+% Graveyard present but orchestrate dispatcher absent
+type_error("graveyard", "graveyard agent present but orchestrate dispatcher absent") :-
+    has_type("graveyard", "flicker_gate"), \+ declared_func("orchestrate").
+```
+
+**Critical fix (engine.mjs:94):** The negation strip regex was `/^\\+\s*/` — matched "one or more backslashes", leaving a literal `+` that broke the atom parser. Fixed to `/^\\\+\s*/` (matches literal `\+`). Four false violations vanished.
+
+---
+
+## Agent Mesh
+
+The agent mesh connects all layers. The Datalog gate enforces that no layer can be present without its upstream being wired:
+
+```
+SovereignTwin.Kernel (Haskell)
+    └── ShadowOrchestrator (TypeScript)
+            └── ransom-worm WORM chain (JS)
+                    ├── appendEvent / verifyChain (WORM primitives)
+                    ├── resurrect (single-repo agent)
+                    └── graveyard (flicker gate)
+                            └── orchestrate (dispatcher)
+```
+
+Relay dispatch protocol over WebSocket (`127.0.0.1` only):
+
+```json
+// Wake a graveyard flicker
+{ "type": "ransom_worm:graveyard", "repo": "SNAPKITTYWEST/repo-name", "dryRun": true }
+
+// Dispatch a single resurrection
+{ "type": "ransom_worm:dispatch", "repo": "SNAPKITTYWEST/repo-name", "dryRun": true }
+```
+
+Every mesh event is sealed to the WORM chain before the response is written.
+
+---
+
+## Graveyard Protocol
+
+> *The archive is a gate. The push is the pulse. The chain remembers.*
+
+Archived repos in the SNAPKITTYWEST constellation are not dead — they are **dormant gates**. The GRAVEYARD agent performs a **flicker resurrection**:
+
+1. **Clone** the archived repo (read-only — always safe)
+2. **Audit** via `metric-stream.mjs` — line counts, file counts, headline
+3. **Seal** the resurrection event to the WORM chain
+4. **Unarchive** via GitHub API `PATCH {"archived": false}` — repo goes public
+5. **Push** `GRAVEYARD_RECEIPT.md` with WORM seal + audit summary
+6. **Re-archive** via GitHub API `PATCH {"archived": true}` — gate closes
+
+The repo is public for **seconds**. The seal is permanent.
+
+**Write gate:** non-dry resurrection requires `--allow-write` flag or `RANSOM_WORM_ALLOW_WRITES=1`. The Datalog mesh invariant enforces that graveyard cannot exist without the orchestrate dispatcher being wired.
+
+**CI:** `.github/workflows/graveyard-resurrect.yml` — `workflow_dispatch` (single repo or all archived) + weekly Sunday 03:00 UTC dry sweep.
+
+```bash
+# Dry-run a single archived repo
+npm run graveyard:dry -- SNAPKITTYWEST/lisp-machine
+
+# Dry-scan all archived repos
+npm run graveyard:all:dry
+
+# Live flicker (requires GITHUB_TOKEN + --allow-write)
+RANSOM_WORM_ALLOW_WRITES=1 node packages/ransom-worm/agents/graveyard.mjs \
+  --repo SNAPKITTYWEST/lisp-machine --allow-write
+```
+
+**Excluded from graveyard:** The SNAPKITTYWEST umbrella repo (this repo) and `inverted-turbo` are never targets.
 
 ---
 

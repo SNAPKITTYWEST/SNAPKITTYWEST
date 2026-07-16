@@ -91,7 +91,7 @@ function parseDatalog(source) {
       const body = bodyLits.map((lit) => {
         // Handle negation: \+ pred(...)
         const neg = lit.startsWith("\\+") || lit.startsWith("not ");
-        const clean = neg ? lit.replace(/^\\+\s*|not\s+/, "").trim() : lit;
+        const clean = neg ? lit.replace(/^\\\+\s*|not\s+/, "").trim() : lit;
         const bm = clean.match(/^(\w+)\(([^)]*)\)$/);
         if (!bm) return null;
         return {
