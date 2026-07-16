@@ -1,0 +1,145 @@
+% ============================================================
+% packages/pearl/constraints.dl
+% Production Prime Foundry Pearl — Datalog constraint layer.
+% Encodes SYNTH-001 through SYNTH-010 as EDB facts + derived rules.
+% Evaluation: bottom-up Datalog (Soufflé-compatible).
+% BOB verdict: evidence(A) | silence(A) derived from these facts.
+% ============================================================
+
+% ── EDB: Constraint registry ─────────────────────────────────
+constraint("SYNTH-001", "no_unaligned_execution", "layer1").
+constraint("SYNTH-002", "sorry_manifested", "layer1").
+constraint("SYNTH-003", "l0_sequential_nine", "layer1").
+constraint("SYNTH-004", "contractivity_invariant", "layer1-2").
+constraint("SYNTH-005", "external_cannot_mutate", "layer1").
+constraint("SYNTH-006", "triple_lock_sequential", "layer3").
+constraint("SYNTH-007", "bounded_adversarial_window", "layer3-1").
+constraint("SYNTH-008", "crux_honest_none", "layer1").
+constraint("SYNTH-009", "archivum_worm_gset", "cross").
+constraint("SYNTH-010", "lean_rust_boundary_bound", "layer1").
+
+% ── EDB: Thresholds (anchored to ExportThresholds.lean) ──────
+% tau_r = 47.06998778, l_eff_max = 0.15, contractivity_margin = 0.01
+% lambda_m = 0.1 (LAMBDA_M_THRESHOLD in mod.rs line 6)
+% circuit_breaker = 3 (CIRCUIT_BREAKER_THRESHOLD in mod.rs line 9)
+% max_retry_nonce = 3 (MAX_RETRY_NONCE in publisher.rs line 42)
+threshold("tau_r", "47.06998778").
+threshold("l_eff_max", "0.15").
+threshold("contractivity_margin", "0.01").
+threshold("lambda_m", "0.1").
+threshold("circuit_breaker", "3").
+threshold("max_retry_nonce", "3").
+threshold("proof_hash_anchor", "LEAN_PROOF_HASH_108_CORE").
+
+% ── EDB: Sorry manifest — 13 permitted entries (alp_sorry_manifest.json) ──
+sorry_permitted("ALP.Archivum.WitnessContract.witness_after_veto_implies_disallowed").
+sorry_permitted("ALP.Archivum.WitnessContract.witness_after_admit_implies_constitution_valid").
+sorry_permitted("ALP.Candle.PirtmBridge.candle_ignition_sound").
+sorry_permitted("ALP.Contracts.NonBypassability.no_unaligned_execution").
+sorry_permitted("ALP.Contracts.TrustArbitration.internal_admits_mcp").
+sorry_permitted("ALP.Contracts.TrustArbitration.external_blocks_governed_mcp").
+sorry_permitted("ALP.MCP.GovernanceBinding.sat_requires_alp_admission").
+sorry_permitted("ALP.PolicyEngine.Admissibility.validate_action_sound").
+sorry_permitted("ALP.PolicyEngine.Admissibility.validate_action_veto_implies_constitution_fail").
+sorry_permitted("ALP.PolicyEngine.Proofs.external_mutating_action_blocked").
+sorry_permitted("ALP.PolicyEngine.Proofs.external_with_server_binding_blocked").
+sorry_permitted("ALP.Tests.Integration.e2e_internal_workflow_receives_witness").
+sorry_permitted("ALP.Tests.Integration.e2e_external_workflow_blocked_from_governed_mcp").
+
+% ── EDB: Crux status (RH open — F1Square.lean lines 365, 388) ─
+% universallyValid := none for open claims. Never some(true) without axiom-clean proof.
+crux_status("hodge_index_holds", "none").
+crux_status("li_positivity_holds", "none").
+
+% ── EDB: Triple-lock prefixes (publisher.rs lines 53-60) ──────
+witness_prefix("guardian", "GUARDIAN-WITNESS").
+witness_prefix("examiner", "EXAMINER-WITNESS").
+publisher_constant("proof_hash", "LEAN_PROOF_HASH_108_CORE").
+publisher_constant("p_kernel_key", "P_KERNEL_AUTHORITATIVE_SIGNATURE_KEY").
+
+% ── EDB: Archivum CRDT invariants (crdt.rs) ──────────────────
+crdt_property("archivum", "grow_only").
+crdt_property("archivum", "dual_signature_required").
+crdt_property("archivum", "merge_is_union").
+
+% ── Derived: SYNTH-001 — policy gate clearance ───────────────
+% BOB can witness EVIDENCE only when AlpGate true precedes Execute in trace.
+policy_gated(A) :- constraint("SYNTH-001", _, _), alp_gate_cleared(A).
+
+% ── Derived: SYNTH-002 — sorry bounded ───────────────────────
+sorry_bounded(A) :- sorry_claim(A, S), sorry_permitted(S).
+sorry_bounded(A) :- \+ sorry_claim(A, _).
+constraint_failed(A, "SYNTH-002-unmanifested-sorry") :-
+    sorry_claim(A, S), \+ sorry_permitted(S).
+
+% ── Derived: SYNTH-004/L0-5 — contractivity ──────────────────
+contractive(A) :- action_contractivity(A, K), K > 0.0, K =< 1.0.
+constraint_failed(A, "SYNTH-004-expansive") :- action_contractivity(A, K), K > 1.0.
+constraint_failed(A, "SYNTH-004-zero") :- action_contractivity(A, K), K =< 0.0.
+
+% ── Derived: SYNTH-005 — trust boundary ──────────────────────
+trust_boundary_holds(A) :- trust_level(A, "internal").
+trust_boundary_holds(A) :-
+    trust_level(A, "external"),
+    \+ action_mutating(A),
+    \+ action_has_server_binding(A).
+constraint_failed(A, "SYNTH-005-external-mutate") :-
+    trust_level(A, "external"), action_mutating(A).
+constraint_failed(A, "SYNTH-005-external-binding") :-
+    trust_level(A, "external"), action_has_server_binding(A).
+
+% ── Derived: SYNTH-006 — triple lock ─────────────────────────
+triple_lock_cleared(A) :-
+    guardian_witness(A, GW), GW = "GUARDIAN-WITNESS",
+    examiner_witness(A, EW), EW = "EXAMINER-WITNESS",
+    \+ witness_provisional(A).
+constraint_failed(A, "SYNTH-006-missing-guardian") :- \+ guardian_witness(A, _).
+constraint_failed(A, "SYNTH-006-missing-examiner") :- \+ examiner_witness(A, _).
+constraint_failed(A, "SYNTH-006-provisional") :- witness_provisional(A).
+
+% ── Derived: SYNTH-007 — bounded adversarial window ──────────
+retry_within_bound(A) :-
+    action_retry_nonce(A, N), N =< 3,
+    action_consecutive_failures(A, F), F < 3.
+constraint_failed(A, "SYNTH-007-retry-exceeded") :- action_retry_nonce(A, N), N > 3.
+constraint_failed(A, "SYNTH-007-circuit-breaker") :- action_consecutive_failures(A, F), F >= 3.
+
+% ── Derived: SYNTH-008 — crux honest ─────────────────────────
+crux_honest(A) :-
+    crux_status("hodge_index_holds", "none"),
+    crux_status("li_positivity_holds", "none"),
+    \+ action_asserts_rh(A).
+constraint_failed(A, "SYNTH-008-false-rh-claim") :- action_asserts_rh(A).
+
+% ── Derived: SYNTH-009 — dual-signed WORM entry ──────────────
+worm_dual_signed(A) :-
+    worm_entry(A, "primary_sig", _), worm_entry(A, "secondary_sig", _).
+constraint_failed(A, "SYNTH-009-missing-primary-sig") :-
+    \+ worm_entry(A, "primary_sig", _).
+constraint_failed(A, "SYNTH-009-missing-secondary-sig") :-
+    worm_entry(A, "primary_sig", _), \+ worm_entry(A, "secondary_sig", _).
+
+% ── Derived: SYNTH-010 — Lean/Rust hash chain ────────────────
+lean_rust_bound(A) :-
+    action_proof_hash(A, H), publisher_constant("proof_hash", H).
+constraint_failed(A, "SYNTH-010-hash-mismatch") :-
+    action_proof_hash(A, H), publisher_constant("proof_hash", Expected), H \= Expected.
+
+% ── Derived: BOB composite gate ──────────────────────────────
+evidence_eligible(A) :-
+    policy_gated(A),
+    sorry_bounded(A),
+    contractive(A),
+    trust_boundary_holds(A),
+    triple_lock_cleared(A),
+    retry_within_bound(A),
+    crux_honest(A),
+    worm_dual_signed(A),
+    lean_rust_bound(A).
+
+silence(A) :- constraint_failed(A, _).
+evidence(A) :- evidence_eligible(A), \+ constraint_failed(A, _).
+
+% ── Agent mesh invariant (mirrors inverted-turbo agent_mesh.dl) ─
+allowed(A) :- trust_level(A, "internal"), \+ vetoed(A).
+vetoed(A) :- silence(A).

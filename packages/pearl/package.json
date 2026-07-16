@@ -1,0 +1,33 @@
+{
+  "name": "@snapkittywest/pearl",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Production Prime Foundry Pearl — unified governance seed for BOB sovereign orchestrator. Policy as geometry: every constraint is a theorem, every execution is a proof.",
+  "main": "src/bob-gate.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "gate": "node --loader ts-node/esm src/bob-gate.ts",
+    "verify-chain": "node --loader ts-node/esm -e \"import('./src/worm-seal.ts').then(m => console.log(JSON.stringify(m.verifyWormChain(), null, 2)))\"",
+    "datalog": "souffle constraints.dl",
+    "lean-check": "cd lean && lake build PearlInvariants",
+    "worm-head": "node --loader ts-node/esm -e \"import('./src/worm-seal.ts').then(m => console.log(m.wormHead()))\""
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "testEnvironment": "node",
+    "testMatch": ["<rootDir>/tests/**/*.test.ts"],
+    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
+    "extensionsToTreatAsEsm": [".ts"],
+    "moduleNameMapper": { "^(\\.{1,2}/.*)\\.js$": "$1" }
+  }
+}
