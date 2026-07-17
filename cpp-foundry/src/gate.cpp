@@ -118,62 +118,156 @@ CSLVerdict CSLGate::check_all(const std::vector<double>& x,
 
 TripleLock::TripleLock(const Config& cfg) : config_(cfg) {}
 
+WormSeal TripleLock::compute_seal(
+    const std::string& verdict,
+    const WormSeal& prev_seal,
+    const std::string& payload,
+    uint64_t ts) const {
+    // Deterministic WORM seal: SHA-256(verdict || prev_hash || payload || ts)
+    // Using a simplified hash for the engine; production uses SHA-256 via OpenSSL.
+    WormSeal seal;
+    seal.prev_seal = prev_seal.hash;
+    seal.timestamp_ns = ts;
+
+    // Fold inputs into 32-byte seal (simplified djb2+fnv hybrid for engine use)
+    uint64_t h1 = 5381, h2 = 14695981039346656037ULL;
+    for (char c : verdict) { h1 = ((h1 << 5) + h1) ^ static_cast<unsigned char>(c); h2 ^= static_cast<unsigned char>(c); h2 *= 1099511628211ULL; }
+    for (uint8_t b : prev_seal.hash) { h1 = ((h1 << 5) + h1) ^ b; h2 ^= b; h2 *= 1099511628211ULL; }
+    for (char c : payload) { h1 = ((h1 << 5) + h1) ^ static_cast<unsigned char>(c); h2 ^= static_cast<unsigned char>(c); h2 *= 1099511628211ULL; }
+    h1 ^= static_cast<uint64_t>(ts); h2 ^= static_cast<uint64_t>(ts); h2 *= 1099511628211ULL;
+
+    // Pack into 32 bytes (two 64-bit halves + zeros)
+    for (int i = 0; i < 8; ++i) {
+        seal.hash[i]     = static_cast<uint8_t>((h1 >> (i * 8)) & 0xFF);
+        seal.hash[i + 8] = static_cast<uint8_t>((h2 >> (i * 8)) & 0xFF);
+    }
+    for (int i = 16; i < 32; ++i) {
+        seal.hash[i] = static_cast<uint8_t>((h1 ^ h2) >> ((i - 16) * 8)) & 0xFF;
+    }
+    return seal;
+}
+
 GuardianDecision TripleLock::guardian_check(
     const std::vector<double>& x,
     const std::vector<double>& x_next,
-    double spectral_radius) const {
+    double spectral_radius,
+    const std::string& status,
+    const WormSeal& prev_seal) const {
+    uint64_t ts = static_cast<uint64_t>(
+        std::chrono::steady_clock::now().time_since_epoch().count());
+
+    // SYNTH-006: PROVISIONAL status rejected at Lock 1
+    if (status == "PROVISIONAL") {
+        auto seal = compute_seal("SILENCE", prev_seal, "provisional-rejected", ts);
+        return {false, "SYNTH-006: PROVISIONAL status rejected at Guardian", seal};
+    }
+
     // Mathematical legality: spectral radius must be < 1
     if (spectral_radius >= 1.0) {
-        return {false, "spectral radius >= 1.0"};
+        auto seal = compute_seal("SILENCE", prev_seal, "spectral-radius-exceeds", ts);
+        return {false, "spectral radius >= 1.0", seal};
     }
 
     // State must be finite
     for (size_t i = 0; i < x_next.size(); ++i) {
         if (!std::isfinite(x_next[i])) {
-            return {false, "non-finite state component"};
+            auto seal = compute_seal("SILENCE", prev_seal, "non-finite-state", ts);
+            return {false, "non-finite state component", seal};
         }
     }
 
-    return {true, "mathematically admissible"};
+    // Compute payload for seal binding
+    std::string payload;
+    for (double v : x_next) payload += std::to_string(v) + ":";
+    auto seal = compute_seal("EVIDENCE", prev_seal, payload, ts);
+    return {true, "mathematically admissible", seal};
 }
 
 ExaminerDecision TripleLock::examiner_check(
     double current_drift,
     double resource_usage,
-    const std::vector<ConflictLog>& conflicts) const {
+    const std::vector<ConflictLog>& conflicts,
+    const WormSeal& prev_seal) const {
+    uint64_t ts = static_cast<uint64_t>(
+        std::chrono::steady_clock::now().time_since_epoch().count());
+
     // Drift within budget
     if (current_drift > config_.max_drift) {
-        return {false, current_drift, "drift exceeds budget"};
+        auto seal = compute_seal("SILENCE", prev_seal, "drift-exceeds-budget", ts);
+        return {false, current_drift, "drift exceeds budget", seal};
     }
 
     // No active conflicts
     for (const auto& c : conflicts) {
         if (c.severity > 0.8) {
-            return {false, current_drift, "active high-severity conflict"};
+            auto seal = compute_seal("SILENCE", prev_seal, "high-severity-conflict", ts);
+            return {false, current_drift, "active high-severity conflict", seal};
         }
     }
 
-    return {true, current_drift, "reality within bounds"};
+    // Chain binding: prev_seal must be non-zero (Guardian must have issued EVIDENCE)
+    bool prev_zero = true;
+    for (uint8_t b : prev_seal.hash) { if (b != 0) { prev_zero = false; break; } }
+    if (prev_zero) {
+        auto seal = compute_seal("SILENCE", prev_seal, "broken-chain-no-guardian-seal", ts);
+        return {false, current_drift, "SYNTH-006: Guardian did not issue EVIDENCE — chain broken", seal};
+    }
+
+    auto seal = compute_seal("EVIDENCE", prev_seal, std::to_string(current_drift), ts);
+    return {true, current_drift, "reality within bounds", seal};
 }
 
 PublisherDecision TripleLock::publisher_check(
     const GuardianDecision& g,
     const ExaminerDecision& e,
-    size_t retry_nonce) const {
+    size_t retry_nonce,
+    const std::string& status) const {
+    uint64_t ts = static_cast<uint64_t>(
+        std::chrono::steady_clock::now().time_since_epoch().count());
+
     // Both must be approved
     if (!g.approved) {
-        return {false, "guardian rejected"};
+        auto seal = compute_seal("SILENCE", e.seal, "guardian-rejected", ts);
+        return {false, "guardian rejected", seal};
     }
     if (!e.approved) {
-        return {false, "examiner rejected"};
+        auto seal = compute_seal("SILENCE", g.seal, "examiner-rejected", ts);
+        return {false, "examiner rejected", seal};
+    }
+
+    // SYNTH-006: PROVISIONAL status rejected at Publisher
+    if (status == "PROVISIONAL") {
+        auto seal = compute_seal("SILENCE", e.seal, "provisional-at-publisher", ts);
+        return {false, "SYNTH-006: PROVISIONAL status rejected at Publisher — cannot ratify unresolved state", seal};
     }
 
     // Retry bound (prevents adversarial exhaustion)
     if (retry_nonce > MAX_RETRY_NONCE) {
-        return {false, "retry nonce exceeded"};
+        auto seal = compute_seal("SILENCE", e.seal, "retry-exceeded", ts);
+        return {false, "retry nonce exceeded", seal};
     }
 
-    return {true, "ready for immutability"};
+    // Chain integrity: Guardian seal must be non-zero
+    bool guardian_zero = true;
+    for (uint8_t b : g.seal.hash) { if (b != 0) { guardian_zero = false; break; } }
+    if (guardian_zero) {
+        auto seal = compute_seal("SILENCE", e.seal, "no-guardian-seal", ts);
+        return {false, "SYNTH-006: Guardian seal missing — chain incomplete", seal};
+    }
+
+    // Chain integrity: Examiner seal must chain from Guardian
+    bool examiner_chains = true;
+    for (int i = 0; i < 32; ++i) {
+        if (e.seal.prev_seal[i] != g.seal.hash[i]) { examiner_chains = false; break; } }
+    if (!examiner_chains) {
+        auto seal = compute_seal("SILENCE", e.seal, "seal-chain-broken", ts);
+        return {false, "SYNTH-006: Examiner seal does not chain from Guardian — forgery detected", seal};
+    }
+
+    // Compute final manifest seal binding all three locks
+    std::string payload = "guardian:" + g.reason + "|examiner:" + e.reason;
+    auto seal = compute_seal("EVIDENCE", e.seal, payload, ts);
+    return {true, "ready for immutability", seal};
 }
 
 bool TripleLock::verify(const GuardianDecision& g,

@@ -172,15 +172,20 @@ static void test_csl_neutrality() {
 
 // ── Triple-Lock tests ────────────────────────────────────────────────────────
 
+static WormSeal genesis_seal() { return WormSeal::zero(); }
+
 static void test_triple_lock_all_pass() {
     TEST(triple_lock_all_pass);
     TripleLock::Config cfg{};
     cfg.max_drift = MAX_DRIFT;
     TripleLock lock(cfg);
 
-    auto g = lock.guardian_check({0.5}, {0.6}, 0.3);
-    auto e = lock.examiner_check(1e14, 0.5, {});
-    auto p = lock.publisher_check(g, e, 0);
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    ASSERT(g.approved, "guardian should pass");
+    auto e = lock.examiner_check(1e14, 0.5, {}, g.seal);
+    ASSERT(e.approved, "examiner should pass");
+    auto p = lock.publisher_check(g, e, 0, "ACTIVE");
+    ASSERT(p.approved, "publisher should pass");
     ASSERT(lock.verify(g, e, p), "all should pass");
     PASS();
 }
@@ -191,8 +196,131 @@ static void test_triple_lock_guardian_rejects() {
     cfg.max_drift = MAX_DRIFT;
     TripleLock lock(cfg);
 
-    auto g = lock.guardian_check({0.5}, {0.6}, 1.5); // spectral radius > 1
+    auto g = lock.guardian_check({0.5}, {0.6}, 1.5, "ACTIVE", genesis_seal());
     ASSERT(!g.approved, "guardian should reject");
+    PASS();
+}
+
+static void test_triple_lock_examiner_rejects_drift() {
+    TEST(triple_lock_examiner_rejects_drift);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    ASSERT(g.approved, "guardian should pass");
+    // Use a drift value clearly above max_drift (double precision: MAX_DRIFT*2)
+    auto e = lock.examiner_check(static_cast<double>(MAX_DRIFT) * 2.0, 0.5, {}, g.seal);
+    ASSERT(!e.approved, "examiner should reject drift");
+    PASS();
+}
+
+static void test_triple_lock_examiner_rejects_conflict() {
+    TEST(triple_lock_examiner_rejects_conflict);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    ASSERT(g.approved, "guardian should pass");
+    ConflictLog c{};
+    c.kind = ConflictLog::Kind::ProofDrift;
+    c.severity = 0.95;
+    auto e = lock.examiner_check(1e10, 0.5, {c}, g.seal);
+    ASSERT(!e.approved, "examiner should reject high-severity conflict");
+    PASS();
+}
+
+static void test_triple_lock_publisher_rejects_guardian_fail() {
+    TEST(triple_lock_publisher_rejects_guardian_fail);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 1.5, "ACTIVE", genesis_seal());
+    ASSERT(!g.approved, "guardian should reject");
+    auto e = lock.examiner_check(1e10, 0.5, {}, g.seal);
+    auto p = lock.publisher_check(g, e, 0, "ACTIVE");
+    ASSERT(!p.approved, "publisher should reject when guardian failed");
+    PASS();
+}
+
+static void test_triple_lock_publisher_rejects_examiner_fail() {
+    TEST(triple_lock_publisher_rejects_examiner_fail);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    ASSERT(g.approved, "guardian should pass");
+    auto e = lock.examiner_check(static_cast<double>(MAX_DRIFT) * 2.0, 0.5, {}, g.seal);
+    ASSERT(!e.approved, "examiner should reject drift");
+    auto p = lock.publisher_check(g, e, 0, "ACTIVE");
+    ASSERT(!p.approved, "publisher should reject when examiner failed");
+    PASS();
+}
+
+static void test_triple_lock_publisher_rejects_retry_exceeded() {
+    TEST(triple_lock_publisher_rejects_retry_exceeded);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    auto e = lock.examiner_check(1e10, 0.5, {}, g.seal);
+    auto p = lock.publisher_check(g, e, 9999, "ACTIVE");
+    ASSERT(!p.approved, "publisher should reject retry exceeded");
+    PASS();
+}
+
+static void test_triple_lock_provisional_rejected_at_guardian() {
+    TEST(triple_lock_provisional_rejected_at_guardian);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "PROVISIONAL", genesis_seal());
+    ASSERT(!g.approved, "guardian should reject PROVISIONAL");
+    PASS();
+}
+
+static void test_triple_lock_provisional_rejected_at_publisher() {
+    TEST(triple_lock_provisional_rejected_at_publisher);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    auto e = lock.examiner_check(1e10, 0.5, {}, g.seal);
+    auto p = lock.publisher_check(g, e, 0, "PROVISIONAL");
+    ASSERT(!p.approved, "publisher should reject PROVISIONAL");
+    PASS();
+}
+
+static void test_triple_lock_seal_chain_integrity() {
+    TEST(triple_lock_seal_chain_integrity);
+    TripleLock::Config cfg{};
+    cfg.max_drift = MAX_DRIFT;
+    TripleLock lock(cfg);
+
+    auto g = lock.guardian_check({0.5}, {0.6}, 0.3, "ACTIVE", genesis_seal());
+    ASSERT(g.approved, "guardian should pass");
+
+    auto e = lock.examiner_check(1e10, 0.5, {}, g.seal);
+    ASSERT(e.approved, "examiner should pass");
+    for (int i = 0; i < 32; ++i) {
+        ASSERT(e.seal.prev_seal[i] == g.seal.hash[i],
+               "examiner seal must chain from guardian seal");
+    }
+
+    auto p = lock.publisher_check(g, e, 0, "ACTIVE");
+    ASSERT(p.approved, "publisher should pass");
+    // Publisher seal must chain from Examiner seal
+    for (int i = 0; i < 32; ++i) {
+        ASSERT(p.seal.prev_seal[i] == e.seal.hash[i],
+               "publisher seal must chain from examiner seal");
+    }
+
     PASS();
 }
 
@@ -281,6 +409,14 @@ int main() {
     // Triple-Lock
     test_triple_lock_all_pass();
     test_triple_lock_guardian_rejects();
+    test_triple_lock_examiner_rejects_drift();
+    test_triple_lock_examiner_rejects_conflict();
+    test_triple_lock_publisher_rejects_guardian_fail();
+    test_triple_lock_publisher_rejects_examiner_fail();
+    test_triple_lock_publisher_rejects_retry_exceeded();
+    test_triple_lock_provisional_rejected_at_guardian();
+    test_triple_lock_provisional_rejected_at_publisher();
+    test_triple_lock_seal_chain_integrity();
 
     // Certification
     test_certify();

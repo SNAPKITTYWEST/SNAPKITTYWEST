@@ -68,22 +68,29 @@ public:
 
     explicit TripleLock(const Config& cfg);
 
-    // Guardian: is it mathematically legal?
+    // Guardian: is it mathematically legal? Rejects PROVISIONAL.
+    // prev_seal: chain link from prior lock (or genesis zero for Lock 1).
     GuardianDecision guardian_check(const std::vector<double>& x,
                                     const std::vector<double>& x_next,
-                                    double spectral_radius) const;
+                                    double spectral_radius,
+                                    const std::string& status,
+                                    const WormSeal& prev_seal) const;
 
     // Examiner: has reality drifted?
+    // prev_seal: the Guardian's seal (chain binding).
     ExaminerDecision examiner_check(double current_drift,
                                     double resource_usage,
-                                    const std::vector<ConflictLog>& conflicts) const;
+                                    const std::vector<ConflictLog>& conflicts,
+                                    const WormSeal& prev_seal) const;
 
     // Publisher: can this become immutable?
+    // Rejects PROVISIONAL, verifies chain integrity.
     PublisherDecision publisher_check(const GuardianDecision& g,
                                      const ExaminerDecision& e,
-                                     size_t retry_nonce) const;
+                                     size_t retry_nonce,
+                                     const std::string& status) const;
 
-    // Full triple-lock: all three must pass
+    // Full triple-lock: all three must pass, seals must chain
     bool verify(const GuardianDecision& g,
                 const ExaminerDecision& e,
                 const PublisherDecision& p) const;
@@ -91,6 +98,12 @@ public:
 private:
     Config config_;
     static constexpr size_t MAX_RETRY_NONCE = 1000;
+
+    // Compute WORM seal: SHA-256(verdict || prev_seal || payload || ts)
+    WormSeal compute_seal(const std::string& verdict,
+                          const WormSeal& prev_seal,
+                          const std::string& payload,
+                          uint64_t ts) const;
 };
 
 } // namespace pmc

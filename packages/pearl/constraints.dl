@@ -92,10 +92,28 @@ constraint_failed(A, "SYNTH-005-external-binding") :-
 triple_lock_cleared(A) :-
     guardian_witness(A, GW), GW = "GUARDIAN-WITNESS",
     examiner_witness(A, EW), EW = "EXAMINER-WITNESS",
-    \+ witness_provisional(A).
+    \+ witness_provisional(A),
+    examiner_drift_within_budget(A),
+    guardian_seal_valid(A),
+    examiner_seal_chains_from_guardian(A).
 constraint_failed(A, "SYNTH-006-missing-guardian") :- \+ guardian_witness(A, _).
 constraint_failed(A, "SYNTH-006-missing-examiner") :- \+ examiner_witness(A, _).
 constraint_failed(A, "SYNTH-006-provisional") :- witness_provisional(A).
+constraint_failed(A, "SYNTH-006-drift-exceeds-tau_r") :-
+    examiner_drift(A, D), threshold("tau_r", T), number_string(TN, T), D > TN.
+constraint_failed(A, "SYNTH-006-guardian-seal-missing") :- \+ guardian_seal_valid(A).
+constraint_failed(A, "SYNTH-006-seal-chain-broken") :- \+ examiner_seal_chains_from_guardian(A).
+
+% Examiner drift budget: must be within tau_r (anchored to witnesses.jsonl)
+examiner_drift_within_budget(A) :-
+    examiner_drift(A, D), threshold("tau_r", T), number_string(TN, T), D =< TN.
+
+% Guardian seal must be present (non-empty WORM seal)
+guardian_seal_valid(A) :- guardian_seal(A, S), S \= "".
+
+% Examiner seal must chain from Guardian seal (prev_seal = guardian_seal hash)
+examiner_seal_chains_from_guardian(A) :-
+    examiner_seal_prev(A, PS), guardian_seal(A, PS).
 
 % ── Derived: SYNTH-007 — bounded adversarial window ──────────
 retry_within_bound(A) :-

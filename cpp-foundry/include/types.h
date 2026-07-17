@@ -183,22 +183,37 @@ struct ConflictLog {
     uint64_t timestamp_ns;
 };
 
+// ── WORM Seal: SHA-256 chain link ────────────────────────────────────────────
+
+struct WormSeal {
+    std::array<uint8_t, 32> hash;
+    std::array<uint8_t, 32> prev_seal;
+    uint64_t timestamp_ns;
+
+    static WormSeal zero() {
+        return {{}, {}, 0};
+    }
+};
+
 // ── Guardian / Examiner / Publisher decisions ────────────────────────────────
 
 struct GuardianDecision {
     bool approved;
     std::string reason;
+    WormSeal seal;
 };
 
 struct ExaminerDecision {
     bool approved;
     double drift_magnitude;
     std::string reason;
+    WormSeal seal;
 };
 
 struct PublisherDecision {
     bool approved;
     std::string reason;
+    WormSeal seal;
 };
 
 } // namespace pmc
