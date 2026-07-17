@@ -1,0 +1,10 @@
+[package]
+name = "metatron-solver"
+version = "0.1.0"
+edition = "2021"
+description = "METATRON solver — Total Resonance Sum via real ResonanceGraph. FCC-φ-∂-2026."
+
+[dependencies]
+resonance = { path = "../../../../Desktop/bob-orchestrator/resonance" }
+sha2 = "0.10"
+hex = "0.4"
