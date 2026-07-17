@@ -1,0 +1,47 @@
+[
+  {
+    "id": "229bf16a-e882-48e0-aa77-ac8f836a6b5c",
+    "label": "EVENT_1",
+    "payload": "payload1",
+    "meta": {},
+    "ts": "2026-07-01T15:34:56.389Z",
+    "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+    "seal": "b55ad5c8a1ad376cf46bf718b0e4da77091ce3a85d9171fbcc997712cb3a3e8b"
+  },
+  {
+    "id": "d0e735f0-60f2-4129-bb64-332b15d5de88",
+    "label": "EVENT_2",
+    "payload": "payload2",
+    "meta": {},
+    "ts": "2026-07-01T15:34:56.390Z",
+    "prev": "b55ad5c8a1ad376cf46bf718b0e4da77091ce3a85d9171fbcc997712cb3a3e8b",
+    "seal": "977a71dbcf38ed4d91af78a0e46cfcdbf75636524c44207228caaa1cd5c5293b"
+  },
+  {
+    "id": "a776a007-d1cd-42a4-91d6-6bd2698aeb03",
+    "label": "EVENT_3",
+    "payload": "payload3",
+    "meta": {},
+    "ts": "2026-07-01T15:34:56.391Z",
+    "prev": "977a71dbcf38ed4d91af78a0e46cfcdbf75636524c44207228caaa1cd5c5293b",
+    "seal": "e4c010c310f5d77135151f551a851490251a7a19d1678954625747dda4f61002"
+  },
+  {
+    "id": "a4a83dbf-c457-4a83-aa55-789c9c94ded1",
+    "label": "MODEL_LOADED",
+    "payload": "sovereign-llm",
+    "meta": {},
+    "ts": "2026-07-01T15:34:56.392Z",
+    "prev": "e4c010c310f5d77135151f551a851490251a7a19d1678954625747dda4f61002",
+    "seal": "006c0b9087dae43cb3a9313218a265e10b4abe78f16f875e40a795fd7ebe9383"
+  },
+  {
+    "id": "524ae518-d05c-4e0e-8bb9-e498a39c9616",
+    "label": "FORWARD_COMPLETE",
+    "payload": "success",
+    "meta": {},
+    "ts": "2026-07-01T15:34:56.392Z",
+    "prev": "006c0b9087dae43cb3a9313218a265e10b4abe78f16f875e40a795fd7ebe9383",
+    "seal": "fced8a079af4b5b117c4cf5fd850d195fa13c6d16279823e43aed8db82a2b71e"
+  }
+]

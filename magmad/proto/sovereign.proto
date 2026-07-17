@@ -1,0 +1,108 @@
+syntax = "proto3";
+package sovereign;
+
+// Sovereign gRPC service — internal machine-to-machine API
+// External: REST/SSE on :3000  ←  CLI / web / METAMINE bridge
+// Internal: gRPC on :50051     ←  BOB pipeline stages, agent-to-agent
+//
+// Ahmad Ali Parr · SnapKitty Collective · 2026
+
+service Sovereign {
+  // Primary endpoint: takes an instruction, streams back pipeline stages
+  // Mirrors POST /api/v1/orchestrate (SSE) but over gRPC
+  rpc Orchestrate (OrchestrateRequest) returns (stream OrchestrateEvent);
+
+  // Fast path: verify an ERRANT opcode sequence, return immediately
+  rpc Verify (VerifyRequest) returns (VerifyResult);
+
+  // BOB routing decision without full execution
+  rpc Route (RouteRequest) returns (RouteResult);
+
+  // WORM chain head (session state)
+  rpc ChainHead (Empty) returns (ChainHeadResult);
+
+  // Health + version
+  rpc Health (Empty) returns (HealthResult);
+}
+
+// ── Orchestrate ────────────────────────────────────────────────────────────
+
+message OrchestrateRequest {
+  // WORM chain head = session ID (stateful across calls via the chain)
+  string session_id  = 1;
+
+  // Instruction payload
+  string action      = 2;   // "verify_and_execute" | "forge" | "seal" | "query"
+  string code        = 3;   // ERRANT source, METAMINE .meta, or natural instruction
+  string intent      = 4;   // "formal_verification" | "agent_dispatch" | "compute"
+
+  // Structural constraints passed to ERRANT checker
+  repeated string constraints = 5;  // ["monotone", "linear", "wasm_safe"]
+
+  // Optional: pre-computed METAMINE trace ops (from bridge.mjs)
+  repeated string trace_ops = 6;
+}
+
+message OrchestrateEvent {
+  string stage       = 1;   // "TRUST-DEED-GATE"|"ERRANT"|"BOB"|"NATS"|"SEAL"
+  bool   ok          = 2;
+  string agent       = 3;   // BOB routing result: "FORGE"|"CIPHER"|"NOVA" etc.
+  string worm_hash   = 4;   // running WORM hash at this stage
+  string proof_hash  = 5;   // Coq/Lean proof hash (if formal verification ran)
+  string message     = 6;   // human-readable stage description
+  string error       = 7;   // non-empty on failure
+  bytes  payload     = 8;   // structured stage output (JSON-encoded)
+}
+
+// ── Verify ─────────────────────────────────────────────────────────────────
+
+message VerifyRequest {
+  repeated string opcodes = 1;  // ["PUSH_LIN", "HASH", "SEAL"] etc.
+  string          source  = 2;  // alternative: raw ERRANT source text
+}
+
+message VerifyResult {
+  bool   ok           = 1;
+  string worm_hash    = 2;
+  string error        = 3;
+  int32  steps        = 4;
+  int32  lin_consumed = 5;
+  int32  lin_leaked   = 6;
+  bool   fallback     = 7;  // true = structural check (SEAL-last), not full ERRANT
+}
+
+// ── Route ──────────────────────────────────────────────────────────────────
+
+message RouteRequest {
+  string action     = 1;
+  string worm_hash  = 2;
+  int32  ruptures   = 3;
+  bool   has_forge  = 4;
+  bool   has_seal   = 5;
+  bool   has_vault  = 6;
+}
+
+message RouteResult {
+  string emoji   = 1;  // "⚒️" | "🔒" | "🏦" | "🔮" | "🧠" etc.
+  string agent   = 2;  // "FORGE" | "CIPHER" | "VAULT" | "ORACLE" | "NOVA"
+  string action  = 3;  // "BUILD" | "SIGN" | "APPROVE" | "KNOWLEDGE" | "SYNTHETIC"
+  string subject = 4;  // NATS subject: "sovereign.forge.build.v1" etc.
+}
+
+// ── Shared ─────────────────────────────────────────────────────────────────
+
+message Empty {}
+
+message ChainHeadResult {
+  string head      = 1;
+  uint64 index     = 2;
+  string timestamp = 3;
+}
+
+message HealthResult {
+  string status    = 1;  // "ok" | "degraded" | "offline"
+  string version   = 2;
+  bool   nats_ok   = 3;
+  bool   errant_ok = 4;
+  string worm_hash = 5;  // current chain head
+}

@@ -1,0 +1,30 @@
+name: Envelope Verification
+
+on: [push, pull_request]
+
+jobs:
+  verify-envelopes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq openssl
+      
+      - name: Make scripts executable
+        run: chmod +x bin/*.sh examples/*.sh
+      
+      - name: Test encapsulate
+        run: ./bin/env-ship.sh encapsulate examples/deploy.sh examples/deploy.envelope
+      
+      - name: Test verify
+        run: ./bin/env-ship.sh verify examples/deploy.envelope
+      
+      - name: Test extract
+        run: ./bin/env-ship.sh extract examples/deploy.envelope examples/deploy_verified.sh --no-verify
+      
+      - name: Test diff
+        run: diff examples/deploy.sh examples/deploy_verified.sh
+      
+      - name: Test batch
+        run: ./bin/env-ship.sh batch ./examples
