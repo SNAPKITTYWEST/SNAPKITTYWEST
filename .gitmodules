@@ -7,3 +7,6 @@
 [submodule "snapkitty-gitbucket"]
 	path = snapkitty-gitbucket
 	url = https://github.com/SNAPKITTYWEST/snapkitty-gitbucket.git
+[submodule ".newrepos/bob-orchestrator"]
+	path = .newrepos/bob-orchestrator
+	url = https://github.com/SNAPKITTYWEST/bob-orchestrator.git
