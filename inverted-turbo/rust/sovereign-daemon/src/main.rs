@@ -1,4 +1,8 @@
-use axum::{routing::get, Router};
+mod datalog;
+mod gate;
+mod plasma;
+
+use axum::{routing::{get, post}, Router};
 use sha2::{Digest, Sha256};
 use std::net::SocketAddr;
 use tokio::net::TcpListener;
@@ -45,6 +49,7 @@ async fn main() {
     let app = Router::new()
         .route("/health", get(health))
         .route("/resonance", get(resonance_check))
+        .route("/gate", post(gate::handle))
         .with_state(state);
 
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
