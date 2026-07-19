@@ -15,4 +15,4 @@ theorem e5 (a : Nat) : a * 1 = a := by simp
 
 theorem e6 (a b : Nat) : a + b = b + a := by omega
 
-theorem h1 (a b : Nat) : a * b = b * a := by sorry
+theorem h1 (a b : Nat) : a * b = b * a := by exact Nat.mul_comm a b

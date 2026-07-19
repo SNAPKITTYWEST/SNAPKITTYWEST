@@ -1,0 +1,19 @@
+{
+  "manifest_version": "1.0",
+  "description": "Gated list of permitted 'sorry' blocks in the lean/ALP/ namespace pending full formal proof. Each sorry MUST have a corresponding rust stub with governance tests.",
+  "permitted_sorrys": [
+    "ALP.Archivum.WitnessContract.witness_after_veto_implies_disallowed",
+    "ALP.Archivum.WitnessContract.witness_after_admit_implies_constitution_valid",
+    "ALP.Candle.PirtmBridge.candle_ignition_sound",
+    "ALP.Contracts.NonBypassability.no_unaligned_execution",
+    "ALP.Contracts.TrustArbitration.internal_admits_mcp",
+    "ALP.Contracts.TrustArbitration.external_blocks_governed_mcp",
+    "ALP.MCP.GovernanceBinding.sat_requires_alp_admission",
+    "ALP.PolicyEngine.Admissibility.validate_action_sound",
+    "ALP.PolicyEngine.Admissibility.validate_action_veto_implies_constitution_fail",
+    "ALP.PolicyEngine.Proofs.external_mutating_action_blocked",
+    "ALP.PolicyEngine.Proofs.external_with_server_binding_blocked",
+    "ALP.Tests.Integration.e2e_internal_workflow_receives_witness",
+    "ALP.Tests.Integration.e2e_external_workflow_blocked_from_governed_mcp"
+  ]
+}

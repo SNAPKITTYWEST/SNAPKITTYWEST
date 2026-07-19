@@ -1,0 +1,12 @@
+/target
+/result
+*.swp
+*.swo
+*~
+.DS_Store
+build/
+*.o
+*.so
+*.dylib
+*.dll
+Cargo.lock

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapKitty C-Suite — Corporate Command</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Crimson+Text:wght@400;600;700&display=swap');
+
+  :root {
+    --deep-red: #8B0000;
+    --crimson: #DC143C;
+    --gold: #DAA520;
+    --gold-dim: #B8860B;
+    --ivory: #FFFFF0;
+    --black: #0A0A0A;
+    --card: #111111;
+    --card-border: #1E1E1E;
+    --terminal-green: #00FF41;
+    --muted: #666;
+    --text: #E0E0E0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: linear-gradient(180deg, #0D0000 0%, var(--black) 100%);
+    border-bottom: 1px solid var(--deep-red);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--crimson);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+  }
+  .logo-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: 1px;
+  }
+  .top-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .meta-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid #333;
+    color: var(--muted);
+  }
+  .meta-badge.live {
+    border-color: var(--terminal-green);
+    color: var(--terminal-green);
+  }
+
+  /* LAYOUT */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+    padding: 20px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+  .card.red::before { background: var(--crimson); }
+  .card.gold::before { background: var(--gold); }
+  .card.green::before { background: var(--terminal-green); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+  .card-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(220,20,60,0.15);
+    color: var(--crimson);
+  }
+
+  .big-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ivory);
+    line-height: 1;
+  }
+  .big-number.gold { color: var(--gold); }
+  .big-number.green { color: var(--terminal-green); }
+  .big-number.red { color: var(--crimson); }
+
+  .card-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* SPAN */
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+
+  /* EXECUTIVE CARDS */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .exec-card {
+    background: #0D0D0D;
+    border: 1px solid #1A1A1A;
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .exec-card:hover {
+    border-color: var(--crimson);
+    background: #111;
+  }
+  .exec-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border: 2px solid;
+  }
+  .exec-avatar.ceo { border-color: var(--crimson); background: rgba(220,20,60,0.1); }
+  .exec-avatar.cto { border-color: var(--gold); background: rgba(218,165,32,0.1); }
+  .exec-avatar.cfo { border-color: var(--terminal-green); background: rgba(0,255,65,0.1); }
+  .exec-avatar.co { border-color: #6C5CE7; background: rgba(108,92,231,0.1); }
+  .exec-avatar.ciso { border-color: #E17055; background: rgba(225,112,85,0.1); }
+
+  .exec-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ivory);
+  }
+  .exec-role {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .exec-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--gold-dim);
+    margin-top: 4px;
+  }
+
+  /* STATUS BAR */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 24px;
+    background: #0A0A0A;
+    border-top: 1px solid #1A1A1A;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--terminal-green);
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* REPO TABLE */
+  .repo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .repo-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid #1A1A1A;
+  }
+  .repo-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid #111;
+    color: var(--text);
+  }
+  .repo-table td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+  }
+  .status-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+  .status-pill.public { background: rgba(0,255,65,0.15); color: var(--terminal-green); }
+  .status-pill.private { background: rgba(220,20,60,0.15); color: var(--crimson); }
+
+  /* ACTIVITY LOG */
+  .log-entry {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #111;
+    font-size: 12px;
+  }
+  .log-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    min-width: 60px;
+  }
+  .log-msg { color: var(--text); }
+  .log-msg .agent { color: var(--gold); font-weight: 600; }
+  .log-msg .action { color: var(--terminal-green); }
+
+  /* GAUGE */
+  .gauge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .gauge-label {
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 80px;
+  }
+  .gauge-bar {
+    flex: 1;
+    height: 6px;
+    background: #1A1A1A;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .gauge-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s;
+  }
+  .gauge-fill.red { background: var(--crimson); }
+  .gauge-fill.gold { background: var(--gold); }
+  .gauge-fill.green { background: var(--terminal-green); }
+  .gauge-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    min-width: 36px;
+    text-align: right;
+  }
+
+  /* QUOTE */
+  .quote-block {
+    border-left: 3px solid var(--crimson);
+    padding: 12px 16px;
+    background: rgba(220,20,60,0.05);
+    border-radius: 0 6px 6px 0;
+    margin: 12px 0;
+  }
+  .quote-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ivory);
+    line-height: 1.6;
+  }
+  .quote-attr {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="logo">
+    <div class="logo-icon">Ω</div>
+    <div class="logo-text">SNAPKITTY C-SUITE</div>
+  </div>
+  <div class="top-meta">
+    <div class="meta-badge">DOI: 10.5281/zenodo.21132094</div>
+    <div class="meta-badge">ORCID: 0009-0006-1916-5245</div>
+    <div class="meta-badge live">● LIVE</div>
+    <div class="meta-badge">v1.0.0</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <!-- EXECUTIVE ROW -->
+  <div class="card span-3 red">
+    <div class="card-header">
+      <div class="card-title">Executive Team</div>
+      <div class="card-badge">C-SUITE</div>
+    </div>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-avatar ceo">Ω</div>
+        <div class="exec-name">BOB</div>
+        <div class="exec-role">Chief Executive Officer</div>
+        <div class="exec-title">Ω_EVIDENCE_OR_SILENCE</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-avatar cto">λ</div>
+        <div class="exec-name">NOVA</div>
+        <div class="exec-role">Chief Technology Officer</div>
+        <div class="exec-title">SOVEREIGN_ARCHITECT</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-avatar cfo">Σ</div>
+        <div class="exec-name">CARTO</div>
+        <div class="exec-role">Chief Financial Officer</div>
+        <div class="exec-title">COVENANT_CUSTODIAN</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-avatar co">Ψ</div>
+        <div class="exec-name">ENKI</div>
+        <div class="exec-role">Chief Operating Officer</div>
+        <div class="exec-title">KNOWLEDGE_KEEPER</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-avatar ciso">Σ</div>
+        <div class="exec-name">SENTINEL</div>
+        <div class="exec-role">Chief Info Security Officer</div>
+        <div class="exec-title">WARD_MONITOR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="card gold">
+    <div class="card-header">
+      <div class="card-title">Test Suites</div>
+      <div class="card-badge">PASSING</div>
+    </div>
+    <div class="big-number gold">200+</div>
+    <div class="card-sub">across 7 languages</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-header">
+      <div class="card-title">Source Code</div>
+      <div class="card-badge">SEALED</div>
+    </div>
+    <div class="big-number green">23K</div>
+    <div class="card-sub">lines of production code</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-header">
+      <div class="card-title">Red Book</div>
+      <div class="card-badge">PUBLISHED</div>
+    </div>
+    <div class="big-number red">500</div>
+    <div class="card-sub">pages, WORM-sealed</div>
+  </div>
+
+  <!-- HEALTH GAUGES -->
+  <div class="card span-2 gold">
+    <div class="card-header">
+      <div class="card-title">System Health</div>
+      <div class="card-badge">ALL OPERATIONAL</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">ERRANT VM</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">36 ops</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">sovereign-llm</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">59 tests</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">sovereign-utqc</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">82 tests</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">covenant</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">24/24</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">AGT</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">14 tests</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">snap-prism</div>
+      <div class="gauge-bar"><div class="gauge-fill green" style="width:100%"></div></div>
+      <div class="gauge-val">10 tests</div>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="card red">
+    <div class="card-header">
+      <div class="card-title">Core Doctrine</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Evidence begins where silence ends."</div>
+      <div class="quote-attr">— SnapKitty Redbook, Chapter 6</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Programs are not executed. They are excavated."</div>
+      <div class="quote-attr">— ERRANT VM Philosophy</div>
+    </div>
+  </div>
+
+  <!-- REPOS -->
+  <div class="card span-2 green">
+    <div class="card-header">
+      <div class="card-title">Repository Status</div>
+      <div class="card-badge">14 REPOS</div>
+    </div>
+    <table class="repo-table">
+      <thead>
+        <tr><th>Repository</th><th>Language</th><th>Tests</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SNAPKITTYWEST</td><td>Multi</td><td>200+</td><td><span class="status-pill private">PRIVATE</span></td></tr>
+        <tr><td>sovereign-utqc</td><td>Rust</td><td>82</td><td><span class="status-pill private">PRIVATE</span></td></tr>
+        <tr><td>sovereign-llm</td><td>Rust</td><td>59</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-covenant</td><td>C</td><td>24</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-addr</td><td>Rust</td><td>12</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-prism</td><td>OCaml</td><td>10</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-pirtm</td><td>C++</td><td>Unit</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-agt</td><td>C#</td><td>14</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-compiler</td><td>Multi</td><td>Varies</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-multiplicity</td><td>C++</td><td>Unit</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>sovereign-adr</td><td>MD</td><td>—</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+        <tr><td>root-fontana</td><td>Rust/Lean</td><td>Lean</td><td><span class="status-pill public">PUBLIC</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ACTIVITY -->
+  <div class="card red">
+    <div class="card-header">
+      <div class="card-title">Activity Log</div>
+      <div class="card-badge">LIVE</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">19:25</div>
+      <div class="log-msg"><span class="agent">omega-field</span> <span class="action">updated</span> README.md</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">15:13</div>
+      <div class="log-msg"><span class="agent">SNAPKITTYWEST</span> <span class="action">published</span> Red Book (500 pages)</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">14:05</div>
+      <div class="log-msg"><span class="agent">omega-field</span> <span class="action">updated</span> field state</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">13:31</div>
+      <div class="log-msg"><span class="agent">omega-field</span> <span class="action">updated</span> field state</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">11:59</div>
+      <div class="log-msg"><span class="agent">omega-field</span> <span class="action">updated</span> field state</div>
+    </div>
+    <div class="log-entry">
+      <div class="log-time">08:57</div>
+      <div class="log-msg"><span class="agent">omega-field</span> <span class="action">updated</span> field state</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-dot"></div>
+  <div>SNAPKITTYWEST v1.0.0</div>
+  <div>|</div>
+  <div>Ω_NONREC: VERIFIED</div>
+  <div>|</div>
+  <div>WORM_CHAIN: INTACT</div>
+  <div>|</div>
+  <div>GOLDILOCKS: p = 2^64 - 2^32 + 1</div>
+  <div>|</div>
+  <div>SEAL: SNAPKITTYWEST-GAPFILL-001</div>
+  <div style="flex:1"></div>
+  <div>EVIDENCE OR SILENCE</div>
+</div>
+
+</body>
+</html>

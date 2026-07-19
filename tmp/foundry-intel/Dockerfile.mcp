@@ -1,0 +1,15 @@
+FROM rust:1.85-bookworm AS builder
+WORKDIR /app
+COPY . .
+RUN cargo build --release -p multiplicity-mcp
+
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+# Copy the binary
+COPY --from=builder /app/target/release/multiplicity-mcp /usr/local/bin/pscmd
+# Copy fallback files that the binary expects
+COPY --from=builder /app/thresholds.json /app/thresholds.json
+COPY --from=builder /app/thresholds.postcard /app/thresholds.postcard
+EXPOSE 8080
+ENTRYPOINT ["pscmd", "--listen", "0.0.0.0:8080"]

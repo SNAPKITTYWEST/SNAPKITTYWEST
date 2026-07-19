@@ -1,0 +1,18 @@
+# Envelopes
+*.envelope
+
+# Keys
+*.pem
+*.key
+
+# Execution directories
+exec/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~

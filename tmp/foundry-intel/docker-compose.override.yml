@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  # Ensure the GitHub adapter stays on the same network
+  github-adapter:
+    networks:
+      - governance-net
+
+  # ngrok sidecar – publicly exposes the FastAPI adapter
+  ngrok:
+    image: ngrok/ngrok:latest
+    environment:
+      # NGROK_AUTHTOKEN must be set in a .env file or the host environment.
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: http github-adapter:8000 --log=stdout
+    depends_on:
+      - github-adapter
+    networks:
+      - governance-net
+    ports:
+      # Optional web UI for ngrok debugging (http://localhost:4040)
+      - "4040:4040"
+    restart: unless-stopped
+
+networks:
+  governance-net:
+    driver: bridge

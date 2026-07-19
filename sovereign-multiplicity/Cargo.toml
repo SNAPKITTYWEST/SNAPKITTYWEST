@@ -1,0 +1,11 @@
+[package]
+name = "sovereign-multiplicity"
+version = "0.1.0"
+edition = "2021"
+authors = ["SnapKitty Collective"]
+description = "Sovereign Multiplicity — Formal verification with Lean 4. SnapKitty lore."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+sha2 = "0.10"

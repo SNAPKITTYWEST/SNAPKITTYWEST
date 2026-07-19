@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    restart: unless-stopped
+    environment:
+      - RUST_LOG=info
+    ports:
+      - "8080:8080"
+    command: ["pscmd", "--listen", "0.0.0.0:8080"]
+    networks:
+      - governance-net
+
+  github-adapter:
+    build:
+      context: ./agents/github_adapter
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - GITHUB_ACCESS_TOKEN=${GITHUB_ACCESS_TOKEN}
+      - MCP_HOST=mcp-server
+      - MCP_PORT=8080
+      - EVALUATION_MODE=commit
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mcp-server
+    networks:
+      - governance-net
+
+networks:
+  governance-net:
+    driver: bridge

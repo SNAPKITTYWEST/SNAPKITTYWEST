@@ -1,0 +1,5 @@
+{:deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        sicmutils/sicmutils  {:mvn/version "0.23.0"}}
+ :paths ["src"]
+ :aliases
+ {:repl {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}}}}

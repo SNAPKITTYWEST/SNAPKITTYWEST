@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METAMINE — Programs are not executed. They are excavated.</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #0A0A0A;
+      color: #FFD700;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #FFD700;
+    }
+    
+    .tagline {
+      color: #B8860B;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .panel {
+      background: #1A1A1A;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    
+    .panel h2 {
+      font-size: 14px;
+      color: #B8860B;
+      margin-bottom: 10px;
+    }
+    
+    canvas {
+      border: 1px solid #333;
+      background: #0A0A0A;
+    }
+    
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    button {
+      background: #1A1A1A;
+      color: #FFD700;
+      border: 1px solid #B8860B;
+      padding: 8px 16px;
+      font-family: 'Courier New', monospace;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    button:hover {
+      background: #FFD700;
+      color: #0A0A0A;
+    }
+    
+    .seal {
+      margin-top: 20px;
+      padding: 10px;
+      background: #1A1A1A;
+      border: 1px solid #44FF44;
+      border-radius: 4px;
+      font-size: 10px;
+      color: #44FF44;
+      word-break: break-all;
+    }
+    
+    .info {
+      margin-top: 20px;
+      font-size: 10px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>METAMINE</h1>
+  <div class="tagline">Programs are not executed. They are excavated.</div>
+  
+  <div class="container">
+    <div class="panel">
+      <h2>Sacred Geometry</h2>
+      <canvas id="sacredCanvas" width="400" height="400"></canvas>
+    </div>
+    
+    <div class="panel">
+      <h2>Glitch Art</h2>
+      <canvas id="glitchCanvas" width="400" height="400"></canvas>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button onclick="regenerate()">Regenerate</button>
+    <button onclick="toggleAnimation()">Animate</button>
+    <button onclick="downloadSVG()">Download SVG</button>
+  </div>
+  
+  <div class="seal" id="seal">SEAL: initializing...</div>
+  
+  <div class="info">
+    METAMINE — A 2D esolang where every program is a minefield<br>
+    Part of the SNAPKITTYWEST constellation
+  </div>
+
+  <script>
+    const sacredCanvas = document.getElementById('sacredCanvas');
+    const glitchCanvas = document.getElementById('glitchCanvas');
+    const sacredCtx = sacredCanvas.getContext('2d');
+    const glitchCtx = glitchCanvas.getContext('2d');
+    
+    const GOLD = '#FFD700';
+    const DARK_GOLD = '#B8860B';
+    const BLACK = '#0A0A0A';
+    const RUPTURE = '#FF4444';
+    const SEAL = '#44FF44';
+    
+    let animating = false;
+    let animationFrame = null;
+    let time = 0;
+    
+    function generateSeal() {
+      const hash = Array.from({ length: 64 }, () => 
+        Math.floor(Math.random() * 16).toString(16)
+      ).join('');
+      return hash;
+    }
+    
+    function drawSacredGeometry() {
+      const ctx = sacredCtx;
+      const size = 400;
+      const cx = size / 2;
+      const cy = size / 2;
+      
+      ctx.fillStyle = BLACK;
+      ctx.fillRect(0, 0, size, size);
+      
+      // Metatron's Cube points
+      const points = [];
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI * 2 * i) / 6 - Math.PI / 2 + time * 0.01;
+        const x = cx + Math.cos(angle) * 150;
+        const y = cy + Math.sin(angle) * 150;
+        points.push({ x, y });
+        
+        const ix = cx + Math.cos(angle) * 75;
+        const iy = cy + Math.sin(angle) * 75;
+        points.push({ x: ix, y: iy });
+      }
+      points.push({ x: cx, y: cy });
+      
+      // Draw connections
+      ctx.strokeStyle = GOLD;
+      ctx.lineWidth = 0.5;
+      ctx.globalAlpha = 0.3;
+      
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const p1 = points[i];
+          const p2 = points[j];
+          const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+          if (dist < 200) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      // Draw circles
+      ctx.globalAlpha = 0.8;
+      for (const p of points) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+        ctx.fillStyle = GOLD;
+        ctx.fill();
+      }
+      
+      // Center circle
+      ctx.beginPath();
+      ctx.arc(cx, cy, 30, 0, Math.PI * 2);
+      ctx.strokeStyle = SEAL;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      
+      ctx.globalAlpha = 1;
+    }
+    
+    function drawGlitchArt() {
+      const ctx = glitchCtx;
+      const size = 400;
+      const gridSize = 10;
+      const cellSize = size / gridSize;
+      
+      ctx.fillStyle = BLACK;
+      ctx.fillRect(0, 0, size, size);
+      
+      // Draw grid
+      for (let y = 0; y < gridSize; y++) {
+        for (let x = 0; x < gridSize; x++) {
+          const px = x * cellSize;
+          const py = y * cellSize;
+          
+          // Random color based on position and time
+          const hue = (x * 36 + y * 36 + time * 2) % 360;
+          const saturation = Math.random() > 0.8 ? 100 : 60;
+          const lightness = 20 + Math.random() * 20;
+          
+          ctx.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+          ctx.fillRect(px, py, cellSize - 1, cellSize - 1);
+          
+          // Glitch effect
+          if (Math.random() > 0.9) {
+            ctx.fillStyle = RUPTURE;
+            ctx.globalAlpha = 0.5;
+            ctx.fillRect(px + Math.random() * 5, py, cellSize, 3);
+            ctx.globalAlpha = 1;
+          }
+        }
+      }
+      
+      // Draw scan lines
+      ctx.strokeStyle = BLACK;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.1;
+      for (let i = 0; i < size; i += 4) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(size, i);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+    
+    function animate() {
+      if (!animating) return;
+      
+      time++;
+      drawSacredGeometry();
+      drawGlitchArt();
+      
+      animationFrame = requestAnimationFrame(animate);
+    }
+    
+    function regenerate() {
+      const seal = generateSeal();
+      document.getElementById('seal').textContent = `SEAL: ${seal}`;
+      
+      time = 0;
+      drawSacredGeometry();
+      drawGlitchArt();
+    }
+    
+    function toggleAnimation() {
+      animating = !animating;
+      if (animating) {
+        animate();
+      } else if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    }
+    
+    function downloadSVG() {
+      // Generate SVG content
+      const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  
+  <!-- Sacred Geometry -->
+  <g transform="translate(200, 200)">
+    ${Array.from({ length: 6 }, (_, i) => {
+      const angle = (Math.PI * 2 * i) / 6 - Math.PI / 2;
+      const x = Math.cos(angle) * 150;
+      const y = Math.sin(angle) * 150;
+      const ix = Math.cos(angle) * 75;
+      const iy = Math.sin(angle) * 75;
+      return `
+        <line x1="0" y1="0" x2="${x}" y2="${y}" stroke="${GOLD}" stroke-width="0.5" opacity="0.3"/>
+        <circle cx="${x}" cy="${y}" r="8" fill="${GOLD}" opacity="0.8"/>
+        <circle cx="${ix}" cy="${iy}" r="8" fill="${GOLD}" opacity="0.8"/>
+      `;
+    }).join('')}
+    <circle cx="0" cy="0" r="30" fill="none" stroke="${SEAL}" stroke-width="2"/>
+  </g>
+  
+  <!-- Glitch Art -->
+  <g transform="translate(400, 0)">
+    ${Array.from({ length: 10 }, (_, y) => 
+      Array.from({ length: 10 }, (_, x) => {
+        const hue = (x * 36 + y * 36) % 360;
+        return `<rect x="${x * 40}" y="${y * 40}" width="39" height="39" fill="hsl(${hue}, 60%, 20%)"/>`;
+      }).join('')
+    ).join('')}
+  </g>
+  
+  <text x="400" y="25" text-anchor="middle" font-family="monospace" font-size="14" fill="${GOLD}">
+    METAMINE — Code Art
+  </text>
+  
+  <text x="400" y="390" text-anchor="middle" font-family="monospace" font-size="8" fill="${SEAL}" opacity="0.6">
+    ${generateSeal()}
+  </text>
+</svg>`;
+      
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'metamine-art.svg';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    // Initial draw
+    regenerate();
+  </script>
+</body>
+</html>

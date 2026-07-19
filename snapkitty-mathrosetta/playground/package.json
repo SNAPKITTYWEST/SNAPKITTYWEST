@@ -1,0 +1,16 @@
+{
+  "name": "mathrosetta-playground",
+  "version": "0.1.0",
+  "description": "Interactive playground for SnapKitty MathRosetta Engine",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 8080",
+    "dev:node": "npx serve . -p 8080",
+    "build:wasm": "wasm-pack build --target web --release",
+    "build:wasm:dev": "wasm-pack build --target web",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["math", "wasm", "playground", "mathir"],
+  "author": "Ahmad Ali Parr",
+  "license": "Apache-2.0"
+}

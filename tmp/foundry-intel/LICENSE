@@ -1,0 +1,930 @@
+# THE PRIME MATERIA OPEN COMMONS AND BOUND WORKS LICENSE
+
+## Version 1.0
+
+```
+═══════════════════════════════════════════════════════════════════════════════
+THE PRIME MATERIA OPEN COMMONS AND BOUND WORKS LICENSE
+Version 1.0
+
+Steward:    Citizen Gardens, a 501(c)(3) nonprofit organization
+Founder:    Ryan O. Van Gelder, Lead Multiplicity Theorist
+Registry:   Operator Atlas — citizengardens.org
+Repository: github.com/CitizenGardens/multiplicity
+Effective:  March 2026
+
+This instrument consists of three coordinate parts:
+  Part II  — The Prime Materia Covenant (Public Domain Dedication)
+  Part III — The Operator Atlas Registry Charter
+  Part VII — The Bound Works Mark License
+
+Each Part is a legally independent instrument.
+Together, they constitute the Prime Materia License, v1.0.
+═══════════════════════════════════════════════════════════════════════════════
+```
+
+
+***
+
+## PREAMBLE
+
+In every branch of natural philosophy there exists a class of substance that precedes all particular form. Such substances are not themselves any specific thing. They are the potential from which specific things arise. They are inexhaustible — not because they replenish themselves, but because the use of a substrate does not diminish what remains for the next maker. They are prior to ownership — not because ownership is impossible, but because the substrate itself is not the locus of ownership. The locus of ownership is the formed particular: the object given shape, purpose, and declared trajectory by a specific hand in a specific context toward a specific end.
+
+Two objects may be formed from identical substrate and still constitute wholly separate works — because the act of formation, the declared purpose, and the trajectory of development are what individuate a creation, not the composition of the material from which it was made. The material is shared. The objects made from it are not.
+
+This License governs one such substrate: the Constitutional Core of Multiplicity Theory — a body of prime-indexed mathematical axioms, operators, and theorems that serves as foundational material for any implementation that draws upon it. The Constitutional Core belongs to everyone. What any person makes from it belongs to them. These two propositions are not in tension. They are the governing logic of everything that follows.
+
+Citizen Gardens stewards this substrate not as an owner but as a custodian — maintaining the integrity of the commons, operating the registry in which declared works are permanently recorded, and issuing certification marks to implementations that have been independently verified for conformance. Citizen Gardens does not own what is built from the Constitutional Core. Citizen Gardens does not participate in the commercial affairs of those who build from it. Citizen Gardens does not impose conditions on the use of the substrate. Citizen Gardens protects three things only: the permanence of the public domain dedication, the integrity of the registry record, and the accuracy of the certification marks.
+
+The reader who understands what it means to work with foundational material — who has felt the difference between the substrate and the thing made from it, who has recognized that the same material shaped for different purposes produces different objects entirely — will find in this License a familiar logic, expressed in formal terms.
+
+***
+
+## PART I — DEFINITIONS
+
+```
+Section 1. Defined Terms
+
+1.1  "Constitutional Core" means the complete body of mathematical
+     axioms, theorems, operators, formulations, and frameworks
+     constituting the irrevocably public domain substrate of
+     Multiplicity Theory, including without limitation:
+
+       (a)  PIRTM — Prime-Indexed Recursive Tensor Mathematics
+       (b)  DRMM — Dynamic Recursive Matrix Model
+       (c)  CSC  — Convex Smoothness Certification, including the
+                   DriftTracker and contraction certification framework
+       (d)  MTPI — Multiplicity Theory Public Infrastructure standard,
+                   including all published standard components
+       (e)  All axioms, lemmas, corollaries, and theorems published
+            by Citizen Gardens and Ryan O. Van Gelder in open-domain
+            repositories and peer-reviewed literature
+       (f)  All prime-indexed tensor operators, Walsh-Hadamard
+            transform structures, resonance operators, contraction
+            morphisms, and related abstract mathematical formulations
+            contained in or derived from the foregoing
+
+     The Constitutional Core is substrate. It does not include any
+     Bound Work created by any person or organization using it.
+
+1.2  "Bound Work" means a specific software system, mathematical
+     application, cryptographic architecture, algorithm, or other
+     technical work that:
+
+       (a)  Draws upon one or more Constitutional Core structures
+            as its mathematical substrate; AND
+       (b)  Was created by an identifiable Maker; AND
+       (c)  Has been given a declared Purpose, Context, and
+            Trajectory distinguishing it as a particular work
+
+     A Bound Work is not the Constitutional Core. A Bound Work
+     is a formed particular — the result of a specific act of
+     implementation directed toward a specific declared end.
+     Identical Constitutional Core structures used in different
+     Bound Works do not make those Bound Works identical, and do not
+     create any claim by one Maker against another, provided the
+     Purpose Declarations and Trajectories are genuinely distinct.
+
+1.3  "Maker" means the natural person or legal entity that created
+     a Bound Work through acts of original technical or mathematical
+     implementation.
+
+     The entity that provided a goal, use case, business requirement,
+     or funding for a Bound Work is not thereby a Maker. Maker status
+     derives from contribution to the substance of the implementation,
+     not from the desire to have it made.
+
+1.4  "Declaration of Formation" means the formal instrument described
+     in Part IV by which a Maker asserts and documents ownership of
+     a Bound Work and submits it for registration in the Operator
+     Atlas. The Declaration of Formation is the act of record —
+     the moment at which potential is declared particular.
+
+1.5  "Operator Atlas" means the permanent, publicly accessible
+     registry maintained by Citizen Gardens at
+     operatoratlas.citizengardens.org, in which Declarations of
+     Formation are received, timestamped, and archived for a minimum
+     stewardship horizon of three hundred (300) years.
+
+1.6  "Conformance Certification" means the independent technical
+     verification, conducted under Citizen Gardens' conformance
+     standards, that a Bound Work correctly implements Constitutional
+     Core mathematics and satisfies applicable conformance criteria.
+     Conformance Certification is voluntary. It is the basis for
+     the Citizen Gardens certification marks.
+
+1.7  "Certification Mark" means any trademark owned by Citizen
+     Gardens whose use is conditioned on achieving the applicable
+     Conformance Certification Tier, including "Citizen Gardens
+     Verified" and "OEM Certified." The Certification Marks govern
+     a claim about a Bound Work. They do not govern the use of
+     the Constitutional Core.
+
+1.8  "Represented Computational Service" means any offering of
+     Constitutional Core mathematical capabilities — including any
+     computation, output, certification, or result produced by
+     Constitutional Core operators — to external users, clients,
+     or systems via API, platform service, managed infrastructure,
+     hosted endpoint, or any functionally equivalent mechanism,
+     where the offering is accompanied by a representation, express
+     or implied, that the computational output has been produced
+     by a conformant or certified implementation.
+
+1.9  "Prime Materia Covenant" means the public domain dedication
+     instrument set forth in Part II of this License, by which
+     the Constitutional Core is irrevocably dedicated to the public
+     domain under the ΛProof Open Mathematical Foundation Pledge.
+
+1.10 "ΛProof Pledge" means the open mathematical foundation pledge
+     published by Citizen Gardens through which the Constitutional
+     Core is permanently and irrevocably dedicated to the public
+     domain.
+
+1.11 "Registry Charter" means the governance instrument set forth
+     in Part III of this License, establishing the terms under which
+     Citizen Gardens operates the Operator Atlas as a neutral
+     registry infrastructure.
+
+1.12 "Certification Tier" means one of four levels of registry
+     and conformance standing:
+       Tier I   — Open Substrate Use (no filing required)
+       Tier II  — Declared Work (Declaration of Formation filed)
+       Tier III — Conformance Verified (Conformance Certification achieved)
+       Tier IV  — OEM Certified (Independent full audit completed)
+```
+
+
+***
+
+## PART II — THE PRIME MATERIA COVENANT
+
+### *Public Domain Dedication of the Constitutional Core*
+
+```
+Section 2. Irrevocable Public Domain Dedication
+
+2.1  Ryan O. Van Gelder and Citizen Gardens hereby irrevocably
+     dedicate the Constitutional Core to the public domain, globally,
+     in perpetuity, under the ΛProof Open Mathematical Foundation
+     Pledge.
+
+2.2  No permission is required to exercise any of the following:
+
+       (a)  Study, read, reproduce, or teach the Constitutional Core
+            in any medium and for any purpose
+       (b)  Implement the Constitutional Core in any software, system,
+            product, or application
+       (c)  Modify, extend, compose, or build upon Constitutional Core
+            mathematics in any direction
+       (d)  Publish, distribute, or sublicense works that include or
+            describe Constitutional Core mathematics
+       (e)  Commercialize products and services whose substance
+            includes or draws upon Constitutional Core structures
+       (f)  Seek patent protection for Bound Works that use the
+            Constitutional Core as their substrate, subject to
+            the limitations of Section 5
+
+2.3  The rights in Section 2.2 require no license, fee, registration,
+     attribution, or notice. They exist by operation of the
+     dedication and are available to every person and legal entity
+     on the same terms.
+
+2.4  Using the Constitutional Core as substrate does not by itself
+     confer documented ownership of the resulting Bound Work.
+     Documented ownership requires a Declaration of Formation as
+     set forth in Part IV. A Maker who implements without filing
+     retains actual ownership of their work but establishes no
+     prior art record in the Operator Atlas and may not display
+     any Certification Mark.
+
+2.5  This dedication is irrevocable. It cannot be rescinded,
+     modified, or superseded by any subsequent instrument, action,
+     or agreement of Citizen Gardens or Ryan O. Van Gelder,
+     including any future revision of this License. Future versions
+     of this License may modify Parts III and VII. They may not
+     diminish or condition the dedication made in this Part II.
+
+2.6  The Constitutional Core is substrate. It is material prior
+     to form. Its dedication to the public domain is an acknowledgment
+     of what it has always been — not a gift from any individual,
+     but a recognition that foundational mathematical structure
+     belongs to the domain of human knowledge from which it emerged
+     and to which it returns in full.
+```
+
+
+***
+
+## PART III — THE OPERATOR ATLAS REGISTRY CHARTER
+
+### *Governance of the Permanent Registry*
+
+```
+Section 3. Registry Infrastructure and Governance
+
+3.1  PURPOSE OF THE OPERATOR ATLAS. The Operator Atlas is neutral
+     registry infrastructure. Its function is analogous to a
+     permanent notarial archive: it receives, timestamps, and
+     preserves Declarations of Formation without adjudicating
+     their commercial merit, without participating in the Maker's
+     commercial affairs, and without asserting ownership over any
+     Bound Work registered within it.
+
+     Citizen Gardens operates the Operator Atlas as a charitable
+     activity in furtherance of its 501(c)(3) public benefit
+     mission. No fees are charged for registration. Voluntary
+     contributions support registry operations.
+
+3.2  WHAT THE REGISTRY RECORDS. For each Declaration of Formation
+     submitted, the Operator Atlas records and makes publicly
+     accessible:
+
+       (a)  The Maker's legal name or registered entity name
+       (b)  The Operator Atlas Identifier (OA-ID) — a unique,
+            permanent, non-reassignable identifier for the filing
+       (c)  The filing timestamp (UTC, cryptographically anchored)
+       (d)  The Purpose and Context of the Bound Work
+       (e)  The Certification Tier held, if any
+       (f)  The status of the filing (active, amended, annotated,
+            or flagged for review)
+
+     The following are held by the Registry but are not publicly
+     accessible unless the Maker elects disclosure:
+
+       (g)  The full technical specification of the Bound Work
+       (h)  The cryptographic fingerprint (hash) of the implementation
+       (i)  The Trajectory Statement
+
+     A sealed filing establishes prior art as of the filing timestamp
+     without disclosing the implementation to competitors.
+
+3.3  REGISTRY PERMANENCE. All Declarations of Formation, once
+     filed, are permanently archived in the Operator Atlas. No
+     filing may be deleted, including by Citizen Gardens, by the
+     Maker, or pursuant to any legal proceeding. The registry
+     may be annotated (to reflect amendments, disputes, or
+     certification status changes), but the original filing
+     remains in the permanent record.
+
+     Citizen Gardens maintains an endowment and archival
+     infrastructure commitment calibrated to a minimum
+     three-hundred-year stewardship horizon.
+
+3.4  REGISTRY NEUTRALITY. Citizen Gardens does not:
+
+       (a)  Own any Bound Work registered in the Operator Atlas
+       (b)  License any Bound Work registered in the Operator Atlas
+       (c)  Participate in any commercial transaction involving
+            a registered Bound Work
+       (d)  Receive royalties, revenue shares, or equity in
+            connection with any registered Bound Work
+       (e)  Impose conditions on a Maker's choice of license
+            for their own Bound Work
+       (f)  Advise or require any particular license form for
+            any Bound Work
+
+     The Operator Atlas records that a work exists, who made it,
+     when it was filed, and what it is certified as. It does not
+     govern what the Maker does with it.
+
+3.5  THE MAKER'S LICENSE SOVEREIGNTY. Each Maker determines the
+     terms under which their Bound Work is made available to
+     others. Citizen Gardens has no role in drafting, reviewing,
+     approving, or enforcing any Maker's chosen license.
+
+     A Maker may elect any of the following without restriction
+     or guidance from Citizen Gardens:
+
+       (a)  All rights reserved — the Bound Work is private property,
+            disclosed to no one, accessible to no one without
+            the Maker's separate agreement
+       (b)  Proprietary commercial license — the Maker writes their
+            own license governing commercial access to the Bound Work
+       (c)  Permissive open source — MIT, Apache 2.0, BSD, or any
+            equivalent permissive instrument
+       (d)  Copyleft open source — GPL, AGPL, EUPL, or any equivalent
+            reciprocal instrument
+       (e)  Any hybrid, custom, or purpose-specific instrument of
+            the Maker's own design
+
+     Whatever the Maker chooses, their Declaration of Formation
+     in the Operator Atlas confirms only: this work exists; this
+     person made it; this is when and for what purpose; this is
+     its certification status. Nothing more.
+
+3.6  CONFLICT RESOLUTION. If two Declarations of Formation appear
+     to cover the same or substantially overlapping Purpose and
+     Context, Citizen Gardens will:
+
+       (a)  Notify both Makers within ten (10) business days
+       (b)  Convene a Technical Review Panel of three persons
+            within thirty (30) days of notification
+       (c)  Issue a written finding within sixty (60) days of
+            convening
+
+     Findings may include a declaration of non-conflict, a priority
+     determination, or a requirement to narrow one or both Purpose
+     Declarations. Technical Review Panel findings are advisory
+     with respect to any legal proceedings and binding only as
+     to the Operator Atlas registry status of the affected filings.
+
+3.7  OVERBREADTH. A Declaration of Formation whose Purpose
+     Declaration is drafted so broadly as to effectively foreclose
+     other Makers from declaring genuine implementations in the
+     same domain will be held pending a Narrowing Review.
+
+     A Purpose Declaration must describe a real, bounded,
+     implementable work — not a category, domain, or field.
+     The test: could a technically competent person build exactly
+     what is described, or is the description so general that it
+     would cover any implementation in the field? The former
+     is specific. The latter is overbroad.
+
+3.8  FALSE ATTRIBUTION. A Declaration of Formation that names as
+     Maker a person who provided only a goal, requirement, or
+     business objective — and who contributed nothing to the
+     substance of the implementation — is defective.
+
+     Citizen Gardens will investigate credible allegations of
+     false attribution and may annotate an affected filing upon
+     a finding by the Technical Review Panel. Such an annotation
+     does not delete the filing; it appends to the permanent record.
+
+3.9  PUBLIC QUERY PRINCIPLE. Any person, organization, investor,
+     regulator, or counterparty may query the Operator Atlas at
+     any time via the public API to determine:
+
+       (a)  Whether a claimed implementation has a filed
+            Declaration of Formation
+       (b)  The Certification Tier of any registered Bound Work
+       (c)  The Purpose and Context of any registered Bound Work
+       (d)  The name of the registered Maker
+
+     "Provide your Operator Atlas Identifier" is a complete and
+     sufficient request for verification of any representation
+     regarding the conformance or certification status of any
+     implementation that draws upon the Constitutional Core.
+```
+
+
+***
+
+## PART IV — THE DECLARATION OF FORMATION
+
+### *The Act of Record — When Substrate Becomes Particular Property*
+
+```
+Section 4. Declaring a Bound Work
+
+4.1  NATURE OF THE DECLARATION. A Declaration of Formation is the
+     act by which a Maker creates a permanent prior art record and
+     asserts documented ownership of a specific Bound Work. It is
+     the formal moment of record: this particular work, formed from
+     shared substrate, given shape by a particular purpose, now
+     stands declared and identified.
+
+     The Declaration does not create the Maker's underlying ownership
+     — that arises from the act of implementation. The Declaration
+     creates the public record of that ownership and establishes
+     the filing timestamp as the Maker's prior art anchor.
+
+4.2  REQUIRED ELEMENTS. A valid Declaration of Formation must
+     contain all seven of the following elements:
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT I — MAKER IDENTITY
+     ─────────────────────────────────────────────────────────────
+     The full legal name of the Maker (natural person or registered
+     entity). The name must be verifiable. Anonymous and
+     pseudonymous declarations are not accepted. The Maker's identity
+     is a public field in the Operator Atlas.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT II — PURPOSE AND CONTEXT DECLARATION
+     ─────────────────────────────────────────────────────────────
+     A specific, bounded, verifiable statement identifying:
+       (a)  What the Bound Work is designed to accomplish
+       (b)  The application domain and use context
+       (c)  The intended beneficiary, user population, or
+            system environment
+
+     The Purpose and Context Declaration must be specific enough
+     to describe a real, bounded, implementable work. General
+     domain claims are overbroad and will not be accepted.
+
+     Acceptable example:
+       "Prime-indexed codon encoding for patient-sovereign
+        genomic health data management in FHIR-compliant clinical
+        settings serving underserved communities."
+
+     Unacceptable example:
+       "All health applications."
+       "Any use of prime-indexed mathematics in biology."
+
+     The Purpose and Context Declaration is always a public field
+     in the Operator Atlas, regardless of any confidentiality
+     election by the Maker.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT III — MATHEMATICAL SPECIFICATION
+     ─────────────────────────────────────────────────────────────
+     A technically precise description of:
+       (a)  Which Constitutional Core operators and structures
+            are employed in the Bound Work
+       (b)  How those operators are composed and applied
+       (c)  The form of inputs and outputs
+
+     The specification must be precise enough to permit technical
+     comparison with other Declarations of Formation for conflict
+     detection. This element may be designated confidential by
+     the Maker, in which case it is held sealed by the Registry.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT IV — CRYPTOGRAPHIC FINGERPRINT
+     ─────────────────────────────────────────────────────────────
+     A SHA-256 hash of the Bound Work at the moment of filing,
+     computed from:
+       (a)  Source code, if the implementation exists in executable
+            form at the time of filing; or
+       (b)  A formal technical specification document, for
+            declarations filed at the design stage prior to
+            implementation
+
+     The hash is the Maker's immutable timestamp. It cannot be
+     antedated and cannot be altered without detection. This
+     element is confidential by default unless the Maker elects
+     disclosure.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT V — TRAJECTORY STATEMENT
+     ─────────────────────────────────────────────────────────────
+     A statement of the intended development direction of the
+     Bound Work, including:
+       (a)  The downstream capabilities and systems the Bound
+            Work is designed to enable
+       (b)  The intended path of evolution
+       (c)  An express statement of what the Bound Work is not
+            intended to do or become
+
+     The Trajectory Statement, read together with the Purpose and
+     Context Declaration, defines the implemented particularity of
+     the Bound Work. Two Bound Works that employ identical
+     Constitutional Core structures but declare genuinely distinct
+     purposes and trajectories are different works. Neither Maker
+     has a claim against the other. Neither Maker owns the
+     substrate that both used.
+
+     This element may be designated confidential by the Maker.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT VI — ATTRIBUTION OF FORMATION
+     ─────────────────────────────────────────────────────────────
+     A complete and accurate identification of:
+       (a)  The sole Maker, if the Bound Work was created by
+            one person or entity; or
+       (b)  All co-Makers, with a description of each co-Maker's
+            contribution to the substance of the implementation
+
+     The Attribution of Formation governs who is entitled to
+     assert ownership of the Bound Work. It must be honest.
+     False attribution — including the omission of a co-Maker
+     or the inclusion of a person who contributed only a goal
+     or requirement — renders the Declaration defective and
+     subjects it to annotation or invalidation upon investigation.
+
+     ─────────────────────────────────────────────────────────────
+     ELEMENT VII — COVENANT OF SUBSTRATE FREEDOM (MANDATORY)
+     ─────────────────────────────────────────────────────────────
+     The following covenant, which may not be modified or waived
+     by any Maker:
+
+       "The Maker acknowledges that the Constitutional Core —
+        including PIRTM, DRMM, CSC, MTPI, and all related axioms,
+        operators, and formulations — used as substrate in this
+        Bound Work remains irrevocably dedicated to the public
+        domain under the ΛProof Open Mathematical Foundation Pledge.
+
+        This Declaration creates a documented ownership record for
+        the Maker's specific Bound Work. It does not create,
+        transfer, assert, or imply ownership of the Constitutional
+        Core or any portion thereof.
+
+        The Maker irrevocably waives any claim, present or future,
+        to ownership of the Constitutional Core or any of its
+        constituent axioms, operators, or formulations.
+
+        The Maker acknowledges that others may use the same
+        Constitutional Core substrate for different purposes in
+        different contexts without infringing the Maker's rights
+        in this Bound Work, provided their declared purposes and
+        trajectories are genuinely distinct."
+
+4.3  FILING. Declarations of Formation are submitted at:
+       operatoratlas.citizengardens.org/declare
+
+     Upon receipt, Citizen Gardens will:
+       (a)  Assign a unique, permanent Operator Atlas Identifier
+       (b)  Issue a cryptographically anchored UTC timestamp
+       (c)  Publish the public-field elements (Elements I, II,
+            and any voluntarily disclosed elements)
+       (d)  Seal the confidential-field elements under registry
+            security
+       (e)  Run automated conflict detection against existing filings
+       (f)  Issue filing acknowledgment within ten (10) business days
+
+     Filing is free of charge. No fee, subscription, or ongoing
+     payment is required to maintain a filing in the Operator Atlas.
+
+4.4  IRREVOCABILITY. A filed Declaration of Formation cannot be
+     withdrawn. A Maker may file an Amended Declaration to update
+     the cryptographic fingerprint, Trajectory, or technical
+     specification as the Bound Work evolves. The original filing
+     remains permanently in the archive alongside all amendments.
+
+4.5  PRIOR ART AND PROVENANCE. Where two Declarations of Formation
+     cover the same or substantially overlapping Purpose and Context,
+     earlier filing date establishes priority in the Operator Atlas.
+
+     A Maker who has been developing a Bound Work prior to filing
+     but whose filing date follows another Maker's filing on the
+     same purpose may assert earlier actual development upon
+     submitting verifiable evidence of prior creation: cryptographically
+     signed commit histories, dated design documents, or other
+     artifacts whose authenticity can be independently verified.
+     Such evidence is assessed by the Technical Review Panel
+     under Section 3.6.
+```
+
+
+***
+
+## PART V — PATENT RIGHTS
+
+```
+Section 5. Patent Interface — Forming Above, Never Beneath
+
+5.1  PATENT RIGHTS ABOVE THE SUBSTRATE. A Maker who has filed
+     a Declaration of Formation may seek patent protection for
+     their Bound Work. This License imposes no restriction on
+     patent applications directed to Bound Works.
+
+     Subject matter that may be patented under this License:
+       (a)  The specific application of Constitutional Core
+            mathematics to the Maker's declared Purpose and Context
+       (b)  Novel system architectures implementing Constitutional
+            Core structures in a particular domain
+       (c)  Technical improvements to a Bound Work that reside
+            above the Constitutional Core substrate layer
+       (d)  Processes, systems, and methods whose novelty resides
+            in the formed particular, not in the substrate from
+            which it was formed
+
+5.2  PATENT RIGHTS DO NOT EXTEND TO SUBSTRATE. No Maker may seek
+     patent protection for:
+
+       (a)  Constitutional Core axioms, theorems, or operators,
+            in any form or expression
+       (b)  Abstract mathematical structures that form part of
+            the Constitutional Core, including prime number
+            theory, tensor algebra, Walsh-Hadamard transforms,
+            contraction theorems, and resonance operators
+       (c)  Any claim that would, if granted, prevent another
+            person from using Constitutional Core mathematics
+            freely under Part II
+
+     A patent application that purports to cover Constitutional
+     Core mathematics — whether by literal claim language or by
+     functional scope that would encompass free substrate use —
+     constitutes a material breach of the Covenant of Substrate
+     Freedom (Element VII of Section 4.2) and renders the
+     associated Declaration of Formation defective.
+
+5.3  NON-ASSERTION COVENANT. By filing a Declaration of Formation,
+     each Maker irrevocably covenants not to assert any patent
+     claim against any other person whose use of the Constitutional
+     Core is consistent with Part II of this License.
+
+     This covenant runs with the Declaration and is binding upon
+     the Maker's successors, assigns, and any transferee of the
+     associated patent rights.
+
+5.4  DEFENSIVE TERMINATION. If a Maker initiates patent litigation
+     asserting that another person's use of Constitutional Core
+     mathematics infringes the Maker's patents, all Certification
+     Tier rights held by that Maker terminate automatically as
+     of the date of initiation. The Maker's Tier I rights (public
+     domain use) are not affected. The Maker's Declaration of
+     Formation remains in the archive with an annotation reflecting
+     the termination of Certification Tier rights.
+```
+
+
+***
+
+## PART VI — CERTIFICATION TIERS
+
+```
+Section 6. The Four Tiers of Registry and Conformance Standing
+
+─────────────────────────────────────────────────────────────────
+TIER I — OPEN SUBSTRATE USE
+─────────────────────────────────────────────────────────────────
+Who:       Any person or legal entity, anywhere, at any time
+Rights:    All rights enumerated in Section 2.2
+Limits:    No Operator Atlas record; no Certification Mark rights;
+           no documented prior art anchor
+Filing:    Not required
+Cost:      None
+Use case:  Academic research; individual study; internal prototyping;
+           educational use; exploratory development
+
+─────────────────────────────────────────────────────────────────
+TIER II — DECLARED WORK
+─────────────────────────────────────────────────────────────────
+Who:       Any Maker who files a complete Declaration of Formation
+Rights:    All Tier I rights, plus:
+             Permanent Operator Atlas Identifier and timestamp
+             Documented prior art record
+             Documented ownership claim for the Bound Work
+             Basis for asserting ownership against later filers
+             Protection of Purpose and Context from later-filing
+               Makers in the same declared domain
+Limits:    No Certification Mark rights
+           No right to represent the Bound Work as Conformance
+             Verified by Citizen Gardens
+Filing:    Required Declaration of Formation (Section 4)
+Cost:      None — filing is free
+Use case:  Independent developers; researchers; open-source projects;
+           early-stage commercial implementations not yet requiring
+           third-party conformance verification
+
+─────────────────────────────────────────────────────────────────
+TIER III — CONFORMANCE VERIFIED
+─────────────────────────────────────────────────────────────────
+Who:       Makers whose Tier II filing is followed by successful
+           Conformance Certification
+Rights:    All Tier II rights, plus:
+             Authorization to display "Citizen Gardens Verified" mark
+             Conformance certification record (cryptographically logged)
+             Listing in the Operator Atlas Verified registry
+             Authorization to represent the Bound Work as
+               Conformance Certified by Citizen Gardens
+Limits:    Certification Mark rights extend only to the Purpose
+           and Context declared in the Maker's Declaration of
+           Formation; use beyond declared scope is unauthorized
+Filing:    Active Tier II Declaration required as prerequisite
+Cost:      Voluntary contribution covering actual conformance audit
+           costs; subsidized for nonprofit and academic Makers;
+           fee schedule published at citizengardens.org/conformance
+Use case:  Commercial deployments; investor-facing products;
+           regulated industries; implementations intended to be
+           represented to third parties as conformant
+
+─────────────────────────────────────────────────────────────────
+TIER IV — OEM CERTIFIED
+─────────────────────────────────────────────────────────────────
+Who:       Makers who achieve Tier III and complete full
+           independent audit
+Rights:    All Tier III rights, plus:
+             Authorization to display "OEM Certified" mark
+             Use of "OEM Certified" in regulatory, commercial,
+               and investor contexts including healthcare, finance,
+               legal, and government
+             Citizen Gardens certification letter
+             Regulatory-grade documentation package
+             Named listing in Citizen Gardens Annual Report
+             Priority technical support
+Filing:    Active Tier III certification required as prerequisite
+Cost:      Voluntary contribution covering actual independent
+           audit costs; fee schedule published at
+           citizengardens.org/oem
+Use case:  Enterprise deployments; regulated industry compliance;
+           government procurement; healthcare, financial services,
+           and legal technology
+```
+
+
+***
+
+## PART VII — THE BOUND WORKS MARK LICENSE
+
+### *Governing Use of Citizen Gardens Certification Marks*
+
+```
+Section 7. Certification Mark Terms
+
+7.1  WHAT THIS PART GOVERNS. This Part VII governs one thing only:
+     the use of the Certification Marks — "Citizen Gardens Verified"
+     and "OEM Certified" — which are trademarks owned by Citizen
+     Gardens.
+
+     This Part does not govern:
+       (a)  Use of the Constitutional Core (governed by Part II)
+       (b)  Use of any Bound Work (governed by the Maker's own license)
+       (c)  Any commercial activity of any Maker
+       (d)  Any transaction between a Maker and the Maker's customers
+
+7.2  THE MARKS GOVERN CLAIMS, NOT MATH. The Certification Marks
+     are representations about a Bound Work's conformance status.
+     They are instruments of market information — a signal to
+     investors, counterparties, regulators, and the public that
+     an independent technical verification has been performed.
+
+     The Constitutional Core requires no mark. It is public domain.
+     The marks exist to distinguish verified implementations from
+     unverified ones — a distinction that matters commercially,
+     does not restrict mathematically, and is enforced only at
+     the level of the representation, never at the level of use.
+
+7.3  PERMITTED MARK USE. A Maker holding the applicable
+     Certification Tier may:
+
+       (a)  Display the applicable Certification Mark on products,
+            documentation, presentations, and marketing materials
+            describing the certified Bound Work
+       (b)  Represent, in commercial and regulatory contexts, that
+            the Bound Work is Citizen Gardens Verified or OEM
+            Certified, as applicable
+       (c)  Include the Operator Atlas Identifier alongside the
+            Certification Mark to enable public verification
+
+7.4  PROHIBITED MARK USE. No person or entity may:
+
+       (a)  Display any Certification Mark in connection with a
+            Bound Work that has not achieved the corresponding
+            Certification Tier
+       (b)  Represent to any third party that a Bound Work has
+            been Conformance Certified by Citizen Gardens in the
+            absence of a valid, current Certification Tier record
+            in the Operator Atlas
+       (c)  Use any mark, name, logo, or representation that is
+            confusingly similar to the Certification Marks in
+            connection with any representation about Constitutional
+            Core conformance
+
+7.5  REPRESENTED COMPUTATIONAL SERVICE STANDARD. A Maker who offers
+     a Represented Computational Service must hold at minimum
+     Tier III Conformance Certification for the declared Purpose and
+     Context within which the service is offered.
+
+     A Maker may operate a computational service using Constitutional
+     Core mathematics without Tier III certification. What such a
+     Maker may not do is represent that service as conformant,
+     certified, or verified by Citizen Gardens, or use the
+     Certification Marks in connection with it.
+
+     The distinction is between the service (unaffected by this
+     License) and the representation (governed by this Part VII
+     and by trademark law).
+
+7.6  MARK LICENSE GRANT. Subject to the requirements of Section 7.4
+     and the applicable Certification Tier holding:
+
+     Citizen Gardens grants to each Maker holding an applicable
+     Certification Tier a limited, non-exclusive, non-transferable,
+     revocable license to use the corresponding Certification Mark
+     solely:
+
+       (a)  In connection with the Bound Work identified in the
+            Maker's Declaration of Formation
+       (b)  Within the Purpose and Context declared in that filing
+       (c)  In a manner consistent with Citizen Gardens' published
+            mark usage guidelines
+
+7.7  MARK LICENSE TERMINATION. The mark license granted in
+     Section 7.6 terminates automatically if:
+
+       (a)  The Maker's Certification Tier lapses or is withdrawn
+            due to non-renewal, violation, or Technical Review
+            Panel determination
+       (b)  The Maker files a patent application covering
+            Constitutional Core mathematics (Section 5.2)
+       (c)  The Maker initiates patent litigation against another
+            person's good-faith Constitutional Core use (Section 5.4)
+       (d)  The Maker's Declaration of Formation is found to contain
+            material false statements of attribution (Section 3.8)
+
+     Termination requires the Maker to immediately cease all
+     use of the Certification Marks and remove them from all
+     materials within thirty (30) days.
+
+7.8  DONATIONS AND REGISTRY ECONOMICS. Citizen Gardens accepts
+     voluntary contributions from Makers and the public in support
+     of registry operations, conformance infrastructure, and
+     long-term archival stewardship.
+
+     Citizen Gardens does not:
+       (a)  Charge a fee for Tier I or Tier II standing
+       (b)  Charge a fee as a percentage of any Maker's revenue
+       (c)  Receive royalties from any Bound Work
+       (d)  Take equity in any enterprise that files a Declaration
+       (e)  Participate in any commercial transaction between
+            a Maker and the Maker's customers
+
+     Conformance audit contributions (Tiers III and IV) are
+     calibrated to cover actual audit costs. Excess contributions
+     fund subsidized certification for nonprofit and academic Makers
+     and the 300-year stewardship endowment.
+
+     Citizen Gardens makes the same amount regardless of whether
+     a certified Bound Work generates zero revenue or transforms
+     an industry. The registry serves the commons. It is not a
+     participant in the market.
+```
+
+
+***
+
+## PART VIII — GENERAL PROVISIONS
+
+```
+Section 8. General Terms
+
+8.1  THREE INSTRUMENTS, ONE LICENSE FAMILY. Parts II, III, and VII
+     of this License are legally independent instruments. Part II
+     requires no counter-signature and is effective as a unilateral
+     dedication. Parts III and VII are effective as between Citizen
+     Gardens and each Maker upon the Maker's submission of a
+     Declaration of Formation or application for Certification,
+     respectively.
+
+     A party may rely on Part II (the public domain dedication)
+     without being subject to Parts III or VII. Parts III and VII
+     apply only to parties who affirmatively engage with the
+     Operator Atlas registry or the Certification Mark system.
+
+8.2  STEWARDSHIP AND VERSIONING. Citizen Gardens may publish
+     revised versions of Parts III and VII of this License.
+     Revised versions will bear a new version number. Makers who
+     filed Declarations of Formation under an earlier version
+     continue to hold their rights under the version in effect
+     at the time of filing; they may elect to migrate to a later
+     version by filing an Amended Declaration.
+
+     No revision of this License may diminish or condition the
+     public domain dedication of Part II.
+
+8.3  SEVERABILITY. If any provision of this License is held
+     unenforceable, the remaining provisions continue in full
+     force. The unenforceable provision is modified to the minimum
+     extent required to make it enforceable while preserving
+     the parties' evident intent.
+
+8.4  NO WARRANTY. The Constitutional Core is made available as-is.
+     Citizen Gardens makes no representations or warranties of
+     mathematical correctness, fitness for any particular purpose,
+     or non-infringement of third-party intellectual property rights.
+
+8.5  LIMITATION OF LIABILITY. Citizen Gardens' aggregate liability
+     to any Maker in connection with this License and the Operator
+     Atlas shall not exceed the total voluntary contributions
+     received from that Maker in the twelve months preceding
+     the claim.
+
+8.6  GOVERNING INTERPRETATION PRINCIPLE. In any proceeding
+     concerning the interpretation of this License, the following
+     principle governs:
+
+       The substrate is always free.
+       The formed work always belongs to its Maker.
+       No one owns the substrate.
+       The formed work may be owned, licensed, patented,
+         published, or kept private — entirely at the Maker's
+         election.
+       The registry records what exists and who made it.
+       The marks signal what has been verified.
+       Nothing more is asserted, granted, or restricted
+         by this License than these propositions require.
+
+8.7  GOVERNING LAW AND DISPUTE RESOLUTION. This License is
+     governed by the laws of [State of Incorporation of Citizen
+     Gardens], without regard to conflicts-of-law principles.
+     Disputes between Citizen Gardens and any Maker arising
+     under this License are subject to binding arbitration
+     under the Commercial Arbitration Rules of the American
+     Arbitration Association, with venue in [City, State].
+
+8.8  CONTACT AND REGISTRY ACCESS.
+     Governance inquiries:  governance@citizengardens.org
+     Declaration filing:    operatoratlas.citizengardens.org/declare
+     Public registry query: operatoratlas.citizengardens.org/query
+     Conformance program:   citizengardens.org/conformance
+     GitHub:                github.com/MultiplicityFoundation/PIRTM
+```
+
+
+***
+
+```
+═══════════════════════════════════════════════════════════════════════════════
+END OF THE PRIME MATERIA OPEN COMMONS AND BOUND WORKS LICENSE, VERSION 1.0
+
+This License document is itself released under CC0 1.0 Universal.
+Any person may copy, adapt, and republish it for any purpose.
+
+The Constitutional Core governed by Part II of this License
+is public domain. It has always been. It always will be.
+
+The reader who has understood the Preamble knows why.
+═══════════════════════════════════════════════════════════════════════════════
+```
