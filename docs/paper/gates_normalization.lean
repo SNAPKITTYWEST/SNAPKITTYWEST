@@ -17,9 +17,8 @@
                                  multiplier) orthogonal to the normalization
                                  constraint.
 
-  Note: this is research-grade Lean 4 sketch (geometric clarv). Several `sorry`
-  gates remain where full Mathlib automation is required; the structural spine
-  is what matters.
+  Zero sorry. Both normalization theorems are closed via Finset.sum_div +
+  Real.exp_log + div_self. The structural spine is fully formal.
 -/
 
 namespace ProbabilitySimplex
@@ -37,22 +36,23 @@ def softmax (x : Fin n → ℝ) : Fin n → ℝ :=
   fun i => Real.exp (x i) / ∑ j : Fin n, Real.exp (x j)
 
 /-- The Gates Normalization Theorem: softmax always produces a point on the simplex. -/
-theorem softmax_normalization {n : ℕ} (x : Fin n → ℝ) :
+theorem softmax_normalization {n : ℕ} (hn : 0 < n) (x : Fin n → ℝ) :
     ∑ i : Fin n, softmax x i = 1 := by
-  -- The sum of softmax is (Σ exp xᵢ) / (Σ exp xᵢ) = 1.
-  sorry
+  simp only [softmax, Finset.sum_div]
+  have hpos : 0 < ∑ j : Fin n, Real.exp (x j) :=
+    Finset.sum_pos (fun j _ => Real.exp_pos (x j))
+      ⟨⟨0, hn⟩, Finset.mem_univ _⟩
+  exact div_self (ne_of_gt hpos)
 
 /-- The simplex point constructed from softmax. -/
-def softmax_simplex {n : ℕ} (x : Fin n → ℝ) : Simplex n :=
+def softmax_simplex {n : ℕ} (hn : 0 < n) (x : Fin n → ℝ) : Simplex n :=
   ⟨softmax x,
    fun i => by
      have h₁ : 0 ≤ Real.exp (x i) := Real.exp_pos (x i) |>.le
-     have h₂ : 0 ≤ ∑ j : Fin n, Real.exp (x j) := by
-       apply Finset.sum_nonneg
-       intro j _
-       exact Real.exp_pos (x j) |>.le
+     have h₂ : 0 ≤ ∑ j : Fin n, Real.exp (x j) :=
+       Finset.sum_nonneg (fun j _ => Real.exp_pos (x j) |>.le)
      exact div_nonneg h₁ h₂,
-   softmax_normalization x⟩
+   softmax_normalization hn x⟩
 
 namespace SimplexCollapse
 
@@ -81,9 +81,9 @@ structure ModelPrediction (n : ℕ) where
   vocabulary : Fin n → String
 
 /-- The universal formula decomposed: geometry first, labels second. -/
-def predict_location {n : ℕ} (hidden : Fin n → ℝ) (weights : Fin n → Fin n → ℝ) (bias : Fin n → ℝ) : Simplex n :=
+def predict_location {n : ℕ} (hn : 0 < n) (hidden : Fin n → ℝ) (weights : Fin n → Fin n → ℝ) (bias : Fin n → ℝ) : Simplex n :=
   let logits : Fin n → ℝ := fun i => ∑ j : Fin n, weights i j * hidden j + bias i
-  softmax_simplex logits
+  softmax_simplex hn logits
 
 end SimplexCollapse
 
@@ -138,9 +138,12 @@ def log_partition {n : ℕ} (logits : Fin n → ℝ) : ℝ :=
 
 /-- The fundamental identity: softmax(logits)ᵢ = exp(logitsᵢ - log_partition(logits)).
     The log_partition IS the meta-inverted sum — it enforces ∑ = 1. -/
-theorem log_partition_enforces_normalization {n : ℕ} (logits : Fin n → ℝ) :
+theorem log_partition_enforces_normalization {n : ℕ} (hn : 0 < n) (logits : Fin n → ℝ) :
     ∑ i : Fin n, Real.exp (logits i - log_partition logits) = 1 := by
-  sorry
+  have hZ : 0 < ∑ j : Fin n, Real.exp (logits j) :=
+    Finset.sum_pos (fun j _ => Real.exp_pos (logits j)) ⟨⟨0, hn⟩, Finset.mem_univ _⟩
+  simp only [Real.exp_sub, log_partition, Real.exp_log hZ, Finset.sum_div]
+  exact div_self (ne_of_gt hZ)
 
 /-- The meta-inverted sum for n = 1: the logit is entirely absorbed by the
     normalization; the prediction is forced. -/
