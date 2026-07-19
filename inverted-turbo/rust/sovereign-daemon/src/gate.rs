@@ -1,8 +1,12 @@
-use axum::extract::Json;
+use axum::extract::{Json, State};
 use serde::{Deserialize, Serialize};
 use tracing::instrument;
 
-use crate::{datalog, plasma};
+use crate::{
+    datalog::{self, GateConfig},
+    plasma,
+    DaemonState,
+};
 
 #[derive(Debug, Deserialize)]
 #[allow(dead_code)]
@@ -13,7 +17,7 @@ pub struct GateRequest {
     pub weight: f64,
     pub created_by: String,
     pub review_status: String,
-    /// Declared field names — checked against required_field set (Gate 1)
+    /// Declared field names — checked against required_fields (Gate 1)
     #[serde(default)]
     pub fields: Vec<String>,
     /// Flagged inaccuracies — domain+reason pairs (Gate 3)
@@ -33,9 +37,22 @@ pub struct GateResponse {
     pub reason: Option<String>,
 }
 
-#[instrument(skip(req), fields(id = %req.id, split = %req.split))]
-pub async fn handle(Json(req): Json<GateRequest>) -> Json<GateResponse> {
-    // Encode split string → tag matching plasma_gate.asm uint32 convention
+/// POST /gate
+///
+/// Execution path:
+///   1. Acquire semaphore permit — backpressure, max GATE_CONCURRENCY concurrent evals
+///   2. plasma_gate (sync, no alloc) — null/bounds checks in register order
+///   3. RwLock::read() on GateConfig — shared across all handlers, writers are rare
+///   4. datalog::evaluate — pure fn over borrowed config, zero allocation on happy path
+///   Permit drops at end of scope, slot returns to semaphore.
+#[instrument(skip(state, req), fields(id = %req.id, split = %req.split))]
+pub async fn handle(
+    State(state): State<DaemonState>,
+    Json(req): Json<GateRequest>,
+) -> Json<GateResponse> {
+    // Backpressure: block if GATE_CONCURRENCY slots are full
+    let _permit = state.gate_semaphore.acquire().await.unwrap();
+
     let split_tag: u32 = match req.split.as_str() {
         "train"   => 0,
         "val"     => 1,
@@ -51,7 +68,7 @@ pub async fn handle(Json(req): Json<GateRequest>) -> Json<GateResponse> {
         }
     };
 
-    // Layer 1 — plasma gate (~5 cycle hot path equivalent)
+    // Layer 1 — plasma (sync, mirrors plasma_gate.asm register checks)
     let pr = plasma::plasma_gate(&req.id, &req.source_sha256, split_tag, req.weight);
     if pr != plasma::PlasmaResult::Pass {
         return Json(GateResponse {
@@ -62,12 +79,27 @@ pub async fn handle(Json(req): Json<GateRequest>) -> Json<GateResponse> {
         });
     }
 
-    // Layer 2 — Datalog rules engine (transformer.dl gates 1–4)
-    let dl = datalog::evaluate(&req.fields, &req.inaccuracies, &req.terms);
+    // Layer 2 — Datalog rules (shared config, many-reader RwLock)
+    let config = state.gate_config.read().await;
+    let dl = datalog::evaluate(&req.fields, &req.inaccuracies, &req.terms, &config);
     Json(GateResponse {
         record_id: req.id,
         plasma_result: "PLASMA_PASS".into(),
         gate_result: dl.outcome.into(),
         reason: dl.reason,
     })
+}
+
+/// PATCH /gate/config
+///
+/// Hot-reload gate rules without process restart.
+/// Acquires the write lock (exclusive), swaps config, releases.
+/// All in-flight reads finish before the write proceeds.
+pub async fn patch_config(
+    State(state): State<DaemonState>,
+    Json(new_config): Json<GateConfig>,
+) -> Json<GateConfig> {
+    let mut config = state.gate_config.write().await;
+    *config = new_config;
+    Json(config.clone())
 }
