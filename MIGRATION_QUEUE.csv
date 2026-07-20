@@ -1,0 +1,13 @@
+migration_id,source_repo,target_layer,target_path,action,status
+MIG-0001,snap-os,application-shell,engine/application-shell/,EXTRACT,QUEUED
+MIG-0002,gkn-i4-e7-lean,proofs,engine/proofs/,EXTRACT,QUEUED
+MIG-0003,snapkitty-resonance-isa,runtime,engine/runtime/,EXTRACT,QUEUED
+MIG-0004,cosmic-invariant-sieve,semantic,engine/semantic/,EXTRACT,QUEUED
+MIG-0005,kittybrowse,application-shell,engine/application-shell/,EXTRACT,QUEUED
+MIG-0006,sovlm,models,engine/models/,EXTRACT,QUEUED
+MIG-0007,legacy-apl,numerical-engine,engine/numerical-engine/,EXTRACT,QUEUED
+MIG-0008,SNAPKITTY-PROOFS,proofs,engine/proofs/,EXTRACT,QUEUED
+MIG-0009,errant,agent-runtime,engine/agent-runtime/,EXTRACT,QUEUED
+MIG-0010,foundry-intel,models,engine/models/,EXTRACT,QUEUED
+MIG-0011,mathlib5,proofs,engine/proofs/,EXTRACT,QUEUED
+MIG-0012,snapkitty-mcp,extensions,engine/extensions/,EXTRACT,QUEUED
