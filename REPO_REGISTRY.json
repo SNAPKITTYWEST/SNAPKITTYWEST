@@ -1,0 +1,1967 @@
+{
+  "repos": [
+    {
+      "name": "snap-os",
+      "disposition": "KEEP",
+      "salvage_score": 40,
+      "target_layer": "application-shell",
+      "purpose": "SNAP-OS — sovereign desktop operating environment in Rust built on an inverted monorepo architecture. Direct substrate for the BOB Sovereign IDE.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "inverted monorepo architecture",
+        "sovereign desktop environment",
+        "Rust kernel"
+      ],
+      "reason": "Highest score in the batch. Rust sovereign desktop OS is the natural application-shell and platform substrate for BOB IDE — the inverted monorepo architecture maps directly to the BOB IDE swarm design. Immediate strategic priority."
+    },
+    {
+      "name": "gkn-i4-e7-lean",
+      "disposition": "KEEP",
+      "salvage_score": 40,
+      "target_layer": "proofs",
+      "purpose": "Zero-sorry Lean 4 formalization of the GKN I4 quartic invariant over E7 Freudenthal Triple System, plus RiemannMetatron quantum bridge and QuantumPartitionBridge.",
+      "languages": [
+        "Lean"
+      ],
+      "key_components": [
+        "I4_CommRing.lean — I4_homogeneous, I4_symplectic_swap, freudenthal_double_adjoint_diag",
+        "RiemannMetatron.lean — logit gate, LogitGate, logit_simplex_sums_to_one",
+        "QuantumPartitionBridge.lean"
+      ],
+      "reason": "World-first zero-sorry I4 over abstract CommRing. Active, locally present, published, cited. Core proofs asset for the proofs layer with no migration needed."
+    },
+    {
+      "name": "snapkitty-resonance-isa",
+      "disposition": "KEEP",
+      "salvage_score": 40,
+      "target_layer": "runtime",
+      "reason": "Full sovereign ISA stack: Abjad numerology → IR → bytecode → VM → deed → Unicode Mantra Oscillator. Active Rust Cargo workspace with 9 crates (abjad, assembler, cli, deed, ir, swarm, umo, vm, wasm-vm). Entropy-gated VM is a unique compute primitive. Spans runtime, parser, build, and agent-runtime layers — highest strategic value in the batch.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "abjad crate",
+        "assembler crate",
+        "ir crate",
+        "vm crate",
+        "wasm-vm crate",
+        "umo crate",
+        "deed crate",
+        "swarm crate",
+        "cli crate"
+      ]
+    },
+    {
+      "name": "cosmic-invariant-sieve",
+      "disposition": "KEEP",
+      "salvage_score": 38,
+      "target_layer": "semantic",
+      "purpose": "10-gate compiler-shaped customs checkpoint for agent-generated code: Isabelle/HOL formal proofs, ASP/Clingo policy evaluation, Julia type-stability analysis, INTERCAL borrow-chain tripwire, signed binary emission, receipts and schemas.",
+      "languages": [
+        "Julia",
+        "Isabelle",
+        "ASP/Clingo",
+        "INTERCAL",
+        "Lean"
+      ],
+      "key_components": [
+        "pipeline/stages/",
+        "asp/ (borrow_rules.lp, ownership_rules.lp, effect_rules.lp)",
+        "isabelle/ formal gates",
+        "intercal/ tripwire",
+        "receipts/",
+        "schemas/",
+        "policies/"
+      ],
+      "reason": "Highest-value semantic and governance layer in the batch. The 10-gate monotone consequence operator with policy evaluation, structural borrow analysis, and signed receipts maps directly onto semantic + governance + receipts BOB IDE layers. Completely sovereign, zero external IP contamination."
+    },
+    {
+      "name": "kittybrowse",
+      "disposition": "KEEP",
+      "salvage_score": 38,
+      "target_layer": "application-shell",
+      "purpose": "Electron agent browser shell with APL/WASM primary runtime, NATS mesh, Rust VM bridge, and entropy scheduler.",
+      "languages": [
+        "TypeScript",
+        "Rust",
+        "JavaScript",
+        "HTML"
+      ],
+      "key_components": [
+        "Electron agent browser shell",
+        "APL/WASM runtime binding",
+        "NATS mesh client",
+        "Rust VM bridge",
+        "entropy scheduler"
+      ],
+      "reason": "This is the closest thing to the BOB IDE application-shell that exists in the fleet. APL/WASM runtime + NATS mesh + Rust VM bridge is exactly the sovereign IDE execution model. Keep and promote to primary application-shell candidate."
+    },
+    {
+      "name": "sovlm",
+      "disposition": "KEEP",
+      "salvage_score": 38,
+      "target_layer": "models",
+      "reason": "Python, updated today (2026-07-20). Sovereign statistical LM: Kneser-Ney smoothing + BM25, zero GPU, pure governance. Highest-fit models-layer component — offline, deterministic, auditable. Core to BOB IDE inference without cloud dependency.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "Kneser-Ney n-gram LM",
+        "BM25 retrieval",
+        "zero-GPU inference",
+        "governance layer",
+        "pure statistical pipeline"
+      ],
+      "purpose": "Sovereign offline statistical language model for BOB IDE inference layer"
+    },
+    {
+      "name": "legacy-apl",
+      "disposition": "KEEP",
+      "salvage_score": 37,
+      "target_layer": "numerical-engine",
+      "purpose": "Production APL workspace extracted from all-apl — sovereign domain APL, omega isolation, PIRTM stability, morphism composition, zero-proof substrate.",
+      "languages": [
+        "APL"
+      ],
+      "key_components": [
+        "sovereign_domain.apl",
+        "omega_isolation.apl",
+        "pirtm_stability.apl",
+        "morphism_composition.apl",
+        "zeroproof_substrate.apl",
+        "intercol.apl",
+        "state-model.json"
+      ],
+      "reason": "Locally present, production-labelled, and directly underpins kittybrowse's APL/WASM runtime. Original SNAPKITTYWEST APL theorems and sovereign domain operators are unique numerical-engine assets. Keep as the canonical APL kernel."
+    },
+    {
+      "name": "SNAPKITTY-PROOFS",
+      "disposition": "KEEP",
+      "salvage_score": 37,
+      "target_layer": "proofs",
+      "reason": "Active multi-language formal proof stack: Lean 4, Idris 2 (SovereignNoCloning.idr, gate system), Coq, Haskell-Liquid, Datalog, and Forth substrate. Covers quantum monad, no-cloning, Prism Mirror. Rich provenance metadata (.zenodo.json, CITATION.cff, PROVENANCE.md). Critical for the proofs and governance layers of the IDE.",
+      "languages": [
+        "Lean",
+        "Idris",
+        "Coq/Rocq",
+        "Haskell",
+        "Datalog",
+        "Forth"
+      ],
+      "key_components": [
+        "idris2/SovereignNoCloning.idr",
+        "idris-gate system",
+        "coq proofs",
+        "haskell-liquid specs",
+        "datalog authority rules",
+        "PROVENANCE.md",
+        "RECEIPTS.md"
+      ]
+    },
+    {
+      "name": "errant",
+      "disposition": "KEEP",
+      "salvage_score": 36,
+      "target_layer": "agent-runtime",
+      "purpose": "Linear Forth instruction set with QTT types, WORM guarantees, and a dense Lean 4 formal layer covering: ALP, CRMF, MOC, PIRTM, UOR, GOLDILOCKS, RAMANUJAN, F1Square, ZMOD, META_RELATIVITY, Governance, ExportThresholds, SIGMATICS, UMCPAROM, ECHO_BRAID, AFFINE_CORE, ROC_ENGINE.",
+      "languages": [
+        "Lean",
+        "Forth"
+      ],
+      "key_components": [
+        "ALP.lean",
+        "MOC.lean",
+        "UOR.lean",
+        "Governance.lean",
+        "F1Square.lean",
+        "GOLDILOCKS.lean",
+        "ROC_ENGINE/",
+        "bridge/",
+        "dynamics/",
+        "formal/",
+        "governance/",
+        "adr-governance/"
+      ],
+      "reason": "Core agent-runtime, governance, and proofs hub. The Linear Forth IS is the sovereign instruction-set foundation for agent execution. QTT linear types map onto the rope layer. The Lean formal layer is the deepest proof substrate in the workspace. Keep and build from."
+    },
+    {
+      "name": "foundry-intel",
+      "disposition": "KEEP",
+      "salvage_score": 36,
+      "target_layer": "models",
+      "purpose": "Foundry F1 Proof Lab + JIT Agent Box with WebLLM runtime. Contains: TypeScript frontend, Prolog identity kernel, Rust plasma gate, Lean/Agda proofs, Haskell reasoning, Janet scripting, circuits (Circom ZK), Solidity contracts, observability stack, and the complete F1Square v0.21.0 RH formalization in its lean/ directory.",
+      "languages": [
+        "TypeScript",
+        "Prolog",
+        "Rust",
+        "Lean",
+        "Agda",
+        "Haskell",
+        "Janet",
+        "R",
+        "JavaScript"
+      ],
+      "key_components": [
+        "WebLLM JIT runtime",
+        "lean/ (F1Square v0.21.0 full RH formalization)",
+        "circuits/ (PrimeCheck.circom, DriftBound.circom)",
+        "contracts/ (AnchorContract, AttestationRegistry, BreakGlassEscrow)",
+        "observability/",
+        "sidecar/",
+        "Prolog clauses"
+      ],
+      "reason": "Highest-breadth repo in the batch. The WebLLM runtime is the models layer. The F1Square Lean formalization (Stages A-E, v0.21.0, choice-free, zero sorry) is the deepest proof asset in the workspace. ZK circuits and Solidity contracts add the receipts and governance layers. Prolog + Rust plasma gate feeds agent-runtime. Keep as primary models + proofs anchor."
+    },
+    {
+      "name": "mathlib5",
+      "disposition": "KEEP",
+      "salvage_score": 36,
+      "target_layer": "proofs",
+      "purpose": "Verified Symbolic Compute Pipeline (VSCP): APL surface syntax → S-expr IR → Liquid Haskell + Lean 4 refinement → verified C-- kernel → FOL/Prolog cross-validation → WORM certificate ledger. Original SnapKittyWEST flagship — proof-carrying transformation end-to-end.",
+      "languages": [
+        "Lean",
+        "Rust",
+        "Haskell",
+        "C"
+      ],
+      "key_components": [
+        "verified_kernel.cm (C-- polynomial/matrix kernel)",
+        "Lean 4 FFI bridge",
+        "Liquid Haskell refinement layer",
+        "Rust Cargo workspace",
+        "Nix flake + Bazel hermetic build",
+        "SumLinear/SumSquares/SumCubes closed-form theorems",
+        "WORM certificate ledger"
+      ],
+      "reason": "Crown jewel original work. utility=5, uniqueness=5, strategic_fit=5, health=4, migration_cost=4. Score=(15+10+15+4-8)=36. This IS the numerical-engine + proofs backbone for BOB IDE. Keep intact, expose kernel via FFI to IDE agents."
+    },
+    {
+      "name": "snapkitty-mcp",
+      "disposition": "KEEP",
+      "salvage_score": 35,
+      "target_layer": "extensions",
+      "reason": "Active sovereign MCP server with WORM chain, Ada contracts, digital twin, and Mamba SSM injection. Clean JS module structure (index.mjs, test.mjs). MCP protocol compliance means zero integration friction with BOB IDE agent-runtime and chat layers. The Ada-contract governance wrapper is unique among MCP servers.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "index.mjs",
+        "MCP protocol server",
+        "WORM chain binding",
+        "Ada contracts layer",
+        "Mamba SSM injections",
+        "digital twin interface",
+        "test.mjs"
+      ]
+    },
+    {
+      "name": "sovereign-transformer",
+      "disposition": "KEEP",
+      "salvage_score": 35,
+      "target_layer": "runtime",
+      "reason": "Rust, active. Plasma gate + pure Datalog corpus classification. Core security and routing layer for BOB IDE agent dispatch. Known working two-layer gate (plasma + Datalog). High strategic fit for runtime.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "plasma gate",
+        "Datalog corpus classifier",
+        "training gate",
+        "sovereign corpus router"
+      ],
+      "purpose": "Sovereign corpus classification and training gate — runtime security backbone for BOB IDE"
+    },
+    {
+      "name": "systemic-intelligence",
+      "disposition": "KEEP",
+      "salvage_score": 35,
+      "target_layer": "agent-runtime",
+      "reason": "JavaScript, updated yesterday (2026-07-19). 7-layer sovereign AI stack: Agda constitution → OCaml planner → Datalog authority → SPARK kernel → Wasm. Direct alignment with BOB IDE agent-runtime orchestration layer.",
+      "languages": [
+        "JavaScript",
+        "Agda",
+        "OCaml"
+      ],
+      "key_components": [
+        "7-layer sovereign AI stack",
+        "Agda constitution",
+        "OCaml planner",
+        "Datalog authority engine",
+        "SPARK kernel",
+        "Wasm execution layer"
+      ],
+      "purpose": "Full sovereign AI stack architecture — agent-runtime orchestration for BOB IDE"
+    },
+    {
+      "name": "rocq",
+      "disposition": "KEEP",
+      "salvage_score": 32,
+      "target_layer": "proofs",
+      "purpose": "Fork of the Rocq/Coq interactive theorem prover — OCaml, semi-interactive machine-checked proof development.",
+      "languages": [
+        "OCaml"
+      ],
+      "key_components": [
+        "interactive theorem prover",
+        "formal language kernel",
+        "semi-interactive proof env"
+      ],
+      "reason": "Highest-utility proof tool in the batch. Rocq fork provides the formal verification backbone for the BOB IDE proofs layer alongside Lean 4. Keep as sovereign proof-assistant dependency fork."
+    },
+    {
+      "name": "lean-llm-starter",
+      "disposition": "KEEP",
+      "salvage_score": 32,
+      "target_layer": "proofs",
+      "purpose": "Sovereign Lean 4 + LLM verification harness — Granite4 parser, Prolog loop, MiniF2F evaluation pipeline.",
+      "languages": [
+        "Lean",
+        "Python",
+        "Prolog"
+      ],
+      "key_components": [
+        "Granite4 Lean parser integration",
+        "Prolog verification loop",
+        "MiniF2F eval harness",
+        "Dockerfile for sovereign deployment"
+      ],
+      "reason": "The only repo combining Lean 4 proof generation, Prolog loop validation, and LLM evaluation in one sovereign harness. Directly scaffolds the proofs layer's automated verification pipeline. Keep and wire to gkn-i4-e7-lean."
+    },
+    {
+      "name": "j-matrix-twin",
+      "disposition": "EXTRACT",
+      "salvage_score": 31,
+      "target_layer": "numerical-engine",
+      "purpose": "SUBLEQ Attention Engine — J tacit programming playground compiled to WebAssembly, with Nim core and JS/TS frontend.",
+      "languages": [
+        "J",
+        "Nim",
+        "JavaScript",
+        "TypeScript",
+        "HTML"
+      ],
+      "key_components": [
+        "SUBLEQ attention engine core",
+        "J tacit array ops compiled to WASM",
+        "Nim performance kernel"
+      ],
+      "reason": "SUBLEQ-as-attention is a novel pattern that bridges abjad-swarm SUBLEQ work and sov-kernel-monster numerical ops. The J+Nim+WASM stack is directly extractable into the numerical-engine layer. High uniqueness, clean WASM boundary."
+    },
+    {
+      "name": "ledge",
+      "disposition": "EXTRACT",
+      "salvage_score": 31,
+      "target_layer": "receipts",
+      "purpose": "ARCHIVED Sovereign Audit Chain — SHA-256 hash-linked append-only event ledger for AI agents and financial systems, written in Rust.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "SHA-256 hash-linked append-only ledger",
+        "WORM event chain",
+        "agent event receipts",
+        "financial system audit trail"
+      ],
+      "reason": "Archived but the Rust WORM audit chain is a production-quality receipts layer primitive. SHA-256 hash linking maps directly to the receipts and governance layers. Extract the Rust crate; wire to errant's WORM chain and claudes-harness governance."
+    },
+    {
+      "name": "snapkitty-mathrosetta",
+      "disposition": "KEEP",
+      "salvage_score": 31,
+      "target_layer": "semantic",
+      "reason": "Active Rust codebase implementing a universal MathIR translation engine — 'Syntax is Liability, Semantics are Truth.' Cross-language semantic normalization is directly required by the BOB IDE semantic and parser layers. Non-archived, has crates structure. Standalone value justifies KEEP over EXTRACT.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "MathIR intermediate representation",
+        "cross-language semantic translation",
+        "Cargo workspace crates",
+        "playground policies"
+      ]
+    },
+    {
+      "name": "snapkitty-resonance-bridge",
+      "disposition": "MERGE",
+      "salvage_score": 31,
+      "target_layer": "numerical-engine",
+      "reason": "Active JS+Rust repo implementing the mathematical proof → executable instruction bridge with ResonanceWord encoding and TRS=388.985128 cryptographic verification. Overlaps strongly with snapkitty-resonance-isa and sov-kernel-monster. MERGE target is sov-kernel-monster or snapkitty-resonance-isa to consolidate the proof-to-bytecode pipeline.",
+      "languages": [
+        "JavaScript",
+        "Rust"
+      ],
+      "key_components": [
+        "ResonanceWord encoding engine",
+        "SUBLEQ computation bridge",
+        "TRS=388.985128 verifier",
+        "playground.js",
+        "flake.nix",
+        "Cargo.toml",
+        "policies/"
+      ]
+    },
+    {
+      "name": "foundry-f1",
+      "disposition": "KEEP",
+      "salvage_score": 30,
+      "target_layer": "runtime",
+      "purpose": "Sovereign C++/C99/C11 reimplementation of Prime Materia Commons with 10-layer Sedona Spine. Closes 13 ALP sorry obligations. Polyglot: C++, Assembly, Python, Lean, Forth, Common Lisp, JS/TS.",
+      "languages": [
+        "C++",
+        "Assembly",
+        "Python",
+        "Lean",
+        "Forth",
+        "Common Lisp",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "key_components": [
+        "10-layer Sedona Spine",
+        "ALP sorry closure (13 obligations)",
+        "Prime Materia Commons reimplementation",
+        "Forth and Lisp runtimes",
+        "assembly layer"
+      ],
+      "reason": "Prior art documented in MEMORY.md (foundry_f1_origin). Sovereign C++ runtime with formal sorry-closure receipts. Maps to runtime and platform layers. 2 GitHub stars confirms community visibility. Keep and build the runtime layer from this base."
+    },
+    {
+      "name": "mathrosetta",
+      "disposition": "EXTRACT",
+      "salvage_score": 30,
+      "target_layer": "semantic",
+      "purpose": "Universal Math IR Rosetta Engine — Syntax is Liability, Semantics are Forever. Rust engine translating mathematical expressions across syntactic representations via a canonical semantic IR. Includes playground, proof layer, and policy enforcement.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "universal MathIR intermediate representation",
+        "multi-syntax translation engine",
+        "semantic equivalence checker",
+        "playground.js browser interface",
+        "policy layer",
+        "proof certificates"
+      ],
+      "reason": "Unique semantic translation engine. utility=4, uniqueness=5, strategic_fit=4, health=2, migration_cost=3. Score=(12+10+12+2-6)=30. The MathIR semantic layer is exactly what BOB IDE's semantic layer needs for cross-language symbol understanding. Extract core IR and translation engine."
+    },
+    {
+      "name": "the-49th-call",
+      "disposition": "KEEP",
+      "salvage_score": 30,
+      "target_layer": "proofs",
+      "reason": "Idris, updated today (2026-07-20). ERE v1.0 — first formal computational decode of Enochian corpus across 9 languages, 4-pass constraint system. High uniqueness, active development, strong fit for proofs/governance layer alongside gkn-i4-e7-lean.",
+      "languages": [
+        "Idris"
+      ],
+      "key_components": [
+        "ERE v1.0 Enochian decode",
+        "9-language formal corpus",
+        "4-pass constraint system",
+        "Dee oracle",
+        "Lean 4 proofs"
+      ],
+      "purpose": "Formal computational decode of the Enochian corpus — proofs and governance layer"
+    },
+    {
+      "name": "lbForth",
+      "disposition": "MERGE",
+      "salvage_score": 29,
+      "target_layer": "runtime",
+      "purpose": "Self-hosting metacompiled Forth bootstrapping from minimal C; targets Linux, Windows, ARM, RISC-V, 68000, PDP-11, and asm.js.",
+      "languages": [
+        "Forth",
+        "C"
+      ],
+      "key_components": [
+        "metacompiled Forth bootstrap",
+        "multi-target cross-compiler (ARM, RISC-V, asm.js)",
+        "self-hosting Forth kernel"
+      ],
+      "reason": "Directly extends errant's Linear Forth lineage with a proven multi-target bootstrap. The asm.js target is a natural WebAssembly predecessor. Merge bootstrap patterns and multi-target cross-compilation logic into errant's runtime layer."
+    },
+    {
+      "name": "math-engine",
+      "disposition": "KEEP",
+      "salvage_score": 29,
+      "target_layer": "numerical-engine",
+      "purpose": "Polyglot P/NP swarm engine: Fortran TSP+SAT solver, APL swarm coordinator, Node.js orchestrator, Lean 4 witness-envelope proofs. Original SnapKitty work implementing NP witness generation and P-time verification over git buckets.",
+      "languages": [
+        "JavaScript",
+        "Fortran",
+        "APL",
+        "Lean"
+      ],
+      "key_components": [
+        "Fortran TSP nearest-neighbor solver",
+        "APL bucket distributor",
+        "Node.js seal/envelope orchestrator",
+        "Lean 4 witness-validity proofs",
+        "run-swarm.sh runner",
+        "Bifrost WORM metadata"
+      ],
+      "reason": "Original multi-layer sovereign compute. utility=4, uniqueness=4, strategic_fit=4, health=3, migration_cost=3. Score=(12+8+12+3-6)=29. Direct feed into numerical-engine; the polyglot architecture is a template for swarm dispatch inside BOB IDE."
+    },
+    {
+      "name": "pnp-attack",
+      "disposition": "KEEP",
+      "salvage_score": 29,
+      "target_layer": "proofs",
+      "purpose": "Adversarial P/NP verification infrastructure: Rust proof-search coordinator (ATLAS→TENSOR→LEDGE→AXIOM), Fortran DPLL SAT solver, APL 3-SAT phase-transition generator, WORM Merkle audit chain. Original SnapKitty sovereign-compute adversarial layer.",
+      "languages": [
+        "Rust",
+        "Fortran"
+      ],
+      "key_components": [
+        "ProofSearchCoordinator (Rust)",
+        "DPLL+unit-propagation SAT solver (Fortran)",
+        "3-SAT phase-transition generator (APL)",
+        "AXIOM complexity formalization",
+        "WORM Merkle chain (pnp_worm.jsonl)"
+      ],
+      "reason": "Original adversarial proof infrastructure. utility=4, uniqueness=4, strategic_fit=4, health=3, migration_cost=3. Score=(12+8+12+3-6)=29. The DPLL core and WORM-sealed proof search coordinator belong in BOB IDE's proofs layer for verifiable computation gating."
+    },
+    {
+      "name": "sovereign-suite",
+      "disposition": "KEEP",
+      "salvage_score": 29,
+      "target_layer": "governance",
+      "reason": "PLpgSQL, active. Clean-room sovereign ERP: PostgreSQL 16 + SuiteScript 2.x + SuiteQL + SuiteFlow + WORM audit + Trust Deed governance. Direct fit for receipts and governance layers in BOB IDE.",
+      "languages": [
+        "PLpgSQL",
+        "JavaScript"
+      ],
+      "key_components": [
+        "PostgreSQL 16 schema",
+        "SuiteScript 2.x engine",
+        "SuiteQL",
+        "WORM audit trail",
+        "Trust Deed governance"
+      ],
+      "purpose": "Sovereign ERP providing financial receipts and governance audit infrastructure"
+    },
+    {
+      "name": "formal-conjectures",
+      "disposition": "EXTRACT",
+      "salvage_score": 28,
+      "target_layer": "proofs",
+      "purpose": "Collection of formalized conjecture statements in Lean 4, very recently updated (2026-07-18), likely the Google DeepMind formal-conjectures fork with SNAPKITTYWEST additions.",
+      "languages": [
+        "Lean"
+      ],
+      "key_components": [
+        "conjecture statement files",
+        "Lean 4 formalization layer",
+        "mathlib-compatible structures"
+      ],
+      "reason": "High value for the proofs layer — formal conjecture statements are the scaffolding for the BOB IDE proof-search and verification features. Extract the SNAPKITTYWEST-original files and any non-upstream additions. The upstream Google DeepMind base is a reference, not to be absorbed wholesale."
+    },
+    {
+      "name": "snapkitty-papers",
+      "disposition": "FREEZE",
+      "salvage_score": 28,
+      "target_layer": "proofs",
+      "reason": "Published Zenodo papers with confirmed DOIs covering JST pipeline, sovereign compute substrate, and sovereign mathematics (Ahmad Ali Parr, 2026). Immutable intellectual property — modification would break citation chains. Per known project context this repo is designated FREEZE. Reference via docs links from IDE, never mutate.",
+      "languages": [],
+      "key_components": [
+        "JST pipeline paper",
+        "sovereign compute substrate paper",
+        "sovereign mathematics papers",
+        "Zenodo DOIs",
+        "CITATION.cff"
+      ]
+    },
+    {
+      "name": "S-AUTOCODE",
+      "disposition": "TRANSLATE",
+      "salvage_score": 27,
+      "target_layer": "runtime",
+      "purpose": "Sign-prefixed Autocode to SUBLEQ to Manchester Mark 1 compiler with drum-latency optimizer and Lean 4 verification. Project PRIMUS of the AUTOCODE lineage.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "sign-prefix Autocode compiler",
+        "SUBLEQ lowering",
+        "drum-latency optimizer",
+        "Lean 4 verification stubs"
+      ],
+      "reason": "Core AUTOCODE lineage (noted in architecture as signing stone). The SUBLEQ substrate is foundational to abjad-swarm and sov-kernel-monster. JS implementation must be translated to Lean 4 verified Rust/C for the runtime layer."
+    },
+    {
+      "name": "snapkitty-gitbucket",
+      "disposition": "EXTRACT",
+      "salvage_score": 27,
+      "target_layer": "git",
+      "reason": "Archived Python + Prolog repo implementing Git-as-WORM with JSON query and Prolog truth layer. The .gitbucket/, schemas/, skills/, and src/ tree contains extractable patterns for the IDE's git and governance layers. WORM chain sealing and Prolog truth axioms should be ported to bob-orchestrator and the git integration layer.",
+      "languages": [
+        "Python",
+        "Prolog"
+      ],
+      "key_components": [
+        ".gitbucket/ WORM chain",
+        "schemas/ JSON query spec",
+        "skills/ agent skills",
+        "src/ Prolog truth engine",
+        "tests/"
+      ]
+    },
+    {
+      "name": "sacm-optimizer-",
+      "disposition": "KEEP",
+      "salvage_score": 26,
+      "target_layer": "agent-runtime",
+      "purpose": "Active mirror of SACM optimizer — TypeScript, live iteration of the sovereign agent communication routing engine.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "active SACM routing",
+        "optimization engine",
+        "agent communication"
+      ],
+      "reason": "The active (non-archived) SACM optimizer is the live target for Qwen routing and BOB agent-runtime. Keep as canonical SACM optimization point."
+    },
+    {
+      "name": "sacm-sovereign",
+      "disposition": "EXTRACT",
+      "salvage_score": 26,
+      "target_layer": "governance",
+      "purpose": "Archived mirror of SACM sovereign module — TypeScript trust and sovereignty layer for agent communication.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "sovereign trust layer",
+        "SACM auth",
+        "sovereignty assertions"
+      ],
+      "reason": "Despite being archived, the sovereignty/trust logic is distinct from pure optimizer code and maps directly to the BOB governance layer. Extract trust axioms and sovereignty contracts before archiving the mirror shell."
+    },
+    {
+      "name": "snapkitty-chain",
+      "disposition": "KEEP",
+      "salvage_score": 26,
+      "target_layer": "receipts",
+      "purpose": "Active mirror of SNAPKITTY-COLLECTIVE-LIMITED-FLP snapkitty-chain — JavaScript WORM-sealed chain for sovereign decision receipts.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "WORM chain",
+        "sovereign receipts",
+        "FLP trust chain"
+      ],
+      "reason": "Active mirror of the FLP entity chain — the receipts layer for BOB IDE depends on WORM-sealed audit trails. Keep; integrate with governance and agent-runtime for sealed decision logging."
+    },
+    {
+      "name": "the-book",
+      "disposition": "KEEP",
+      "salvage_score": 26,
+      "target_layer": "civilization",
+      "reason": "Jupyter Notebook, active (2026-07-01). Ahmad Ali Parr's Book of Wisdom — handwritten philosophy, sacred taxonomy, sovereign intelligence training corpus for BOB. WORM-sealed. Unique civilization/training corpus asset.",
+      "languages": [
+        "Jupyter Notebook"
+      ],
+      "key_components": [
+        "philosophy taxonomy",
+        "BOB training corpus",
+        "WORM-sealed notebooks",
+        "sovereign intelligence doctrine"
+      ],
+      "purpose": "Primary training corpus and philosophical foundation for BOB — civilization layer"
+    },
+    {
+      "name": "RBG-ibm-meta-corpus",
+      "disposition": "EXTRACT",
+      "salvage_score": 25,
+      "target_layer": "parser",
+      "purpose": "Legacy IBM RPG fixed-format corpus with 80-column tensor pipeline, column classifier, data-flow graph, and normalized IR. Sovereign parser for fixed-format legacy languages.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "80-column tensor pipeline",
+        "column classifier",
+        "data-flow graph",
+        "normalized IR"
+      ],
+      "reason": "Unique fixed-format parser pipeline has direct value for the BOB IDE parser layer — specifically for ingesting legacy RPG/COBOL corpus. Extract the IR normalization and classifier; the corpus itself stays frozen."
+    },
+    {
+      "name": "snapkitty-nemotron-harness",
+      "disposition": "EXTRACT",
+      "salvage_score": 25,
+      "target_layer": "models",
+      "reason": "Archived TypeScript harness for running Nemotron/Ollama as a governed local agent rather than a loose chatbot. The governance wrapper pattern — behavioral constraints over an unconstrained LLM — is directly reusable in the BOB IDE models and agent-runtime layers. Extract the constraint/gate architecture into sovlm or the BOB models integration.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "local model governance wrapper",
+        "behavioral constraint layer",
+        "Ollama API bridge",
+        "agent lifecycle management"
+      ]
+    },
+    {
+      "name": "snapkitty-shell",
+      "disposition": "EXTRACT",
+      "salvage_score": 25,
+      "target_layer": "terminal",
+      "reason": "Archived JS repo with a live source tree: src/executor/backtick.mjs, src/governance/gate.mjs, src/commands/registry.mjs, src/crypto/cbom.mjs (CBOM = crypto bill of materials). WORM-sealed command ledger and backtick executor are directly reusable for the IDE terminal and build layers. Extract cbom-report and governance gate into sovereign-transformer.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "src/executor/backtick.mjs",
+        "src/governance/gate.mjs",
+        "src/commands/registry.mjs",
+        "src/crypto/cbom.mjs",
+        "src/crypto/pq.mjs",
+        "workflow DSL",
+        "WORM command ledger"
+      ]
+    },
+    {
+      "name": "pforth",
+      "disposition": "KEEP",
+      "salvage_score": 25,
+      "target_layer": "runtime",
+      "purpose": "Fork of Phil Burk's portable Forth in C. Full-featured, battle-tested C Forth implementation suitable as a scripting and extension runtime inside BOB IDE.",
+      "languages": [
+        "C"
+      ],
+      "key_components": [
+        "portable Forth interpreter in C",
+        "word dictionary",
+        "file I/O and FFI primitives",
+        "floating-point support"
+      ],
+      "reason": "Solid C Forth runtime with wide portability. utility=3, uniqueness=2, strategic_fit=4, health=4, migration_cost=2. Score=(9+4+12+4-4)=25. Primary candidate for BOB IDE's embedded Forth runtime layer — more capable than milliForth, more portable than pforth variants."
+    },
+    {
+      "name": "snapkitty-cf",
+      "disposition": "KEEP",
+      "salvage_score": 24,
+      "target_layer": "platform",
+      "purpose": "Active Cloudflare infrastructure config — workers, routes, zones with one-command deploy.",
+      "languages": [
+        "Shell"
+      ],
+      "key_components": [
+        "CF workers config",
+        "route management",
+        "zone configuration",
+        "one-command deploy"
+      ],
+      "reason": "Active deployment infrastructure for the sovereign platform. BOB IDE needs a platform deployment layer; this is the Cloudflare edge config that backs it. Keep and integrate with snapkitty-chain receipts."
+    },
+    {
+      "name": "collatz-verifier",
+      "disposition": "EXTRACT",
+      "salvage_score": 24,
+      "target_layer": "proofs",
+      "purpose": "Multi-agent Collatz verification system: Rust computational engine, Lean 4 proofs, WORM Merkle ledger, HTML frontend, SHA-256 sealed trajectories.",
+      "languages": [
+        "Rust",
+        "Lean",
+        "HTML",
+        "TypeScript"
+      ],
+      "key_components": [
+        "engine/",
+        "proofs/",
+        "ledger/",
+        "WORM Merkle audit trail",
+        "ATLAS/TENSOR/LEDGE/AXIOM agent coordination"
+      ],
+      "reason": "WORM ledger pattern and Lean proof harness are extractable for receipts and proofs layers. The agent coordination topology is useful for agent-runtime. The Collatz math itself is not a BOB IDE primitive, so only the infrastructure is worth pulling."
+    },
+    {
+      "name": "creusot",
+      "disposition": "FREEZE",
+      "salvage_score": 24,
+      "target_layer": "semantic",
+      "purpose": "Deductive verifier for Rust code via Why3/Coma translation. Multi-crate Rust project with full Why3 platform integration, contract annotations, creusot-std.",
+      "languages": [
+        "Rust",
+        "OCaml"
+      ],
+      "key_components": [
+        "creusot/",
+        "creusot-std/",
+        "coma/ (intermediate verification language)",
+        "cargo-creusot CLI"
+      ],
+      "reason": "High utility for semantic and refactor layers but this is a fork of the upstream creusot-rs project — not sovereign IP. Freeze at current revision and use as an external verification tool referenced by cosmic-invariant-sieve rather than absorbing the full codebase."
+    },
+    {
+      "name": "mathlib5-spec-mcp",
+      "disposition": "EXTRACT",
+      "salvage_score": 24,
+      "target_layer": "extensions",
+      "purpose": "Archived JavaScript MCP server bridging MATHLIB5 kernels and engines to AI agents with full system introspection. Implements the VSCP meta-architecture as an MCP protocol endpoint.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "MCP tool definitions for kernel introspection",
+        "VSCP meta-architecture bridge",
+        "agent-facing system introspection endpoints"
+      ],
+      "reason": "Archived but the MCP bridge pattern is directly reusable. utility=3, uniqueness=4, strategic_fit=3, health=2, migration_cost=2. Score=(9+8+9+2-4)=24. Extract MCP tool schemas and bridge patterns into extensions layer; rebuild as live MCP server over mathlib5."
+    },
+    {
+      "name": "malbolge-lisp",
+      "disposition": "FREEZE",
+      "salvage_score": 23,
+      "target_layer": "civilization",
+      "purpose": "A Lisp interpreter implemented in Malbolge Unshackled — a 350MB source file in the hardest known Turing-complete language. TeX documentation.",
+      "languages": [
+        "TeX"
+      ],
+      "key_components": [
+        "Lisp-in-Malbolge-Unshackled interpreter",
+        "350MB Malbolge Unshackled source",
+        "TeX proof-of-concept documentation"
+      ],
+      "reason": "Landmark civilizational artifact — Lisp implemented in Malbolge Unshackled is one of the most extreme demonstrations of Turing completeness in existence. High uniqueness score (5/5). Not integratable but must be frozen permanently in the civilization layer as a statement of computational extremity."
+    },
+    {
+      "name": "sovereign-xml-compiler",
+      "disposition": "KEEP",
+      "salvage_score": 23,
+      "target_layer": "parser",
+      "reason": "Python, active (2026-07-17). NL → valid XML system prompts via GBNF constrained decoding. Directly useful as a parser/schema layer for BOB IDE prompt infrastructure and extension authors.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "GBNF constrained decoding",
+        "NL-to-XML pipeline",
+        "system prompt generator"
+      ],
+      "purpose": "Natural-language to structured XML system-prompt compiler using constrained decoding"
+    },
+    {
+      "name": "spacewasm",
+      "disposition": "KEEP",
+      "salvage_score": 23,
+      "target_layer": "runtime",
+      "reason": "Rust, active (2026-07-14). Flight-compliant WebAssembly interpreter — sandboxed, deterministic, safety-critical provenance. Ideal wasm runtime for BOB IDE extension sandboxing.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "flight-compliant Wasm interpreter",
+        "deterministic execution",
+        "sandboxed runtime"
+      ],
+      "purpose": "Safety-critical WebAssembly runtime for sandboxed BOB IDE extension execution"
+    },
+    {
+      "name": "math-skills",
+      "disposition": "EXTRACT",
+      "salvage_score": 22,
+      "target_layer": "numerical-engine",
+      "purpose": "Six sealed skill modules (enumeration, isomorphism, symmetry, Hadamard, probabilistic, circuits) extracted from all-apl workspace. Fortran implementations with theorem certificates and WORM seals.",
+      "languages": [
+        "Fortran"
+      ],
+      "key_components": [
+        "skill1-enumeration",
+        "skill2-isomorphism",
+        "skill3-symmetry",
+        "skill4-hadamard",
+        "skill5-probabilistic",
+        "skill6-circuits",
+        "math_skills_master_seal.json"
+      ],
+      "reason": "Archived but sealed original work. utility=3, uniqueness=3, strategic_fit=3, health=2, migration_cost=2. Score=(9+6+9+2-4)=22. Extract skill modules and theorem certificates into numerical-engine; discard scaffolding."
+    },
+    {
+      "name": "qec-discovery",
+      "disposition": "EXTRACT",
+      "salvage_score": 22,
+      "target_layer": "numerical-engine",
+      "purpose": "Archived Rust quantum error correction discovery engine. Extracted from all-apl workspace with Fortran and APL components and theorem layer.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "QEC discovery engine (Rust)",
+        "Fortran QEC solver",
+        "APL problem generator",
+        "theorem layer",
+        "metadata WORM seal"
+      ],
+      "reason": "Original QEC research infrastructure. utility=3, uniqueness=4, strategic_fit=3, health=2, migration_cost=3. Score=(9+8+9+2-6)=22. Extract QEC core (Rust src/ + theorems/) into numerical-engine; the error-correction primitives are relevant to quantum-safe receipts and numerical stability in the kernel."
+    },
+    {
+      "name": "sacm-bridge",
+      "disposition": "MERGE",
+      "salvage_score": 21,
+      "target_layer": "websocket",
+      "purpose": "Mirror of FLP entity SACM bridge — TypeScript sovereign agent communication module.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "agent communication bridge",
+        "SACM protocol"
+      ],
+      "reason": "Archived mirror; live work is in sacm-optimizer-. Merge bridge logic into the active sacm-optimizer- repo to consolidate the SACM stack under one active endpoint for the BOB websocket layer."
+    },
+    {
+      "name": "sacm-optimizer",
+      "disposition": "MERGE",
+      "salvage_score": 21,
+      "target_layer": "agent-runtime",
+      "purpose": "Archived mirror of SACM optimizer — TypeScript routing optimization for sovereign agent communication.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "routing optimization",
+        "SACM optimizer logic"
+      ],
+      "reason": "Archived predecessor to sacm-optimizer- (trailing dash = newer iteration). Merge any unique optimization logic into the active sacm-optimizer- before archiving."
+    },
+    {
+      "name": "DEVFLOW-FINANCE",
+      "disposition": "EXTRACT",
+      "salvage_score": 21,
+      "target_layer": "receipts",
+      "purpose": "Sovereign AI OS with WORM-sealed agent decisions, bare metal TypeScript stack.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "WORM sealing primitives",
+        "agent decision ledger",
+        "bare-metal OS scaffolding"
+      ],
+      "reason": "The WORM-sealing and agent decision record patterns are extractable for the receipts and governance layers. The broader sovereign OS framing overlaps with sov-kernel-monster. Extract the sealing primitives; the rest is superseded."
+    },
+    {
+      "name": "forth2012-test-suite",
+      "disposition": "MERGE",
+      "salvage_score": 21,
+      "target_layer": "agent-runtime",
+      "purpose": "Standard ANS Forth 2012 test programs covering the full Forth 2012 standard wordset.",
+      "languages": [
+        "Forth"
+      ],
+      "key_components": [
+        "ANS Forth 2012 word tests",
+        "compliance test harness"
+      ],
+      "reason": "Merge into errant's Linear Forth IS test infrastructure. The errant instruction set is Forth-family; the ANS 2012 test suite is the canonical compliance baseline. No sovereign IP in the suite itself but it is a necessary validation layer for errant's Forth core."
+    },
+    {
+      "name": "FStar",
+      "disposition": "FREEZE",
+      "salvage_score": 21,
+      "target_layer": "proofs",
+      "purpose": "Fork of Microsoft Research's F* proof-oriented programming language, actively updated (2026-07-20).",
+      "languages": [
+        "F*",
+        "OCaml"
+      ],
+      "key_components": [
+        "F* type checker",
+        "SMT backend integration",
+        "Low*/KaRaMeL C extraction",
+        "Steel concurrent separation logic"
+      ],
+      "reason": "Very recently active fork of MSR FStar. High strategic fit for the proofs and semantic layers — F* is the gold standard for security-critical proof-carrying code. However zero sovereign IP and the toolchain is enormous. Freeze: use FStar as an external verification target for cosmic-invariant-sieve gate 2, do not fold into the BOB IDE source tree."
+    },
+    {
+      "name": "mathlib4",
+      "disposition": "FREEZE",
+      "salvage_score": 21,
+      "target_layer": "proofs",
+      "purpose": "Fork of leanprover-community/mathlib4 — the Lean 4 standard math library. No original SnapKitty content. Essential upstream dependency for all Lean 4 proof work across the constellation.",
+      "languages": [
+        "Lean"
+      ],
+      "key_components": [
+        "Mathlib.Algebra",
+        "Mathlib.Analysis",
+        "Mathlib.Topology",
+        "tactic library"
+      ],
+      "reason": "Upstream fork, no original content. utility=4, uniqueness=1, strategic_fit=4, health=5, migration_cost=5. Score=(12+2+12+5-10)=21. Must stay frozen as reference; pulling it into BOB IDE runtime is a non-starter — reference via lake dependency instead."
+    },
+    {
+      "name": "metamine",
+      "disposition": "FREEZE",
+      "salvage_score": 21,
+      "target_layer": "civilization",
+      "purpose": "2D esolang where every program is a minefield. Interactive art museum with shader-based glitch effects. Original SnapKitty esolang design.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "2D minefield execution model",
+        "WebGL shader glitch renderer",
+        "interactive art museum interface"
+      ],
+      "reason": "Unique original esolang but zero IDE runtime utility. utility=2, uniqueness=5, strategic_fit=2, health=3, migration_cost=2. Score=(6+10+6+3-4)=21. Freeze as civilization artifact; the execution model concept could inspire BOB IDE's novelty execution playground."
+    },
+    {
+      "name": "git-command-center",
+      "disposition": "EXTRACT",
+      "salvage_score": 20,
+      "target_layer": "git",
+      "purpose": "ARCHIVED BOB-powered sovereign git arena with DOS terminal interface and WORM-sealed git intelligence. HTML/JS/CSS.",
+      "languages": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "key_components": [
+        "WORM-sealed git intelligence shell",
+        "DOS terminal git UI",
+        "BOB orchestrator bindings"
+      ],
+      "reason": "Archived but the WORM-sealed git intelligence pattern and BOB-wired terminal interface are directly mappable to the git layer. Extract the WORM audit logic and BOB event bindings; discard the DOS chrome."
+    },
+    {
+      "name": "lean4",
+      "disposition": "SKIP",
+      "salvage_score": 20,
+      "target_layer": "proofs",
+      "purpose": "Fork of the upstream leanprover/lean4 theorem prover and programming language.",
+      "languages": [
+        "Lean"
+      ],
+      "key_components": [
+        "Lean 4 compiler",
+        "theorem prover kernel"
+      ],
+      "reason": "Upstream fork with no SNAPKITTYWEST-original modifications noted. Functions as a dependency anchor, not a component. Use as a toolchain reference; do not score as original work or integrate as a layer component."
+    },
+    {
+      "name": "ogma",
+      "disposition": "KEEP",
+      "salvage_score": 19,
+      "target_layer": "governance",
+      "purpose": "Fork of NASA/Galois Ogma — generates runtime monitors (Copilot specifications) for flight and robotics applications. Haskell tool for formal runtime verification.",
+      "languages": [
+        "Haskell"
+      ],
+      "key_components": [
+        "Copilot spec generator",
+        "aerospace runtime monitor templates",
+        "formal property encoding"
+      ],
+      "reason": "Runtime monitoring patterns directly applicable to BOB IDE governance layer. utility=3, uniqueness=3, strategic_fit=3, health=3, migration_cost=4. Score=(9+6+9+3-8)=19. Keep as governance reference — the Copilot monitor generation pattern can inform BOB IDE's agent-contract enforcement."
+    },
+    {
+      "name": "swapforth",
+      "disposition": "KEEP",
+      "salvage_score": 19,
+      "target_layer": "runtime",
+      "reason": "Forth, active (2026-07-16). Cross-platform ANS Forth — fits the Forth/stack-machine runtime lineage (errant, SUBLEQ). Useful as an embedded scripting substrate for BOB IDE macros and terminal.",
+      "languages": [
+        "Forth"
+      ],
+      "key_components": [
+        "ANS Forth interpreter",
+        "cross-platform scaffold",
+        "J1 CPU target"
+      ],
+      "purpose": "Cross-platform ANS Forth scripting runtime for BOB IDE embedded extension language"
+    },
+    {
+      "name": "holy-agents",
+      "disposition": "EXTRACT",
+      "salvage_score": 18,
+      "target_layer": "agent-runtime",
+      "purpose": "ARCHIVED TypeScript agent system. Connection to SNAPKITTYWEST agent lineage before bob-orchestrator matured.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "agent dispatch patterns",
+        "TypeScript agent lifecycle"
+      ],
+      "reason": "Archived but TypeScript agent patterns predate bob-orchestrator and may contain event routing or lifecycle logic worth extracting into the agent-runtime layer. Extract patterns; do not restore the full repo."
+    },
+    {
+      "name": "liquidhaskell",
+      "disposition": "FREEZE",
+      "salvage_score": 18,
+      "target_layer": "semantic",
+      "purpose": "Fork of the upstream LiquidHaskell refinement type checker for Haskell — 9MB+ Haskell codebase.",
+      "languages": [
+        "Haskell",
+        "C",
+        "Shell",
+        "Python"
+      ],
+      "key_components": [
+        "refinement type inference",
+        "liquid type SMT backend",
+        "Haskell type checker integration"
+      ],
+      "reason": "Upstream fork of a large academic system. Liquid types are conceptually relevant to the semantic and proofs layers but the 9MB Haskell build is too heavy to integrate directly. Freeze as a reference implementation for refinement type ideas."
+    },
+    {
+      "name": "milliForth",
+      "disposition": "KEEP",
+      "salvage_score": 18,
+      "target_layer": "runtime",
+      "purpose": "Fork of the 340-byte Forth implementation — smallest real programming language. Reference for minimal Forth bootstrap and runtime layer design.",
+      "languages": [
+        "Forth"
+      ],
+      "key_components": [
+        "340-byte Forth core",
+        "minimal interpreter loop",
+        "bootstrap primitives"
+      ],
+      "reason": "Minimal Forth reference for runtime bootstrap. utility=2, uniqueness=2, strategic_fit=3, health=3, migration_cost=2. Score=(6+4+9+3-4)=18. Useful alongside pforth as the extreme minimal end of the runtime spectrum for BOB IDE's Forth scripting layer."
+    },
+    {
+      "name": "pLam",
+      "disposition": "KEEP",
+      "salvage_score": 18,
+      "target_layer": "parser",
+      "purpose": "Fork of pLam — Haskell interpreter for learning and exploring pure lambda calculus. Reference implementation for lambda calculus parsing, reduction strategies, and evaluation.",
+      "languages": [
+        "Haskell"
+      ],
+      "key_components": [
+        "pure lambda calculus parser",
+        "beta/eta reduction engine",
+        "Church encoding examples",
+        "interactive REPL"
+      ],
+      "reason": "Clean lambda calculus reference for parser layer. utility=2, uniqueness=2, strategic_fit=3, health=3, migration_cost=2. Score=(6+4+9+3-4)=18. The parsing and reduction patterns are useful for BOB IDE's semantic and parser layers when handling functional language ASTs."
+    },
+    {
+      "name": "resonance-block-paper",
+      "disposition": "FREEZE",
+      "salvage_score": 17,
+      "target_layer": "governance",
+      "purpose": "Published Zenodo paper on attention exhaustion, model capture, and weaponized AI systems. DOI: 10.5281/zenodo.21132094.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "Zenodo DOI",
+        "trust deeds",
+        "attention exhaustion analysis"
+      ],
+      "reason": "Archived with published DOI — canonical governance receipt. No migration warranted; freeze as authoritative prior art for BOB governance layer."
+    },
+    {
+      "name": "seit-institute",
+      "disposition": "KEEP",
+      "salvage_score": 17,
+      "target_layer": "civilization",
+      "purpose": "Active mirror of SEIT Institute from FLP entity — HTML educational/governance institution presence.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "institutional presence",
+        "FLP entity mirror"
+      ],
+      "reason": "Active mirror — SEIT Institute represents the educational arm of the trust. Keep as living civilization layer artifact; low maintenance cost."
+    },
+    {
+      "name": "snapkitty-agentos",
+      "disposition": "ARCHIVE",
+      "salvage_score": 16,
+      "target_layer": "agent-runtime",
+      "purpose": "Archived agent-native repo substrate with GitBucket memory, inverted skills, and P/NP swarm verification.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "GitBucket memory layer",
+        "inverted skills",
+        "P/NP swarm verification"
+      ],
+      "reason": "Predecessor agent OS archived and superseded by bob-orchestrator + systemic-intelligence. The P/NP swarm verification concept is worth noting but the JS implementation is not worth porting — archive."
+    },
+    {
+      "name": "fprime",
+      "disposition": "FREEZE",
+      "salvage_score": 16,
+      "target_layer": "runtime",
+      "purpose": "Fork of NASA's F Prime flight software and embedded systems framework, C++.",
+      "languages": [
+        "C++",
+        "Python"
+      ],
+      "key_components": [
+        "F Prime component model",
+        "embedded deployment topology",
+        "GDS (Ground Data System)"
+      ],
+      "reason": "External NASA framework fork. High health but zero sovereign IP. The component-topology model is conceptually compatible with the BOB runtime layer but absorbing the full framework would drown the sovereign stack. Freeze, reference the component model as an architectural pattern only."
+    },
+    {
+      "name": "handoff",
+      "disposition": "FREEZE",
+      "salvage_score": 16,
+      "target_layer": "governance",
+      "purpose": "ARCHIVED documentation of SNAPKITTYWEST phase transition theory — handoff packets and theoretical foundations. No primary code language.",
+      "languages": [],
+      "key_components": [
+        "phase transition handoff packets",
+        "theoretical foundations documentation"
+      ],
+      "reason": "Pure theory documentation capturing phase-transition semantics for SNAPKITTYWEST. No runnable code to migrate but the phase-transition model informs governance layer design. Freeze as reference corpus."
+    },
+    {
+      "name": "prism-skills",
+      "disposition": "MERGE",
+      "salvage_score": 16,
+      "target_layer": "numerical-engine",
+      "purpose": "Archived Rust skill modules extracted from all-apl workspace. Sealed computational skills with PRISM master seal and theorem certificates.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "PRISM skill modules (Rust)",
+        "prism_skills_master_seal.json",
+        "theorem certificates",
+        "seal.mjs verifier"
+      ],
+      "reason": "Archived original skill work overlapping math-skills and mathlib5. utility=2, uniqueness=3, strategic_fit=2, health=2, migration_cost=2. Score=(6+6+6+2-4)=16. Merge Rust skill modules and seals into mathlib5 Cargo workspace; discard redundant scaffolding."
+    },
+    {
+      "name": "SNAPKIT",
+      "disposition": "ARCHIVE",
+      "salvage_score": 15,
+      "target_layer": "extensions",
+      "purpose": "Archived universal tools, adapters, CLIs, SDKs, and utilities.",
+      "languages": [],
+      "key_components": [
+        "universal adapters",
+        "CLI tools",
+        "SDK stubs"
+      ],
+      "reason": "Archived with no language — generic utility scaffolding that has been superseded by more specific repos. Archive; any live adapter patterns should be cherry-picked into the extensions layer."
+    },
+    {
+      "name": "snapkitty-clojure-lisp-bridge",
+      "disposition": "ARCHIVE",
+      "salvage_score": 15,
+      "target_layer": "parser",
+      "purpose": "Archived ClojureScript + Janet + Hy tri-language bridge for MATHLIB5 VSCP meta-architecture.",
+      "languages": [
+        "Clojure"
+      ],
+      "key_components": [
+        "ClojureScript logic layer",
+        "Janet integration",
+        "Hy meta-architecture",
+        "MATHLIB5 VSCP bridge"
+      ],
+      "reason": "Unique tri-language bridge concept but archived and MATHLIB5 VSCP is itself archived. Clojure integration cost is high for BOB IDE. Archive; the Lisp/homoiconicity ideas feed into errant's Linear Forth IS instead."
+    },
+    {
+      "name": "fibonacci-contraction",
+      "disposition": "ARCHIVE",
+      "salvage_score": 15,
+      "target_layer": "numerical-engine",
+      "purpose": "Archived: Fibonacci contraction theorems in APL + Lean 4, phinary stability core for sovereign domain algebra, Jupyter notebooks.",
+      "languages": [
+        "APL",
+        "Lean",
+        "Jupyter Notebook"
+      ],
+      "key_components": [
+        "phinary stability theorems",
+        "APL+Lean hybrid proofs"
+      ],
+      "reason": "Archived. The phinary/APL work is interesting as prior art for the numerical-engine layer but the repo is static. Reference DOI for citation; do not integrate the stale notebooks."
+    },
+    {
+      "name": "Folders",
+      "disposition": "ARCHIVE",
+      "salvage_score": 15,
+      "target_layer": "parser",
+      "purpose": "Esolang where code is written with directory structures, C# implementation.",
+      "languages": [
+        "C#"
+      ],
+      "key_components": [
+        "folder-based parser",
+        "esolang runtime"
+      ],
+      "reason": "External esolang project. Mildly interesting for parser-layer stress testing but no sovereign IP. Archive."
+    },
+    {
+      "name": "Folders.py",
+      "disposition": "SKIP",
+      "salvage_score": 15,
+      "target_layer": "parser",
+      "purpose": "Python reimplementation of the Folders esolang.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "python Folders interpreter"
+      ],
+      "reason": "Duplicate of Folders in Python. Both repos are forks of external projects. Lower uniqueness than even the C# version. Skip entirely."
+    },
+    {
+      "name": "lambdalisp",
+      "disposition": "FREEZE",
+      "salvage_score": 15,
+      "target_layer": "parser",
+      "purpose": "A Lisp interpreter implemented entirely in untyped lambda calculus, written in Common Lisp.",
+      "languages": [
+        "Common Lisp"
+      ],
+      "key_components": [
+        "untyped lambda calculus Lisp interpreter",
+        "Church encoding runtime"
+      ],
+      "reason": "Theoretical artifact demonstrating lambda calculus universality. Interesting for the parser and semantic layers conceptually but Common Lisp has no direct integration path. Freeze as a formal reference."
+    },
+    {
+      "name": "malbolge",
+      "disposition": "FREEZE",
+      "salvage_score": 15,
+      "target_layer": "civilization",
+      "purpose": "Malbolge esolang interpreter written in C.",
+      "languages": [
+        "C"
+      ],
+      "key_components": [
+        "Malbolge C interpreter",
+        "ternary-based computational model"
+      ],
+      "reason": "Small, stable C interpreter for the most notoriously difficult esolang. Part of the polyglot-is-production principle and esolang collection. Freeze as a civilization layer artifact alongside malbolge-lisp."
+    },
+    {
+      "name": "snapkitty-gitlab",
+      "disposition": "EXTRACT",
+      "salvage_score": 15,
+      "target_layer": "git",
+      "reason": "Archived JavaScript GitLab connector with webhook receiver, ROBOB shadow orchestrator pipeline, and ABZU IDE live results. The webhook-to-orchestrator bridging pattern is reusable for the BOB IDE git and build layers. Extract the CI component catalog and shadow orchestrator pattern into bob-orchestrator.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "webhook receiver",
+        "ROBOB shadow orchestrator",
+        "ABZU IDE live results bridge",
+        "gitlab-ci-component catalog",
+        "src/ API bindings"
+      ]
+    },
+    {
+      "name": "saint-errant-digital-society",
+      "disposition": "FREEZE",
+      "salvage_score": 14,
+      "target_layer": "governance",
+      "purpose": "Archived Purple Hat doctrine — secret society of sovereign builders with integrity + anti-malice governance principles.",
+      "languages": [],
+      "key_components": [
+        "Purple Hat doctrine",
+        "builder community governance",
+        "integrity principles"
+      ],
+      "reason": "Purple Hat = agent integrity doctrine (noted in memory as ENKI constitutional principle). Freeze as canonical governance reference; the doctrine lives in errant and claudes-harness at runtime."
+    },
+    {
+      "name": "foundry-intel-2026-07-11",
+      "disposition": "ARCHIVE",
+      "salvage_score": 14,
+      "target_layer": "models",
+      "purpose": "Dated snapshot of foundry-intel taken 2026-07-11, one week before the current foundry-intel (2026-07-18). TypeScript primary language.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "point-in-time snapshot of foundry-intel"
+      ],
+      "reason": "Superseded by foundry-intel. Keeping two diverging snapshots creates maintenance confusion. Archive with a tag noting its relationship to foundry-intel. Retrieve only if a regression bisect requires it."
+    },
+    {
+      "name": "porth",
+      "disposition": "FREEZE",
+      "salvage_score": 14,
+      "target_layer": "parser",
+      "purpose": "Fork of Tsoding's Porth — a Forth-like stack-based language implemented in Python. Reference for stack-machine compilation and type-checking patterns.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "stack-based language parser",
+        "type checker",
+        "Python compiler pipeline"
+      ],
+      "reason": "External fork with no original content. utility=2, uniqueness=1, strategic_fit=2, health=2, migration_cost=1. Score=(6+2+6+2-2)=14. Freeze as reference; pforth and milliForth cover the Forth runtime need better."
+    },
+    {
+      "name": "sovereign-utqc",
+      "disposition": "FREEZE",
+      "salvage_score": 14,
+      "target_layer": "agent-runtime",
+      "reason": "JavaScript, active (updated 2026-07-17) but still a meta-version stub. UTQC concept (universal turing/quantum computing) is interesting but not yet substantiated. Freeze pending content audit.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "UTQC meta scaffold"
+      ],
+      "purpose": "Universal Turing/Quantum Compute scaffold — pending real implementation"
+    },
+    {
+      "name": "RESONANCE-CORE",
+      "disposition": "ARCHIVE",
+      "salvage_score": 13,
+      "target_layer": "numerical-engine",
+      "purpose": "Phase-space, spectral, and recursive mathematics library in JavaScript.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "phase-space math",
+        "spectral mathematics",
+        "recursive algorithms"
+      ],
+      "reason": "Archived JS math library superseded by sov-kernel-monster (Fortran 2018, AVX-512, zero deps). Migration cost exceeds value; archive and reference concepts only."
+    },
+    {
+      "name": "corpus",
+      "disposition": "ARCHIVE",
+      "salvage_score": 13,
+      "target_layer": "parser",
+      "purpose": "Definitive collection of Whitespace language interpreters and programs, primary build tool Earthly.",
+      "languages": [
+        "Earthly",
+        "Whitespace"
+      ],
+      "key_components": [
+        "whitespace interpreters",
+        "compiler collection"
+      ],
+      "reason": "External esolang collection with no sovereign IP. Marginally useful as a parser test corpus but not worth active maintenance in the IDE swarm. Archive and reference if parser fuzzing is needed."
+    },
+    {
+      "name": "env-ship-public",
+      "disposition": "ARCHIVE",
+      "salvage_score": 13,
+      "target_layer": "build",
+      "purpose": "Archived verifiable script envelope utility for governed execution, SSL v3.0, Shell.",
+      "languages": [
+        "Shell"
+      ],
+      "key_components": [
+        "script envelope",
+        "governed execution wrapper"
+      ],
+      "reason": "Archived, simple shell utility. The governed execution concept is now handled by cosmic-invariant-sieve at a much higher level. No active IP to extract."
+    },
+    {
+      "name": "exo-synchronicity",
+      "disposition": "ARCHIVE",
+      "salvage_score": 13,
+      "target_layer": "platform",
+      "purpose": "Archived: Prolog-defined topology compiled into Verilog-A filter meshes, Lean proofs.",
+      "languages": [
+        "Lean",
+        "Prolog",
+        "Verilog-A"
+      ],
+      "key_components": [
+        "Prolog topology DSL",
+        "Verilog-A emission"
+      ],
+      "reason": "Archived. The Prolog topology concept is interesting but superseded. No active maintenance path. The Lean content may be worth cherry-picking into errant if there are non-sorry proofs, but the repo as a unit is dead."
+    },
+    {
+      "name": "hexagony",
+      "disposition": "SKIP",
+      "salvage_score": 13,
+      "target_layer": "parser",
+      "purpose": "Fork of the upstream two-dimensional hexagonal esolang interpreter written in Ruby.",
+      "languages": [
+        "Ruby"
+      ],
+      "key_components": [
+        "hexagonal grid execution model",
+        "2D pointer routing"
+      ],
+      "reason": "Upstream fork with no SNAPKITTYWEST-original modifications. Ruby runtime does not fit the sovereign stack. Esolang parser interest is covered by malbolge/lambdalisp artifacts already. Skip."
+    },
+    {
+      "name": "operation-infinite-matrix",
+      "disposition": "FREEZE",
+      "salvage_score": 13,
+      "target_layer": "civilization",
+      "purpose": "The Heaviest Commit in Internet History — SnapKitty Sovereign OS Museum Installation. Archived cultural artifact with no primary programming language.",
+      "languages": [],
+      "key_components": [
+        "Sovereign OS museum archive"
+      ],
+      "reason": "Cultural artifact. utility=1, uniqueness=4, strategic_fit=1, health=1, migration_cost=1. Score=(3+8+3+1-2)=13. Freeze permanently as civilization layer proof-of-existence record."
+    },
+    {
+      "name": "Sweeter16",
+      "disposition": "FREEZE",
+      "salvage_score": 13,
+      "target_layer": "runtime",
+      "reason": "Assembly, active (2026-07-17). New Sweet16 VM for 65C02/65C816 — technically interesting VM design but 6502-family assembly has high migration cost. Freeze as historical VM reference.",
+      "languages": [
+        "Assembly"
+      ],
+      "key_components": [
+        "Sweet16 virtual machine",
+        "65C02 targets",
+        "65C816 targets",
+        "Wozniak VM reimplementation"
+      ],
+      "purpose": "65C02/65C816 Sweet16 VM — historical VM reference for BOB IDE runtime layer"
+    },
+    {
+      "name": "saint-errant",
+      "disposition": "FREEZE",
+      "salvage_score": 12,
+      "target_layer": "civilization",
+      "purpose": "Archived digital institution page for Saint Errant sovereign AI governance.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "institution landing page",
+        "governance framing"
+      ],
+      "reason": "Archived HTML institution page — no runtime value but is a historical governance artifact. Freeze as civilization layer documentation; do not migrate."
+    },
+    {
+      "name": "Historical-Source-Code-Apple-II-DOS-Repository",
+      "disposition": "FREEZE",
+      "salvage_score": 12,
+      "target_layer": "civilization",
+      "purpose": "Apple II DOS historical Assembly source code preservation archive.",
+      "languages": [
+        "Assembly"
+      ],
+      "key_components": [
+        "Apple II DOS Assembly source",
+        "early microcomputer OS lineage"
+      ],
+      "reason": "Civilizational preservation artifact — Apple II DOS ancestry is computing history and relevant to the origin story. No active integration path but worth freezing permanently in the civilization layer."
+    },
+    {
+      "name": "sovereign-llm",
+      "disposition": "FREEZE",
+      "salvage_score": 12,
+      "target_layer": "models",
+      "reason": "Rust, active but description is a bare meta-version stub with no real content surfaced. Likely an early scaffold for a sovereign LLM runtime. Worth preserving but needs content audit before promoting to KEEP.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "sovereign-llm stub",
+        "Rust scaffold"
+      ],
+      "purpose": "Placeholder sovereign LLM runtime layer in Rust"
+    },
+    {
+      "name": "lisp-machine",
+      "disposition": "ARCHIVE",
+      "salvage_score": 11,
+      "target_layer": "runtime",
+      "purpose": "ARCHIVED HTML-only Lisp machine concept or emulator.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "Lisp machine emulation concept"
+      ],
+      "reason": "Archived with no extractable runtime code — HTML-only shell. The Lisp machine concept is covered by lambdalisp and the broader SNAPKITTYWEST Lisp lineage. Archive."
+    },
+    {
+      "name": "llm-twin-arena",
+      "disposition": "ARCHIVE",
+      "salvage_score": 11,
+      "target_layer": "chat",
+      "purpose": "ARCHIVED JavaScript LLM twin battle arena concept.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "LLM twin routing concept",
+        "arena evaluation pattern"
+      ],
+      "reason": "Archived JS with no live integration path. The twin/arena evaluation concept is now superseded by the Qwen sovereign router and sovlm. Archive; do not resurface."
+    },
+    {
+      "name": "snapkitty-legal",
+      "disposition": "FREEZE",
+      "salvage_score": 11,
+      "target_layer": "governance",
+      "reason": "Mirror of SNAPKITTY-COLLECTIVE-LIMITED-FLP trust legal documents. SnapKitty is a Bel Esprit D'Accord Irrevocable Trust with three EINs — these documents are foundational but non-executable. FREEZE to preserve the trust legal structure as a reference artifact in the governance layer.",
+      "languages": [],
+      "key_components": [
+        "trust deed documents",
+        "EIN filing records",
+        "irrevocable trust formation docs"
+      ]
+    },
+    {
+      "name": "SNAPKITTY-FORCE-SHIELD",
+      "disposition": "ARCHIVE",
+      "salvage_score": 11,
+      "target_layer": "runtime",
+      "reason": "Archived TypeScript 'threshold of operational resilience' repo with no description detail. Concept is relevant (resilience gating for agent runtime) but content is opaque and the SSL v3.0 archive seal indicates superseded work. Archive and revisit only if the resilience gate pattern is explicitly needed.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [
+        "operational resilience threshold engine"
+      ]
+    },
+    {
+      "name": "math-comp",
+      "disposition": "FREEZE",
+      "salvage_score": 11,
+      "target_layer": "proofs",
+      "purpose": "Fork of the Mathematical Components library (Rocq/Coq) — the canonical SSReflect-style formal math library. No original SnapKitty content; serves as upstream reference for the proofs layer.",
+      "languages": [
+        "Rocq Prover"
+      ],
+      "key_components": [
+        "SSReflect tactic library",
+        "algebraic hierarchy",
+        "finite group theory"
+      ],
+      "reason": "Fork of major upstream Coq library. utility=3, uniqueness=1, strategic_fit=2, health=4, migration_cost=5. Score=(9+2+6+4-10)=11. Valuable as reference but the entire 3GB library cannot be pulled into BOB IDE — freeze and cite as dependency."
+    },
+    {
+      "name": "SNAPKITTY-COLLECTIVE-LIMITED-FLP-sacm-bridge",
+      "disposition": "ARCHIVE",
+      "salvage_score": 10,
+      "target_layer": "websocket",
+      "purpose": "Archived mirror of FLP entity SACM bridge with no primary language.",
+      "languages": [],
+      "key_components": [
+        "FLP SACM bridge mirror"
+      ],
+      "reason": "Archived, no language, lowest-information FLP mirror in the batch. The live SACM work is in sacm-optimizer- and sacm-bridge. Archive this empty shell."
+    },
+    {
+      "name": "council-board",
+      "disposition": "ARCHIVE",
+      "salvage_score": 10,
+      "target_layer": "governance",
+      "purpose": "Archived council/SSL v3.0 governance board, HTML only.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "SSL v3.0 governance schema"
+      ],
+      "reason": "Archived, HTML only, superseded by newer governance layers in errant and cosmic-invariant-sieve. No active sovereign IP to extract."
+    },
+    {
+      "name": "snapkitty-infrastructure-network",
+      "disposition": "FREEZE",
+      "salvage_score": 10,
+      "target_layer": "platform",
+      "reason": "Active mirror of the collective's infrastructure network config with no primary language. Likely Terraform/shell network definitions. FREEZE as a reference for the platform layer — infrastructure topology docs inform BOB IDE deployment but are not code to be modified in this org.",
+      "languages": [],
+      "key_components": [
+        "network topology config",
+        "infrastructure definitions"
+      ]
+    },
+    {
+      "name": "qi",
+      "disposition": "SKIP",
+      "salvage_score": 10,
+      "target_layer": "civilization",
+      "purpose": "Fork of qi — lightweight C language designed to be written in Chinese. Niche internationalization experiment.",
+      "languages": [
+        "C"
+      ],
+      "key_components": [
+        "Chinese-character tokenizer",
+        "lightweight C interpreter"
+      ],
+      "reason": "External fork, no SnapKitty content, minimal BOB IDE relevance. utility=1, uniqueness=3, strategic_fit=1, health=2, migration_cost=2. Score=(3+6+3+2-4)=10. No recoverable value for any BOB IDE target layer; skip."
+    },
+    {
+      "name": "grisp-shadow-fleet",
+      "disposition": "ARCHIVE",
+      "salvage_score": 9,
+      "target_layer": "platform",
+      "purpose": "ARCHIVED GRiSP Erlang embedded-systems shadow fleet concept. HTML only in current state.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "shadow fleet topology concept"
+      ],
+      "reason": "Archived, HTML-only shell with no extractable runtime code. The distributed fleet concept is superseded by abjad-swarm and bob-orchestrator. Archive and do not integrate."
+    },
+    {
+      "name": "snapkitty-ocr",
+      "disposition": "ARCHIVE",
+      "salvage_score": 9,
+      "target_layer": "receipts",
+      "reason": "Archived Kotlin Android OCR app for handwritten notebook ingestion into The Book sovereign corpus. Android-platform-specific and superseded. The corpus ingestion concept is valuable but migration cost is too high (Kotlin Android → cross-platform) to justify extraction now. Archive pending a JVM or WASM port decision.",
+      "languages": [
+        "Kotlin"
+      ],
+      "key_components": [
+        "handwritten OCR pipeline",
+        "notebook corpus ingestion",
+        "sovereign corpus writer"
+      ]
+    },
+    {
+      "name": "summon",
+      "disposition": "ARCHIVE",
+      "salvage_score": 9,
+      "target_layer": "models",
+      "reason": "Python, SSL v3.0 archived. Sovereign model framework (pip install summon) — concept absorbed by sovlm and bob-orchestrator. No unique residual value.",
+      "languages": [
+        "Python"
+      ],
+      "key_components": [
+        "model weight builder scaffold"
+      ],
+      "purpose": "Archived sovereign model scaffolding framework"
+    },
+    {
+      "name": "snapkitty-deeds",
+      "disposition": "FREEZE",
+      "salvage_score": 8,
+      "target_layer": "governance",
+      "reason": "Archived HTML governance trust deeds and Resonance ISA product page. Contains AI governance principles and trust axioms that inform the civilization and governance IDE layers but are static documentation. FREEZE to preserve the governance deed artifacts as read-only reference.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "AI governance trust deeds",
+        "Resonance ISA product page",
+        "sovereign AI governance declarations"
+      ]
+    },
+    {
+      "name": "resonance-math",
+      "disposition": "ARCHIVE",
+      "salvage_score": 7,
+      "target_layer": "numerical-engine",
+      "purpose": "Archived SSL v3.0 sealed math repo with no substantive description.",
+      "languages": [
+        "JavaScript"
+      ],
+      "key_components": [
+        "SSL v3.0 seal"
+      ],
+      "reason": "No distinguishing description, archived, JavaScript, lowest information density of the batch. Nothing to extract that RESONANCE-CORE or sov-kernel-monster does not cover."
+    },
+    {
+      "name": "forge-legacy-bridge",
+      "disposition": "SKIP",
+      "salvage_score": 7,
+      "target_layer": "git",
+      "purpose": "Archived stub: a git remote add origin command recorded as a repo, SSL v3.0, no primary language.",
+      "languages": [],
+      "key_components": [],
+      "reason": "Empty stub, no code, no utility. Skip."
+    },
+    {
+      "name": "myapplication",
+      "disposition": "ARCHIVE",
+      "salvage_score": 7,
+      "target_layer": "application-shell",
+      "purpose": "Archived TypeScript application under SSL v3.0 seal. No described function.",
+      "languages": [
+        "TypeScript"
+      ],
+      "key_components": [],
+      "reason": "Archived placeholder. utility=1, uniqueness=1, strategic_fit=1, health=1, migration_cost=1. Score=(3+2+3+1-2)=7. Nothing to recover."
+    },
+    {
+      "name": "snapkitty-orphan-museum",
+      "disposition": "FREEZE",
+      "salvage_score": 6,
+      "target_layer": "civilization",
+      "reason": "Archived crystallization of 2,562,087 insertions across 7,952 files and 379 commits — the proof-of-work monument for the entire SNAPKITTYWEST build phase. No primary language; purely a historical artifact. Migration cost is prohibitive. FREEZE as the civilization layer's origin record.",
+      "languages": [],
+      "key_components": [
+        "2.5M insertion proof-of-work commit",
+        "7952-file crystallization",
+        "379-commit history"
+      ]
+    },
+    {
+      "name": "sovereign-multiplicity",
+      "disposition": "ARCHIVE",
+      "salvage_score": 6,
+      "target_layer": "agent-runtime",
+      "reason": "Rust, SSL v3.0 archived. Meta-version placeholder with no unique content. Already formally archived.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [
+        "meta-version scaffold"
+      ],
+      "purpose": "Archived multiplicity runtime stub"
+    },
+    {
+      "name": "sovereign-pirtm",
+      "disposition": "ARCHIVE",
+      "salvage_score": 6,
+      "target_layer": "semantic",
+      "reason": "C++, SSL v3.0 archived. PIRTM (probabilistic inference / relevance theory model) concept was folded into sov-kernel-monster. No active surface to migrate.",
+      "languages": [
+        "C++"
+      ],
+      "key_components": [
+        "PIRTM inference scaffold"
+      ],
+      "purpose": "Archived probabilistic inference / relevance-theory model stub"
+    },
+    {
+      "name": "sovereign-prism",
+      "disposition": "ARCHIVE",
+      "salvage_score": 6,
+      "target_layer": "highlighting",
+      "reason": "OCaml, SSL v3.0 archived. Prism-skills lineage was already consolidated. OCaml skeleton has no live consumers.",
+      "languages": [
+        "OCaml"
+      ],
+      "key_components": [
+        "OCaml prism scaffold"
+      ],
+      "purpose": "Archived OCaml prism/highlighting prototype"
+    },
+    {
+      "name": "TempleOS",
+      "disposition": "FREEZE",
+      "salvage_score": 6,
+      "target_layer": "civilization",
+      "reason": "HolyC, archived. Terry Davis's TempleOS final snapshot. Extreme cultural and historical value for the civilization layer — HolyC is unique. Migration cost is prohibitive but deserves preservation not deletion.",
+      "languages": [
+        "HolyC"
+      ],
+      "key_components": [
+        "HolyC kernel",
+        "64-core scheduler",
+        "Terry Davis TempleOS snapshot",
+        "Third Temple final build"
+      ],
+      "purpose": "TempleOS final snapshot — civilization layer historical artifact"
+    },
+    {
+      "name": "theorems",
+      "disposition": "ARCHIVE",
+      "salvage_score": 6,
+      "target_layer": "proofs",
+      "reason": "No language detected, SSL v3.0 archived. Empty or near-empty theorems stub. Proof work consolidated into gkn-i4-e7-lean, foundry-f1, and the-49th-call.",
+      "languages": [],
+      "key_components": [],
+      "purpose": "Archived theorems stub — superseded by active proof repos"
+    },
+    {
+      "name": "snapkitty-portfolio",
+      "disposition": "ARCHIVE",
+      "salvage_score": 5,
+      "target_layer": "civilization",
+      "reason": "Archived HTML portfolio covering BOB VOYAGER, Sovereign Spring, Vortex Civ, and orbital ISS Forth oracle demos. Superseded by active project repos. Demos have historical narrative value for the civilization layer but contain no reusable code.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "BOB VOYAGER demo",
+        "Sovereign Spring demo",
+        "Vortex Civ demo",
+        "ISS Forth oracle demo"
+      ]
+    },
+    {
+      "name": "snapkitty-redbook",
+      "disposition": "ARCHIVE",
+      "salvage_score": 5,
+      "target_layer": "civilization",
+      "reason": "Archived HTML Interactive Trust Book UI and C-Suite Dashboard. Publication materials for the trust — governance presentation layer that has been superseded. Archive rather than freeze because the UI patterns (trust dashboard) may be revisited when the BOB IDE gains a governance visualization pane.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "Interactive Trust Book UI",
+        "C-Suite Dashboard",
+        "publication materials"
+      ]
+    },
+    {
+      "name": "snapkitty-hacker-kits-episode-1-broken-ledger",
+      "disposition": "SKIP",
+      "salvage_score": 1,
+      "target_layer": "civilization",
+      "reason": "Archived HTML story-driven cyberpunk demo illustrating data reconciliation. Purely narrative/demo content with no reusable code or formal infrastructure. Migration cost exceeds any extractable value. Skip entirely.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [
+        "cyberpunk narrative demo",
+        "broken ledger story UI"
+      ]
+    },
+    {
+      "name": "snapkitty-mirp",
+      "disposition": "SKIP",
+      "salvage_score": 1,
+      "target_layer": "agent-runtime",
+      "reason": "Archived repo with no description, no primary language, and no visible content detail. MIRP is unresolvable from available metadata. Migration risk is maximal for unknown content. Skip until the repo owner can confirm what MIRP contains.",
+      "languages": [],
+      "key_components": []
+    },
+    {
+      "name": "market-scope",
+      "disposition": "ARCHIVE",
+      "salvage_score": 1,
+      "target_layer": "platform",
+      "purpose": "Archived Rust scope/market analysis tool under SSL v3.0 seal. No active development, no described functionality beyond the SSL archive label.",
+      "languages": [
+        "Rust"
+      ],
+      "key_components": [],
+      "reason": "Archived with no described function. utility=1, uniqueness=1, strategic_fit=1, health=1, migration_cost=4. Score=(3+2+3+1-8)=1. Nothing recoverable for BOB IDE layers."
+    },
+    {
+      "name": "sovereign-resonance-kernel",
+      "disposition": "ARCHIVE",
+      "salvage_score": 0,
+      "target_layer": "platform",
+      "reason": "HTML only, SSL v3.0 archived. No executable content. Superseded by sov-kernel-monster Fortran kernel.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [],
+      "purpose": "Archived HTML landing page for resonance kernel concept"
+    },
+    {
+      "name": "temple-os-oracle",
+      "disposition": "ARCHIVE",
+      "salvage_score": 0,
+      "target_layer": "civilization",
+      "reason": "HTML only, SSL v3.0 archived. Shell page with no executable content. The oracle concept is superseded by the-49th-call and claudes-harness.",
+      "languages": [
+        "HTML"
+      ],
+      "key_components": [],
+      "purpose": "Archived HTML oracle concept page"
+    }
+  ],
+  "total": 120
+}
