@@ -2,12 +2,8 @@ name: swarm
 on:
   workflow_dispatch:
     inputs:
-      repo:
-        description: 'repo to fix (e.g. the-49th-call)'
-        required: false
-        default: 'the-49th-call'
       task:
-        description: 'task override (leave blank for auto)'
+        description: 'task override (leave blank for auto-scan all repos)'
         required: false
         default: ''
   schedule:
@@ -32,94 +28,119 @@ jobs:
 
       - run: pip install requests
 
-      - name: run agent
+      - name: run agent across all repos
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-          TARGET_REPO: ${{ github.event.inputs.repo || 'the-49th-call' }}
           OVERRIDE_TASK: ${{ github.event.inputs.task || '' }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           python3 << 'EOF'
-          import os, re, requests, subprocess
+          import os, re, requests, subprocess, json
           from pathlib import Path
 
-          KEY    = os.environ["OPENROUTER_API_KEY"]
-          PAT    = os.environ["PAT_TOKEN"]
-          TARGET = os.environ.get("TARGET_REPO", "the-49th-call")
-          TASK   = os.environ.get("OVERRIDE_TASK", "")
-          MODEL  = "qwen/qwen-2.5-coder-32b-instruct"
-          ORG    = "SNAPKITTYWEST"
+          KEY   = os.environ["OPENROUTER_API_KEY"]
+          PAT   = os.environ["PAT_TOKEN"]
+          TASK  = os.environ.get("OVERRIDE_TASK", "")
+          MODEL = "qwen/qwen-2.5-coder-32b-instruct"
+          ORG   = "SNAPKITTYWEST"
 
-          # clone target repo
-          url = f"https://x-access-token:{PAT}@github.com/{ORG}/{TARGET}.git"
-          subprocess.run(["git", "clone", "--depth=1", url, "target"], check=True)
-          ROOT = Path("target")
+          # get all repos
+          all_repos = []
+          page = 1
+          while True:
+              r = requests.get(f"https://api.github.com/orgs/{ORG}/repos",
+                  headers={"Authorization": f"Bearer {PAT}"},
+                  params={"per_page": 100, "page": page})
+              batch = r.json()
+              if not batch or not isinstance(batch, list): break
+              all_repos += [x["name"] for x in batch if not x.get("archived")]
+              if len(batch) < 100: break
+              page += 1
 
-          # scan for sorries and todos
-          findings = []
-          for pat, exts in [
-              (r'\bsorry\b', ["*.lean"]),
-              (r'raise NotImplementedError|#\s*TODO', ["*.py"]),
-              (r'//\s*TODO|FIXME', ["*.rs","*.ts"]),
-          ]:
-              for ext in exts:
-                  for f in ROOT.rglob(ext):
-                      if any(x in str(f) for x in [".git",".lake","build","node_modules"]): continue
-                      try:
-                          txt = f.read_text(encoding="utf-8", errors="ignore")
-                          for i, line in enumerate(txt.split("\n")):
-                              if re.search(pat, line):
-                                  findings.append({"file": str(f.relative_to(ROOT)), "line": i+1, "text": line.strip(), "path": f, "full": txt})
-                      except: pass
+          print(f"Found {len(all_repos)} repos: {all_repos[:10]}...")
 
-          print(f"Found {len(findings)} items in {TARGET}")
-          if not findings and not TASK:
-              print("Nothing to do."); exit(0)
+          def fix_repo(repo):
+              url = f"https://x-access-token:{PAT}@github.com/{ORG}/{repo}.git"
+              work = Path(f"work/{repo}")
+              work.parent.mkdir(exist_ok=True)
+              try:
+                  subprocess.run(["git", "clone", "--depth=1", url, str(work)],
+                      check=True, capture_output=True)
+              except Exception as e:
+                  print(f"  [{repo}] clone failed: {e}"); return
 
-          if TASK:
-              prompt = TASK
-              target_file = None
-          else:
-              top = findings[0]
-              prompt = f"Fix all sorry/TODO in this file. Output ONLY the complete corrected file, no markdown.\n\nFILE: {top['file']}\n\n{top['full'][:6000]}"
-              target_file = top["path"]
+              # scan
+              findings = []
+              for pat, exts in [
+                  (r'\bsorry\b', ["*.lean"]),
+                  (r'raise NotImplementedError|#\s*TODO', ["*.py"]),
+                  (r'//\s*TODO|FIXME', ["*.rs", "*.ts"]),
+              ]:
+                  for ext in exts:
+                      for f in work.rglob(ext):
+                          if any(x in str(f) for x in [".git",".lake","build","node_modules"]): continue
+                          try:
+                              txt = f.read_text(encoding="utf-8", errors="ignore")
+                              for i, line in enumerate(txt.split("\n")):
+                                  if re.search(pat, line):
+                                      findings.append({"path": f, "file": str(f.relative_to(work)), "full": txt})
+                                      break
+                          except: pass
 
-          # call agent
-          resp = requests.post("https://openrouter.ai/api/v1/chat/completions",
-              headers={"Authorization": f"Bearer {KEY}", "HTTP-Referer": "https://snapkittywest.io"},
-              json={"model": MODEL, "messages": [{"role":"user","content":prompt}], "temperature":0.1, "max_tokens":8192},
-              timeout=300)
-          result = resp.json()["choices"][0]["message"]["content"]
+              if not findings and not TASK:
+                  print(f"  [{repo}] clean"); return
 
-          # strip markdown fences
-          m = re.search(r'```[\w]*\n(.*?)```', result, re.DOTALL)
-          if m: result = m.group(1).strip()
-          else:
-              m2 = re.search(r'^(import |from |namespace |theorem |def )', result, re.MULTILINE)
-              if m2: result = result[m2.start():]
+              print(f"  [{repo}] {len(findings)} findings — calling agent")
 
-          if not result or len(result) < 50:
-              print("Empty result, skipping."); exit(0)
+              if TASK:
+                  prompt = TASK
+                  target_file = None
+              else:
+                  top = findings[0]
+                  prompt = f"Fix all sorry/TODO in this file. Output ONLY the complete corrected file, no markdown.\n\nFILE: {top['file']}\n\n{top['full'][:5000]}"
+                  target_file = top["path"]
 
-          if target_file:
-              target_file.write_text(result, encoding="utf-8")
-              print(f"Written: {target_file} ({len(result)} chars)")
-          else:
-              Path("target/agent_output.txt").write_text(result, encoding="utf-8")
-              print("Written: agent_output.txt")
+              try:
+                  resp = requests.post("https://openrouter.ai/api/v1/chat/completions",
+                      headers={"Authorization": f"Bearer {KEY}", "HTTP-Referer": "https://snapkittywest.io"},
+                      json={"model": MODEL, "messages": [{"role":"user","content":prompt}],
+                            "temperature": 0.1, "max_tokens": 8192},
+                      timeout=300)
+                  result = resp.json()["choices"][0]["message"]["content"]
+              except Exception as e:
+                  print(f"  [{repo}] agent error: {e}"); return
 
-          # commit and push
-          subprocess.run(["git", "config", "user.name", "SNAPKITTY-SWARM"], cwd="target", check=True)
-          subprocess.run(["git", "config", "user.email", "swarm@snapkittywest.io"], cwd="target", check=True)
-          subprocess.run(["git", "remote", "set-url", "origin", url], cwd="target", check=True)
-          subprocess.run(["git", "add", "-A"], cwd="target", check=True)
-          r = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd="target")
-          if r.returncode == 0:
-              print("Nothing to commit.")
-          else:
-              import datetime
-              ts = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-              subprocess.run(["git", "commit", "-m", f"swarm({TARGET}): {ts}"], cwd="target", check=True)
-              subprocess.run(["git", "push", "origin", "HEAD"], cwd="target", check=True)
-              print(f"Pushed to {TARGET}")
+              m = re.search(r'```[\w]*\n(.*?)```', result, re.DOTALL)
+              if m: result = m.group(1).strip()
+              else:
+                  m2 = re.search(r'^(import |from |namespace |theorem |def )', result, re.MULTILINE)
+                  if m2: result = result[m2.start():]
+
+              if not result or len(result) < 50:
+                  print(f"  [{repo}] empty result"); return
+
+              if target_file:
+                  target_file.write_text(result, encoding="utf-8")
+              else:
+                  (work / "agent_output.txt").write_text(result, encoding="utf-8")
+
+              subprocess.run(["git","config","user.name","SNAPKITTY-SWARM"], cwd=work, check=True)
+              subprocess.run(["git","config","user.email","swarm@snapkittywest.io"], cwd=work, check=True)
+              subprocess.run(["git","remote","set-url","origin", url], cwd=work, check=True)
+              subprocess.run(["git","add","-A"], cwd=work, check=True)
+              r = subprocess.run(["git","diff","--cached","--quiet"], cwd=work)
+              if r.returncode == 0:
+                  print(f"  [{repo}] nothing to commit")
+              else:
+                  import datetime
+                  ts = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+                  subprocess.run(["git","commit","-m",f"swarm({repo}): {ts}"], cwd=work, check=True)
+                  subprocess.run(["git","push","origin","HEAD"], cwd=work, check=True)
+                  print(f"  [{repo}] PUSHED")
+
+          for repo in all_repos:
+              fix_repo(repo)
+
+          print("SWARM DONE")
           EOF
