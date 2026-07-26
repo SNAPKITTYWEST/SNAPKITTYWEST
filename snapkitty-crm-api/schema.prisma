@@ -1,0 +1,487 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- IDENTITY & CRM LAYER ---
+model Contact {
+  id           String   @id @default(uuid())
+  name         String
+  company      String
+  email        String   @unique
+  status       String
+  qbCustomerId String?  @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deals        Deal[]
+  invoices     CustomerInvoice[]
+  payments     CustomerPayment[]
+  journalLines JournalLine[]
+}
+
+model Deal {
+  id          String   @id @default(uuid())
+  title       String
+  owner       String
+  valueCents  BigInt   // ASC 606 Precision
+  stage       String
+  contactId   String?
+  contact     Contact? @relation(fields: [contactId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+// --- PROCUREMENT & ERP LAYER (Acumatica/SAP/Concur) ---
+model Vendor {
+  id             String   @id @default(uuid())
+  name           String
+  externalId     String?  @unique // SAP/Acumatica ID
+  category       String
+  riskScore      Int      @default(0) // From Intelligence Hub
+  purchaseOrders PurchaseOrder[]
+  bills          VendorBill[]
+  payments       VendorPayment[]
+  createdAt      DateTime @default(now())
+}
+
+model PurchaseOrder {
+  id           String   @id @default(uuid())
+  poNumber     String   @unique
+  vendorId     String
+  vendor       Vendor   @relation(fields: [vendorId], references: [id])
+  totalCents   BigInt
+  status       String   // DRAFT, APPROVED, FULFILLED, VOID
+  costCenterId String?
+  externalSync Json?    // Metadata for Concur/SAP sync status
+  createdAt    DateTime @default(now())
+  bills        VendorBill[]
+}
+
+model CostCenter {
+  id          String   @id @default(uuid())
+  code        String   @unique // e.g., "DEVOPS-01"
+  name        String
+  budgetCents BigInt
+  spentCents  BigInt   @default(0)
+}
+
+// --- GENERAL LEDGER & CHART OF ACCOUNTS ---
+model Account {
+  id            String   @id @default(uuid())
+  code          String   @unique // e.g., "1000", "4000", "5100"
+  name          String
+  type          String   // ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE
+  subType       String?  // CASH, RECEIVABLE, PAYABLE, INVENTORY, FIXED_ASSET, etc.
+  parentId      String?
+  parent        Account? @relation("AccountHierarchy", fields: [parentId], references: [id])
+  children      Account[] @relation("AccountHierarchy")
+  normalBalance String   // DEBIT, CREDIT
+  isActive      Boolean  @default(true)
+  description   String?
+  isSystem      Boolean  @default(false) // System accounts can't be deleted
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  journalLines    JournalLine[]
+  budgetLineItems BudgetLineItem[]
+  budgetVariances BudgetVariance[]
+  entity          String   @default("default") // Which entity this account belongs to
+
+  @@index([type])
+  @@index([code])
+}
+
+model JournalEntry {
+  id            String        @id @default(uuid())
+  entryNumber   String        @unique // Auto-incrementing: JE-2024-00001
+  date          DateTime
+  description   String
+  reference     String?       // External reference (invoice #, check #, etc.)
+  source        String        // MANUAL, AP, AR, PAYROLL, ADJUSTMENT, RECURRING
+  status        String        @default("DRAFT") // DRAFT, POSTED, REVERSED, VOID
+  postedAt      DateTime?
+  reversedBy    String?
+  reverseOf     String?
+  recurring     Json?         // { frequency: "MONTHLY", nextRun: "...", endDate: "..." }
+  entity        String        @default("default")
+  createdBy     String?
+  lines         JournalLine[]
+  attachments   Json?         // [{ name, url, size }]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  vendorBills      VendorBill[]
+  customerInvoices CustomerInvoice[]
+  icFromTransactions IntercompanyTransaction[] @relation("ICFromJE")
+  icToTransactions   IntercompanyTransaction[] @relation("ICToJE")
+
+  @@index([status])
+  @@index([date])
+  @@index([entryNumber])
+}
+
+model JournalLine {
+  id            String      @id @default(uuid())
+  journalEntry  JournalEntry @relation(fields: [journalEntryId], references: [id], onDelete: Cascade)
+  journalEntryId String
+  account       Account     @relation(fields: [accountId], references: [id])
+  accountId     String
+  debitCents    BigInt      @default(0)
+  creditCents   BigInt      @default(0)
+  description   String?
+  contactId     String?     // Link to contact for AR/AP
+  contact       Contact?    @relation(fields: [contactId], references: [id])
+
+  @@index([accountId])
+  @@index([contactId])
+}
+
+// --- ACCOUNTS PAYABLE ---
+model VendorBill {
+  id            String   @id @default(uuid())
+  billNumber    String   @unique
+  vendorId      String
+  vendor        Vendor   @relation(fields: [vendorId], references: [id])
+  amountCents   BigInt
+  taxCents      BigInt   @default(0)
+  totalCents    BigInt   // amount + tax
+  dueDate       DateTime
+  status        String   @default("DRAFT") // DRAFT, APPROVED, PAID, VOID, OVERDUE
+  poId          String?
+  purchaseOrder PurchaseOrder? @relation(fields: [poId], references: [id])
+  journalEntryId String?
+  journalEntry  JournalEntry?  @relation(fields: [journalEntryId], references: [id])
+  paymentRef    String?
+  paidAt        DateTime?
+  paidAmountCents BigInt?
+  entity        String   @default("default")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  vendorPayments VendorPayment[]
+
+  @@index([status])
+  @@index([dueDate])
+  @@index([vendorId])
+}
+
+model VendorPayment {
+  id            String      @id @default(uuid())
+  paymentNumber String      @unique
+  vendorId      String
+  vendor        Vendor      @relation(fields: [vendorId], references: [id])
+  billId        String
+  bill          VendorBill  @relation(fields: [billId], references: [id])
+  amountCents   BigInt
+  method        String      // CHECK, ACH, WIRE, CARD
+  reference     String?     // Check number, wire ref, etc.
+  journalEntryId String?
+  entity        String      @default("default")
+  createdAt     DateTime    @default(now())
+
+  @@index([vendorId])
+}
+
+// --- ACCOUNTS RECEIVABLE ---
+model CustomerInvoice {
+  id            String      @id @default(uuid())
+  invoiceNumber String      @unique
+  contactId     String
+  contact       Contact     @relation(fields: [contactId], references: [id])
+  amountCents   BigInt
+  taxCents      BigInt      @default(0)
+  totalCents    BigInt
+  dueDate       DateTime
+  status        String      @default("DRAFT") // DRAFT, SENT, PAID, OVERDUE, VOID, CREDITED
+  contractId    String?
+  journalEntryId String?
+  journalEntry  JournalEntry? @relation(fields: [journalEntryId], references: [id])
+  paymentRef    String?
+  paidAt        DateTime?
+  paidAmountCents BigInt?
+  creditMemoCents BigInt   @default(0)
+  entity          String      @default("default")
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  customerPayments CustomerPayment[]
+
+  @@index([status])
+  @@index([dueDate])
+  @@index([contactId])
+}
+
+model CustomerPayment {
+  id            String          @id @default(uuid())
+  paymentNumber String          @unique
+  contactId     String
+  contact       Contact         @relation(fields: [contactId], references: [id])
+  invoiceId     String
+  invoice       CustomerInvoice @relation(fields: [invoiceId], references: [id])
+  amountCents   BigInt
+  method        String          // CHECK, ACH, WIRE, CARD
+  reference     String?
+  journalEntryId String?
+  entity        String          @default("default")
+  createdAt     DateTime        @default(now())
+
+  @@index([contactId])
+}
+
+// --- BANK RECONCILIATION ---
+model BankReconciliation {
+  id              String   @id @default(uuid())
+  accountId       String   // GL account ID (bank account)
+  statementDate   DateTime
+  statementBalanceCents BigInt
+  bookBalanceCents BigInt
+  status          String   @default("OPEN") // OPEN, RECONCILED, DISPUTED
+  reconciledBy    String?
+  reconciledAt    DateTime?
+  discrepancies   Json?    // [{ plaidTxnId, journalLineId, amount, reason }]
+  entity          String   @default("default")
+  createdAt       DateTime @default(now())
+
+  @@index([accountId])
+  @@index([status])
+}
+
+// --- MULTI-ENTITY CONSOLIDATION ---
+model Entity {
+  id            String   @id @default(uuid())
+  code          String   @unique // e.g., "DIF", "OPCO", "TRUST"
+  name          String
+  type          String   // NONPROFIT, BCORP, TRUST, HOLDING
+  parentId      String?
+  parent        Entity?  @relation("EntityHierarchy", fields: [parentId], references: [id])
+  children      Entity[] @relation("EntityHierarchy")
+  currency      String   @default("USD")
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  budgets       Budget[]
+  locAccounts   LineOfCredit[]
+  fromTransactions IntercompanyTransaction[] @relation("FromEntity")
+  toTransactions   IntercompanyTransaction[] @relation("ToEntity")
+}
+
+model IntercompanyTransaction {
+  id              String   @id @default(uuid())
+  transactionType String   // LOAN, ALLOCATION, SERVICE_FEE, DIVIDEND, TRANSFER
+  fromEntityId    String
+  fromEntity      Entity   @relation("FromEntity", fields: [fromEntityId], references: [id])
+  toEntityId      String
+  toEntity        Entity   @relation("ToEntity", fields: [toEntityId], references: [id])
+  amountCents     BigInt
+  description     String
+  reference       String?
+  status          String   @default("PENDING") // PENDING, APPROVED, ELIMINATED, VOID
+  journalEntryFromId String?
+  journalEntryFrom JournalEntry? @relation("ICFromJE", fields: [journalEntryFromId], references: [id])
+  journalEntryToId   String?
+  journalEntryTo     JournalEntry? @relation("ICToJE", fields: [journalEntryToId], references: [id])
+  eliminatedAt    DateTime?
+  eliminatedBy    String?
+  entity          String   @default("default")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([fromEntityId])
+  @@index([toEntityId])
+  @@index([status])
+}
+
+model ConsolidationRule {
+  id            String   @id @default(uuid())
+  ruleType      String   // ELIMINATION, INTERCOMPANY, CURRENCY_TRANSLATION, RECLASSIFICATION
+  name          String
+  description   String?
+  fromAccountCode String? // e.g., "1100" (AR)
+  toAccountCode   String? // e.g., "2000" (AP)
+  percentage    Float    @default(100.0) // % of balance to eliminate
+  isActive      Boolean  @default(true)
+  entity        String   @default("default")
+  createdAt     DateTime @default(now())
+
+  @@index([ruleType])
+}
+
+model ConsolidationRun {
+  id              String   @id @default(uuid())
+  runNumber       String   @unique
+  period          String   // e.g., "2024-01", "2024-Q1"
+  status          String   @default("DRAFT") // DRAFT, PROCESSING, COMPLETED, FAILED
+  consolidatedBy  String?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  entitiesProcessed Int     @default(0)
+  eliminationsPosted Int   @default(0)
+  discrepancies   Json?    // [{ entity, account, amount, reason }]
+  resultSnapshot  Json?    // Consolidated balances snapshot
+  entity          String   @default("default")
+  createdAt       DateTime @default(now())
+
+  @@index([period])
+  @@index([status])
+}
+
+// --- BUDGET VS ACTUAL ---
+model Budget {
+  id            String   @id @default(uuid())
+  name          String
+  entityId      String?
+  entity        Entity?  @relation(fields: [entityId], references: [id])
+  fiscalYear    Int      // e.g., 2024
+  status        String   @default("DRAFT") // DRAFT, APPROVED, ACTIVE, CLOSED
+  approvedBy    String?
+  approvedAt    DateTime?
+  totalBudgetCents BigInt @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lineItems     BudgetLineItem[]
+  variances     BudgetVariance[]
+
+  @@index([fiscalYear])
+  @@index([status])
+}
+
+model BudgetLineItem {
+  id            String   @id @default(uuid())
+  budgetId      String
+  budget        Budget   @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+  accountId     String
+  account       Account  @relation(fields: [accountId], references: [id])
+  period        String   // e.g., "2024-01", "2024-Q1", "2024-ANNUAL"
+  budgetCents   BigInt
+  notes         String?
+  createdAt     DateTime @default(now())
+
+  @@index([budgetId])
+  @@index([accountId])
+  @@index([period])
+}
+
+model BudgetVariance {
+  id            String   @id @default(uuid())
+  budgetId      String
+  budget        Budget   @relation(fields: [budgetId], references: [id])
+  accountId     String
+  account       Account  @relation(fields: [accountId], references: [id])
+  period        String
+  budgetCents   BigInt
+  actualCents   BigInt
+  varianceCents BigInt   // actual - budget (negative = over budget)
+  variancePct   Float    // variance as percentage
+  isOverBudget  Boolean  @default(false)
+  flag          String?  // CRITICAL, WARNING, OK
+  calculatedAt  DateTime @default(now())
+
+  @@index([budgetId])
+  @@index([period])
+  @@index([flag])
+}
+
+// --- LINE OF CREDIT (LOC) AUDIT ---
+model LineOfCredit {
+  id              String   @id @default(uuid())
+  accountNumber   String   @unique
+  entityId        String?
+  entity          Entity?  @relation(fields: [entityId], references: [id])
+  lenderName      String
+  lenderContact   String?
+  creditLimitCents BigInt
+  availableCents  BigInt
+  usedCents       BigInt   @default(0)
+  interestRateBps Int      // Basis points (e.g., 550 = 5.50%)
+  rateType        String   @default("FIXED") // FIXED, VARIABLE, PRIME_PLUS
+  primeRateBps    Int?     // For VARIABLE/PRIME_PLUS
+  maturityDate    DateTime
+  originationDate DateTime
+  collateralType  String?  // REAL_ESTATE, EQUIPMENT, INVENTORY, PERSONAL
+  collateralValueCents BigInt?
+  status          String   @default("ACTIVE") // ACTIVE, FROZEN, DEFAULT, PAID_OFF, EXPIRED
+  agreementRef    String?  // External document reference
+  covenants       Json?    // [{ type: "DEBT_COVERAGE", threshold: 1.25, current: 1.4 }]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  drawdowns       LOCDrawdown[]
+  repayments      LOCRepayment[]
+  audits          LOCAudit[]
+
+  @@index([entityId])
+  @@index([status])
+}
+
+model LOCDrawdown {
+  id            String   @id @default(uuid())
+  locId         String
+  loc           LineOfCredit @relation(fields: [locId], references: [id])
+  amountCents   BigInt
+  drawDate      DateTime
+  purpose       String?
+  reference     String?
+  journalEntryId String?
+  entity        String   @default("default")
+  createdAt     DateTime @default(now())
+
+  @@index([locId])
+}
+
+model LOCRepayment {
+  id            String   @id @default(uuid())
+  locId         String
+  loc           LineOfCredit @relation(fields: [locId], references: [id])
+  amountCents   BigInt
+  principalCents BigInt
+  interestCents BigInt
+  paymentDate   DateTime
+  reference     String?
+  journalEntryId String?
+  entity        String   @default("default")
+  createdAt     DateTime @default(now())
+
+  @@index([locId])
+}
+
+model LOCAudit {
+  id              String   @id @default(uuid())
+  locId           String
+  loc             LineOfCredit @relation(fields: [locId], references: [id])
+  auditType       String   // COVENANT_CHECK, COLLATERAL_REVAL, RATE_REVIEW, COMPLIANCE, EXAMINATION
+  auditDate       DateTime
+  auditorName     String?
+  findings        Json     // [{ category, severity, description, recommendation }]
+  overallStatus   String   // PASS, CONDITIONAL, FAIL, PENDING_REVIEW
+  covenantStatus  Json?    // [{ covenant: "DEBT_COVERAGE", threshold: 1.25, actual: 1.4, status: "PASS" }]
+  collateralStatus Json?   // [{ type: "REAL_ESTATE", value: 500000, ltv: 0.65, status: "ADEQUATE" }]
+  nextAuditDate   DateTime?
+  remediationRequired Boolean @default(false)
+  remediationDeadline DateTime?
+  remediationNotes String?
+  auditReport     Json?    // Full audit report data
+  entity          String   @default("default")
+  createdAt       DateTime @default(now())
+
+  @@index([locId])
+  @@index([auditType])
+  @@index([overallStatus])
+}
+
+// --- INTELLIGENCE & AUDIT LAYER ---
+model Activity {
+  id        String   @id @default(uuid())
+  text      String
+  category  String   // PROCUREMENT, FINANCE, IDENTITY, SYSTEM
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model IntelligenceSnapshot {
+  id            String   @id @default(uuid())
+  scsScore      Int
+  liquidityRatio Float
+  burnRateCents BigInt
+  timestamp     DateTime @default(now())
+}

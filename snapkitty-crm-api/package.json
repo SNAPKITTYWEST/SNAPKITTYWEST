@@ -1,0 +1,42 @@
+{
+  "name": "snapkitty-crm-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Express sync bridge for SnapKitty CRM / DevFlow Finance.",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
+    "test": "jest --runInBand --passWithNoTests",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@apollo/client": "^4.1.7",
+    "@prisma/client": "^6.19.3",
+    "axios": "^1.15.2",
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.76.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "graphql": "^16.13.2",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.10.1",
+    "jsonwebtoken": "^9.0.3",
+    "math-intrinsics": "^1.1.0",
+    "morgan": "^1.10.1",
+    "node-quickbooks": "^2.0.50",
+    "prisma": "^6.19.3"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2"
+  }
+}
