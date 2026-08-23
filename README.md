@@ -64,11 +64,25 @@ meta_block(degraded).
 # SnapKitty Sovereign Compute Architecture
 
 <div align="center">
-  <img src="./docs/brand/snapkittywest-inverted-monorepo.svg" alt="SNAPKITTYWEST inverted monorepo production architecture" width="920" />
-</div>
-
-<div align="center">
-  <img src="./docs/brand/snapkitty-sovereign-mark.svg" alt="SnapKitty sovereign brand mark" width="920" />
+  <table><tr>
+  <td align="center" width="300">
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/ahmad-avatar.jpg" width="260" /><br/><br/>
+    <strong>Ahmad Ali Parr</strong><br/>
+    <code>OPERATOR &rarr; ARCHITECT</code><br/>
+    <em>Founder &middot; Traveling Rebel</em>
+  </td>
+  <td align="center" width="300">
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/jessica-avatar.png" width="260" /><br/><br/>
+    <strong>Jessica L. Williams</strong><br/>
+    <code>SNAPKITTYWEST</code><br/>
+    <em>Co-Founder &middot; Operator</em>
+  </td>
+  <td align="center" width="240">
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/snapkitty-logo.png" width="200" /><br/><br/>
+    <strong>SnapKitty Collective</strong><br/>
+    <code>Evidence or Silence</code>
+  </td>
+  </tr></table>
 </div>
 
 **Self-verifying multi-witness proof system — WORM-chain consensus, P/NP swarm solving, deterministic memory layers, and a constitutional cold-boot protocol for sovereign compute.**
