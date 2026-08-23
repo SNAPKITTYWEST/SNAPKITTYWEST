@@ -78,9 +78,10 @@ meta_block(degraded).
     <em>Co-Founder &middot; Operator</em>
   </td>
   <td align="center" width="240">
-    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/master/profile/snapkitty-logo.png" width="200" /><br/><br/>
-    <strong>SnapKitty Collective</strong><br/>
-    <code>Evidence or Silence</code>
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/master/profile/brandon-avatar.jpg" width="240" /><br/><br/>
+    <strong>Brandon Westerhoff</strong><br/>
+    <code>ELECTRICAL ENGINEER &middot; HARDWARE</code><br/>
+    <em>Drone Builder &middot; BBQBaddie</em>
   </td>
   </tr></table>
 </div>
