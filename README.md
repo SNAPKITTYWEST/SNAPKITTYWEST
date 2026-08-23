@@ -66,19 +66,19 @@ meta_block(degraded).
 <div align="center">
   <table><tr>
   <td align="center" width="300">
-    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/ahmad-avatar.jpg" width="260" /><br/><br/>
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/master/profile/ahmad-avatar.jpg" width="260" /><br/><br/>
     <strong>Ahmad Ali Parr</strong><br/>
     <code>OPERATOR &rarr; ARCHITECT</code><br/>
     <em>Founder &middot; Traveling Rebel</em>
   </td>
   <td align="center" width="300">
-    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/jessica-avatar.png" width="260" /><br/><br/>
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/master/profile/jessica-avatar.png" width="260" /><br/><br/>
     <strong>Jessica L. Williams</strong><br/>
     <code>SNAPKITTYWEST</code><br/>
     <em>Co-Founder &middot; Operator</em>
   </td>
   <td align="center" width="240">
-    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/main/profile/snapkitty-logo.png" width="200" /><br/><br/>
+    <img src="https://raw.githubusercontent.com/SNAPKITTYWEST/.github/master/profile/snapkitty-logo.png" width="200" /><br/><br/>
     <strong>SnapKitty Collective</strong><br/>
     <code>Evidence or Silence</code>
   </td>
