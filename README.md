@@ -11,17 +11,17 @@
 |--------|-------|
 | Constellation | SNAPKITTYWEST (330) · SNAPKITTY-COLLECTIVE-LIMITED-FLP (7) · AHMADALIPARR (17) · SNAPKITTYAGENT9NOVA (21) |
 | Total repos | **375** |
-| Active (< 30d) | **183** |
+| Active (< 30d) | **182** |
 | GitHub Pages live | **67** |
-| Entropy E | **0.5120** / threshold 0.21 |
+| Entropy E | **0.5147** / threshold 0.21 |
 | Coherent | **NO** |
 | Intercoil · memory_graph | SNAPKITTY-PROOFS · agent-farm-gauntlet · holy-agents · snapkitty-collective |
 | Intercoil · bifrost | holy-agents · apple-ii-universal-machine · sacm-bridge · seit-institute |
-| Ω WORM Seal | `a51ab8596c5af531a1432e75e586f98c14f6b3de4748843d17e70da01bc072c1` |
-| Last field read | `2026-09-22T11:04:29.057Z` |
+| Ω WORM Seal | `4ad90fdfb37c1621777de2c4de992c265659883b19dd8e1f9ada3a32ebe421b8` |
+| Last field read | `2026-09-22T16:24:36.340Z` |
 
 ```
-Entropy field: [██████████░░░░░░░░░░] 51.2%
+Entropy field: [██████████░░░░░░░░░░] 51.5%
                            ▲
                      threshold 0.21
 ```
@@ -36,7 +36,7 @@ CODE  ← +/STACK   ⍝ 375
 
 ```prolog
 coherent(system) :-
-    entropy(E), E < 0.21,     % E = 0.5120 → FAIL
+    entropy(E), E < 0.21,     % E = 0.5147 → FAIL
     intercoil(_, memory_graph),% 6 connected → PASS
     intercoil(_, bifrost_engine).% 6 connected → PASS
 
